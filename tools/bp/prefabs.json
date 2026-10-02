@@ -1,0 +1,788 @@
+{
+ "SC_Abs": {
+  "hash": "de0f62263cd235d5",
+  "mirrored_hash": "59d513456e77942b"
+ },
+ "SC_Accelerometer": {
+  "hash": "9a4e18286af91651",
+  "mirrored_hash": "4e070849f27d8556"
+ },
+ "SC_Accumulator": {
+  "hash": "5e3e015590584dcc",
+  "mirrored_hash": "13be4daf814ddc63"
+ },
+ "SC_Acos": {
+  "hash": "d951faa420af8af9",
+  "mirrored_hash": "0e22666ea7640d89"
+ },
+ "SC_Adder": {
+  "hash": "3b7bbce726d0cc7f",
+  "mirrored_hash": "90ab37a8e0e73883"
+ },
+ "SC_AdditionArray": {
+  "hash": "3b80bdebfdb10fa9",
+  "mirrored_hash": "3a03bfaf155e405d"
+ },
+ "SC_Aerometer": {
+  "hash": "36f432d95d2ba85f"
+ },
+ "SC_Altimeter": {
+  "hash": "815199777b4f9cdb",
+  "mirrored_hash": "2d3736dcbd7c2e99"
+ },
+ "SC_Arc270Meter": {
+  "hash": "18ff1506c1e745fc",
+  "mirrored_hash": "9a3b2fc3f1068b79"
+ },
+ "SC_Arc90Meter": {
+  "hash": "921c49d053497561"
+ },
+ "SC_Asin": {
+  "hash": "b7e08ba58d73fd46",
+  "mirrored_hash": "ca3739c2d0b35649"
+ },
+ "SC_Atan": {
+  "hash": "40a9cb2298019881",
+  "mirrored_hash": "0bec46ef7f0b0b37"
+ },
+ "SC_Atan2": {
+  "hash": "c6d674157eaf6a95",
+  "mirrored_hash": "0b04dd60a4ba77b0"
+ },
+ "SC_Atmometer": {
+  "hash": "53a05c2e8229c630",
+  "mirrored_hash": "7e9ca6eb29f062e4"
+ },
+ "SC_AtmosphericFan": {
+  "hash": "737fd24dcd612d03",
+  "mirrored_hash": "9316151a8d64a305"
+ },
+ "SC_AtmosphericLiftFan": {
+  "hash": "6f101bf8ae67c951",
+  "mirrored_hash": "94a67ec115f5947f"
+ },
+ "SC_AtmosphericThruster": {
+  "hash": "b004a61411dd8792",
+  "mirrored_hash": "99d002f529432b8f"
+ },
+ "SC_AutohemisphereSolarPanel": {
+  "hash": "c71fefef7fdd7a6d",
+  "mirrored_hash": "98b5868e9920859d"
+ },
+ "SC_AxisRotometer": {
+  "hash": "6bd61de96add8ea1"
+ },
+ "SC_Ballast": {
+  "hash": "7cbd7290296be6d1",
+  "mirrored_hash": "3de683d38a076a1c"
+ },
+ "SC_Beeper": {
+  "hash": "789d8e6a178d587f"
+ },
+ "SC_BlueTank": {
+  "hash": "d3bc44f1f4c20358",
+  "mirrored_hash": "fe27edaf2861950d"
+ },
+ "SC_BombC4": {
+  "hash": "0e77043c2adcd96b"
+ },
+ "SC_BrakingPointSystem": {
+  "hash": "eabbb8e9db2c5241",
+  "mirrored_hash": "9e17c2ab82e9354c"
+ },
+ "SC_Button": {
+  "hash": "d1ec4c37afc7b411"
+ },
+ "SC_Camera": {
+  "hash": "648408e1c2d58ebd",
+  "mirrored_hash": "99094b7539f54ca8"
+ },
+ "SC_CameraOverlay": {
+  "hash": "510bd0c7e47099ec",
+  "mirrored_hash": "a5d3b75c5fd01325"
+ },
+ "SC_CandyBouquet": {
+  "hash": "e4a8df29739ce2a8"
+ },
+ "SC_ColoredLight": {
+  "hash": "873df14dd791221a"
+ },
+ "SC_ColoredLightController": {
+  "hash": "4b60d7c61519c79a"
+ },
+ "SC_Condition": {
+  "hash": "9b61ed1ef1de127c",
+  "mirrored_hash": "360e8c2bff12a008"
+ },
+ "SC_Constant": {
+  "hash": "9fe80f5af364c2ec",
+  "mirrored_hash": "cee813dc3421e693"
+ },
+ "SC_Cos": {
+  "hash": "4538771e302aa937",
+  "mirrored_hash": "c6a033434683b241"
+ },
+ "SC_DataCable": {
+  "hash": "e60658e2e04f33ce"
+ },
+ "SC_DataHub": {
+  "hash": "9316eb09bf85336b",
+  "mirrored_hash": "0b6a2fcacd18b5e8"
+ },
+ "SC_Datameter": {
+  "hash": "08e0e016a1cb9c1e",
+  "mirrored_hash": "0cf8961ae41793cf"
+ },
+ "SC_DecouplerQuarter": {
+  "hash": "3ac248b85f319239",
+  "mirrored_hash": "8c6dee6a2b1d9ad1"
+ },
+ "SC_Delay": {
+  "hash": "744c28c9e76b1c4a",
+  "mirrored_hash": "41e8194a8780c19e"
+ },
+ "SC_Differentiator": {
+  "hash": "a198e2ba8fe8844f",
+  "mirrored_hash": "1b52268f7fa79bdc"
+ },
+ "SC_DistanceMeter": {
+  "hash": "df2cba30ff100988",
+  "mirrored_hash": "ac55155116c91dac"
+ },
+ "SC_Divider": {
+  "hash": "00766e1e0f9c8699",
+  "mirrored_hash": "d070fa2c8c0456b5"
+ },
+ "SC_DuctedFan": {
+  "hash": "14db589acb1e49b6",
+  "mirrored_hash": "708f60c72b501c7c"
+ },
+ "SC_DynamoBox": {
+  "hash": "f7e679584541cb43",
+  "mirrored_hash": "658727e656088e61"
+ },
+ "SC_ElectricLiftThruster": {
+  "hash": "8f6cb71e3319c9b1",
+  "mirrored_hash": "32aa1100d204f0fc"
+ },
+ "SC_Exp": {
+  "hash": "9ce94885bbf2ecbb",
+  "mirrored_hash": "d7cf148a6b076164"
+ },
+ "SC_ExtendableDamper": {
+  "hash": "6022bd7a84f9ef3f",
+  "mirrored_hash": "71184cd0a2185fad"
+ },
+ "SC_Fader": {
+  "hash": "063717a232f691cb",
+  "mirrored_hash": "4b068698a3b4eb53"
+ },
+ "SC_Floodlight": {
+  "hash": "ecf2f3a936dfd534",
+  "mirrored_hash": "08e6f402b3c63502"
+ },
+ "SC_FrameA": {
+  "hash": "30fe6645d0a002a4",
+  "mirrored_hash": "64acc8852709fb29"
+ },
+ "SC_FrameB": {
+  "hash": "62a35c5c4d100485",
+  "mirrored_hash": "72cabdb0f18bbd48"
+ },
+ "SC_FrameC": {
+  "hash": "2683efe9a60d572b",
+  "mirrored_hash": "1666023219047352"
+ },
+ "SC_FrameD": {
+  "hash": "7ebde7aa4b107e74",
+  "mirrored_hash": "55f49d4b386d07b0"
+ },
+ "SC_FrameF": {
+  "hash": "a001f785a4a063a3",
+  "mirrored_hash": "f806e5148af5876a"
+ },
+ "SC_FrameG": {
+  "hash": "1e4baa9184f4afe6",
+  "mirrored_hash": "211a391c445ef241"
+ },
+ "SC_FrameH": {
+  "hash": "f2098d0880ac2625",
+  "mirrored_hash": "b9489bea82038248"
+ },
+ "SC_FrameHalfA": {
+  "hash": "65ba6e9a45f600d0",
+  "mirrored_hash": "1a29ba40cf9f3bcc"
+ },
+ "SC_FrameHalfB": {
+  "hash": "1236f96cdc8e2d09",
+  "mirrored_hash": "c357201e5ade2581"
+ },
+ "SC_FrameHalfC": {
+  "hash": "91039bab1cb90abe",
+  "mirrored_hash": "6e4fe838694d6b9e"
+ },
+ "SC_FrameHalfD": {
+  "hash": "eda22822f3fc5c60",
+  "mirrored_hash": "fb837ad1f5d0ce17"
+ },
+ "SC_FrameHalfE": {
+  "hash": "b4d9b3141d78f53f",
+  "mirrored_hash": "399b85debfb5a858"
+ },
+ "SC_FrameHalfF": {
+  "hash": "1283f433b2c03dd4",
+  "mirrored_hash": "424b72aa4a2b8d82"
+ },
+ "SC_FrameHalfG": {
+  "hash": "7dd6fb6f40638742",
+  "mirrored_hash": "acb763f08e6c89c4"
+ },
+ "SC_FrameHalfH": {
+  "hash": "94a76e7c74070ea9",
+  "mirrored_hash": "2385ebf2d0a47726"
+ },
+ "SC_FrameHalfI": {
+  "hash": "ad90b96e300f6875",
+  "mirrored_hash": "20bd09024c3ebbb7"
+ },
+ "SC_FrameQuarterA": {
+  "hash": "482074ef572f3723",
+  "mirrored_hash": "313061de0407a6fb"
+ },
+ "SC_FrameQuarterB": {
+  "hash": "0c23c03f2e622574",
+  "mirrored_hash": "9caacd116972247b"
+ },
+ "SC_FrameQuarterC": {
+  "hash": "e9f90961c384f412",
+  "mirrored_hash": "86cf95180f257fd7"
+ },
+ "SC_FrameQuarterD": {
+  "hash": "2de67f9b754c914a",
+  "mirrored_hash": "3964ad593083f6f6"
+ },
+ "SC_FrameQuarterE": {
+  "hash": "8dc865a2c1e2dbcd",
+  "mirrored_hash": "07c1a8e282ee902c"
+ },
+ "SC_FrameQuarterF": {
+  "hash": "3a1424042ca4c4a9",
+  "mirrored_hash": "6efa7f938b671363"
+ },
+ "SC_FrameQuarterPipe": {
+  "hash": "19282dc94bf08807",
+  "mirrored_hash": "4fe9552055827ad7"
+ },
+ "SC_FrameQuarterPorts": {
+  "hash": "18d3ed13f664ec3f",
+  "mirrored_hash": "731e5443f167d667"
+ },
+ "SC_FrameQuarterPortsCorner": {
+  "hash": "ebc0272a6795bc6c",
+  "mirrored_hash": "50d4412d3c4bbed3"
+ },
+ "SC_FuelAnalyzer": {
+  "hash": "61467efc0f03e0b0",
+  "mirrored_hash": "30af8ed1bc92298a"
+ },
+ "SC_FuseBox": {
+  "hash": "28930cd939c68265",
+  "mirrored_hash": "a5c58bbc386a1af4"
+ },
+ "SC_GimbalController": {
+  "hash": "a5e9dd405298510a",
+  "mirrored_hash": "82626aa762963e0c"
+ },
+ "SC_GimbalThruster": {
+  "hash": "df5ffb35e66fa41a",
+  "mirrored_hash": "7d0042ed4e029fc8"
+ },
+ "SC_GlassA": {
+  "hash": "b68f99625b1ad57d"
+ },
+ "SC_GlassB": {
+  "hash": "ecf33f9554b055fc"
+ },
+ "SC_GlassC": {
+  "hash": "0c3c3d245c748097",
+  "mirrored_hash": "7ca8049815ab4ef8"
+ },
+ "SC_GlassD": {
+  "hash": "240ef14bc82c703e"
+ },
+ "SC_GlassG": {
+  "hash": "41affeab5786b4ca"
+ },
+ "SC_GlassHalfA": {
+  "hash": "83430f870bdfacbf"
+ },
+ "SC_GlassHalfB": {
+  "hash": "b8384f40a83cebe3"
+ },
+ "SC_GlassHalfC": {
+  "hash": "7ce2faa91a115885",
+  "mirrored_hash": "ab5614433b04166e"
+ },
+ "SC_GlassHalfD": {
+  "hash": "30d924b82a8637eb"
+ },
+ "SC_GlassHalfE": {
+  "hash": "208f26c103aa0c2c"
+ },
+ "SC_GlassHalfF": {
+  "hash": "84dc6cbbbf91eb86",
+  "mirrored_hash": "07aee61b03f9793c"
+ },
+ "SC_GlassHalfG": {
+  "hash": "8574aa052222e330"
+ },
+ "SC_GlassHalfH": {
+  "hash": "c09d4825bbeef72d",
+  "mirrored_hash": "59fee0d0c334dcbb"
+ },
+ "SC_GlassQuarterA": {
+  "hash": "3cddfb1e3119ee97"
+ },
+ "SC_GlassQuarterB": {
+  "hash": "f23e0b34ae870094",
+  "mirrored_hash": "34e9fe9b22b280da"
+ },
+ "SC_GlassQuarterC": {
+  "hash": "de68483e3a24de45"
+ },
+ "SC_GlassQuarterD": {
+  "hash": "54b4ab880d1064e6",
+  "mirrored_hash": "2cc424955e9073d3"
+ },
+ "SC_GlassQuarterE": {
+  "hash": "f7e00310f1999fbe"
+ },
+ "SC_Gravitymeter": {
+  "hash": "25ca1b5f8c787fa0",
+  "mirrored_hash": "a711269ee9bba951"
+ },
+ "SC_GreenTank": {
+  "hash": "86b34f31bb275e4d",
+  "mirrored_hash": "e6adae6baa146290"
+ },
+ "SC_GreenTrenchPump": {
+  "hash": "f723296f4305a973"
+ },
+ "SC_GyroLine": {
+  "hash": "d2e3cf7477a4d1af",
+  "mirrored_hash": "019a964af2a8cd19"
+ },
+ "SC_Inclinometer": {
+  "hash": "ae0669dbe99d036f"
+ },
+ "SC_Initializer": {
+  "hash": "618fabb3a10eb2a5",
+  "mirrored_hash": "fbf3e1aa820829c3"
+ },
+ "SC_Joystick2D": {
+  "hash": "839003c63b49b78e"
+ },
+ "SC_Joystick3D": {
+  "hash": "8db791dc05d52c81",
+  "mirrored_hash": "ec1d6c9e92ae72b0"
+ },
+ "SC_JoystickHorizontal": {
+  "hash": "cc656a9f9d2e1460"
+ },
+ "SC_JoystickSplitter": {
+  "hash": "518fdaab8c071134",
+  "mirrored_hash": "218b8972e72aa915"
+ },
+ "SC_JoystickVertical": {
+  "hash": "f00ddb269847f8c5",
+  "mirrored_hash": "c9437348bda4ef20"
+ },
+ "SC_LEDText": {
+  "hash": "d16232dde48a8e7a"
+ },
+ "SC_LabelMedium": {
+  "hash": "7cfa59e0d07dcb3e"
+ },
+ "SC_LabelSmall": {
+  "hash": "30dd685b29b0b3a1"
+ },
+ "SC_LargeDamper": {
+  "hash": "1ca905aa01ca2c2a"
+ },
+ "SC_LargeDatameter": {
+  "hash": "bcb94bdfcfb8684c",
+  "mirrored_hash": "f36f92e6326cdd40"
+ },
+ "SC_LargeDisposableBattery": {
+  "hash": "edb5cf9aa33baf20",
+  "mirrored_hash": "eae63d8b28f871ff"
+ },
+ "SC_LargeGate": {
+  "hash": "7b4291f934b22638"
+ },
+ "SC_LargePowerRouter": {
+  "hash": "59f14dc51f340839"
+ },
+ "SC_LeverVertical": {
+  "hash": "ee3550303ed83c4f",
+  "mirrored_hash": "3afca86204029dc0"
+ },
+ "SC_LeverVerticalHalf": {
+  "hash": "7f362ee3f29c524c",
+  "mirrored_hash": "c11c23b3892bbccc"
+ },
+ "SC_Log": {
+  "hash": "7d96e14c1835c150",
+  "mirrored_hash": "b0c8e5065e55a455"
+ },
+ "SC_LogicGateAnd": {
+  "hash": "cda925e4a15cce83",
+  "mirrored_hash": "84e0639f3e1461f7"
+ },
+ "SC_LogicGateNot": {
+  "hash": "72696a5f8c4b74de",
+  "mirrored_hash": "a4ad48a571fb5f35"
+ },
+ "SC_LogicGateOr": {
+  "hash": "1a8302f32956c81a",
+  "mirrored_hash": "7f62bc4b4f807e47"
+ },
+ "SC_LogicGateXor": {
+  "hash": "eb8fe77ce46f3590",
+  "mirrored_hash": "bbffd432dbb2fe76"
+ },
+ "SC_LogicValue": {
+  "hash": "e1efc8ed6895b620",
+  "mirrored_hash": "89b35ae6db3cd547"
+ },
+ "SC_LongRangeDistanceMeter": {
+  "hash": "3f61c41e351bc890",
+  "mirrored_hash": "f0555bdc31f4faa4"
+ },
+ "SC_Magnetometer": {
+  "hash": "025d6eed42a3e79d",
+  "mirrored_hash": "8dc6971b63bc2da2"
+ },
+ "SC_Massmeter": {
+  "hash": "cb626b66b266e49d",
+  "mirrored_hash": "50093d0fe38d3f75"
+ },
+ "SC_Maximum": {
+  "hash": "6d2fdb1b68703078",
+  "mirrored_hash": "3b19e7e89229d600"
+ },
+ "SC_MediumDamper": {
+  "hash": "7754beb2309e18e2"
+ },
+ "SC_MediumDisposableBattery": {
+  "hash": "9bab51c99b079f89",
+  "mirrored_hash": "c0e29316570ecef4"
+ },
+ "SC_MediumElectricThruster": {
+  "hash": "0d26d5a41f34a32f",
+  "mirrored_hash": "2a76d7ec5340f682"
+ },
+ "SC_MediumFuelThruster": {
+  "hash": "e098cf410d1bfaeb"
+ },
+ "SC_MediumGate": {
+  "hash": "4f9f77acf8bef6b6"
+ },
+ "SC_MediumManeuveringThruster": {
+  "hash": "913df46ec3e165a1",
+  "mirrored_hash": "06757313880b7b77"
+ },
+ "SC_MediumRechargeableBattery": {
+  "hash": "cd89d4664fdb88d1",
+  "mirrored_hash": "835c73f722e6f815"
+ },
+ "SC_Memory": {
+  "hash": "876ad2fe23bf2867",
+  "mirrored_hash": "bebb418cec7b5097"
+ },
+ "SC_Minimum": {
+  "hash": "5bd117aa5c9fdf0a",
+  "mirrored_hash": "c55c8ebc0a3c2c8a"
+ },
+ "SC_Mod": {
+  "hash": "2f85a7ae10de85f1",
+  "mirrored_hash": "9de9a070847888df"
+ },
+ "SC_MonitorCRT": {
+  "hash": "272357763f8171ad"
+ },
+ "SC_MonitorMediumHologram": {
+  "hash": "a52bdd856c21933a"
+ },
+ "SC_MonitorMediumLCD": {
+  "hash": "55f8bdf268b393fd",
+  "mirrored_hash": "c72714ae3f958291"
+ },
+ "SC_MonitorSmallHologram": {
+  "hash": "1327e6303c86f8fd",
+  "mirrored_hash": "5a9fb5b39738e0d8"
+ },
+ "SC_MonitorSmallLCD": {
+  "hash": "6274a6847eea8c3d",
+  "mirrored_hash": "4237670d94b3688e"
+ },
+ "SC_Multiplier": {
+  "hash": "0407f3d568e89e48",
+  "mirrored_hash": "8b48e36991051cd3"
+ },
+ "SC_NightVisionCamera": {
+  "hash": "d13610856998c60e",
+  "mirrored_hash": "cdfbe8a1865243c6"
+ },
+ "SC_OutcastPolarAnchor": {
+  "hash": "764b7275dc182ddb",
+  "mirrored_hash": "33cbd2492b546331"
+ },
+ "SC_PersonnelGate": {
+  "hash": "2075109cc7ca4351"
+ },
+ "SC_PipeCorner": {
+  "hash": "4ea7430169fc121c",
+  "mirrored_hash": "51586b0d9b2c7fa9"
+ },
+ "SC_PipeCross": {
+  "hash": "235f4af9d0bb1206"
+ },
+ "SC_PipeElectricValve": {
+  "hash": "656a9abb2f5ca827"
+ },
+ "SC_PipeFull": {
+  "hash": "72c3c84be0745184"
+ },
+ "SC_PipeHalf": {
+  "hash": "77d3b9de6947ecdb"
+ },
+ "SC_PipeManualValve": {
+  "hash": "a0e7fa229a881e99"
+ },
+ "SC_PipeMeter": {
+  "hash": "9d1e58bec000e969"
+ },
+ "SC_PipeQuarter": {
+  "hash": "412a44636f7305d1"
+ },
+ "SC_PipeThreeway": {
+  "hash": "d29ccf71936083f3",
+  "mirrored_hash": "f780dce5ee3d34ce"
+ },
+ "SC_PlasmaCable": {
+  "hash": "e8f9b8dac4e23b9c"
+ },
+ "SC_Pow": {
+  "hash": "9ae164213eb23aa8",
+  "mirrored_hash": "7b289950b0a0f2dc"
+ },
+ "SC_PowerBlocker": {
+  "hash": "753599ac7ffa22ec",
+  "mirrored_hash": "4025ee436b7aa71c"
+ },
+ "SC_PowerCable": {
+  "hash": "743531fcd428bc2c"
+ },
+ "SC_PowerGenerationMeter": {
+  "hash": "cf9a9b322af3088c",
+  "mirrored_hash": "7cbe6cf9ba5f1558"
+ },
+ "SC_PowerRouter": {
+  "hash": "113f69c2ce431379"
+ },
+ "SC_PowerUsageMeter": {
+  "hash": "ca5b4160d4b2717c",
+  "mirrored_hash": "3df572d815326c80"
+ },
+ "SC_Radar": {
+  "hash": "a059e2744c12a035",
+  "mirrored_hash": "bcc356e0bd75db1a"
+ },
+ "SC_RampGate": {
+  "hash": "9ed29ab59b4b7a0f",
+  "mirrored_hash": "5d12a65fef4aa3ae"
+ },
+ "SC_RedAlertLight": {
+  "hash": "2f851fd312cf7b3a"
+ },
+ "SC_Remapper": {
+  "hash": "f45687f85cf62f59",
+  "mirrored_hash": "5969bb0edf8607bc"
+ },
+ "SC_RotationalTelescope": {
+  "hash": "66491a0bdfd4f528"
+ },
+ "SC_Round": {
+  "hash": "eb8e39491bb4ae8b",
+  "mirrored_hash": "037d0cbbe820417e"
+ },
+ "SC_Router2": {
+  "hash": "592905a5e74d8aaa",
+  "mirrored_hash": "8c68c43d61f3bb66"
+ },
+ "SC_Router4": {
+  "hash": "0124dacc6531029a",
+  "mirrored_hash": "77feb6129243de51"
+ },
+ "SC_Seat": {
+  "hash": "1545c38619ef0116"
+ },
+ "SC_SignalRouter3": {
+  "hash": "4224391ea20c8575",
+  "mirrored_hash": "027b188f87f8b800"
+ },
+ "SC_SimpleThreshold": {
+  "hash": "72a389e0f97da2d6",
+  "mirrored_hash": "f80f32e26345e09b"
+ },
+ "SC_Sin": {
+  "hash": "7fff2e1af48ef831",
+  "mirrored_hash": "4560f1a2a370d3b7"
+ },
+ "SC_SmallButton": {
+  "hash": "cc59bb69d663b9ce",
+  "mirrored_hash": "7597e920e4b7273b"
+ },
+ "SC_SmallDamper": {
+  "hash": "87a0993a19df6877"
+ },
+ "SC_SmallDisposableBattery": {
+  "hash": "1fa8fb58e3c13ead",
+  "mirrored_hash": "3ee716a3abde8b5a"
+ },
+ "SC_SmallElectricThruster": {
+  "hash": "449fbdbc1782386e",
+  "mirrored_hash": "a01b61f90b06f7ea"
+ },
+ "SC_SmallFuelThruster": {
+  "hash": "f62c7ba446fdbd53",
+  "mirrored_hash": "163f0c364fdee2f4"
+ },
+ "SC_SmallGate": {
+  "hash": "6a55dba0bc326992",
+  "mirrored_hash": "1de878f9c39120ef"
+ },
+ "SC_SmallKnob": {
+  "hash": "f9013998ee69f12e",
+  "mirrored_hash": "e3fedc33e4936896"
+ },
+ "SC_SmallManeuveringThruster": {
+  "hash": "ea94d8777e19af24",
+  "mirrored_hash": "d08db19406b4ff7b"
+ },
+ "SC_SmallPlasmaGenerator": {
+  "hash": "9046d8dc0ca9a755"
+ },
+ "SC_SmallRechargeableBattery": {
+  "hash": "336f2ac52d4787be",
+  "mirrored_hash": "0f03d9e1ab941736"
+ },
+ "SC_SmallSolidFuelThruster": {
+  "hash": "dfec22c952a940b3",
+  "mirrored_hash": "542b8cd915495e8b"
+ },
+ "SC_SmallSwitch": {
+  "hash": "ef9401b5ea85ed05",
+  "mirrored_hash": "ef50ec252fb4c816"
+ },
+ "SC_SmallToggleableLight": {
+  "hash": "c29eca14e73e3f51"
+ },
+ "SC_SolarPanel": {
+  "hash": "b50151c544d28980",
+  "mirrored_hash": "c66a560c250a02cc"
+ },
+ "SC_SpaceGPS": {
+  "hash": "26f0748d0f2d768a",
+  "mirrored_hash": "2eb7344005e6649f"
+ },
+ "SC_SpaceScanner": {
+  "hash": "f860096ee38bc67a",
+  "mirrored_hash": "ddf9f57e2636cb6a"
+ },
+ "SC_Sqrt": {
+  "hash": "29eec73a49b6aa87",
+  "mirrored_hash": "7a93e34158844a73"
+ },
+ "SC_StickSwitch": {
+  "hash": "ad14720d269dc716",
+  "mirrored_hash": "93b27a3f0d198fac"
+ },
+ "SC_Subtractor": {
+  "hash": "1c97aba9f33d90c8",
+  "mirrored_hash": "bf139b4a4fe325e4"
+ },
+ "SC_Switch": {
+  "hash": "4ad7890fdcdffb61"
+ },
+ "SC_Tan": {
+  "hash": "994a07da1e323af0",
+  "mirrored_hash": "603f12bbc0de0583"
+ },
+ "SC_Thermometer": {
+  "hash": "4a93b46a7f2b2a6f",
+  "mirrored_hash": "dd5e8b9eae6c3f4f"
+ },
+ "SC_TrajectoryCurvatureMeter": {
+  "hash": "d32d617963da17c3",
+  "mirrored_hash": "ca71e419402a6801"
+ },
+ "SC_VelocityMeter": {
+  "hash": "550e55971db328fe",
+  "mirrored_hash": "c946160d6074f910"
+ },
+ "SC_VerticalMeter": {
+  "hash": "a5ac3161775ab1ce",
+  "mirrored_hash": "22ab0a908863bd6c"
+ },
+ "SC_Whiteboard": {
+  "hash": "91a8ad6f7e9725eb"
+ },
+ "SC_WindShieldGenerator": {
+  "hash": "d6bc5c208b27638b",
+  "mirrored_hash": "afd97c913ee12e87"
+ },
+ "SC_Windmeter": {
+  "hash": "237c9680c8233da3",
+  "mirrored_hash": "4bbf2478a2c33f99"
+ },
+ "SC_WindowDual": {
+  "hash": "1e45cc5fde8ea87c"
+ },
+ "SC_WindowDualA": {
+  "hash": "f69c3afe0b16664d"
+ },
+ "SC_WindowDualB": {
+  "hash": "998eda60b0f2c6f2"
+ },
+ "SC_WindowEdge": {
+  "hash": "81732791ddabaf4d"
+ },
+ "SC_WindowEnd": {
+  "hash": "17b4d3600e87131d"
+ },
+ "SC_WindowEndA": {
+  "hash": "7a1628ca78003273"
+ },
+ "SC_WindowEndB": {
+  "hash": "e7efc142b97e77a9"
+ },
+ "SC_WindowEndC": {
+  "hash": "7d4d086937b79285"
+ },
+ "SC_WindowRound": {
+  "hash": "fb784e70b21854be"
+ },
+ "SC_WindowRoundA": {
+  "hash": "efcd0cf8c45a3a73"
+ },
+ "SC_WirelessTransmitter": {
+  "hash": "fb42bddabfe173ed",
+  "mirrored_hash": "57285d9d99a27972"
+ },
+ "SC_ZoomCamera": {
+  "hash": "2a1728fceeb1c10c",
+  "mirrored_hash": "24a1d664aea38000"
+ }
+}

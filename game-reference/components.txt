@@ -1,0 +1,359 @@
+# Extracted from ApproximatelyUp_Data/StreamingAssets/Localization.csv (English column), game files dated 2026-10-01.
+# In-game component descriptions (SC_<Name>_Desc / _PortN). Port order is the game's own.
+
+## Abs
+  Desc: Outputs the absolute value of the input signal.
+  Name: Absolute
+  Port0: Input value.
+  Port1: Output value.
+## Accelerometer
+  Desc: Measures acceleration in m/s².
+  Name: Accelerometer
+  Port0: Outputs the current <u>acceleration</u> in m/s².
+## Accumulator
+  Desc: Adds the input value to its internal total and outputs the result. Can be reset to 0 via the Reset port in Continuous mode (resets while signal ≥ 0.5) or Pulse mode (resets only when the signal crosses ≥ 0.5)
+  Name: Accumulator
+  Port0: Value added to the internal total.
+  Port1: Resets the total to 0 (Continuous or Pulse mode).
+  Port2: Current accumulated total.
+## Acos
+  Desc: Outputs the arc cosine (inverse cosine) of the input value in radians.
+  Name: Arc Cosine
+  Port0: Input value (expected in range [-1, 1]).
+  Port1: Output value in radians.
+## Adder
+  Desc: Performs an addition operation on data from two input ports and outputs the result to the output port.
+  Name: Adder
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X.
+## AdditionArray
+  Desc: Outputs the sum of all connected inputs.
+  Name: Addition Array
+  Port0: Additive input signal.
+  Port1: Additive input signal.
+  Port2: Additive input signal.
+  Port3: Additive input signal.
+  Port4: Additive input signal.
+  Port5: Additive input signal.
+  Port6: Additive input signal.
+  Port7: Sum of all input signals.
+## Altimeter
+  Desc: Measures height above sea level. Outputs INF when outside any atmosphere. For proper functioning, it must be mounted outside the ship with an unobstructed view.
+  Name: Altimeter
+  Port0: Outputs the <u>height above sea level</u> in meters.
+## Asin
+  Desc: Outputs the arc sine (inverse sine) of the input value in radians.
+  Name: Arc Sine
+  Port0: Input value (expected in range [-1, 1]).
+  Port1: Output value in radians.
+## Atan
+  Desc: Outputs the arc tangent (inverse tangent) of the input value in radians.
+  Name: Arc Tangent
+  Port0: Input value.
+  Port1: Output value in radians.
+## Atan2
+  Desc: Outputs the angle in radians between the positive x-axis and the point (y, x).
+  Name: Arc Tangent 2
+  Port0: Y-coordinate input.
+  Port1: X-coordinate input.
+  Port2: Output angle in radians.
+## BrakingPointSystem
+  Desc: Uses current distance, speed, and acceleration to estimate the stopping distance. Results appear on a color scale - red means you’re at risk of collision, green means you have a safe stopping margin. While it’s actively computing and operational, the green light blinks.
+  Name: Braking Point System (BPS)
+  Port0: Input for <u>distance</u> to planet in meters.
+  Port1: Input for <u>velocity</u> in m/s.
+  Port2: Input for <u>acceleration</u> in m/s².
+  Port3: Outputs the indicator position from -1 (left/red), through 0 (center/white), to 1 (right/green).
+## Condition
+  Desc: Performs the selected comparison on two inputs. If the condition is true, outputs the value from the True port, otherwise, outputs the value from the False port.
+  Name: Condition
+  Port0: Input port A
+  Port1: Input port B
+  Port2: True input port. If unconnected, defaults to 1.
+  Port3: False input port. If unconnected, defaults to 0.
+  Port4: Outputs the value chosen by the condition - either the True value or the False value.
+## Constant
+  Desc: Outputs a constant data signal to the output port.
+  Name: Constant
+  Port0: Outputs the displayed value.
+## Cos
+  Desc: Outputs the cosine of the input angle in radians.
+  Name: Cosine
+  Port0: Input angle in radians.
+  Port1: Output value.
+## Datameter
+  Desc: Displays the data signal from the input port.
+  Name: Datameter
+  Port0: Input signal to be shown on the display.
+  Port1: Outputs the signal from the input port.
+## DataHub
+  Desc: Routes the signal from one of five input ports to the output port, determined by the currently pressed channel button.
+  Name: Data Hub
+  Port0: Input signal for channel 1.
+  Port1: Input signal for channel 2.
+  Port2: Input signal for channel 3.
+  Port3: Input signal for channel 4.
+  Port4: Input signal for channel 5.
+  Port5: Outputs one of five input signals determined by pressed channel button.
+## Delay
+  Desc: Delays the input signal by a configurable amount from 1 to 60 ticks.
+  Name: Delay
+  Port0: Input signal.
+  Port1: Outputs the delayed signal.
+## Differentiator
+  Desc: Measures how much a signal changes over a selected time interval. It compares the current value to an earlier value and outputs the difference.
+  Name: Differentiator
+  Port0: Input signal to measure.
+  Port1: Change in the signal over the selected time interval (current value minus earlier value).
+## DistanceMeter
+  Desc: Measures distance to the nearest object up to 1000 meters and outputs the value to the data port.
+  Name: Distance Meter
+  Port0: Outputs <u>distance to nearest object</u> in meters (up to 1000 meters).
+## Divider
+  Desc: Divides the two input signals and outputs the result to the output port.
+  Name: Divider
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X.
+## ETASystem
+  Desc: Uses current distance, speed, and acceleration to estimate the stopping distance. Results appear on a color scale - red means you’re at risk of collision, green means you have a safe stopping margin. While it’s actively computing and operational, the green light blinks.
+  Name: ETA System
+  Port0: Input for <u>distance</u> to planet in meters.
+  Port1: Input for <u>velocity</u> in m/s.
+  Port2: Input for <u>acceleration</u> in m/s².
+  Port3: Outputs indicator position from 0 (red) to 1 (green).
+## Exp
+  Desc: Outputs e raised to the power of the input value.
+  Name: Exponential
+  Port0: Input value.
+  Port1: Output value.
+## Fader
+  Desc: Multiplies input signal by fader value (0.0 - 1.0).
+  Name: Fader
+  Port0: Input signal to be multiplied by fader. If unconnected, defaults to 1.
+  Port1: Outputs input signal multiplied by fader.
+## GimbalController
+  Desc: RCS Controller for 6 RCS Thrusters.
+  Name: RCS Controller
+  Port0: Input signal for the <u>yaw axis</u> from joystick.
+  Port1: Input signal for the <u>pitch axis</u> from joystick.
+  Port2: Input signal for the <u>roll axis</u> from joystick.
+  Port3: Requires {0} P/s.
+## GyroLine
+  Desc: Gyro-Line shows the spaceship’s pitch and roll orientation on the screen.
+  Name: Gyro-Line
+  Port0: Outputs <u>pitch<u> tilt in degrees.
+  Port1: Outputs <u>roll<u> tilt in degrees.
+  Port2: Requires {0} P/s.
+## Gravitymeter
+  Desc: Measures current gravity in m/s².
+  Name: Gravitymeter
+  Port0: Outputs current gravity in m/s².
+## HorizontalMeter
+  Desc: Displays the data signal from the input port.
+  Name: Horizontal Meter
+  Port0: Input signal to be shown on the display.
+## Inclinometer
+  Desc: Measures the difference in degrees between the component's down direction and the gravity direction.
+  Name: Inclinometer
+  Port0: Outputs the difference in degrees between the component's down direction and gravity direction.
+## Initializer
+  Desc: Block chains often take a few game ticks to initialize their values. Until then, they may output unintended signals and trigger components such as decouplers at the wrong moment. <b>Use this block to suppress all signals until the set number of ticks has passed after entering Fly Mode.</b>
+  Name: Initializer
+  Port0: Input signal.
+  Port1: After the set number of game ticks, outputs the input signal. Until then, outputs 0.
+## JoystickSplitter
+  Desc: Sends positive values to one output and negative values to the other, with both output as positive values.
+  Name: Sign Splitter
+  Port0: Input value.
+  Port1: Negative output: Outputs negative input values as positive values.
+  Port2: Positive output: Outputs positive input values.
+## Log
+  Desc: Outputs the natural logarithm (base e) of the input value.
+  Name: Natural Logarithm
+  Port0: Input value (must be > 0).
+  Port1: Output value.
+## LogicGateAnd
+  Desc: Performs an AND operation on data from two input ports and outputs the result to the output port.
+  Name: Logic Gate AND
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X. <b>X</b> = A ∧ B
+## LogicGateNot
+  Desc: Performs a NOT operation on data from input port and outputs the result to the output port.
+  Name: Logic Gate NOT
+  Port0: Input data for A.
+  Port1: Outputs data for X.
+## LogicGateOr
+  Desc: Performs an OR operation on data from two input ports and outputs the result to the output port.
+  Name: Logic Gate OR
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X. <b>X</b> = A ∨ B
+## LogicGateXor
+  Desc: Performs a XOR operation on data from two input ports and outputs the result to the output port.
+  Name: Logic Gate XOR
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X.
+## LogicValue
+  Desc: Outputs a data signal of 1 when the input signal is greater than or equal to 0.5, and outputs 0 when the input signal is less than 0.5.
+  Name: Logic Value
+  Port0: Input signal.
+  Port1: Outputs 1 when the input signal is greater than or equal to 0.5, otherwise outputs 0.
+## LongRangeDistanceMeter
+  Desc: Measures the distance to the closest object in front of it, with no limitations on range.
+  Name: Long Range Distance Meter
+  Port0: Outputs <u>distance to the closest object</u> in front of the LRDM in meters.
+  Port1: Requires {0} P/s.
+## Massmeter
+  Desc: Measures the mass of the spaceship it is mounted on.
+  Name: Massmeter
+  Port0: Outputs the mass of the spaceship it is mounted on.
+## Maximum
+  Desc: Outputs the largest value among its inputs.
+  Name: Maximum
+  Port0: Input value.
+  Port1: Input value.
+  Port2: The largest value among all inputs.
+## Memory
+  Desc: Stores a value internally and outputs it. The value is updated through the Set input using either Continuous mode (updates while signal ≥ 0.5) or Pulse mode (updates only when the signal crosses ≥ 0.5).
+  Name: Memory
+  Port0: Value to store when the block is triggered.
+  Port1: Control signal that determines when the stored value is updated.
+  Port2: Currently stored value.
+## Minimum
+  Desc: Outputs the smallest value among its inputs.
+  Name: Minimum
+  Port0: Input value.
+  Port1: Input value.
+  Port2: The smallest value among all inputs.
+## Mod
+  Desc: Outputs the remainder of the division of the first input by the second input.
+  Name: Modulo
+  Port0: Dividend input.
+  Port1: Divisor input.
+  Port2: Output remainder.
+## Multiplier
+  Desc: Performs a multiplication operation on data from two input ports and outputs the result to the output port.
+  Name: Multiplier
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X.
+## Pow
+  Desc: Outputs the first input raised to the power of the second input.
+  Name: Power
+  Port0: Base input.
+  Port1: Exponent input.
+  Port2: Output value.
+## Radar
+  Desc: Used to locate planetary stations and analyze terrain elevation, helping you identify flat surfaces for safe landings. The display automatically rotates to match the spaceship’s orientation. Requires electrical power to operate.
+  Name: Radar
+  Port0: Requires {0} P/s.
+## Remapper
+  Desc: Linearly remaps a value from a given input range to a corresponding value in the output range.
+  Name: Remapper
+  Port0: Input data signal to be remapped.
+  Port1: Outputs remapped data signal.
+## Round
+  Desc: Rounds the input value based on the selected mode: Round to the nearest integer, Floor to the nearest lower integer, or Ceil to the nearest higher integer.
+  Name: Round
+  Port0: Input value.
+  Port1: Rounded output value.
+## Router2
+  Desc: Clones the data signal from one input port and sends it to two output ports on the opposite side.
+  Name: Data Router 2
+  Port0: Input signal is sent to both output ports.
+  Port1: Outputs the signal from the input port.
+  Port2: Outputs the signal from the input port.
+## Router4
+  Desc: Clones the data signal from one input port and sends it to four output ports on the opposite side.
+  Name: Data Router 4
+  Port0: Input signal is sent to all four output ports.
+  Port1: Outputs the signal from the input port.
+  Port2: Outputs the signal from the input port.
+  Port3: Outputs the signal from the input port.
+  Port4: Outputs the signal from the input port.
+## Rotometer
+  Desc: Measures the current rotation in degrees per second.
+  Name: Rotometer
+  Port0: Outputs the current rotation in degrees per second.
+## AxisRotometer
+  Desc: Measures the current angular velocity (degrees per second) about its mounted axis.
+  Name: Axis Rotometer
+  Port0: Outputs the current angular velocity in degrees per second.
+## SignalRouter3
+  Desc: Based on the data signal from the rightmost input port, it redirects the input signal from the three left input ports to the output port on the opposite side.
+  Name: Data Redirector 3
+  Port0: Input signal A.
+  Port1: Input signal B.
+  Port2: Input signal C.
+  Port3: Input signal from 0 to 1 to determine which of the three input ports (A, B, C) is sent to the output port.
+  Port4: Outputs one of three input signals (A, B, C) based on the value of the D input port.
+## SimpleThreshold
+  Desc: Outputs 1 if the signal on the input port is equal to or higher than the set value, otherwise outputs 0.
+  Name: Simple Threshold
+  Port0: Input signal for comparison with set value
+  Port1: Outputs data signal 1 when the input signal is greater than or equal to the set value, otherwise outputs 0.
+## Sin
+  Desc: Outputs the sine of the input angle in radians.
+  Name: Sine
+  Port0: Input angle in radians.
+  Port1: Output value.
+## Sqrt
+  Desc: Outputs the square root of the input value.
+  Name: Square Root
+  Port0: Input value (must be ≥ 0).
+  Port1: Output value.
+## SpaceGPS
+  Desc: Used to determine world-space coordinates as distance, longitude, and latitude relative to the center of the universe (the Sun). <b>Make sure at least 60% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 60%, red = below 60%.</b>
+  Name: Space GPS
+  Port0: Outputs distance.
+  Port1: Outputs longitude in degrees (-180 to 180).
+  Port2: Outputs latitude in degrees (-90 to 90).
+  Port3: Requires {0} P/s.
+## SpaceScanner
+  Desc: A satellite module for detecting celestial bodies in deep space. It uses a configurable scanning cone to identify planets and large objects, outputting the distance to the nearest detected object. For proper functioning, there must be no obstacles in front of the component.
+  Name: Space Scanner
+  Port0: Input data signal from 0 (50 degrees) to 1 (1 degrees) to control <u>cone angle</u>.
+  Port1: Outputs the <u>distance to the closest object</u> in the front cone of the satellite, in meters.
+  Port2: Requires {0} P/s.
+## Subtractor
+  Desc: Performs a subtraction operation on data from two input ports and outputs the result to the output port.
+  Name: Subtractor
+  Port0: Input data for A.
+  Port1: Input data for B.
+  Port2: Outputs data for X.
+## Tan
+  Desc: Outputs the tangent of the input angle in radians.
+  Name: Tangent
+  Port0: Input angle in radians.
+  Port1: Output value.
+## TrajectoryCurvatureMeter
+  Desc: Detects the difference in degrees between the spaceship's trajectory and its facing direction. For proper functioning, there must be no obstacles in front of the component.
+  Name: Trajectory Curvature Meter
+  Port0: Outputs the difference in degrees between the spaceship's trajectory and the component's facing direction.
+## VelocityMeter
+  Desc: Detects the current speed in meters per second. For proper functioning, there must be no obstacles in front of the component.
+  Name: Velocity Meter
+  Port0: Outputs the current <u>velocity</u> in m/s.
+## VerticalMeter
+  Desc: Displays the data signal from the input port.
+  Name: Vertical Meter
+  Port0: Input signal to be shown on the display.
+## WirelessTransmitter
+  Desc: Allows sending and receiving data signals on the same channel up to 2000 meters. The green light indicates the transmitter is successfully sending or receiving a data signal. The red light means multiple transmitters are broadcasting on the same channel, which is not allowed.
+  Name: Wireless Transmitter
+  Port0: Input/output port to send or receive via transmitter.
+## FrameQuarterPorts
+  Desc: A structural frame that lets you run cables inside.\n<b>Each connected port pair also consumes 4 cables!\nFully welded frame weighs twice as much!</b>
+  Name: Frame Quarter With Ports
+  Port0: A
+  Port1: B
+  Port2: C
+  Port3: D
+  Port4: A
+  Port5: B
+  Port6: C
+  Port7: D

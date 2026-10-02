@@ -1,0 +1,2117 @@
+{
+ "method_check": "43/43 partdb logic parts reproduced",
+ "button": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 1
+    },
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_in": 2
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Memory:Port B x1",
+     "SC_Router2:Port A x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "6": 2
+   }
+  },
+  "overlap_examples": []
+ },
+ "small_button": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 27
+    },
+    "direct_contacts": 52,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 21,
+     "data_in": 35,
+     "data_both": 23
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2:Port A x28",
+     "SC_FrameQuarterPorts:Port C 0 x18",
+     "SC_WirelessTransmitter M:Port X x15",
+     "SC_WirelessTransmitter:Port X x8",
+     "SC_FrameQuarterPorts:Port A 1 x2",
+     "SC_Router4:Port A x2"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "12": 30,
+    "4": 11,
+    "15": 9,
+    "21": 4,
+    "2": 3,
+    "16": 3,
+    "14": 3,
+    "13": 2,
+    "1": 1,
+    "8": 1
+   },
+   "mirrored": {
+    "15": 8,
+    "21": 3,
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "switch": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 1
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_in": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_SmallGate:Port Input x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "10": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "small_switch": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 88
+    },
+    "direct_contacts": 111,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_in": 108,
+     "universal": 11,
+     "data_both": 79
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x42",
+     "SC_WirelessTransmitter M:Port X x37",
+     "SC_Multiplier M:Port B x19",
+     "SC_PersonnelGate:Port Input x17",
+     "SC_Router2:Port A x14",
+     "SC_LogicGateNot:Port A x13"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "17": 36,
+    "18": 14,
+    "21": 10,
+    "13": 9,
+    "9": 7,
+    "12": 3,
+    "15": 3,
+    "6": 2,
+    "22": 2,
+    "11": 2,
+    "3": 2,
+    "14": 2,
+    "10": 2,
+    "4": 1
+   },
+   "mirrored": {
+    "3": 32,
+    "6": 19,
+    "15": 18,
+    "13": 13,
+    "18": 8,
+    "12": 6,
+    "14": 4,
+    "0": 2,
+    "21": 2,
+    "16": 2,
+    "17": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "stick_switch": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 28
+    },
+    "direct_contacts": 3,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 22,
+     "data_both": 2,
+     "data_in": 7
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port B 0 x12",
+     "SC_FrameQuarterPorts:Port A 0 x4",
+     "SC_SignalRouter3:Port D x3",
+     "SC_FrameQuarterPorts:Port C 1 x3",
+     "SC_FrameQuarterPorts:Port B 1 x2",
+     "SC_WirelessTransmitter M:Port X x2"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "16": 15,
+    "6": 6,
+    "8": 3,
+    "3": 2
+   },
+   "mirrored": {
+    "21": 2,
+    "19": 1,
+    "15": 1,
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "lever_vertical": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 4
+    },
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 1,
+     "data_in": 3,
+     "universal": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter M:Port X x1",
+     "SC_Multiplier:Port B x1",
+     "SC_Router2:Port A x1",
+     "SC_FrameQuarterPorts:Port B 1 x1",
+     "SC_Router2 M:Port A x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "16": 3
+   },
+   "mirrored": {
+    "6": 2
+   }
+  },
+  "overlap_examples": []
+ },
+ "lever_vertical_half": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 351
+    },
+    "direct_contacts": 17,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 222,
+     "universal": 14,
+     "data_in": 131
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter M:Port X x168",
+     "SC_Multiplier M:Port B x77",
+     "SC_WirelessTransmitter:Port X x54",
+     "SC_Multiplier M:Port A x21",
+     "SC_AdditionArray:Port C x10",
+     "SC_Router2:Port A x9"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "8": 144,
+    "16": 18,
+    "21": 15,
+    "6": 15,
+    "2": 2,
+    "10": 1
+   },
+   "mirrored": {
+    "3": 124,
+    "6": 24,
+    "21": 11,
+    "19": 8,
+    "16": 4,
+    "9": 4
+   }
+  },
+  "overlap_examples": []
+ },
+ "lever_horizontal": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   }
+  },
+  "orientations": {},
+  "overlap_examples": []
+ },
+ "small_knob": {
+  "ports": {
+   "out": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 248
+    },
+    "direct_contacts": 32,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 76,
+     "universal": 73,
+     "data_in": 131
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter M:Port X x43",
+     "SC_Remapper:Port I x38",
+     "SC_WirelessTransmitter:Port X x33",
+     "SC_FrameQuarterPorts:Port A 0 x32",
+     "SC_SpaceScanner:Port I x32",
+     "SC_ZoomCamera M:Port A x32"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "8": 80,
+    "3": 52,
+    "6": 15,
+    "16": 13,
+    "21": 9,
+    "15": 8,
+    "12": 4,
+    "9": 3,
+    "11": 2,
+    "7": 1,
+    "13": 1,
+    "10": 1
+   },
+   "mirrored": {
+    "6": 27,
+    "21": 17,
+    "12": 13,
+    "15": 10,
+    "10": 8,
+    "16": 7,
+    "13": 3,
+    "9": 3,
+    "11": 2,
+    "5": 1,
+    "8": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "joystick_horizontal": {
+  "ports": {
+   "horizontal": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 2
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 1,
+     "data_in": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port C 1 x1",
+     "SC_Accumulator:Port A x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "6": 2
+   }
+  },
+  "overlap_examples": []
+ },
+ "joystick_vertical": {
+  "ports": {
+   "vertical": {
+    "node": "Port Output",
+    "cable_hits": {
+     "data": 34
+    },
+    "direct_contacts": 4,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 13,
+     "data_in": 25
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_AdditionArray:Port B x10",
+     "SC_FrameQuarterPortsCorner:Port D Power2 x9",
+     "SC_Adder M:Port B x6",
+     "SC_FrameQuarterPorts:Port D 0 x4",
+     "SC_Accumulator:Port A x2",
+     "SC_Adder:Port B x2"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "6": 10,
+    "21": 6,
+    "16": 2
+   },
+   "mirrored": {
+    "21": 10,
+    "6": 9,
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "joystick_2d": {
+  "ports": {
+   "horizontal": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 1
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPortsCorner:Port A InOutA x1"
+    ]
+   },
+   "vertical": {
+    "node": "Port Y",
+    "cable_hits": {
+     "data": 1
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPortsCorner:Port B InOutA x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "21": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "joystick_3d": {
+  "ports": {
+   "yaw": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 217
+    },
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 5,
+     "data_in": 193,
+     "universal": 18
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_GimbalController:Port K x141",
+     "SC_GimbalController M:Port K x48",
+     "SC_FrameQuarterPortsCorner:Port B InOutA x16",
+     "SC_WirelessTransmitter M:Port X x3",
+     "SC_WirelessTransmitter:Port X x2",
+     "SC_Router2:Port A x1"
+    ]
+   },
+   "pitch": {
+    "node": "Port Y",
+    "cable_hits": {
+     "data": 204
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 20,
+     "data_in": 181
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Adder:Port A x114",
+     "SC_Router2:Port A x50",
+     "SC_FrameQuarterPortsCorner:Port D Power1 x16",
+     "SC_GimbalController:Port J x10",
+     "SC_Adder:Port B x4",
+     "SC_FrameQuarterPortsCorner:Port A InOutB x3"
+    ]
+   },
+   "roll": {
+    "node": "Port Z",
+    "cable_hits": {
+     "data": 203
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 3,
+     "data_in": 181,
+     "universal": 17
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Adder M:Port A x113",
+     "SC_GimbalController M:Port I x48",
+     "SC_FrameQuarterPortsCorner:Port A InOutA x16",
+     "SC_GimbalController:Port I x10",
+     "SC_Adder:Port A x4",
+     "SC_WirelessTransmitter:Port X x3"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "16": 12,
+    "21": 11,
+    "6": 11,
+    "3": 5
+   },
+   "mirrored": {
+    "3": 132,
+    "8": 48,
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "arc_90_meter": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 10
+    },
+    "direct_contacts": 9,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 19
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x10",
+     "SC_WirelessTransmitter M:Port X x9"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "10": 8,
+    "6": 8,
+    "9": 1,
+    "21": 1,
+    "8": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "arc_270_meter": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 13
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 4,
+     "data_out": 9
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Datameter:Port X x8",
+     "SC_WirelessTransmitter:Port X x4",
+     "SC_Adder:Port X x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "10": 9,
+    "9": 4
+   },
+   "mirrored": {
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "horizontal_meter": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   }
+  },
+  "orientations": {},
+  "overlap_examples": []
+ },
+ "vertical_meter": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 5
+    },
+    "direct_contacts": 66,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 69,
+     "universal": 2
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter M:Port X x51",
+     "SC_WirelessTransmitter:Port X x18",
+     "SC_FrameQuarterPorts:Port D 0 x1",
+     "SC_FrameQuarterPorts:Port C 1 x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "9": 26,
+    "10": 19,
+    "11": 3,
+    "8": 2,
+    "16": 2
+   },
+   "mirrored": {
+    "9": 16,
+    "11": 2,
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "beeper": {
+  "ports": {
+   "in": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 3
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 3
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Remapper:Port X x2",
+     "SC_Multiplier M:Port X x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "18": 2,
+    "5": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "speaker": {
+  "ports": {
+   "in": {
+    "node": "Port X",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   }
+  },
+  "orientations": {},
+  "overlap_examples": []
+ },
+ "colored_light_controller": {
+  "ports": {
+   "red": {
+    "node": "Port A",
+    "cable_hits": {},
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router4:Port W x1"
+    ]
+   },
+   "green": {
+    "node": "Port B",
+    "cable_hits": {},
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router4:Port Z x1"
+    ]
+   },
+   "blue": {
+    "node": "Port C",
+    "cable_hits": {},
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router4:Port Y x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "21": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "large_datameter": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 258
+    },
+    "direct_contacts": 16,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 98,
+     "universal": 20,
+     "data_out": 151
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x69",
+     "SC_Adder:Port X x37",
+     "SC_WirelessTransmitter M:Port X x29",
+     "SC_SpaceScanner:Port X x29",
+     "SC_SignalRouter3 M:Port X x28",
+     "SC_Subtractor M:Port X x19"
+    ]
+   },
+   "out": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 95
+    },
+    "direct_contacts": 9,
+    "cable_passing_not_open": 4,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 38,
+     "power": 8,
+     "data_in": 58
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 8,
+    "top_partners": [
+     "SC_WirelessTransmitter M:Port X x33",
+     "SC_Router2 M:Port A x29",
+     "SC_BrakingPointSystem:Port A x15",
+     "SC_Router2:Port A x10",
+     "SC_PowerRouter:Port P x8",
+     "SC_WirelessTransmitter:Port X x5"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "8": 53,
+    "10": 33,
+    "3": 22,
+    "9": 19,
+    "21": 6,
+    "6": 4,
+    "16": 3
+   },
+   "mirrored": {
+    "3": 60,
+    "8": 49,
+    "10": 17,
+    "9": 10,
+    "21": 9
+   }
+  },
+  "overlap_examples": []
+ },
+ "led_text": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 1
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2:Port Y x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "20": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "red_alert_light": {
+  "ports": {
+   "in": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 5
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 4,
+     "data_both": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPortsCorner M:Port D Power2 x3",
+     "SC_FrameQuarterPorts:Port C 1 x1",
+     "SC_WirelessTransmitter:Port X x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "16": 2,
+    "3": 2,
+    "11": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "braking_point_system": {
+  "ports": {
+   "distance": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 18
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 1,
+     "data_out": 16,
+     "data_both": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_LargeDatameter M:Port X x15",
+     "SC_FrameQuarterPorts:Port A 1 x1",
+     "SC_Router2:Port X x1",
+     "SC_WirelessTransmitter:Port X x1"
+    ]
+   },
+   "velocity": {
+    "node": "Port B",
+    "cable_hits": {
+     "data": 17
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 1,
+     "data_out": 15,
+     "data_both": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2:Port Y x10",
+     "SC_Accelerometer:Port X x4",
+     "SC_FrameQuarterPorts:Port D 1 x1",
+     "SC_Router4:Port Z x1",
+     "SC_WirelessTransmitter:Port X x1"
+    ]
+   },
+   "acceleration": {
+    "node": "Port C",
+    "cable_hits": {
+     "data": 13
+    },
+    "direct_contacts": 3,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 1,
+     "data_out": 11,
+     "data_both": 4
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Adder:Port X x10",
+     "SC_WirelessTransmitter:Port X x4",
+     "SC_FrameQuarterPorts:Port B 1 x1",
+     "SC_Router4:Port X x1"
+    ]
+   },
+   "indicator": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 12
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 1,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_in": 12
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2:Port A x10",
+     "SC_Router4:Port A x1",
+     "SC_Datameter:Port A x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "10": 8,
+    "8": 7,
+    "6": 1,
+    "0": 1,
+    "9": 1
+   },
+   "mirrored": {
+    "9": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "camera": {
+  "ports": {
+   "video": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 22
+    },
+    "direct_contacts": 2,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 8,
+     "data_both": 15,
+     "data_in": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter M:Port X x10",
+     "SC_WirelessTransmitter:Port X x5",
+     "SC_FrameQuarterPorts:Port D 1 x3",
+     "SC_FrameQuarterPorts:Port C 0 x3",
+     "SC_FrameQuarterPorts:Port C 1 x1",
+     "SC_FrameQuarterPorts:Port B 0 x1"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 23
+    },
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 8,
+     "universal": 16
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts M:Port C 0 x9",
+     "SC_FrameQuarterPorts:Port A 1 x3",
+     "SC_FrameQuarterPorts:Port B 0 x3",
+     "SC_PowerRouter:Port R x2",
+     "SC_PowerRouter:Port T x2",
+     "SC_LargePowerRouter:Port R x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "15": 4,
+    "16": 4,
+    "20": 1,
+    "12": 1,
+    "21": 1
+   },
+   "mirrored": {
+    "1": 8,
+    "17": 2,
+    "20": 1,
+    "13": 1,
+    "19": 1
+   }
+  },
+  "overlap_examples": [
+   {
+    "file": "0da00183-0307-499f-9815-7784bbb56b4e.bp",
+    "cell": [
+     212,
+     22,
+     187
+    ],
+    "rot": 15,
+    "overlaps": [
+     "SC_FrameB"
+    ]
+   },
+   {
+    "file": "1bf95f3c-a497-460c-a735-977e3922dbef.bp",
+    "cell": [
+     219,
+     44,
+     219
+    ],
+    "rot": 16,
+    "overlaps": [
+     "SC_GlassB"
+    ]
+   }
+  ]
+ },
+ "night_vision_camera": {
+  "ports": {
+   "video": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 108
+    },
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 2,
+     "data_in": 98,
+     "data_both": 4,
+     "power": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 1,
+    "top_partners": [
+     "SC_SignalRouter3:Port C x92",
+     "SC_SignalRouter3:Port A x6",
+     "SC_WirelessTransmitter M:Port X x3",
+     "SC_FrameQuarterPortsCorner:Port B InOutA x1",
+     "SC_FrameQuarterPortsCorner:Port C InOutB x1",
+     "SC_WirelessTransmitter:Port X x1"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 23,
+     "data": 1
+    },
+    "direct_contacts": 92,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 1,
+    "partner_types": {
+     "power": 114,
+     "universal": 1,
+     "data_in": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 1,
+    "top_partners": [
+     "SC_PowerRouter:Port R x84",
+     "SC_PowerBlocker:Port R x12",
+     "SC_PowerRouter:Port P x10",
+     "SC_PowerBlocker:Port P x4",
+     "SC_PowerBlocker M:Port R x3",
+     "SC_PowerRouter:Port S x1"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "2": 83,
+    "7": 8,
+    "22": 2,
+    "17": 2,
+    "6": 1,
+    "16": 1,
+    "21": 1,
+    "20": 1
+   },
+   "mirrored": {
+    "2": 8,
+    "21": 5,
+    "20": 3,
+    "1": 3,
+    "6": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "zoom_camera": {
+  "ports": {
+   "video": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 142
+    },
+    "direct_contacts": 8,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 10,
+     "data_in": 97,
+     "universal": 38,
+     "power": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 1,
+    "top_partners": [
+     "SC_SignalRouter3:Port A x91",
+     "SC_FrameQuarterPorts:Port A 1 x33",
+     "SC_WirelessTransmitter:Port X x7",
+     "SC_SignalRouter3:Port C x6",
+     "SC_WirelessTransmitter M:Port X x3",
+     "SC_FrameQuarterPorts:Port B 0 x3"
+    ]
+   },
+   "zoom": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 133
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 13,
+     "universal": 85,
+     "data_out": 32
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port C 1 x37",
+     "SC_SmallKnob:Port Output x32",
+     "SC_FrameQuarterPorts:Port A 1 x29",
+     "SC_FrameQuarterPorts:Port D 0 x12",
+     "SC_WirelessTransmitter:Port X x7",
+     "SC_WirelessTransmitter M:Port X x6"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 64,
+     "data": 1
+    },
+    "direct_contacts": 92,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 1,
+    "partner_types": {
+     "universal": 4,
+     "power": 152
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port P x83",
+     "SC_PowerRouter:Port T x43",
+     "SC_PowerBlocker:Port R x12",
+     "SC_PowerRouter:Port R x7",
+     "SC_PowerBlocker:Port P x4",
+     "SC_FrameQuarterPortsCorner:Port A InOutB x3"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "2": 10,
+    "7": 8,
+    "16": 4,
+    "21": 3,
+    "20": 3,
+    "1": 3,
+    "6": 1,
+    "17": 1,
+    "8": 1
+   },
+   "mirrored": {
+    "2": 83,
+    "7": 37,
+    "8": 33,
+    "13": 8,
+    "20": 3,
+    "23": 2,
+    "21": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "rotational_telescope": {
+  "ports": {
+   "video": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 22
+    },
+    "direct_contacts": 3,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 15,
+     "universal": 9,
+     "data_in": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x8",
+     "SC_WirelessTransmitter M:Port X x7",
+     "SC_FrameQuarterPorts:Port B 1 x6",
+     "SC_FrameQuarterPortsCorner:Port C InOutA x1",
+     "SC_FrameQuarterPorts:Port A 1 x1",
+     "SC_MonitorMediumLCD:Port A x1"
+    ]
+   },
+   "horizontal": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 14
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 1,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 5,
+     "data_both": 9
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x9",
+     "SC_FrameQuarterPorts:Port C 1 x3",
+     "SC_FrameQuarterPorts:Port A 0 x2"
+    ]
+   },
+   "vertical": {
+    "node": "Port B",
+    "cable_hits": {
+     "data": 23
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 7,
+     "data_out": 15,
+     "data_both": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2:Port X x11",
+     "SC_Router2:Port Y x4",
+     "SC_FrameQuarterPorts:Port D 0 x2",
+     "SC_FrameQuarterPorts:Port D 1 x2",
+     "SC_FrameQuarterPortsCorner:Port D Power1 x1",
+     "SC_FrameQuarterPorts:Port A 1 x1"
+    ]
+   },
+   "roll": {
+    "node": "Port C",
+    "cable_hits": {
+     "data": 20
+    },
+    "direct_contacts": 1,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 9,
+     "data_out": 11,
+     "data_both": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Fader:Port X x10",
+     "SC_FrameQuarterPorts:Port A 1 x6",
+     "SC_FrameQuarterPorts:Port C 0 x2",
+     "SC_FrameQuarterPorts:Port B 0 x1",
+     "SC_WirelessTransmitter:Port X x1",
+     "SC_Constant:Port X x1"
+    ]
+   },
+   "zoom": {
+    "node": "Port D",
+    "cable_hits": {
+     "data": 25
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_both": 13,
+     "universal": 12
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x13",
+     "SC_FrameQuarterPorts:Port B 1 x6",
+     "SC_FrameQuarterPorts:Port B 0 x2",
+     "SC_FrameQuarterPortsCorner:Port A InOutA x1",
+     "SC_FrameQuarterPorts:Port A 0 x1",
+     "SC_FrameQuarterPorts:Port C 1 x1"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 21
+    },
+    "direct_contacts": 4,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 12,
+     "universal": 13
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port A 0 x9",
+     "SC_PowerRouter:Port T x3",
+     "SC_FrameQuarterPorts:Port D 1 x3",
+     "SC_PowerRouter:Port S x3",
+     "SC_LargePowerRouter:Port R2 x2",
+     "SC_SolarPanel:Port P (1) x2"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "17": 11,
+    "7": 8,
+    "9": 2,
+    "2": 2,
+    "3": 1,
+    "20": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "camera_overlay": {
+  "ports": {
+   "video": {
+    "node": "Port X",
+    "cable_hits": {
+     "data": 86
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 41,
+     "data_in": 41,
+     "data_both": 1
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port B 1 x16",
+     "SC_FrameQuarterPortsCorner:Port A InOutA x16",
+     "SC_MonitorMediumHologram:Port A x13",
+     "SC_MonitorSmallLCD:Port B x11",
+     "SC_Router2:Port A x10",
+     "SC_MonitorSmallLCD:Port A x4"
+    ]
+   },
+   "row_1": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 34
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 1,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 8,
+     "data_both": 6,
+     "universal": 20
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port C 1 x10",
+     "SC_FrameQuarterPorts:Port D 1 x5",
+     "SC_Router2:Port X x4",
+     "SC_Router2:Port Y x3",
+     "SC_WirelessTransmitter:Port X x3",
+     "SC_FrameQuarterPorts:Port A 1 x3"
+    ]
+   },
+   "row_2": {
+    "node": "Port B",
+    "cable_hits": {
+     "data": 46
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 19,
+     "data_out": 24,
+     "data_both": 3
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2 M:Port Y x14",
+     "SC_FrameQuarterPorts:Port A 1 x11",
+     "SC_FrameQuarterPorts:Port C 1 x5",
+     "SC_FrameQuarterPorts:Port D 0 x3",
+     "SC_WirelessTransmitter M:Port X x3",
+     "SC_VelocityMeter:Port X x3"
+    ]
+   },
+   "row_3": {
+    "node": "Port C",
+    "cable_hits": {
+     "data": 46
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 6,
+     "data_out": 36,
+     "data_both": 4
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2 M:Port Y x34",
+     "SC_FrameQuarterPortsCorner:Port A InOutA x3",
+     "SC_FrameQuarterPorts:Port A 1 x3",
+     "SC_WirelessTransmitter:Port X x3",
+     "SC_Router2:Port Y x1",
+     "SC_WirelessTransmitter M:Port X x1"
+    ]
+   },
+   "row_4": {
+    "node": "Port D",
+    "cable_hits": {
+     "data": 46
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 12,
+     "data_out": 30,
+     "data_both": 4
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_Router2:Port X x27",
+     "SC_FrameQuarterPorts:Port B 1 x7",
+     "SC_FrameQuarterPortsCorner:Port B InOutA x3",
+     "SC_WirelessTransmitter M:Port X x3",
+     "SC_Router2:Port Y x2",
+     "SC_WirelessTransmitter:Port X x1"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 87
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 5,
+     "power": 81
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port P x20",
+     "SC_LargePowerRouter:Port R x20",
+     "SC_PowerRouter:Port R x16",
+     "SC_PowerRouter:Port T x12",
+     "SC_LargePowerRouter:Port S x5",
+     "SC_LargePowerRouter:Port P x4"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "14": 23,
+    "23": 17,
+    "8": 5,
+    "2": 2,
+    "6": 2,
+    "20": 1,
+    "11": 1
+   },
+   "mirrored": {
+    "11": 18,
+    "8": 12,
+    "21": 5,
+    "9": 2,
+    "15": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "monitor_crt": {
+  "ports": {
+   "video": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 3
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 3
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_SignalRouter3:Port X x3"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 3
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 3
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port S x3"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "17": 3
+   }
+  },
+  "overlap_examples": []
+ },
+ "monitor_small_lcd": {
+  "ports": {
+   "primary": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 60
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 43,
+     "data_both": 2,
+     "data_out": 14
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port A 0 x21",
+     "SC_FrameQuarterPortsCorner:Port A InOutA x11",
+     "SC_Router2:Port Y x10",
+     "SC_FrameQuarterPortsCorner:Port B InOutA x4",
+     "SC_CameraOverlay:Port X x4",
+     "SC_FrameQuarterPortsCorner:Port C InOutA x3"
+    ]
+   },
+   "secondary": {
+    "node": "Port B",
+    "cable_hits": {
+     "data": 58
+    },
+    "direct_contacts": 7,
+    "cable_passing_not_open": 8,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 4,
+     "data_out": 21,
+     "data_both": 39
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x23",
+     "SC_WirelessTransmitter M:Port X x16",
+     "SC_Router2:Port X x10",
+     "SC_CameraOverlay:Port X x10",
+     "SC_FrameQuarterPorts:Port D 0 x1",
+     "SC_FrameQuarterPortsCorner:Port C InOutB x1"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 78
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 65,
+     "universal": 13
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port T x22",
+     "SC_PowerRouter:Port P x21",
+     "SC_LargePowerRouter:Port P x14",
+     "SC_FrameQuarterPortsCorner:Port B InOutA x10",
+     "SC_LargePowerRouter:Port R2 x4",
+     "SC_PowerRouter:Port R x3"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "21": 23,
+    "6": 23,
+    "8": 11,
+    "16": 6,
+    "3": 3,
+    "2": 2,
+    "11": 1,
+    "20": 1,
+    "23": 1
+   },
+   "mirrored": {
+    "1": 8,
+    "19": 1,
+    "23": 1
+   }
+  },
+  "overlap_examples": [
+   {
+    "file": "0da00183-0307-499f-9815-7784bbb56b4e.bp",
+    "cell": [
+     202,
+     28,
+     184
+    ],
+    "rot": 11,
+    "overlaps": [
+     "SC_FrameHalfF"
+    ]
+   },
+   {
+    "file": "0da00183-0307-499f-9815-7784bbb56b4e.bp",
+    "cell": [
+     204,
+     40,
+     184
+    ],
+    "rot": 2,
+    "overlaps": [
+     "SC_FrameB"
+    ]
+   }
+  ]
+ },
+ "monitor_medium_lcd": {
+  "ports": {
+   "primary": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 43
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 6,
+     "data_both": 17,
+     "universal": 20
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_WirelessTransmitter:Port X x15",
+     "SC_FrameQuarterPorts:Port A 0 x12",
+     "SC_DataHub M:Port X x4",
+     "SC_FrameQuarterPorts:Port B 0 x4",
+     "SC_WirelessTransmitter M:Port X x2",
+     "SC_FrameQuarterPortsCorner M:Port D Power2 x2"
+    ]
+   },
+   "secondary": {
+    "node": "Port B",
+    "cable_hits": {
+     "data": 26
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 23,
+     "data_out": 3
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port B 0 x16",
+     "SC_FrameQuarterPortsCorner:Port C InOutA x5",
+     "SC_CameraOverlay:Port X x3",
+     "SC_FrameQuarterPortsCorner M:Port C InOutB x2"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 43
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 31,
+     "universal": 12
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port P x12",
+     "SC_FrameQuarterPorts:Port D 0 x10",
+     "SC_PowerRouter:Port R x9",
+     "SC_LargePowerRouter:Port P2 x6",
+     "SC_LargePowerRouter:Port T2 x2",
+     "SC_FrameQuarterPortsCorner:Port B InOutA x2"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "3": 19,
+    "16": 16,
+    "18": 2,
+    "21": 2,
+    "9": 1
+   },
+   "mirrored": {
+    "19": 2,
+    "21": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "monitor_large_lcd": {
+  "ports": {
+   "primary": {
+    "node": "Port A",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   },
+   "secondary": {
+    "node": "Port B",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   }
+  },
+  "orientations": {},
+  "overlap_examples": []
+ },
+ "monitor_small_hologram": {
+  "ports": {
+   "primary": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 2
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 2
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port D 0 x2"
+    ]
+   },
+   "secondary": {
+    "node": "Port B",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 2,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 2
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 2
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port P x1",
+     "SC_LargePowerRouter:Port R2 x1"
+    ]
+   }
+  },
+  "orientations": {
+   "mirrored": {
+    "16": 2
+   }
+  },
+  "overlap_examples": []
+ },
+ "monitor_medium_hologram": {
+  "ports": {
+   "primary": {
+    "node": "Port A",
+    "cable_hits": {
+     "data": 14
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "data_out": 13
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_CameraOverlay:Port X x13"
+    ]
+   },
+   "secondary": {
+    "node": "Port B",
+    "cable_hits": {
+     "data": 12
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "universal": 12
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_FrameQuarterPorts:Port A 0 x12"
+    ]
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {
+     "power": 15
+    },
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {
+     "power": 15
+    },
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": [
+     "SC_PowerRouter:Port S x15"
+    ]
+   }
+  },
+  "orientations": {
+   "normal": {
+    "13": 18
+   }
+  },
+  "overlap_examples": []
+ },
+ "monitor_large_hologram": {
+  "ports": {
+   "primary": {
+    "node": "Port A",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   },
+   "secondary": {
+    "node": "Port B",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   },
+   "power": {
+    "node": "Port P",
+    "cable_hits": {},
+    "direct_contacts": 0,
+    "cable_passing_not_open": 0,
+    "wrong_kind_hits": 0,
+    "partner_types": {},
+    "direction_clashes": 0,
+    "incompatible_partners": 0,
+    "top_partners": []
+   }
+  },
+  "orientations": {},
+  "overlap_examples": []
+ },
+ "SC_Seat": {
+  "ports": {},
+  "orientations": {
+   "normal": {
+    "3": 175,
+    "8": 50,
+    "4": 43,
+    "21": 23,
+    "13": 23,
+    "6": 22,
+    "16": 16
+   }
+  },
+  "overlap_examples": []
+ },
+ "SC_Whiteboard": {
+  "ports": {},
+  "orientations": {
+   "normal": {
+    "6": 2,
+    "16": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "SC_ColoredLight": {
+  "ports": {},
+  "orientations": {
+   "normal": {
+    "11": 16,
+    "20": 1,
+    "23": 1
+   }
+  },
+  "overlap_examples": []
+ },
+ "SC_SmallToggleableLight": {
+  "ports": {},
+  "orientations": {
+   "normal": {
+    "20": 64,
+    "17": 40,
+    "15": 34,
+    "9": 27,
+    "7": 24,
+    "12": 18,
+    "10": 13,
+    "13": 11,
+    "14": 9,
+    "8": 9,
+    "11": 7,
+    "5": 6,
+    "2": 6,
+    "0": 4,
+    "1": 3,
+    "19": 1,
+    "22": 1
+   }
+  },
+  "overlap_examples": []
+ }
+}

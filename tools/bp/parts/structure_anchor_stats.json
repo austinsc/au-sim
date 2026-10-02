@@ -1,0 +1,50 @@
+{
+ "models": {
+  "ports": {
+   "anchored_cells": 46515,
+   "unanchored_cells": 26333,
+   "networks_with_unanchored_cells": 1691,
+   "blueprints_affected": 219
+  },
+  "edges": {
+   "anchored_cells": 101395,
+   "unanchored_cells": 224,
+   "networks_with_unanchored_cells": 44,
+   "blueprints_affected": 18
+  },
+  "exact": {
+   "anchored_cells": 110078,
+   "unanchored_cells": 196,
+   "networks_with_unanchored_cells": 39,
+   "blueprints_affected": 15
+  },
+  "joints": {
+   "anchored_cells": 107952,
+   "unanchored_cells": 214,
+   "networks_with_unanchored_cells": 42,
+   "blueprints_affected": 16
+  },
+  "anyside": {
+   "anchored_cells": 125883,
+   "unanchored_cells": 195,
+   "networks_with_unanchored_cells": 38,
+   "blueprints_affected": 14
+  }
+ },
+ "contacts": {
+  "inner/open": 20414,
+  "edge/welded": 19339,
+  "inner/welded": 10359,
+  "edge/open": 50481,
+  "no_face_hit": 862
+ },
+ "blueprints_where_exact_differs_from_anyside": {
+  "Autosave | e75e73ca-815f-488b-a7b2-83db7b37f34d.bp": {
+   "ports": 3,
+   "edges": 1,
+   "exact": 1,
+   "joints": 1,
+   "anyside": 0
+  }
+ }
+}

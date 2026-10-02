@@ -1,0 +1,1564 @@
+{
+ "data_router_2": {
+  "name": "Data Router 2",
+  "hash": "592905a5e74d8aaa",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "a": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "8c68c43d61f3bb66",
+  "prefab": "SC_Router2"
+ },
+ "data_router_4": {
+  "name": "Data Router 4",
+  "hash": "0124dacc6531029a",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "a": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "out"
+   },
+   "c": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "dir": "out"
+   },
+   "d": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "77feb6129243de51",
+  "prefab": "SC_Router4"
+ },
+ "sign_splitter": {
+  "name": "Sign Splitter",
+  "hash": "518fdaab8c071134",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "neg": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   },
+   "pos": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "218b8972e72aa915",
+  "prefab": "SC_JoystickSplitter"
+ },
+ "data_redirector_3": {
+  "name": "Data Redirector 3",
+  "hash": "4224391ea20c8575",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "c": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "sel": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "027b188f87f8b800",
+  "prefab": "SC_SignalRouter3"
+ },
+ "data_hub": {
+  "name": "Data Hub",
+  "hash": "9316eb09bf85336b",
+  "schema_hash": "b1944748547c05b7",
+  "size": [
+   6,
+   2,
+   2
+  ],
+  "ports": {
+   "i0": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "i1": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "i2": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "i3": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "i4": {
+    "cell": [
+     4,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     5,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "0b6a2fcacd18b5e8",
+  "prefab": "SC_DataHub"
+ },
+ "datameter": {
+  "name": "Datameter",
+  "hash": "08e0e016a1cb9c1e",
+  "schema_hash": "220b39863b13c40e",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "0cf8961ae41793cf",
+  "prefab": "SC_Datameter"
+ },
+ "wireless_transmitter": {
+  "name": "Wireless Transmitter",
+  "hash": "fb42bddabfe173ed",
+  "schema_hash": "a6a2972b8647cd1a",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "tx": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "both"
+   },
+   "rx": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "both"
+   }
+  },
+  "mirrored_hash": "57285d9d99a27972",
+  "prefab": "SC_WirelessTransmitter"
+ },
+ "constant": {
+  "name": "Constant",
+  "hash": "9fe80f5af364c2ec",
+  "schema_hash": "4bebf2e4eb16d986",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "cee813dc3421e693",
+  "prefab": "SC_Constant"
+ },
+ "and": {
+  "name": "Logic Gate AND",
+  "hash": "cda925e4a15cce83",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "84e0639f3e1461f7",
+  "prefab": "SC_LogicGateAnd"
+ },
+ "or": {
+  "name": "Logic Gate OR",
+  "hash": "1a8302f32956c81a",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "7f62bc4b4f807e47",
+  "prefab": "SC_LogicGateOr"
+ },
+ "xor": {
+  "name": "Logic Gate XOR",
+  "hash": "eb8fe77ce46f3590",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "bbffd432dbb2fe76",
+  "prefab": "SC_LogicGateXor"
+ },
+ "not": {
+  "name": "Logic Gate NOT",
+  "hash": "72696a5f8c4b74de",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "a4ad48a571fb5f35",
+  "prefab": "SC_LogicGateNot"
+ },
+ "logic_value": {
+  "name": "Logic Value",
+  "hash": "e1efc8ed6895b620",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "89b35ae6db3cd547",
+  "prefab": "SC_LogicValue"
+ },
+ "simple_threshold": {
+  "name": "Simple Threshold",
+  "hash": "72a389e0f97da2d6",
+  "schema_hash": "1a4198f93d382bce",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "f80f32e26345e09b",
+  "prefab": "SC_SimpleThreshold"
+ },
+ "condition": {
+  "name": "Condition",
+  "hash": "9b61ed1ef1de127c",
+  "schema_hash": "3a6e906aeb9d8da7",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "true": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "false": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "360e8c2bff12a008",
+  "prefab": "SC_Condition"
+ },
+ "adder": {
+  "name": "Adder",
+  "hash": "3b7bbce726d0cc7f",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "90ab37a8e0e73883",
+  "prefab": "SC_Adder"
+ },
+ "subtractor": {
+  "name": "Subtractor",
+  "hash": "1c97aba9f33d90c8",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "bf139b4a4fe325e4",
+  "prefab": "SC_Subtractor"
+ },
+ "multiplier": {
+  "name": "Multiplier",
+  "hash": "0407f3d568e89e48",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "8b48e36991051cd3",
+  "prefab": "SC_Multiplier"
+ },
+ "divider": {
+  "name": "Divider",
+  "hash": "00766e1e0f9c8699",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "d070fa2c8c0456b5",
+  "prefab": "SC_Divider"
+ },
+ "mod": {
+  "name": "Modulo",
+  "hash": "2f85a7ae10de85f1",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "9de9a070847888df",
+  "prefab": "SC_Mod"
+ },
+ "power": {
+  "name": "Power",
+  "hash": "9ae164213eb23aa8",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "7b289950b0a0f2dc",
+  "prefab": "SC_Pow"
+ },
+ "max": {
+  "name": "Maximum",
+  "hash": "6d2fdb1b68703078",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "3b19e7e89229d600",
+  "prefab": "SC_Maximum"
+ },
+ "min": {
+  "name": "Minimum",
+  "hash": "5bd117aa5c9fdf0a",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "c55c8ebc0a3c2c8a",
+  "prefab": "SC_Minimum"
+ },
+ "abs": {
+  "name": "Absolute",
+  "hash": "de0f62263cd235d5",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "59d513456e77942b",
+  "prefab": "SC_Abs"
+ },
+ "sqrt": {
+  "name": "Square Root",
+  "hash": "29eec73a49b6aa87",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "7a93e34158844a73",
+  "prefab": "SC_Sqrt"
+ },
+ "exp": {
+  "name": "Exponential",
+  "hash": "9ce94885bbf2ecbb",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "d7cf148a6b076164",
+  "prefab": "SC_Exp"
+ },
+ "log": {
+  "name": "Natural Logarithm",
+  "hash": "7d96e14c1835c150",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "b0c8e5065e55a455",
+  "prefab": "SC_Log"
+ },
+ "round": {
+  "name": "Round",
+  "hash": "eb8e39491bb4ae8b",
+  "schema_hash": "b5708772abdf336e",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "037d0cbbe820417e",
+  "prefab": "SC_Round"
+ },
+ "remapper": {
+  "name": "Remapper",
+  "hash": "f45687f85cf62f59",
+  "schema_hash": "678f7e2f43801b9f",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "5969bb0edf8607bc",
+  "prefab": "SC_Remapper"
+ },
+ "sum": {
+  "name": "Addition Array",
+  "hash": "3b80bdebfdb10fa9",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "b": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "c": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "d": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "e": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "f": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "g": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "3a03bfaf155e405d",
+  "prefab": "SC_AdditionArray"
+ },
+ "fader": {
+  "name": "Fader",
+  "hash": "063717a232f691cb",
+  "schema_hash": "e409fc1b1cbe1b9c",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "4b068698a3b4eb53",
+  "prefab": "SC_Fader"
+ },
+ "sin": {
+  "name": "Sine",
+  "hash": "7fff2e1af48ef831",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "4560f1a2a370d3b7",
+  "prefab": "SC_Sin"
+ },
+ "cos": {
+  "name": "Cosine",
+  "hash": "4538771e302aa937",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "c6a033434683b241",
+  "prefab": "SC_Cos"
+ },
+ "tan": {
+  "name": "Tangent",
+  "hash": "994a07da1e323af0",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "603f12bbc0de0583",
+  "prefab": "SC_Tan"
+ },
+ "asin": {
+  "name": "Arc Sine",
+  "hash": "b7e08ba58d73fd46",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "ca3739c2d0b35649",
+  "prefab": "SC_Asin"
+ },
+ "acos": {
+  "name": "Arc Cosine",
+  "hash": "d951faa420af8af9",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "0e22666ea7640d89",
+  "prefab": "SC_Acos"
+ },
+ "atan": {
+  "name": "Arc Tangent",
+  "hash": "40a9cb2298019881",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "0bec46ef7f0b0b37",
+  "prefab": "SC_Atan"
+ },
+ "atan2": {
+  "name": "Arc Tangent 2",
+  "hash": "c6d674157eaf6a95",
+  "schema_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "y": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "x": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "0b04dd60a4ba77b0",
+  "prefab": "SC_Atan2"
+ },
+ "accumulator": {
+  "name": "Accumulator",
+  "hash": "5e3e015590584dcc",
+  "schema_hash": "2ba6e472e5d8ae29",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "reset": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "13be4daf814ddc63",
+  "prefab": "SC_Accumulator"
+ },
+ "memory": {
+  "name": "Memory",
+  "hash": "876ad2fe23bf2867",
+  "schema_hash": "1169615290e0b3f2",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "value": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "set": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "bebb418cec7b5097",
+  "prefab": "SC_Memory"
+ },
+ "delay": {
+  "name": "Delay",
+  "hash": "744c28c9e76b1c4a",
+  "schema_hash": "41dcea421311207c",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "41e8194a8780c19e",
+  "prefab": "SC_Delay"
+ },
+ "differentiator": {
+  "name": "Differentiator",
+  "hash": "a198e2ba8fe8844f",
+  "schema_hash": "7a00849b4499913a",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "1b52268f7fa79bdc",
+  "prefab": "SC_Differentiator"
+ },
+ "initializer": {
+  "name": "Initializer",
+  "hash": "618fabb3a10eb2a5",
+  "schema_hash": "981437c0d8f94200",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in"
+   },
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "dir": "out"
+   }
+  },
+  "mirrored_hash": "fbf3e1aa820829c3",
+  "prefab": "SC_Initializer"
+ }
+}

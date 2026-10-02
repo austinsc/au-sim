@@ -1,0 +1,1621 @@
+{
+ "stats": {
+  "SC_PowerRouter": {
+   "normal": {
+    "instances": 1757,
+    "blueprints": 237,
+    "overlap_instances": 1,
+    "overlap_with": {
+     "SC_GlassB": 2
+    },
+    "cable_in_footprint": 0,
+    "rots": {
+     "19": 21,
+     "18": 19,
+     "6": 406,
+     "21": 95,
+     "16": 77,
+     "3": 153,
+     "11": 114,
+     "20": 28,
+     "9": 61,
+     "10": 23,
+     "23": 25,
+     "17": 5,
+     "7": 105,
+     "5": 6,
+     "2": 19,
+     "0": 32,
+     "15": 19,
+     "13": 45,
+     "14": 58,
+     "1": 75,
+     "8": 304,
+     "22": 20,
+     "4": 41,
+     "12": 6
+    },
+    "ports": {
+     "Port T": {
+      "cable": 1294,
+      "free": 306,
+      "contact": 102,
+      "covered": 27,
+      "cable_not_open": 28
+     },
+     "Port S": {
+      "cable": 1287,
+      "free": 256,
+      "contact": 128,
+      "cable_not_open": 57,
+      "covered": 17,
+      "contact_wrong:data/out": 10,
+      "cable_wrong_kind:data": 2
+     },
+     "Port P": {
+      "cable": 1211,
+      "free": 292,
+      "contact": 151,
+      "cable_not_open": 94,
+      "contact_wrong:data/out": 9
+     },
+     "Port R": {
+      "cable": 1147,
+      "free": 354,
+      "contact": 149,
+      "covered": 12,
+      "cable_not_open": 94,
+      "contact_wrong:data/out": 1
+     }
+    },
+    "misses": {
+     "data": 1,
+     "power": 2
+    },
+    "foreign_port_into_face": {
+     "universal": 16,
+     "data": 2
+    },
+    "ends": {}
+   }
+  },
+  "SC_NanopipeMeter": {},
+  "SC_PowerBlocker": {
+   "normal": {
+    "instances": 106,
+    "blueprints": 27,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "3": 6,
+     "19": 6,
+     "0": 3,
+     "18": 6,
+     "21": 28,
+     "22": 10,
+     "14": 2,
+     "15": 2,
+     "16": 2,
+     "23": 1,
+     "6": 11,
+     "17": 16,
+     "1": 8,
+     "7": 2,
+     "2": 2,
+     "10": 1
+    },
+    "ports": {
+     "Port I": {
+      "cable": 60,
+      "contact": 46
+     },
+     "Port P": {
+      "cable": 69,
+      "free": 1,
+      "contact": 34,
+      "covered": 2
+     },
+     "Port R": {
+      "cable": 90,
+      "free": 1,
+      "contact": 13,
+      "covered": 2
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {
+     "power": 1
+    },
+    "ends": {}
+   },
+   "twin": {
+    "instances": 43,
+    "blueprints": 23,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "6": 11,
+     "23": 9,
+     "12": 3,
+     "19": 1,
+     "14": 1,
+     "4": 1,
+     "5": 1,
+     "15": 1,
+     "21": 2,
+     "22": 1,
+     "0": 8,
+     "1": 2,
+     "18": 1,
+     "16": 1
+    },
+    "ports": {
+     "Port I": {
+      "cable": 23,
+      "contact": 17,
+      "free": 1,
+      "contact_wrong:data/in": 2
+     },
+     "Port P": {
+      "cable": 34,
+      "contact": 9
+     },
+     "Port R": {
+      "cable": 39,
+      "contact": 4
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_LargePowerRouter": {
+   "normal": {
+    "instances": 584,
+    "blueprints": 127,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "18": 16,
+     "21": 16,
+     "3": 113,
+     "0": 55,
+     "6": 9,
+     "16": 12,
+     "17": 2,
+     "20": 6,
+     "23": 29,
+     "12": 8,
+     "14": 4,
+     "15": 11,
+     "13": 149,
+     "1": 51,
+     "22": 7,
+     "19": 4,
+     "5": 28,
+     "7": 1,
+     "4": 17,
+     "8": 5,
+     "10": 40,
+     "9": 1
+    },
+    "ports": {
+     "Port T2": {
+      "cable": 347,
+      "free": 177,
+      "contact_wrong:data/out": 49,
+      "contact": 11
+     },
+     "Port S2": {
+      "free": 57,
+      "cable": 467,
+      "contact": 58,
+      "covered": 1,
+      "cable_not_open": 1
+     },
+     "Port R2": {
+      "free": 223,
+      "cable": 302,
+      "contact": 58,
+      "covered": 1
+     },
+     "Port P2": {
+      "cable": 327,
+      "free": 159,
+      "contact_wrong:data/out": 48,
+      "cable_not_open": 49,
+      "covered": 1
+     },
+     "Port P": {
+      "free": 261,
+      "cable": 313,
+      "covered": 4,
+      "cable_not_open": 6
+     },
+     "Port R": {
+      "cable": 400,
+      "free": 174,
+      "cable_not_open": 7,
+      "covered": 3
+     },
+     "Port S": {
+      "free": 90,
+      "cable": 489,
+      "cable_not_open": 2,
+      "covered": 3
+     },
+     "Port T": {
+      "free": 122,
+      "cable": 405,
+      "cable_not_open": 53,
+      "contact": 1,
+      "covered": 3
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {
+     "universal": 116,
+     "data": 1
+    },
+    "ends": {}
+   }
+  },
+  "SC_FuseBox": {
+   "normal": {
+    "instances": 43,
+    "blueprints": 21,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "6": 30,
+     "16": 6,
+     "3": 1,
+     "5": 1,
+     "22": 1,
+     "23": 1,
+     "21": 3
+    },
+    "ports": {
+     "Port P": {
+      "cable": 42,
+      "contact": 1
+     },
+     "Port R": {
+      "cable": 38,
+      "free": 4,
+      "contact": 1
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {
+     "power": 2
+    },
+    "ends": {}
+   },
+   "twin": {
+    "instances": 4,
+    "blueprints": 4,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "3": 3,
+     "6": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 4
+     },
+     "Port R": {
+      "cable": 4
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_PowerGenerationMeter": {
+   "normal": {
+    "instances": 27,
+    "blueprints": 17,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "22": 3,
+     "11": 9,
+     "18": 1,
+     "16": 2,
+     "6": 8,
+     "21": 1,
+     "8": 1,
+     "9": 1,
+     "10": 1
+    },
+    "ports": {
+     "Port X": {
+      "free": 6,
+      "cable": 11,
+      "contact_wrong:power/both": 10
+     },
+     "Port P": {
+      "cable": 16,
+      "contact": 11
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 40,
+    "blueprints": 22,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "23": 3,
+     "21": 7,
+     "16": 1,
+     "19": 1,
+     "6": 1,
+     "11": 24,
+     "8": 3
+    },
+    "ports": {
+     "Port X": {
+      "free": 38,
+      "cable": 1,
+      "contact": 1
+     },
+     "Port P": {
+      "cable": 4,
+      "contact": 36
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_NanopipeHalf": {},
+  "SC_NanopipeThreeway": {},
+  "SC_NanopipeDecoupling": {},
+  "SC_PipeQuarter": {
+   "normal": {
+    "instances": 449,
+    "blueprints": 63,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "18": 49,
+     "21": 49,
+     "6": 62,
+     "9": 51,
+     "22": 68,
+     "7": 36,
+     "16": 6,
+     "2": 35,
+     "12": 20,
+     "8": 2,
+     "23": 3,
+     "4": 2,
+     "14": 2,
+     "3": 2,
+     "10": 10,
+     "0": 3,
+     "17": 23,
+     "20": 15,
+     "15": 9,
+     "19": 1,
+     "5": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {
+     "universal": 1
+    },
+    "ends": {
+     "JointsArea Pipe (3)": {
+      "joined": 448,
+      "open": 1
+     },
+     "JointsArea Pipe (6)": {
+      "joined": 449
+     }
+    }
+   }
+  },
+  "SC_NanopipeManualValve": {},
+  "SC_SolarPanel": {
+   "normal": {
+    "instances": 342,
+    "blueprints": 75,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "16": 63,
+     "21": 21,
+     "8": 96,
+     "4": 96,
+     "13": 48,
+     "3": 8,
+     "6": 6,
+     "10": 1,
+     "11": 1,
+     "22": 1,
+     "23": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 202,
+      "free": 100,
+      "contact": 38,
+      "covered": 2
+     },
+     "Port P (1)": {
+      "cable": 210,
+      "free": 88,
+      "contact": 38,
+      "covered": 6
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 100,
+    "blueprints": 63,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "16": 46,
+     "21": 2,
+     "8": 48,
+     "6": 2,
+     "3": 2
+    },
+    "ports": {
+     "Port P": {
+      "cable": 76,
+      "contact": 22,
+      "free": 2
+     },
+     "Port P (1)": {
+      "cable": 52,
+      "contact": 22,
+      "free": 22,
+      "covered": 4
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_PipeCross": {
+   "normal": {
+    "instances": 2,
+    "blueprints": 2,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "14": 1,
+     "15": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe (2)": {
+      "joined": 2
+     },
+     "JointsArea Pipe (3)": {
+      "joined": 2
+     },
+     "JointsArea Pipe": {
+      "joined": 2
+     },
+     "JointsArea Pipe (1)": {
+      "joined": 2
+     }
+    }
+   }
+  },
+  "SC_SmallRechargeableBattery": {
+   "normal": {
+    "instances": 46,
+    "blueprints": 18,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "21": 11,
+     "3": 5,
+     "19": 1,
+     "22": 1,
+     "16": 25,
+     "6": 3
+    },
+    "ports": {
+     "Port P": {
+      "cable": 43,
+      "contact": 3
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 7,
+    "blueprints": 5,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "3": 2,
+     "6": 2,
+     "21": 1,
+     "19": 1,
+     "16": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 5,
+      "contact": 2
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_NanopipeCross": {},
+  "SC_PipeDecoupling": {},
+  "SC_PipeElectricValve": {
+   "normal": {
+    "instances": 2,
+    "blueprints": 2,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "21": 1,
+     "8": 1
+    },
+    "ports": {
+     "Port A": {
+      "cable": 2
+     },
+     "Port P": {
+      "cable": 2
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe (6)": {
+      "joined": 2
+     },
+     "JointsArea Pipe (3)": {
+      "joined": 2
+     }
+    }
+   }
+  },
+  "SC_PipeThreeway": {
+   "normal": {
+    "instances": 526,
+    "blueprints": 63,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "20": 48,
+     "1": 96,
+     "17": 48,
+     "6": 48,
+     "2": 50,
+     "7": 97,
+     "8": 49,
+     "13": 1,
+     "21": 2,
+     "15": 1,
+     "3": 1,
+     "4": 6,
+     "18": 40,
+     "19": 10,
+     "10": 16,
+     "5": 9,
+     "23": 1,
+     "9": 2,
+     "0": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {
+     "universal": 1
+    },
+    "ends": {
+     "JointsArea Pipe (2)": {
+      "joined": 526
+     },
+     "JointsArea Pipe (4)": {
+      "joined": 525,
+      "open": 1
+     },
+     "JointsArea Pipe (5)": {
+      "joined": 526
+     }
+    }
+   },
+   "twin": {
+    "instances": 12,
+    "blueprints": 12,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "13": 1,
+     "21": 1,
+     "11": 8,
+     "8": 1,
+     "9": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe (2)": {
+      "joined": 12
+     },
+     "JointsArea Pipe (4)": {
+      "joined": 12
+     },
+     "JointsArea Pipe (5)": {
+      "joined": 12
+     }
+    }
+   }
+  },
+  "SC_PipeHalf": {
+   "normal": {
+    "instances": 194,
+    "blueprints": 63,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "12": 48,
+     "23": 4,
+     "1": 3,
+     "4": 4,
+     "15": 6,
+     "3": 19,
+     "21": 34,
+     "6": 10,
+     "14": 2,
+     "10": 11,
+     "22": 9,
+     "11": 10,
+     "7": 1,
+     "2": 1,
+     "0": 9,
+     "9": 10,
+     "5": 8,
+     "16": 1,
+     "8": 3,
+     "18": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe (2)": {
+      "joined": 194
+     },
+     "JointsArea Pipe (3)": {
+      "joined": 194
+     }
+    }
+   }
+  },
+  "SC_NanopipeQuarter": {},
+  "SC_AutohemisphereSolarPanel": {
+   "normal": {
+    "instances": 63,
+    "blueprints": 24,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "16": 20,
+     "3": 8,
+     "6": 29,
+     "19": 1,
+     "23": 1,
+     "21": 4
+    },
+    "ports": {
+     "Port P": {
+      "cable": 63
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 32,
+    "blueprints": 21,
+    "overlap_instances": 1,
+    "overlap_with": {
+     "SC_FrameHalfC": 1
+    },
+    "cable_in_footprint": 0,
+    "rots": {
+     "16": 10,
+     "6": 13,
+     "3": 4,
+     "21": 3,
+     "18": 1,
+     "22": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 31,
+      "contact": 1
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {
+     "power": 1
+    },
+    "ends": {}
+   }
+  },
+  "SC_NanopipeCorner": {},
+  "SC_SmallDisposableBattery": {
+   "normal": {
+    "instances": 526,
+    "blueprints": 224,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "16": 172,
+     "21": 267,
+     "17": 1,
+     "19": 1,
+     "12": 1,
+     "5": 4,
+     "9": 4,
+     "8": 4,
+     "3": 56,
+     "6": 16
+    },
+    "ports": {
+     "Port P": {
+      "cable": 524,
+      "free": 2
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 333,
+    "blueprints": 162,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "21": 165,
+     "16": 162,
+     "12": 1,
+     "0": 4,
+     "3": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 333
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_PipeMeter": {
+   "normal": {
+    "instances": 155,
+    "blueprints": 58,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "4": 48,
+     "16": 48,
+     "6": 48,
+     "21": 2,
+     "22": 8,
+     "0": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe (2)": {
+      "joined": 155
+     },
+     "JointsArea Pipe (4)": {
+      "joined": 155
+     }
+    }
+   }
+  },
+  "SC_LargeRechargeableBattery": {},
+  "SC_PowerUsageMeter": {
+   "normal": {
+    "instances": 47,
+    "blueprints": 24,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "21": 10,
+     "18": 3,
+     "9": 4,
+     "16": 1,
+     "6": 1,
+     "11": 24,
+     "8": 3,
+     "10": 1
+    },
+    "ports": {
+     "Port X": {
+      "free": 11,
+      "cable_not_open": 5,
+      "cable": 31
+     },
+     "Port P": {
+      "cable": 12,
+      "contact": 35
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {
+     "data": 2
+    },
+    "ends": {}
+   },
+   "twin": {
+    "instances": 5,
+    "blueprints": 5,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "19": 3,
+     "16": 2
+    },
+    "ports": {
+     "Port X": {
+      "free": 5
+     },
+     "Port P": {
+      "cable": 5
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_NanopipeFull": {},
+  "SC_DynamoBox": {
+   "normal": {
+    "instances": 1,
+    "blueprints": 1,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "6": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 1
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 4,
+    "blueprints": 4,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "19": 3,
+     "5": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 4
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_MediumDisposableBattery": {
+   "normal": {
+    "instances": 301,
+    "blueprints": 72,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "23": 3,
+     "19": 3,
+     "4": 2,
+     "0": 4,
+     "3": 60,
+     "5": 2,
+     "6": 58,
+     "15": 48,
+     "14": 48,
+     "21": 24,
+     "16": 21,
+     "7": 28
+    },
+    "ports": {
+     "Port P": {
+      "cable": 301
+     },
+     "Port X": {
+      "free": 161,
+      "cable": 50,
+      "covered": 4,
+      "cable_not_open": 86
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 100,
+    "blueprints": 51,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "18": 3,
+     "22": 3,
+     "3": 18,
+     "5": 2,
+     "1": 2,
+     "6": 10,
+     "16": 17,
+     "21": 16,
+     "2": 29
+    },
+    "ports": {
+     "Port P": {
+      "cable": 99,
+      "free": 1
+     },
+     "Port X": {
+      "cable": 49,
+      "free": 18,
+      "covered": 4,
+      "cable_not_open": 29
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_LargeDisposableBattery": {
+   "normal": {
+    "instances": 419,
+    "blueprints": 219,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "13": 6,
+     "16": 209,
+     "21": 200,
+     "14": 1,
+     "6": 2,
+     "3": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 419
+     },
+     "Port X": {
+      "covered": 54,
+      "free": 50,
+      "cable": 11,
+      "cable_not_open": 304
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 21,
+    "blueprints": 21,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "5": 3,
+     "13": 5,
+     "14": 1,
+     "3": 3,
+     "21": 8,
+     "6": 1
+    },
+    "ports": {
+     "Port P": {
+      "cable": 21
+     },
+     "Port X": {
+      "cable": 18,
+      "free": 3
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_PipeManualValve": {
+   "normal": {
+    "instances": 99,
+    "blueprints": 49,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "3": 48,
+     "6": 48,
+     "9": 1,
+     "17": 1,
+     "20": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe (4)": {
+      "joined": 99
+     },
+     "JointsArea Pipe (2)": {
+      "joined": 98,
+      "open": 1
+     }
+    }
+   }
+  },
+  "SC_PipeFull": {
+   "normal": {
+    "instances": 312,
+    "blueprints": 62,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "16": 107,
+     "13": 48,
+     "12": 19,
+     "14": 3,
+     "15": 3,
+     "6": 25,
+     "22": 3,
+     "5": 3,
+     "0": 2,
+     "20": 1,
+     "23": 17,
+     "7": 5,
+     "17": 32,
+     "1": 26,
+     "21": 3,
+     "19": 6,
+     "2": 4,
+     "8": 2,
+     "10": 3
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {
+     "data": 1
+    },
+    "ends": {
+     "JointsArea Pipe (2)": {
+      "joined": 312
+     },
+     "JointsArea Pipe (3)": {
+      "joined": 312
+     }
+    }
+   }
+  },
+  "SC_PipeCorner": {
+   "normal": {
+    "instances": 857,
+    "blueprints": 63,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "13": 62,
+     "20": 51,
+     "14": 67,
+     "17": 96,
+     "7": 49,
+     "10": 61,
+     "23": 146,
+     "2": 98,
+     "11": 72,
+     "16": 4,
+     "6": 2,
+     "22": 2,
+     "12": 5,
+     "21": 12,
+     "19": 19,
+     "4": 2,
+     "1": 11,
+     "9": 37,
+     "5": 7,
+     "3": 28,
+     "18": 2,
+     "0": 2,
+     "8": 5,
+     "15": 17
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe": {
+      "joined": 857
+     },
+     "JointsArea Pipe (1)": {
+      "joined": 857
+     }
+    }
+   },
+   "twin": {
+    "instances": 49,
+    "blueprints": 13,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "13": 9,
+     "20": 1,
+     "4": 1,
+     "1": 1,
+     "12": 2,
+     "23": 1,
+     "3": 2,
+     "0": 2,
+     "7": 1,
+     "5": 1,
+     "10": 4,
+     "15": 3,
+     "6": 1,
+     "21": 1,
+     "9": 16,
+     "11": 2,
+     "14": 1
+    },
+    "ports": {},
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {
+     "JointsArea Pipe": {
+      "joined": 49
+     },
+     "JointsArea Pipe (1)": {
+      "joined": 49
+     }
+    }
+   }
+  },
+  "SC_MediumRechargeableBattery": {
+   "normal": {
+    "instances": 159,
+    "blueprints": 73,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "19": 3,
+     "23": 3,
+     "7": 8,
+     "3": 40,
+     "4": 5,
+     "13": 48,
+     "21": 11,
+     "18": 1,
+     "16": 23,
+     "6": 15,
+     "1": 2
+    },
+    "ports": {
+     "Port P": {
+      "cable": 110,
+      "contact": 49
+     },
+     "Port X": {
+      "free": 51,
+      "cable": 43,
+      "cable_not_open": 11,
+      "contact": 4,
+      "contact_wrong:power/both": 48,
+      "covered": 2
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   },
+   "twin": {
+    "instances": 126,
+    "blueprints": 70,
+    "overlap_instances": 0,
+    "overlap_with": {},
+    "cable_in_footprint": 0,
+    "rots": {
+     "18": 3,
+     "22": 3,
+     "6": 38,
+     "1": 5,
+     "13": 48,
+     "16": 2,
+     "23": 1,
+     "3": 8,
+     "21": 16,
+     "4": 2
+    },
+    "ports": {
+     "Port P": {
+      "cable": 77,
+      "contact": 49
+     },
+     "Port X": {
+      "free": 34,
+      "cable": 38,
+      "cable_not_open": 6,
+      "contact_wrong:power/both": 48
+     }
+    },
+    "misses": {},
+    "foreign_port_into_face": {},
+    "ends": {}
+   }
+  },
+  "SC_NanopipeElectricValve": {}
+ },
+ "structs": {
+  "SC_DynamoBox": {
+   "EPC_SpaceshipComponent": 5
+  },
+  "SC_PowerGenerationMeter": {
+   "EPC_SpaceshipComponent": 67
+  },
+  "SC_PowerUsageMeter": {
+   "EPC_SpaceshipComponent": 52
+  },
+  "SC_SolarPanel": {
+   "EPC_SpaceshipComponent": 442
+  },
+  "SC_AutohemisphereSolarPanel": {
+   "EPC_SpaceshipComponent": 95
+  },
+  "SC_SmallRechargeableBattery": {
+   "EPC_SpaceshipComponent": 53
+  },
+  "SC_SmallDisposableBattery": {
+   "EPC_SpaceshipComponent": 859
+  },
+  "SC_MediumRechargeableBattery": {
+   "EPC_SpaceshipComponent": 285
+  },
+  "SC_MediumDisposableBattery": {
+   "EPC_SpaceshipComponent": 401
+  },
+  "SC_LargeDisposableBattery": {
+   "EPC_SpaceshipComponent": 440
+  },
+  "SC_PowerRouter": {
+   "EPC_SpaceshipComponent": 1757
+  },
+  "SC_LargePowerRouter": {
+   "EPC_SpaceshipComponent": 584
+  },
+  "SC_PowerBlocker": {
+   "EPC_SpaceshipComponent": 149
+  },
+  "SC_FuseBox": {
+   "EPC_SCFuseBox": 47
+  },
+  "SC_PipeCorner": {
+   "EPC_SpaceshipComponent": 906
+  },
+  "SC_PipeQuarter": {
+   "EPC_SpaceshipComponent": 449
+  },
+  "SC_PipeThreeway": {
+   "EPC_SpaceshipComponent": 538
+  },
+  "SC_PipeHalf": {
+   "EPC_SpaceshipComponent": 194
+  },
+  "SC_PipeFull": {
+   "EPC_SpaceshipComponent": 312
+  },
+  "SC_PipeMeter": {
+   "EPC_SpaceshipComponent": 155
+  },
+  "SC_PipeManualValve": {
+   "EPC_SCPipeManualValve": 99
+  },
+  "SC_PipeCross": {
+   "EPC_SpaceshipComponent": 2
+  },
+  "SC_PipeElectricValve": {
+   "EPC_SpaceshipComponent": 2
+  }
+ },
+ "settings": {
+  "SC_DynamoBox": {
+   "_col": {
+    "3": 3,
+    "0": 2
+   }
+  },
+  "SC_PowerGenerationMeter": {
+   "_col": {
+    "2": 17,
+    "15": 10,
+    "8": 9,
+    "11": 9,
+    "9": 9,
+    "0": 7,
+    "3": 6
+   }
+  },
+  "SC_PowerUsageMeter": {
+   "_col": {
+    "8": 10,
+    "11": 10,
+    "9": 10,
+    "3": 9,
+    "2": 7,
+    "0": 6
+   }
+  },
+  "SC_SolarPanel": {
+   "_col": {
+    "0": 318,
+    "15": 72,
+    "2": 32,
+    "3": 12,
+    "1": 4,
+    "6": 4
+   }
+  },
+  "SC_AutohemisphereSolarPanel": {
+   "_col": {
+    "9": 34,
+    "2": 23,
+    "0": 17,
+    "3": 12,
+    "15": 5,
+    "1": 4
+   }
+  },
+  "SC_SmallRechargeableBattery": {
+   "_col": {
+    "9": 30,
+    "0": 11,
+    "3": 9,
+    "7": 3
+   }
+  },
+  "SC_SmallDisposableBattery": {
+   "_col": {
+    "0": 800,
+    "5": 24,
+    "2": 19,
+    "6": 8,
+    "7": 8
+   }
+  },
+  "SC_MediumRechargeableBattery": {
+   "_col": {
+    "0": 142,
+    "2": 71,
+    "9": 52,
+    "6": 5,
+    "8": 4,
+    "12": 4,
+    "7": 4,
+    "10": 3
+   }
+  },
+  "SC_MediumDisposableBattery": {
+   "_col": {
+    "0": 295,
+    "2": 84,
+    "12": 8,
+    "6": 6,
+    "11": 4,
+    "8": 4
+   }
+  },
+  "SC_LargeDisposableBattery": {
+   "_col": {
+    "0": 307,
+    "12": 49,
+    "8": 49,
+    "2": 31,
+    "3": 3,
+    "7": 1
+   }
+  },
+  "SC_PowerRouter": {
+   "_col": {
+    "0": 1180,
+    "10": 122,
+    "9": 93,
+    "2": 82,
+    "8": 71,
+    "11": 69,
+    "12": 51,
+    "15": 31,
+    "3": 29,
+    "5": 15,
+    "7": 6,
+    "14": 4
+   }
+  },
+  "SC_LargePowerRouter": {
+   "_col": {
+    "0": 309,
+    "2": 67,
+    "8": 59,
+    "10": 52,
+    "12": 49,
+    "9": 19,
+    "3": 10,
+    "11": 10,
+    "7": 3,
+    "5": 3,
+    "6": 2,
+    "15": 1
+   }
+  },
+  "SC_PowerBlocker": {
+   "_col": {
+    "2": 71,
+    "0": 38,
+    "9": 12,
+    "8": 10,
+    "11": 10,
+    "3": 6,
+    "7": 1,
+    "10": 1
+   }
+  },
+  "SC_FuseBox": {
+   "_threshold": {
+    "0.1505": 47
+   },
+   "_col": {
+    "8": 11,
+    "11": 10,
+    "9": 10,
+    "3": 6,
+    "2": 5,
+    "0": 3,
+    "6": 1,
+    "12": 1
+   }
+  },
+  "SC_PipeCorner": {
+   "_col": {
+    "200": 700,
+    "15": 160,
+    "13": 36,
+    "2": 10
+   }
+  },
+  "SC_PipeQuarter": {
+   "_col": {
+    "200": 264,
+    "15": 148,
+    "13": 27,
+    "2": 10
+   }
+  },
+  "SC_PipeThreeway": {
+   "_col": {
+    "200": 439,
+    "15": 86,
+    "13": 9,
+    "2": 4
+   }
+  },
+  "SC_PipeHalf": {
+   "_col": {
+    "15": 88,
+    "200": 75,
+    "13": 27,
+    "2": 4
+   }
+  },
+  "SC_PipeFull": {
+   "_col": {
+    "200": 177,
+    "15": 92,
+    "13": 36,
+    "2": 7
+   }
+  },
+  "SC_PipeMeter": {
+   "_col": {
+    "200": 146,
+    "15": 9
+   }
+  },
+  "SC_PipeManualValve": {
+   "_actionableValue": {
+    "1.0": 96,
+    "0.8015": 1,
+    "0.371": 1,
+    "0.9345": 1
+   },
+   "_col": {
+    "200": 99
+   }
+  },
+  "SC_PipeCross": {
+   "_col": {
+    "200": 1,
+    "15": 1
+   }
+  },
+  "SC_PipeElectricValve": {
+   "_col": {
+    "200": 2
+   }
+  }
+ }
+}

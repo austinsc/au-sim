@@ -1,0 +1,6063 @@
+{
+ "button": {
+  "name": "Button",
+  "prefab": "SC_Button",
+  "hash": "d1ec4c37afc7b411",
+  "mirrored_hash": "3b75b272a3dc58dd",
+  "struct": "EPC_SCButton+Blueprint+BlueprintData",
+  "struct_hash": "be022eddda7b51c4",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs 1 when pressed, 0 when not pressed."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_buttonPressed": {
+    "default": 0,
+    "meaning": "pressed state (bool); momentary, the corpus always has 0",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "instances_normal": 2,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 1
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "2/2"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports (only 2 instances; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCButton",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "small_button": {
+  "name": "Small Button",
+  "prefab": "SC_SmallButton",
+  "hash": "cc59bb69d663b9ce",
+  "mirrored_hash": "7597e920e4b7273b",
+  "struct": "EPC_SCButton+Blueprint+BlueprintData",
+  "struct_hash": "be022eddda7b51c4",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs 1 when pressed, 0 when not pressed."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_buttonPressed": {
+    "default": 0,
+    "meaning": "pressed state (bool); momentary, the corpus always has 0",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 79,
+   "instances_normal": 67,
+   "instances_mirrored": 12,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 27
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "79/79"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCButton",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "switch": {
+  "name": "Switch",
+  "prefab": "SC_Switch",
+  "hash": "4ad7890fdcdffb61",
+  "mirrored_hash": "a8b032869a7b172a",
+  "struct": "EPC_SCSwitch+Blueprint+BlueprintData",
+  "struct_hash": "7e3f5336e954442a",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs 1 when on (I), 0 when off (O)."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_buttonPressed": {
+    "default": 0,
+    "meaning": "switch state (bool): 1 = on (I / up) -> output 1, 0 = off -> output 0",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 1,
+   "instances_normal": 1,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 1
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "1/1"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports (only 1 instance; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCSwitch",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "small_switch": {
+  "name": "Small Switch",
+  "prefab": "SC_SmallSwitch",
+  "hash": "ef9401b5ea85ed05",
+  "mirrored_hash": "ef50ec252fb4c816",
+  "struct": "EPC_SCSwitch+Blueprint+BlueprintData",
+  "struct_hash": "7e3f5336e954442a",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs 1 when on (I), 0 when off (O)."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_buttonPressed": {
+    "default": 0,
+    "meaning": "switch state (bool): 1 = on (I / up) -> output 1, 0 = off -> output 0",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 202,
+   "instances_normal": 95,
+   "instances_mirrored": 107,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 88
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "199/202"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCSwitch",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "stick_switch": {
+  "name": "Stick Switch",
+  "prefab": "SC_StickSwitch",
+  "hash": "ad14720d269dc716",
+  "mirrored_hash": "93b27a3f0d198fac",
+  "struct": "EPC_SCSwitch+Blueprint+BlueprintData",
+  "struct_hash": "7e3f5336e954442a",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs 1 when up, 0 when down."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_buttonPressed": {
+    "default": 0,
+    "meaning": "switch state (bool): 1 = on (I / up) -> output 1, 0 = off -> output 0",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 31,
+   "instances_normal": 26,
+   "instances_mirrored": 5,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 28
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "31/31"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCSwitch",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "tnt_controller": {
+  "name": "TNT Controller",
+  "prefab": "SC_TNTController",
+  "hash": "3b913e3ae490f5f0",
+  "mirrored_hash": null,
+  "placeable": false,
+  "struct": null,
+  "size": null,
+  "ports": {},
+  "settings": {},
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0
+  },
+  "confidence": "low",
+  "notes": "No \"SC_TNTController\" prefab exists in the game assets (globalgamemanagers.assets lists 571 SC_* GameObjects incl. twins; none for this key), so the part cannot be placed; substitute it. Localization marks it as a demo-only part (\"Thanks for playing the Demo!\")."
+ },
+ "lever_vertical": {
+  "name": "Lever Vertical",
+  "prefab": "SC_LeverVertical",
+  "hash": "ee3550303ed83c4f",
+  "mirrored_hash": "3afca86204029dc0",
+  "struct": "EPC_SCLever+Blueprint+BlueprintData",
+  "struct_hash": "733a7f52af5ab157",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs the signal for the vertical axis."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverValue": {
+    "default": 0.0,
+    "meaning": "lever position (f32) = output. 0..1 in 0-to-1 mode; -1..1 in -1-to-1 mode, where the output has a +-0.025 dead zone: out = sign(v)*max(0,(|v|-0.025)/0.975) (SCTick_DoubleLever)",
+    "offset": 48,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 56,
+    "bytes": 1
+   },
+   "_toggle": {
+    "default": 0,
+    "meaning": "mode button (bool): 0 = 0-to-1 mode, 1 = -1-to-1 mode (ActionableDoubleLever clamps to [-1,1] when set). Corpus: 243 of 375 saved levers are in mode 1, and all 11 negative _leverValue records are in mode 1",
+    "offset": 57,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 58,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 5,
+   "instances_normal": 3,
+   "instances_mirrored": 2,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 4
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "5/5"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCLever",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "lever_vertical_half": {
+  "name": "Lever Vertical Small",
+  "prefab": "SC_LeverVerticalHalf",
+  "hash": "7f362ee3f29c524c",
+  "mirrored_hash": "c11c23b3892bbccc",
+  "struct": "EPC_SCLever+Blueprint+BlueprintData",
+  "struct_hash": "733a7f52af5ab157",
+  "size": [
+   2,
+   4,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs the signal for the vertical axis."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverValue": {
+    "default": 0.0,
+    "meaning": "lever position (f32) = output. 0..1 in 0-to-1 mode; -1..1 in -1-to-1 mode, where the output has a +-0.025 dead zone: out = sign(v)*max(0,(|v|-0.025)/0.975) (SCTick_DoubleLever)",
+    "offset": 48,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 56,
+    "bytes": 1
+   },
+   "_toggle": {
+    "default": 0,
+    "meaning": "mode button (bool): 0 = 0-to-1 mode, 1 = -1-to-1 mode (ActionableDoubleLever clamps to [-1,1] when set). Corpus: 243 of 375 saved levers are in mode 1, and all 11 negative _leverValue records are in mode 1",
+    "offset": 57,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 58,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 370,
+   "instances_normal": 195,
+   "instances_mirrored": 175,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 351
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "369/370"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCLever",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "lever_horizontal": {
+  "name": "Lever Horizontal",
+  "prefab": "SC_LeverHorizontal",
+  "hash": "db896df7cfa04c9a",
+  "mirrored_hash": "f25ec552878b125d",
+  "struct": "EPC_SCLever+Blueprint+BlueprintData",
+  "struct_hash": "733a7f52af5ab157",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs the signal for the vertical axis."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverValue": {
+    "default": 0.0,
+    "meaning": "lever position (f32) = output. 0..1 in 0-to-1 mode; -1..1 in -1-to-1 mode, where the output has a +-0.025 dead zone: out = sign(v)*max(0,(|v|-0.025)/0.975) (SCTick_DoubleLever)",
+    "offset": 48,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 56,
+    "bytes": 1
+   },
+   "_toggle": {
+    "default": 0,
+    "meaning": "mode button (bool): 0 = 0-to-1 mode, 1 = -1-to-1 mode (ActionableDoubleLever clamps to [-1,1] when set). Corpus: 243 of 375 saved levers are in mode 1, and all 11 negative _leverValue records are in mode 1",
+    "offset": 57,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 58,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "instances_normal": 0,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/1",
+   "ports_confirmed_normal": null,
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "0/0"
+  },
+  "confidence": "medium",
+  "notes": "no corpus instances: prefab-derived only (the same derivation reproduces all 43 partdb logic parts and every corpus-checked part here); same family as LeverVertical (high confidence); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCLever",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "small_knob": {
+  "name": "Small Knob",
+  "prefab": "SC_SmallKnob",
+  "hash": "f9013998ee69f12e",
+  "mirrored_hash": "e3fedc33e4936896",
+  "struct": "EPC_SCKnob+Blueprint+BlueprintData",
+  "struct_hash": "9b91c802de1868a5",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs signal in the range from 0 to 1."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_knobValue": {
+    "default": 0.0,
+    "meaning": "knob position = output, continuous 0..1 (prefab knob default 0, no steps)",
+    "offset": 48,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 56,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 57,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 281,
+   "instances_normal": 189,
+   "instances_mirrored": 92,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 248
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "281/281"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCKnob",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "joystick_horizontal": {
+  "name": "Joystick Horizontal",
+  "prefab": "SC_JoystickHorizontal",
+  "hash": "cc656a9f9d2e1460",
+  "mirrored_hash": "4b828ae5d4923582",
+  "struct": "EPC_SCJoystick+Blueprint+BlueprintData",
+  "struct_hash": "aa74eeb1b74ac75f",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "horizontal": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs the signal for the horizontal axis: -1 = left, 0 = middle, 1 = right."
+   }
+  },
+  "mirrored_ports": {
+   "horizontal": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverActionableValue": {
+    "default": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "meaning": "stick deflection, float[4] (16 B); all 0 = centred (every corpus record is 0)",
+    "offset": 48,
+    "bytes": 16
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 68,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 69,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "instances_normal": 2,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 2
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "2/2"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports (only 2 instances; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCJoystick",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "joystick_vertical": {
+  "name": "Joystick Vertical",
+  "prefab": "SC_JoystickVertical",
+  "hash": "f00ddb269847f8c5",
+  "mirrored_hash": "c9437348bda4ef20",
+  "struct": "EPC_SCJoystick+Blueprint+BlueprintData",
+  "struct_hash": "aa74eeb1b74ac75f",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "vertical": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs the signal for the vertical axis: -1 = down, 0 = middle, 1 = up."
+   }
+  },
+  "mirrored_ports": {
+   "vertical": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverActionableValue": {
+    "default": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "meaning": "stick deflection, float[4] (16 B); all 0 = centred (every corpus record is 0)",
+    "offset": 48,
+    "bytes": 16
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 68,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 69,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 38,
+   "instances_normal": 18,
+   "instances_mirrored": 20,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 34
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "38/38"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCJoystick",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "joystick_2d": {
+  "name": "Joystick 2D",
+  "prefab": "SC_Joystick2D",
+  "hash": "839003c63b49b78e",
+  "mirrored_hash": "4197633d7e98b98a",
+  "struct": "EPC_SCJoystick+Blueprint+BlueprintData",
+  "struct_hash": "aa74eeb1b74ac75f",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "horizontal": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs the signal for the horizontal axis: -1 = left, 0 = middle, 1 = right."
+   },
+   "vertical": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_out",
+    "node": "Port Y",
+    "game_text": "Outputs the signal for the vertical axis: -1 = down, 0 = middle, 1 = up."
+   }
+  },
+  "mirrored_ports": {
+   "horizontal": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "vertical": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverActionableValue": {
+    "default": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "meaning": "stick deflection, float[4] (16 B); all 0 = centred (every corpus record is 0)",
+    "offset": 48,
+    "bytes": 16
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 68,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 69,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 1,
+   "instances_normal": 1,
+   "instances_mirrored": 0,
+   "ports_confirmed": "2/2",
+   "ports_confirmed_normal": "2/2",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 2
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "1/1"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 2/2 ports (only 1 instance; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCJoystick",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "joystick_3d": {
+  "name": "Joystick 3D",
+  "prefab": "SC_Joystick3D",
+  "hash": "8db791dc05d52c81",
+  "mirrored_hash": "ec1d6c9e92ae72b0",
+  "struct": "EPC_SCJoystick+Blueprint+BlueprintData",
+  "struct_hash": "aa74eeb1b74ac75f",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "yaw": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs the signal for the yaw axis: -1 = left, 0 = middle, 1 = right."
+   },
+   "pitch": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_out",
+    "node": "Port Y",
+    "game_text": "Outputs the signal for the pitch axis: -1 = down, 0 = middle, 1 = up."
+   },
+   "roll": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 2,
+    "game_type": "data_out",
+    "node": "Port Z",
+    "game_text": "Outputs the signal for the roll axis: -1 = left, 0 = middle, 1 = right."
+   }
+  },
+  "mirrored_ports": {
+   "yaw": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "pitch": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "roll": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverActionableValue": {
+    "default": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "meaning": "stick deflection, float[4] (16 B); all 0 = centred (every corpus record is 0)",
+    "offset": 48,
+    "bytes": 16
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 68,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 69,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 220,
+   "instances_normal": 39,
+   "instances_mirrored": 181,
+   "ports_confirmed": "3/3",
+   "ports_confirmed_normal": "3/3",
+   "ports_confirmed_mirrored": "3/3",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 624
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "218/220"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 3/3 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCJoystick",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "arc_90_meter": {
+  "name": "Arc-90 Meter",
+  "prefab": "SC_Arc90Meter",
+  "hash": "921c49d053497561",
+  "mirrored_hash": "528d5c354d535b59",
+  "struct": "EPC_SCAnalogMeter+Blueprint+BlueprintData",
+  "struct_hash": "ce486cb4b7aebeca",
+  "size": [
+   4,
+   1,
+   4
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input signal to be shown on the display."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_rangeMin": {
+    "default": 0.0,
+    "meaning": "value shown at the scale minimum (f32; Text3DMin label)",
+    "offset": 52,
+    "bytes": 4
+   },
+   "_rangeMax": {
+    "default": 1.0,
+    "meaning": "value shown at the scale maximum (f32; Text3DMax label)",
+    "offset": 56,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 60,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 61,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 19,
+   "instances_normal": 19,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 10
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "19/19"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCAnalogMeter",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "arc_270_meter": {
+  "name": "Arc-270 Meter",
+  "prefab": "SC_Arc270Meter",
+  "hash": "18ff1506c1e745fc",
+  "mirrored_hash": "9a3b2fc3f1068b79",
+  "struct": "EPC_SCAnalogMeter+Blueprint+BlueprintData",
+  "struct_hash": "ce486cb4b7aebeca",
+  "size": [
+   4,
+   1,
+   4
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input signal to be shown on the display."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_rangeMin": {
+    "default": 0.0,
+    "meaning": "value shown at the scale minimum (f32; Text3DMin label)",
+    "offset": 52,
+    "bytes": 4
+   },
+   "_rangeMax": {
+    "default": 1.0,
+    "meaning": "value shown at the scale maximum (f32; Text3DMax label)",
+    "offset": 56,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 60,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 61,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 14,
+   "instances_normal": 13,
+   "instances_mirrored": 1,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 13
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "14/14"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCAnalogMeter",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "horizontal_meter": {
+  "name": "Horizontal Meter",
+  "prefab": "SC_HorizontalMeter",
+  "hash": "4fa163cb085e147a",
+  "mirrored_hash": "d58c877226390858",
+  "struct": "EPC_SCAnalogMeter+Blueprint+BlueprintData",
+  "struct_hash": "ce486cb4b7aebeca",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input signal to be shown on the display."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "face": [
+     3,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_rangeMin": {
+    "default": 0.0,
+    "meaning": "value shown at the scale minimum (f32; Text3DMin label)",
+    "offset": 52,
+    "bytes": 4
+   },
+   "_rangeMax": {
+    "default": 1.0,
+    "meaning": "value shown at the scale maximum (f32; Text3DMax label)",
+    "offset": 56,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 60,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 61,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "instances_normal": 0,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/1",
+   "ports_confirmed_normal": null,
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "0/0"
+  },
+  "confidence": "medium",
+  "notes": "no corpus instances: prefab-derived only (the same derivation reproduces all 43 partdb logic parts and every corpus-checked part here); same family as VerticalMeter (high confidence); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCAnalogMeter",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ]
+  ]
+ },
+ "vertical_meter": {
+  "name": "Vertical Meter",
+  "prefab": "SC_VerticalMeter",
+  "hash": "a5ac3161775ab1ce",
+  "mirrored_hash": "22ab0a908863bd6c",
+  "struct": "EPC_SCAnalogMeter+Blueprint+BlueprintData",
+  "struct_hash": "ce486cb4b7aebeca",
+  "size": [
+   2,
+   1,
+   4
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input signal to be shown on the display."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_rangeMin": {
+    "default": 0.0,
+    "meaning": "value shown at the scale minimum (f32; Text3DMin label)",
+    "offset": 52,
+    "bytes": 4
+   },
+   "_rangeMax": {
+    "default": 1.0,
+    "meaning": "value shown at the scale maximum (f32; Text3DMax label)",
+    "offset": 56,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 60,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 61,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 71,
+   "instances_normal": 52,
+   "instances_mirrored": 19,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 5
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "71/71"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCAnalogMeter",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "beeper": {
+  "name": "Beeper",
+  "prefab": "SC_Beeper",
+  "hash": "789d8e6a178d587f",
+  "mirrored_hash": "43106a3378d93aa0",
+  "struct": "EPC_SCBeeper+Blueprint+BlueprintData",
+  "struct_hash": "b3ce975cd1fcbe15",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port X",
+    "game_text": "Input signal from 0 (mute) to 1 (static beep), with beep period increasing with the value."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_knobValue": {
+    "default": 0.5,
+    "meaning": "volume knob (f32 0..1; prefab default 0.5, corpus 3/3 = 0.5)",
+    "offset": 20,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 24,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 3,
+   "instances_normal": 3,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 3
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "3/3"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; _pitch (byte @25, pitch knob 0..10, 5 = default) exists in the current game build (PDB) but is not in schemas.json (older saves); omit it and the game keeps its default.",
+  "placeable": true,
+  "root_class": "EPC_SCBeeper",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "speaker": {
+  "name": "Speaker",
+  "prefab": "SC_Speaker",
+  "hash": "e4d1b78e7ca68071",
+  "mirrored_hash": "62941a672d2c1bb3",
+  "struct": "EPC_SCSpeaker+Blueprint+BlueprintData",
+  "struct_hash": "1bda3e07f3c8d18f",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port X",
+    "game_text": "<b>Play once mode</b>: Plays the sound once when the signal changes from 0 to 1.\n<b>Repeat mode</b>: Continuously repeats the sound while the signal is greater than or equal to 0.5."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_knobValue": {
+    "default": 0.5,
+    "meaning": "volume knob (f32 0..1; prefab default 0.5)",
+    "offset": 20,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 24,
+    "bytes": 1
+   },
+   "_sound": {
+    "default": 0,
+    "meaning": "sound index 0..22 (Localization SpeakerSound_0.._22: Access 1..5, Alert 1..4, Denied 1..3, Notification 1..5, Pulse 1..6)",
+    "offset": 25,
+    "bytes": 1
+   },
+   "_inputMode": {
+    "default": 0,
+    "meaning": "mode switch (bool): 0 = Play once (plays on a 0->1 edge of the input), 1 = Repeat (re-plays while input >= 0.5); from SCTick_Speaker+ActiveJob, where a mode value < 0.5 selects the edge trigger",
+    "offset": 26,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "instances_normal": 0,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/1",
+   "ports_confirmed_normal": null,
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "0/0"
+  },
+  "confidence": "medium",
+  "notes": "no corpus instances: prefab-derived only (the same derivation reproduces all 43 partdb logic parts and every corpus-checked part here); same family as Beeper (high confidence); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCSpeaker",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "colored_light_controller": {
+  "name": "Colored Light Controller",
+  "prefab": "SC_ColoredLightController",
+  "hash": "4b60d7c61519c79a",
+  "mirrored_hash": "673c435a75fd43e8",
+  "struct": "EPC_SCColoredLightController+Blueprint+BlueprintData",
+  "struct_hash": "cfcec9715c1da831",
+  "size": [
+   3,
+   1,
+   2
+  ],
+  "ports": {
+   "red": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Data input value for the red channel, ranging from 0 to 1."
+   },
+   "green": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Data input value for the green channel, ranging from 0 to 1."
+   },
+   "blue": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 2,
+    "game_type": "data_in",
+    "node": "Port C",
+    "game_text": "Data input value for the blue channel, ranging from 0 to 1."
+   }
+  },
+  "mirrored_ports": {
+   "red": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "green": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "blue": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_knobChannel": {
+    "default": 0,
+    "meaning": "channel knob index (1 byte; knob has 100 steps); must equal the Colored Lights' channel. Separate from wireless channels",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 1,
+   "instances_normal": 1,
+   "instances_mirrored": 0,
+   "ports_confirmed": "3/3",
+   "ports_confirmed_normal": "3/3",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "1/1"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 3/3 ports (only 1 instance; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCColoredLightController",
+  "mount_faces": [
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    0,
+    0
+   ]
+  ]
+ },
+ "large_datameter": {
+  "name": "Large Datameter",
+  "prefab": "SC_LargeDatameter",
+  "hash": "bcb94bdfcfb8684c",
+  "mirrored_hash": "f36f92e6326cdd40",
+  "struct": "EPC_SCDataMeter+Blueprint+BlueprintData",
+  "struct_hash": "220b39863b13c40e",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input signal to be shown on the display."
+   },
+   "out": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs the signal from the input port."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "face": [
+     3,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "out": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "face": [
+     2,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_inputSwitch": {
+    "default": 0,
+    "meaning": "display switch (bool): passed as `asFloat` to CRPText3DString.FromFloatTo8Digit (1 = show decimals, 0 = whole number); corpus mostly 0",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 285,
+   "instances_normal": 140,
+   "instances_mirrored": 145,
+   "ports_confirmed": "2/2",
+   "ports_confirmed_normal": "2/2",
+   "ports_confirmed_mirrored": "2/2",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 353
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "285/285"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 2/2 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCDataMeter",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ]
+  ]
+ },
+ "led_text": {
+  "name": "LED Text",
+  "prefab": "SC_LEDText",
+  "hash": "d16232dde48a8e7a",
+  "mirrored_hash": "77133d41b783dc74",
+  "struct": "EPC_SCLEDText+Blueprint+BlueprintData",
+  "struct_hash": "dd545e80e2dd2a2a",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Turns on at input signal ≥ 0.5."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "face": [
+     3,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the text that lights up (UTF-16, max 15 chars)",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_knobColor": {
+    "default": 0,
+    "meaning": "colour knob index 0..10 (11 steps; probably the ColoredLight_Col_0..10 list: White, Yellow, Orange, Purple, Pink, Red, Teal, Green, Blue, Brown, Cyan)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 1,
+   "instances_normal": 1,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 1
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "1/1"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports (only 1 instance; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; _actionableLabel is the text that lights up",
+  "placeable": true,
+  "root_class": "EPC_SCLEDText",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ]
+  ]
+ },
+ "red_alert_light": {
+  "name": "Red Alert Light",
+  "prefab": "SC_RedAlertLight",
+  "hash": "2f851fd312cf7b3a",
+  "mirrored_hash": "73f032758d4d8342",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "in": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input a signal higher than 0.333 to turn on the light, and higher than 0.666 to turn on both the light and alarm sound."
+   }
+  },
+  "mirrored_ports": {
+   "in": {
+    "cell": [
+     -1,
+     0,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 20,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 5,
+   "instances_normal": 5,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 5
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "5/5"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCRedAlertLight",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "braking_point_system": {
+  "name": "Braking Point System (BPS)",
+  "prefab": "SC_BrakingPointSystem",
+  "hash": "eabbb8e9db2c5241",
+  "mirrored_hash": "9e17c2ab82e9354c",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "size": [
+   4,
+   2,
+   2
+  ],
+  "ports": {
+   "distance": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "face": [
+     2,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input for distance to planet in meters."
+   },
+   "velocity": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input for velocity in m/s."
+   },
+   "acceleration": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 2,
+    "game_type": "data_in",
+    "node": "Port C",
+    "game_text": "Input for acceleration in m/s²."
+   },
+   "indicator": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "face": [
+     3,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 3,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs the indicator position from -1 (left/red), through 0 (center/white), to 1 (right/green)."
+   }
+  },
+  "mirrored_ports": {
+   "distance": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "velocity": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "face": [
+     2,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "acceleration": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "face": [
+     3,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "indicator": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 20,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 19,
+   "instances_normal": 18,
+   "instances_mirrored": 1,
+   "ports_confirmed": "4/4",
+   "ports_confirmed_normal": "4/4",
+   "ports_confirmed_mirrored": "1/4",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 60
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "19/19"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 4/4 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCBrakingPointSystem",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ]
+  ]
+ },
+ "eta_system": {
+  "name": "ETA System",
+  "prefab": "SC_ETASystem",
+  "hash": "27cc0e6c9d630c39",
+  "mirrored_hash": null,
+  "placeable": false,
+  "struct": null,
+  "size": null,
+  "ports": {},
+  "settings": {},
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0
+  },
+  "confidence": "low",
+  "notes": "No \"SC_ETASystem\" prefab exists in the game assets (globalgamemanagers.assets lists 571 SC_* GameObjects incl. twins; none for this key), so the part cannot be placed; substitute it. Code and the settings struct EPC_SCETASystem (_knobValue) exist, and Localization has SC_ETASystem_Port0..3, but the part is not shipped."
+ },
+ "camera": {
+  "name": "Camera",
+  "prefab": "SC_Camera",
+  "hash": "648408e1c2d58ebd",
+  "mirrored_hash": "99094b7539f54ca8",
+  "struct": "EPC_SCCamera+Blueprint+BlueprintData",
+  "struct_hash": "d2736f54c39ffcd9",
+  "size": [
+   2,
+   2,
+   4
+  ],
+  "ports": {
+   "video": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "out",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs video signal."
+   },
+   "power": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 1,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "video": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_cameraOrientation": {
+    "default": 0,
+    "meaning": "Orientation Knob index 0..3 (4 steps): image rotation in 90-degree steps",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 24,
+   "instances_normal": 11,
+   "instances_mirrored": 13,
+   "ports_confirmed": "2/2",
+   "ports_confirmed_normal": "2/2",
+   "ports_confirmed_mirrored": "2/2",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 2,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "power": 23,
+     "data": 22
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "24/24",
+   "loose_overlap_with": {
+    "SC_FrameB": 1,
+    "SC_GlassB": 1
+   }
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 2/2 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames; box overlaps only with curved frames/glass, whose boxes are larger than their shape: SC_FrameB, SC_GlassB",
+  "placeable": true,
+  "root_class": "EPC_SCCamera",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "night_vision_camera": {
+  "name": "Night Vision Camera",
+  "prefab": "SC_NightVisionCamera",
+  "hash": "d13610856998c60e",
+  "mirrored_hash": "cdfbe8a1865243c6",
+  "struct": "EPC_SCCamera+Blueprint+BlueprintData",
+  "struct_hash": "d2736f54c39ffcd9",
+  "size": [
+   2,
+   2,
+   4
+  ],
+  "ports": {
+   "video": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "out",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs video signal."
+   },
+   "power": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 1,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "video": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_cameraOrientation": {
+    "default": 0,
+    "meaning": "Orientation Knob index 0..3 (4 steps): image rotation in 90-degree steps",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 119,
+   "instances_normal": 99,
+   "instances_mirrored": 20,
+   "ports_confirmed": "2/2",
+   "ports_confirmed_normal": "2/2",
+   "ports_confirmed_mirrored": "2/2",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 109,
+     "power": 23
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "117/119"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 2/2 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCCamera",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "zoom_camera": {
+  "name": "Camera With Zoom",
+  "prefab": "SC_ZoomCamera",
+  "hash": "2a1728fceeb1c10c",
+  "mirrored_hash": "24a1d664aea38000",
+  "struct": "EPC_SCCamera+Blueprint+BlueprintData",
+  "struct_hash": "d2736f54c39ffcd9",
+  "size": [
+   2,
+   2,
+   4
+  ],
+  "ports": {
+   "video": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "out",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs video signal."
+   },
+   "zoom": {
+    "cell": [
+     1,
+     1,
+     -1
+    ],
+    "face": [
+     1,
+     1,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input data signal from 0 to 1 to control camera zoom."
+   },
+   "power": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "video": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "zoom": {
+    "cell": [
+     0,
+     1,
+     -1
+    ],
+    "face": [
+     0,
+     1,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_cameraOrientation": {
+    "default": 0,
+    "meaning": "Orientation Knob index 0..3 (4 steps): image rotation in 90-degree steps",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 201,
+   "instances_normal": 34,
+   "instances_mirrored": 167,
+   "ports_confirmed": "3/3",
+   "ports_confirmed_normal": "3/3",
+   "ports_confirmed_mirrored": "3/3",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 276,
+     "power": 64
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "177/201"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 3/3 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCZoomCamera",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "rotational_telescope": {
+  "name": "Rotational Telescopic Camera",
+  "prefab": "SC_RotationalTelescope",
+  "hash": "66491a0bdfd4f528",
+  "mirrored_hash": "e70722d146a7ab4e",
+  "struct": "EPC_SCCamera+Blueprint+BlueprintData",
+  "struct_hash": "d2736f54c39ffcd9",
+  "size": [
+   8,
+   4,
+   8
+  ],
+  "ports": {
+   "video": {
+    "cell": [
+     8,
+     0,
+     1
+    ],
+    "face": [
+     7,
+     0,
+     1
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs video signal."
+   },
+   "horizontal": {
+    "cell": [
+     8,
+     0,
+     2
+    ],
+    "face": [
+     7,
+     0,
+     2
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input data signal from 0 to 1 to control horizontal rotation."
+   },
+   "vertical": {
+    "cell": [
+     8,
+     0,
+     3
+    ],
+    "face": [
+     7,
+     0,
+     3
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 2,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input data signal from -1 to 1 to control vertical rotation."
+   },
+   "roll": {
+    "cell": [
+     8,
+     0,
+     4
+    ],
+    "face": [
+     7,
+     0,
+     4
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 3,
+    "game_type": "data_in",
+    "node": "Port C",
+    "game_text": "Input data signal from 0 to 1 to control roll rotation."
+   },
+   "zoom": {
+    "cell": [
+     8,
+     0,
+     5
+    ],
+    "face": [
+     7,
+     0,
+     5
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 4,
+    "game_type": "data_in",
+    "node": "Port D",
+    "game_text": "Input data signal from 0 to 1 to control camera zoom."
+   },
+   "power": {
+    "cell": [
+     8,
+     0,
+     6
+    ],
+    "face": [
+     7,
+     0,
+     6
+    ],
+    "facing": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 5,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "video": {
+    "cell": [
+     -1,
+     0,
+     1
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   },
+   "horizontal": {
+    "cell": [
+     -1,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     2
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   },
+   "vertical": {
+    "cell": [
+     -1,
+     0,
+     3
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   },
+   "roll": {
+    "cell": [
+     -1,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     4
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   },
+   "zoom": {
+    "cell": [
+     -1,
+     0,
+     5
+    ],
+    "face": [
+     0,
+     0,
+     5
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   },
+   "power": {
+    "cell": [
+     -1,
+     0,
+     6
+    ],
+    "face": [
+     0,
+     0,
+     6
+    ],
+    "facing": [
+     -1,
+     0,
+     0
+    ]
+   }
+  },
+  "settings": {
+   "_cameraOrientation": {
+    "default": 0,
+    "meaning": "Orientation Knob index 0..3 (4 steps): image rotation in 90-degree steps",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 25,
+   "instances_normal": 25,
+   "instances_mirrored": 0,
+   "ports_confirmed": "6/6",
+   "ports_confirmed_normal": "6/6",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 104,
+     "power": 21
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "25/25"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 6/6 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames; uses EPC_SCCamera; _cameraOrientation is always 0 (no orientation knob)",
+  "placeable": true,
+  "root_class": "EPC_SCRotationalTelescope",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "camera_overlay": {
+  "name": "Camera Overlay",
+  "prefab": "SC_CameraOverlay",
+  "hash": "510bd0c7e47099ec",
+  "mirrored_hash": "a5d3b75c5fd01325",
+  "struct": "EPC_SCCameraOverlay+Blueprint+BlueprintData",
+  "struct_hash": "95ff1e6e6f153abc",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "video": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port X",
+    "game_text": "Outputs video signal."
+   },
+   "row_1": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input data for row 1."
+   },
+   "row_2": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 2,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input data for row 2."
+   },
+   "row_3": {
+    "cell": [
+     3,
+     1,
+     4
+    ],
+    "face": [
+     3,
+     1,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 3,
+    "game_type": "data_in",
+    "node": "Port C",
+    "game_text": "Input data for row 3."
+   },
+   "row_4": {
+    "cell": [
+     2,
+     1,
+     4
+    ],
+    "face": [
+     2,
+     1,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 4,
+    "game_type": "data_in",
+    "node": "Port D",
+    "game_text": "Input data for row 4."
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 5,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "video": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "row_1": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "row_2": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "row_3": {
+    "cell": [
+     0,
+     1,
+     4
+    ],
+    "face": [
+     0,
+     1,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "row_4": {
+    "cell": [
+     1,
+     1,
+     4
+    ],
+    "face": [
+     1,
+     1,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "power": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_cameraOrientation": {
+    "default": 0,
+    "meaning": "Knob Rotation index 0..3 (4 steps): overlay rotation in 90-degree steps",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_alignment": {
+    "default": 0,
+    "meaning": "Knob Alignment index 0..2 (3 steps): text alignment",
+    "offset": 22,
+    "bytes": 1
+   },
+   "_size": {
+    "default": 2,
+    "meaning": "Knob Size index 0..4 (5 steps; prefab knob default 0.5 = index 2, corpus majority 2)",
+    "offset": 23,
+    "bytes": 1
+   },
+   "_graphics": {
+    "default": 0,
+    "meaning": "Knob Graphics index 0..1 (2 steps); corpus majority 1",
+    "offset": 24,
+    "bytes": 1
+   },
+   "_position": {
+    "default": 0,
+    "meaning": "Knob Position index 0..8 (9 steps): where the text block sits on screen",
+    "offset": 25,
+    "bytes": 1
+   },
+   "_inputSwitches": {
+    "default": 15,
+    "meaning": "bit k = Input Switch k (row k+1) on; corpus 0x0f in 48/89, 0x00 in 30/89",
+    "offset": 26,
+    "bytes": 1
+   },
+   "_label0": {
+    "default": "",
+    "meaning": "row 1 caption (UTF-16, max 15 chars)",
+    "offset": 28,
+    "bytes": 32
+   },
+   "_label1": {
+    "default": "",
+    "meaning": "row 2 caption",
+    "offset": 60,
+    "bytes": 32
+   },
+   "_label2": {
+    "default": "",
+    "meaning": "row 3 caption",
+    "offset": 92,
+    "bytes": 32
+   },
+   "_label3": {
+    "default": "",
+    "meaning": "row 4 caption",
+    "offset": 124,
+    "bytes": 32
+   }
+  },
+  "corpus": {
+   "instances": 89,
+   "instances_normal": 51,
+   "instances_mirrored": 38,
+   "ports_confirmed": "6/6",
+   "ports_confirmed_normal": "6/6",
+   "ports_confirmed_mirrored": "6/6",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 258,
+     "power": 87
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "88/89"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 6/6 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCCameraOverlay",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ]
+  ]
+ },
+ "monitor_crt": {
+  "name": "Monitor CRT",
+  "prefab": "SC_MonitorCRT",
+  "hash": "272357763f8171ad",
+  "mirrored_hash": "e5907094ffdfd678",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   8,
+   8,
+   6
+  ],
+  "ports": {
+   "video": {
+    "cell": [
+     3,
+     3,
+     6
+    ],
+    "face": [
+     3,
+     3,
+     5
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input video signal."
+   },
+   "power": {
+    "cell": [
+     4,
+     3,
+     6
+    ],
+    "face": [
+     4,
+     3,
+     5
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 1,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "video": {
+    "cell": [
+     4,
+     3,
+     6
+    ],
+    "face": [
+     4,
+     3,
+     5
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   },
+   "power": {
+    "cell": [
+     3,
+     3,
+     6
+    ],
+    "face": [
+     3,
+     3,
+     5
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 3,
+   "instances_normal": 3,
+   "instances_mirrored": 0,
+   "ports_confirmed": "2/2",
+   "ports_confirmed_normal": "2/2",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "power": 3,
+     "data": 3
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "3/3"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 2/2 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames; one video input only (Port A); the power port sits beside it on the same face",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "monitor_small_lcd": {
+  "name": "Monitor Small LCD",
+  "prefab": "SC_MonitorSmallLCD",
+  "hash": "6274a6847eea8c3d",
+  "mirrored_hash": "4237670d94b3688e",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   8,
+   6,
+   1
+  ],
+  "ports": {
+   "primary": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input primary video signal."
+   },
+   "secondary": {
+    "cell": [
+     2,
+     -1,
+     0
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input secondary video signal."
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "primary": {
+    "cell": [
+     6,
+     -1,
+     0
+    ],
+    "face": [
+     6,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "secondary": {
+    "cell": [
+     5,
+     -1,
+     0
+    ],
+    "face": [
+     5,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "power": {
+    "cell": [
+     7,
+     -1,
+     0
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 81,
+   "instances_normal": 71,
+   "instances_mirrored": 10,
+   "ports_confirmed": "3/3",
+   "ports_confirmed_normal": "3/3",
+   "ports_confirmed_mirrored": "3/3",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 2,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "power": 78,
+     "data": 118
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "81/81",
+   "loose_overlap_with": {
+    "SC_FrameHalfF": 1,
+    "SC_FrameB": 1
+   }
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 3/3 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames; box overlaps only with curved frames/glass, whose boxes are larger than their shape: SC_FrameHalfF, SC_FrameB",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    0,
+    -1
+   ]
+  ]
+ },
+ "monitor_medium_lcd": {
+  "name": "Monitor Medium LCD",
+  "prefab": "SC_MonitorMediumLCD",
+  "hash": "55f8bdf268b393fd",
+  "mirrored_hash": "c72714ae3f958291",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   16,
+   12,
+   1
+  ],
+  "ports": {
+   "primary": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input primary video signal."
+   },
+   "secondary": {
+    "cell": [
+     2,
+     -1,
+     0
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input secondary video signal."
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "primary": {
+    "cell": [
+     14,
+     -1,
+     0
+    ],
+    "face": [
+     14,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "secondary": {
+    "cell": [
+     13,
+     -1,
+     0
+    ],
+    "face": [
+     13,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "power": {
+    "cell": [
+     15,
+     -1,
+     0
+    ],
+    "face": [
+     15,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 43,
+   "instances_normal": 40,
+   "instances_mirrored": 3,
+   "ports_confirmed": "3/3",
+   "ports_confirmed_normal": "3/3",
+   "ports_confirmed_mirrored": "3/3",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "power": 43,
+     "data": 69
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "43/43"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 3/3 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    0,
+    -1
+   ]
+  ]
+ },
+ "monitor_large_lcd": {
+  "name": "Monitor Large LCD",
+  "prefab": "SC_MonitorLargeLCD",
+  "hash": "bd1f01a1d077d82d",
+  "mirrored_hash": "f02877f1e8f5bd9f",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   24,
+   18,
+   1
+  ],
+  "ports": {
+   "primary": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input primary video signal."
+   },
+   "secondary": {
+    "cell": [
+     2,
+     -1,
+     0
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input secondary video signal."
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "primary": {
+    "cell": [
+     22,
+     -1,
+     0
+    ],
+    "face": [
+     22,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "secondary": {
+    "cell": [
+     21,
+     -1,
+     0
+    ],
+    "face": [
+     21,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   },
+   "power": {
+    "cell": [
+     23,
+     -1,
+     0
+    ],
+    "face": [
+     23,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     -1,
+     0
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "instances_normal": 0,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/3",
+   "ports_confirmed_normal": null,
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "0/0"
+  },
+  "confidence": "medium",
+  "notes": "no corpus instances: prefab-derived only (the same derivation reproduces all 43 partdb logic parts and every corpus-checked part here); same family as MonitorMediumLCD (high confidence); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    0,
+    -1
+   ]
+  ]
+ },
+ "monitor_small_hologram": {
+  "name": "Small Holographic Display",
+  "prefab": "SC_MonitorSmallHologram",
+  "hash": "1327e6303c86f8fd",
+  "mirrored_hash": "5a9fb5b39738e0d8",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   8,
+   1,
+   1
+  ],
+  "ports": {
+   "primary": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input primary video signal."
+   },
+   "secondary": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input secondary video signal."
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "primary": {
+    "cell": [
+     6,
+     0,
+     -1
+    ],
+    "face": [
+     6,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "secondary": {
+    "cell": [
+     5,
+     0,
+     -1
+    ],
+    "face": [
+     5,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "power": {
+    "cell": [
+     7,
+     0,
+     -1
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "instances_normal": 0,
+   "instances_mirrored": 2,
+   "ports_confirmed": "2/3",
+   "ports_confirmed_normal": null,
+   "ports_confirmed_mirrored": "2/3",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 2,
+     "power": 2
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "2/2"
+  },
+  "confidence": "medium",
+  "notes": "corpus: 2/3 ports confirmed, 0 cable ends elsewhere, 0 direction clashes, 0 cables inside, 0 overlaps; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "monitor_medium_hologram": {
+  "name": "Medium Holographic Display",
+  "prefab": "SC_MonitorMediumHologram",
+  "hash": "a52bdd856c21933a",
+  "mirrored_hash": "6d9ccb91dcff67a9",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   16,
+   1,
+   1
+  ],
+  "ports": {
+   "primary": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input primary video signal."
+   },
+   "secondary": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input secondary video signal."
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "primary": {
+    "cell": [
+     14,
+     0,
+     -1
+    ],
+    "face": [
+     14,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "secondary": {
+    "cell": [
+     13,
+     0,
+     -1
+    ],
+    "face": [
+     13,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "power": {
+    "cell": [
+     15,
+     0,
+     -1
+    ],
+    "face": [
+     15,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 18,
+   "instances_normal": 18,
+   "instances_mirrored": 0,
+   "ports_confirmed": "3/3",
+   "ports_confirmed_normal": "3/3",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 26,
+     "power": 15
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "16/18"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint and 3/3 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "monitor_large_hologram": {
+  "name": "Large Holographic Display",
+  "prefab": "SC_MonitorLargeHologram",
+  "hash": "461d6801aa90b1e7",
+  "mirrored_hash": "a6d286c215ca0d32",
+  "struct": "EPC_SCMonitor+Blueprint+BlueprintData",
+  "struct_hash": "e28cfb6188ca5843",
+  "size": [
+   24,
+   1,
+   1
+  ],
+  "ports": {
+   "primary": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_in",
+    "node": "Port A",
+    "game_text": "Input primary video signal."
+   },
+   "secondary": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "video",
+    "cable": "SC_DataCable",
+    "game_index": 1,
+    "game_type": "data_in",
+    "node": "Port B",
+    "game_text": "Input secondary video signal."
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ],
+    "dir": "in",
+    "kind": "power",
+    "cable": "SC_PowerCable",
+    "game_index": 2,
+    "game_type": "power",
+    "node": "Port P",
+    "game_text": "Requires {0} P/s."
+   }
+  },
+  "mirrored_ports": {
+   "primary": {
+    "cell": [
+     22,
+     0,
+     -1
+    ],
+    "face": [
+     22,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "secondary": {
+    "cell": [
+     21,
+     0,
+     -1
+    ],
+    "face": [
+     21,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "power": {
+    "cell": [
+     23,
+     0,
+     -1
+    ],
+    "face": [
+     23,
+     0,
+     0
+    ],
+    "facing": [
+     0,
+     0,
+     -1
+    ]
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "power switch (bool): 1 = on (corpus: 1 in almost every record)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "Knob Mode index 0..8 (9 steps), Localization Monitor_Mode_*: 0 Primary only, 1 Secondary only, 2 Primary + Secondary overlay, 3 Split vertical, 4 Split horizontal, 5..8 Primary + small Secondary bottom-left, bottom-right, top-left, top-right (order of the strings; LCD/hologram only, CRT has one input)",
+    "offset": 22,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "instances_normal": 0,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/3",
+   "ports_confirmed_normal": null,
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "0/0"
+  },
+  "confidence": "medium",
+  "notes": "no corpus instances: prefab-derived only (the same derivation reproduces all 43 partdb logic parts and every corpus-checked part here); same family as MonitorMediumHologram (high confidence); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself; video ports are ordinary data ports in the game (types data_in/data_out) and are wired with SC_DataCable; corpus video links run camera/overlay X -> monitor A/B, also through Data Redirector 3, Data Router 2, Wireless Transmitter and port frames",
+  "placeable": true,
+  "root_class": "EPC_SCMonitor",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "SC_Seat": {
+  "name": "Seat",
+  "prefab": "SC_Seat",
+  "hash": "1545c38619ef0116",
+  "mirrored_hash": "42cc52d33506c424",
+  "struct": "EPC_SCSeat+Blueprint+BlueprintData",
+  "struct_hash": "d9ffa924de711418",
+  "size": [
+   8,
+   16,
+   8
+  ],
+  "ports": {},
+  "mirrored_ports": {},
+  "settings": {
+   "_leverActionableValue": {
+    "default": 0.0,
+    "meaning": "seat lever position (f32); corpus 0 (304) or 1 (41)",
+    "offset": 20,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 24,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 352,
+   "instances_normal": 352,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/0",
+   "ports_confirmed_normal": "0/0",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {
+     "power": 2
+    }
+   },
+   "mount_face_touching": "350/352"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint (no ports); 2 dangling cable end(s) touch it; a twin \"<prefab> M\" prefab exists (no ports to reflect); no ports; two dangling power-cable stubs end on a seat face in one blueprint (not ports)",
+  "placeable": true,
+  "root_class": "EPC_SCSeat",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "SC_Whiteboard": {
+  "name": "Whiteboard",
+  "prefab": "SC_Whiteboard",
+  "hash": "91a8ad6f7e9725eb",
+  "mirrored_hash": "1aa1a7b5163ba19e",
+  "struct": "EPC_SCWhiteboard+Blueprint+BlueprintData",
+  "struct_hash": "02c0f83b34424edc",
+  "size": [
+   12,
+   8,
+   1
+  ],
+  "ports": {},
+  "mirrored_ports": {},
+  "settings": {
+   "_extraData": {
+    "default": 0,
+    "meaning": "int32 handle of the drawing data (0 = blank)",
+    "offset": 20,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 24,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 3,
+   "instances_normal": 3,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/0",
+   "ports_confirmed_normal": "0/0",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "3/3"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint (no ports); a twin \"<prefab> M\" prefab exists (no ports to reflect)",
+  "placeable": true,
+  "root_class": "EPC_SCWhiteboard",
+  "mount_faces": [
+   [
+    0,
+    0,
+    -1
+   ]
+  ]
+ },
+ "SC_ColoredLight": {
+  "name": "Colored Light",
+  "prefab": "SC_ColoredLight",
+  "hash": "873df14dd791221a",
+  "mirrored_hash": null,
+  "struct": "EPC_SCColoredLight+Blueprint+BlueprintData",
+  "struct_hash": "1e3e9caf1d00c715",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {},
+  "settings": {
+   "_knobIntensity": {
+    "default": 0.7,
+    "meaning": "intensity knob (f32 0..1; prefab default 0.7)",
+    "offset": 20,
+    "bytes": 4
+   },
+   "_knobColor": {
+    "default": 0,
+    "meaning": "colour knob 0..10 = ColoredLight_Col_0..10 (White, Yellow, Orange, Purple, Pink, Red, Teal, Green, Blue, Brown, Cyan)",
+    "offset": 24,
+    "bytes": 1
+   },
+   "_knobChannel": {
+    "default": 0,
+    "meaning": "channel knob index (101 steps; 0 presumably = Manual Mode, else follows the Colored Light Controller on that channel)",
+    "offset": 25,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 26,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 18,
+   "instances_normal": 18,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/0",
+   "ports_confirmed_normal": "0/0",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "18/18"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint (no ports); no mirrored twin prefab exists in the game assets (cannot be mirrored); no data port: driven wirelessly by a Colored Light Controller on the same channel",
+  "placeable": true,
+  "root_class": "EPC_SCColoredLight",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "SC_SmallToggleableLight": {
+  "name": "Small Toggleable Light",
+  "prefab": "SC_SmallToggleableLight",
+  "hash": "c29eca14e73e3f51",
+  "mirrored_hash": null,
+  "struct": "EPC_SCActionableLight+Blueprint+BlueprintData",
+  "struct_hash": "b7b81edd74c7e795",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {},
+  "settings": {
+   "_toggle": {
+    "default": 1,
+    "meaning": "light switch (bool): 1 = on (corpus 208/277)",
+    "offset": 20,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 21,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 277,
+   "instances_normal": 277,
+   "instances_mirrored": 0,
+   "ports_confirmed": "0/0",
+   "ports_confirmed_normal": "0/0",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {},
+    "elsewhere": {}
+   },
+   "mount_face_touching": "277/277"
+  },
+  "confidence": "high",
+  "notes": "corpus confirms the footprint (no ports); no mirrored twin prefab exists in the game assets (cannot be mirrored); no data port: it is switched by hand only (EPC_SCActionableLight _toggle)",
+  "placeable": true,
+  "root_class": "EPC_SCActionableLight",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ]
+ },
+ "toggle": {
+  "name": "Switch",
+  "prefab": "SC_Switch",
+  "hash": "4ad7890fdcdffb61",
+  "mirrored_hash": "a8b032869a7b172a",
+  "struct": "EPC_SCSwitch+Blueprint+BlueprintData",
+  "struct_hash": "7e3f5336e954442a",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs 1 when on (I), 0 when off (O)."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_buttonPressed": {
+    "default": 0,
+    "meaning": "switch state (bool): 1 = on (I / up) -> output 1, 0 = off -> output 0",
+    "offset": 52,
+    "bytes": 1
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 53,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 54,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 1,
+   "instances_normal": 1,
+   "instances_mirrored": 0,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": null,
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 1
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "1/1"
+  },
+  "confidence": "high",
+  "notes": "simulator source type \"toggle\" is placed as SC_Switch; corpus confirms the footprint and 1/1 ports (only 1 instance; derivation identical to the validated parts); twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCSwitch",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "alias_of": "switch",
+  "params_to_settings": {
+   "value": "_buttonPressed (0/1)"
+  }
+ },
+ "slider": {
+  "name": "Lever Vertical",
+  "prefab": "SC_LeverVertical",
+  "hash": "ee3550303ed83c4f",
+  "mirrored_hash": "3afca86204029dc0",
+  "struct": "EPC_SCLever+Blueprint+BlueprintData",
+  "struct_hash": "733a7f52af5ab157",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "out": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "cable": "SC_DataCable",
+    "game_index": 0,
+    "game_type": "data_out",
+    "node": "Port Output",
+    "game_text": "Outputs the signal for the vertical axis."
+   }
+  },
+  "mirrored_ports": {
+   "out": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "facing": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  "settings": {
+   "_actionableLabel": {
+    "default": "",
+    "meaning": "the part's own label text (UTF-16, max 15 chars + NUL); \"\" = blank",
+    "offset": 16,
+    "bytes": 32
+   },
+   "_leverValue": {
+    "default": 0.0,
+    "meaning": "lever position (f32) = output. 0..1 in 0-to-1 mode; -1..1 in -1-to-1 mode, where the output has a +-0.025 dead zone: out = sign(v)*max(0,(|v|-0.025)/0.975) (SCTick_DoubleLever)",
+    "offset": 48,
+    "bytes": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (1 byte)",
+    "offset": 56,
+    "bytes": 1
+   },
+   "_toggle": {
+    "default": 0,
+    "meaning": "mode button (bool): 0 = 0-to-1 mode, 1 = -1-to-1 mode (ActionableDoubleLever clamps to [-1,1] when set). Corpus: 243 of 375 saved levers are in mode 1, and all 11 negative _leverValue records are in mode 1",
+    "offset": 57,
+    "bytes": 1
+   },
+   "_labelRotated": {
+    "default": 0,
+    "meaning": "1 = label text rotated 180 degrees (bool, 1 byte)",
+    "offset": 58,
+    "bytes": 1
+   }
+  },
+  "corpus": {
+   "instances": 5,
+   "instances_normal": 3,
+   "instances_mirrored": 2,
+   "ports_confirmed": "1/1",
+   "ports_confirmed_normal": "1/1",
+   "ports_confirmed_mirrored": "1/1",
+   "overlaps": 0,
+   "overlaps_with_curved_frame_or_glass_box": 0,
+   "cables_inside": 0,
+   "adjacent_cables_opening_toward_part": {
+    "on_port": {
+     "data": 4
+    },
+    "elsewhere": {}
+   },
+   "mount_face_touching": "5/5"
+  },
+  "confidence": "high",
+  "notes": "simulator source type \"slider\" is placed as SC_LeverVertical; corpus confirms the footprint and 1/1 ports; twin \"<prefab> M\": ports reflected along local x (dx -> w-1-dx, x facing negated); mirrored_ports is read from the twin prefab itself",
+  "placeable": true,
+  "root_class": "EPC_SCLever",
+  "mount_faces": [
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "alias_of": "lever_vertical",
+  "params_to_settings": {
+   "value": "_leverValue (with _toggle = 1 if value < 0)"
+  }
+ }
+}

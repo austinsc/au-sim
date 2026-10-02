@@ -1,0 +1,190 @@
+{
+ "report": {
+  "name": "gen 1 basic 3x2=6",
+  "box": [
+   4,
+   3,
+   4
+  ],
+  "frameQuarters": 1,
+  "parts": 4,
+  "cableCells": 7,
+  "nets": 3,
+  "directContacts": 0,
+  "cabledNets": 3,
+  "stubs": [
+   {
+    "label": "readout",
+    "io": "out",
+    "port": "readout.out"
+   }
+  ],
+  "substituted": [],
+  "longestCable": 2,
+  "routingIterations": 1,
+  "attempts": [],
+  "ms": 170
+ },
+ "layout": {
+  "parts": [
+   {
+    "id": "three",
+    "type": "constant",
+    "o": [
+     2,
+     1,
+     1
+    ],
+    "k": 21,
+    "mir": true
+   },
+   {
+    "id": "two",
+    "type": "constant",
+    "o": [
+     1,
+     2,
+     0
+    ],
+    "k": 6,
+    "mir": false
+   },
+   {
+    "id": "times",
+    "type": "multiplier",
+    "o": [
+     0,
+     1,
+     1
+    ],
+    "k": 16,
+    "mir": true
+   },
+   {
+    "id": "readout",
+    "type": "datameter",
+    "o": [
+     0,
+     0,
+     1
+    ],
+    "k": 16,
+    "mir": true
+   }
+  ],
+  "cables": [
+   {
+    "cell": [
+     2,
+     1,
+     0
+    ],
+    "shape": 1,
+    "k": 5,
+    "open": [
+     4,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 0
+   },
+   {
+    "cell": [
+     1,
+     1,
+     0
+    ],
+    "shape": 1,
+    "k": 19,
+    "open": [
+     0,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 1
+   },
+   {
+    "cell": [
+     0,
+     2,
+     0
+    ],
+    "shape": 1,
+    "k": 15,
+    "open": [
+     0,
+     3
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 0
+   },
+   {
+    "cell": [
+     0,
+     1,
+     0
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 1
+   },
+   {
+    "cell": [
+     1,
+     1,
+     3
+    ],
+    "shape": 1,
+    "k": 13,
+    "open": [
+     5,
+     3
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 0
+   },
+   {
+    "cell": [
+     1,
+     0,
+     3
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 1
+   },
+   {
+    "cell": [
+     0,
+     0,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "out",
+    "job": 3,
+    "step": 0
+   }
+  ]
+ }
+}

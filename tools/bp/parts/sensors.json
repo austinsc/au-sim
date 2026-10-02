@@ -1,0 +1,3831 @@
+{
+ "accelerometer": {
+  "name": "Accelerometer",
+  "description": "Measures acceleration in m/s².",
+  "prefab": "SC_Accelerometer",
+  "hash": "9a4e18286af91651",
+  "mirrored_hash": "4e070849f27d8556",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCAccelerometer",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "acceleration": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 133,
+   "instances_mirrored": 2,
+   "unique_placements": 19,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 7
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 11,
+   "twin_port_hits": 2,
+   "port_hits": {
+    "acceleration": 18
+   },
+   "network_partners": {
+    "acceleration(out)->both": 2,
+    "acceleration(out)->in": 3
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "0": 1,
+    "1": 1,
+    "3": 7,
+    "4": 1,
+    "8": 3,
+    "16": 3,
+    "17": 1,
+    "20": 1,
+    "22": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "aerometer": {
+  "name": "Aerometer",
+  "description": "Measures the current aerodynamics of the spaceship. Higher means better.",
+  "prefab": "SC_Aerometer",
+  "hash": "36f432d95d2ba85f",
+  "mirrored_hash": "cd3ee5e77a8cc34a",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCAerometer",
+  "size": [
+   2,
+   2,
+   1
+  ],
+  "ports": {
+   "aerodynamics": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "from": [
+     0,
+     1,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     1,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 22,
+   "instances_mirrored": 0,
+   "unique_placements": 12,
+   "ports_confirmed": "0/1",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "aerodynamics": 0
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 2,
+    "16": 8,
+    "21": 2
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "medium",
+  "notes": "Port on the bottom face (facing -y) of a 2 x 2 x 1 plate. No corpus instance is wired, so the port is prefab-only (baked list = renderer); the footprint is corpus-checked."
+ },
+ "altimeter": {
+  "name": "Altimeter",
+  "description": "Measures height above sea level. Outputs INF when outside any atmosphere. For proper functioning, it must be mounted outside the ship with an unobstructed view.",
+  "prefab": "SC_Altimeter",
+  "hash": "815199777b4f9cdb",
+  "mirrored_hash": "2d3736dcbd7c2e99",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCAltimeter",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "height": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 26,
+   "instances_mirrored": 3,
+   "unique_placements": 16,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 6
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 10,
+   "twin_port_hits": 3,
+   "port_hits": {
+    "height": 16
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "2": 1,
+    "6": 2,
+    "7": 1,
+    "10": 1,
+    "16": 2,
+    "17": 3,
+    "21": 6
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "atmometer": {
+  "name": "Atmometer",
+  "description": "Measures current atmosphere density. For proper functioning it must be mounted outside the ship with an unobstructed view.",
+  "prefab": "SC_Atmometer",
+  "hash": "53a05c2e8229c630",
+  "mirrored_hash": "7e9ca6eb29f062e4",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCAtmometer",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "density": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 40,
+   "instances_mirrored": 19,
+   "unique_placements": 16,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 8
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 8,
+   "twin_port_hits": 9,
+   "port_hits": {
+    "density": 16
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 2,
+    "6": 3,
+    "16": 4,
+    "21": 7
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "axis_rotometer": {
+  "name": "Axis Rotometer",
+  "description": "Measures the current angular velocity (degrees per second) about its mounted axis.",
+  "prefab": "SC_AxisRotometer",
+  "hash": "6bd61de96add8ea1",
+  "mirrored_hash": "dbc933c8e6eb1c23",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCRotometer",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "angular_velocity": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 10,
+   "instances_mirrored": 0,
+   "unique_placements": 10,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 7
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 1,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "angular_velocity": 8
+   },
+   "network_partners": {
+    "angular_velocity(out)->in": 7
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 1,
+    "4": 1,
+    "6": 2,
+    "13": 1,
+    "15": 1,
+    "16": 2,
+    "18": 1,
+    "21": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "distance_meter": {
+  "name": "Distance Meter",
+  "description": "Measures distance to the nearest object up to 1000 meters and outputs the value to the data port.",
+  "prefab": "SC_DistanceMeter",
+  "hash": "df2cba30ff100988",
+  "mirrored_hash": "ac55155116c91dac",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCDistanceMeter",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "distance": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 11,
+   "instances_mirrored": 1,
+   "unique_placements": 9,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 4
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 4,
+   "twin_port_hits": 1,
+   "port_hits": {
+    "distance": 8
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "2": 2,
+    "3": 1,
+    "7": 1,
+    "8": 1,
+    "16": 2,
+    "17": 1,
+    "20": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "Unlike most small sensors its output is on the FRONT face (z = d), at x = 1."
+ },
+ "gravitymeter": {
+  "name": "Gravitymeter",
+  "description": "Measures current gravity in m/s².",
+  "prefab": "SC_Gravitymeter",
+  "hash": "25ca1b5f8c787fa0",
+  "mirrored_hash": "a711269ee9bba951",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCGravitymeter",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "gravity": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 73,
+   "instances_mirrored": 16,
+   "unique_placements": 15,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 11
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 3,
+   "twin_port_hits": 8,
+   "port_hits": {
+    "gravity": 14
+   },
+   "network_partners": {
+    "gravity(out)->in": 11
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "1": 1,
+    "5": 1,
+    "7": 1,
+    "8": 1,
+    "12": 1,
+    "13": 5,
+    "14": 2,
+    "17": 1,
+    "21": 1,
+    "23": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "inclinometer": {
+  "name": "Inclinometer",
+  "description": "Measures the difference in degrees between the component's down direction and the gravity direction.",
+  "prefab": "SC_Inclinometer",
+  "hash": "ae0669dbe99d036f",
+  "mirrored_hash": "3252594dd49bd7cd",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCInclinometer",
+  "size": [
+   2,
+   2,
+   1
+  ],
+  "ports": {
+   "angle": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "from": [
+     0,
+     1,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     1,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 19,
+   "instances_mirrored": 0,
+   "unique_placements": 9,
+   "ports_confirmed": "0/1",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "angle": 0
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 2,
+    "16": 6,
+    "21": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "medium",
+  "notes": "Same body and port layout as the Aerometer (2 x 2 x 1, port facing -y). No corpus instance is wired, so the port is prefab-only; the footprint is corpus-checked."
+ },
+ "massmeter": {
+  "name": "Massmeter",
+  "description": "Measures the mass of the spaceship it is mounted on.",
+  "prefab": "SC_Massmeter",
+  "hash": "cb626b66b266e49d",
+  "mirrored_hash": "50093d0fe38d3f75",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCMassmeter",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "mass": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 21,
+   "instances_mirrored": 10,
+   "unique_placements": 12,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 12
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 3,
+   "port_hits": {
+    "mass": 12
+   },
+   "network_partners": {
+    "mass(out)->in": 4
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "5": 1,
+    "12": 1,
+    "13": 5,
+    "14": 2,
+    "17": 1,
+    "21": 1,
+    "23": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "rotometer": {
+  "name": "Rotometer",
+  "description": "Measures the current rotation in degrees per second.",
+  "prefab": null,
+  "hash": null,
+  "mirrored_hash": null,
+  "struct": null,
+  "size": null,
+  "ports": {},
+  "settings": {},
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0
+  },
+  "confidence": "low",
+  "substitute": "axis_rotometer",
+  "notes": "No \"SC_Rotometer\" prefab exists in this game build (globalgamemanagers.assets has SC_AxisRotometer and SC_AxisRotometer M only); hash 955ad7bed99d6821 never occurs in the corpus. The Localization rows remain. Its class EPC_SCRotometer is what SC_AxisRotometer uses, so the Axis Rotometer appears to be its in-game replacement: substitute axis_rotometer."
+ },
+ "thermometer": {
+  "name": "Thermometer",
+  "description": "Reads the current temperature and sends it to the data port. Make sure to place it on the outside of the spaceship for best results.",
+  "prefab": "SC_Thermometer",
+  "hash": "4a93b46a7f2b2a6f",
+  "mirrored_hash": "dd5e8b9eae6c3f4f",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCThermometer",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "temperature": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 13,
+   "instances_mirrored": 12,
+   "unique_placements": 4,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 3
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 1,
+   "twin_port_hits": 3,
+   "port_hits": {
+    "temperature": 4
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "6": 1,
+    "14": 1,
+    "21": 2
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "thermoscan": {
+  "name": "Thermoscan",
+  "description": "Measures the temperature of the first object hit by a ray cast up to 1000 meters and outputs the value to the data port.",
+  "prefab": "SC_Thermoscan",
+  "hash": "be1f52185f9f5607",
+  "mirrored_hash": "c5d9399411268393",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCThermoscan",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "temperature": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "from": [
+     1,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 0,
+   "instances_mirrored": 0,
+   "unique_placements": 0,
+   "ports_confirmed": "0/1",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "temperature": 0
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {},
+   "struct_confirmed": false
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances (newer part). Same prefab layout as the Distance Meter (2 x 1 x 2, output on the front face at x = 1), which is corpus-confirmed; struct from the IL2CPP inheritance chain (EPC_SCThermoscan -> EPC_SpaceshipComponent)."
+ },
+ "trajectory_curvature_meter": {
+  "name": "Trajectory Curvature Meter",
+  "description": "Detects the difference in degrees between the spaceship's trajectory and its facing direction. For proper functioning, there must be no obstacles in front of the component.",
+  "prefab": "SC_TrajectoryCurvatureMeter",
+  "hash": "d32d617963da17c3",
+  "mirrored_hash": "ca71e419402a6801",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCTrajectoryCurvatureMeter",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "angle": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 73,
+   "instances_mirrored": 6,
+   "unique_placements": 17,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 15
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 2,
+   "twin_port_hits": 4,
+   "port_hits": {
+    "angle": 17
+   },
+   "network_partners": {
+    "angle(out)->both": 2
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "6": 2,
+    "7": 1,
+    "8": 1,
+    "16": 5,
+    "21": 6,
+    "23": 2
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": ""
+ },
+ "velocity_meter": {
+  "name": "Velocity Meter",
+  "description": "Detects the current speed in meters per second. For proper functioning, there must be no obstacles in front of the component.",
+  "prefab": "SC_VelocityMeter",
+  "hash": "550e55971db328fe",
+  "mirrored_hash": "c946160d6074f910",
+  "struct": "EPC_SCVelocityMeter+Blueprint+BlueprintData",
+  "struct_hash": "af9895f68763d377",
+  "class": "EPC_SCVelocityMeter",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "velocity": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_modeButton": {
+    "default": 0,
+    "meaning": "mode button (bool; declared 4 B but 1 B, `_col` follows at 21): 0 = Overall Mode, output = speed |v|; 1 = Directional Mode, output = v . (part +z axis), signed. Decoded from SCTick_VelocityMeter.OwnJob (toggle < 0.5 -> sqrt(vx2+vy2+vz2), else dot with the rotated forward axis). Default 0 = the prefab toggle's initial state. Both values common in the corpus.",
+    "offset": 20,
+    "type": "bool",
+    "size": 1,
+    "declared_size": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 21,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     0,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 360,
+   "instances_mirrored": 16,
+   "unique_placements": 62,
+   "ports_confirmed": "1/1",
+   "overlaps": 1,
+   "cable_hits": {
+    "data": 40
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 21,
+   "twin_port_hits": 7,
+   "port_hits": {
+    "velocity": 61
+   },
+   "network_partners": {
+    "velocity(out)->both": 8,
+    "velocity(out)->in": 2
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 4,
+    "6": 5,
+    "7": 1,
+    "8": 2,
+    "9": 1,
+    "10": 2,
+    "11": 3,
+    "12": 4,
+    "13": 1,
+    "14": 3,
+    "15": 6,
+    "16": 11,
+    "19": 1,
+    "21": 14,
+    "22": 2,
+    "23": 2
+   },
+   "struct_confirmed": true,
+   "overlap_with": {
+    "SC_FrameB": 1
+   }
+  },
+  "confidence": "high",
+  "notes": "Output on the back face (z = -1); the front (+z) must be unobstructed, and in Directional mode the reading is the velocity along +z. The one overlap is an SC_FrameB with the same origin: a wedge frame (triangular joint faces), so its 8 x 8 x 4 box has free cells."
+ },
+ "windmeter": {
+  "name": "Windmeter",
+  "description": "Measures current wind strength outside of spaceship. For proper functioning it must be mounted outside the ship with an unobstructed view.",
+  "prefab": "SC_Windmeter",
+  "hash": "237c9680c8233da3",
+  "mirrored_hash": "4bbf2478a2c33f99",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCWindmeter",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "wind_speed": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 9,
+   "instances_mirrored": 3,
+   "unique_placements": 7,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 5
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 2,
+   "twin_port_hits": 1,
+   "port_hits": {
+    "wind_speed": 7
+   },
+   "network_partners": {
+    "wind_speed(out)->in": 1
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 1,
+    "16": 2,
+    "21": 4
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "2 x 2 x 2; output on the back face, lower row (y = 0)."
+ },
+ "blue_tank": {
+  "name": "Blue Tank",
+  "description": "Blue alone is providing very small amount of effectivity with no reactivity. Appears as a blue-colored gas.",
+  "prefab": "SC_BlueTank",
+  "hash": "d3bc44f1f4c20358",
+  "mirrored_hash": "fe27edaf2861950d",
+  "struct": "EPC_SCTank+Blueprint+BlueprintData",
+  "struct_hash": "8330a3be9531b668",
+  "class": "EPC_SCTank",
+  "size": [
+   16,
+   32,
+   16
+  ],
+  "ports": {
+   "fuel": {
+    "cell": [
+     8,
+     8,
+     16
+    ],
+    "face": [
+     8,
+     8,
+     15
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port Output"
+   }
+  },
+  "settings": {
+   "_actionableValue": {
+    "default": 1.0,
+    "meaning": "outlet valve opening, f32 0..1 (EPC_Actionable_Valve: 0 = off/closed, 1 = on/open). The valve has no stored initial value, so the in-game default is not known; 1.0 (fully open) is used here. Corpus: blue 0.90-1.00, green 0.096-0.103, i.e. the 90 % blue / 10 % green mix the manual recommends.",
+    "offset": 20,
+    "type": "float",
+    "size": 4,
+    "declared_size": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 24,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     8,
+     6,
+     15
+    ],
+    "to": [
+     9,
+     7,
+     15
+    ],
+    "pipe": true
+   },
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     24,
+     0
+    ],
+    "to": [
+     15,
+     25,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     6,
+     0
+    ],
+    "to": [
+     15,
+     7,
+     0
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 121,
+   "instances_mirrored": 48,
+   "unique_placements": 13,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 6
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "fuel": 6
+   },
+   "network_partners": {
+    "fuel(out)->in": 6
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 1,
+    "6": 1,
+    "9": 3,
+    "12": 4,
+    "13": 2,
+    "15": 2
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "16 x 32 x 16 cells (2 x 4 x 2 m): the size field, not the joint areas (which span only y = 6..25). Checked: the size-field box gives 6 port hits / 0 misses, the joint-area box 0 / 6; frames, tanks and cables sit directly on top of the 32-cell box and line its sides at every height, nothing inside. Fuel pipe joint on the front face at x = 8..9, y = 6..7 (not a cable port)."
+ },
+ "green_tank": {
+  "name": "Green Tank",
+  "description": "Green is mediocre fuel. Appears as a green-colored gas.",
+  "prefab": "SC_GreenTank",
+  "hash": "86b34f31bb275e4d",
+  "mirrored_hash": "e6adae6baa146290",
+  "struct": "EPC_SCTank+Blueprint+BlueprintData",
+  "struct_hash": "8330a3be9531b668",
+  "class": "EPC_SCTank",
+  "size": [
+   8,
+   24,
+   8
+  ],
+  "ports": {
+   "fuel": {
+    "cell": [
+     4,
+     8,
+     8
+    ],
+    "face": [
+     4,
+     8,
+     7
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port Output"
+   }
+  },
+  "settings": {
+   "_actionableValue": {
+    "default": 1.0,
+    "meaning": "outlet valve opening, f32 0..1 (EPC_Actionable_Valve: 0 = off/closed, 1 = on/open). The valve has no stored initial value, so the in-game default is not known; 1.0 (fully open) is used here. Corpus: blue 0.90-1.00, green 0.096-0.103, i.e. the 90 % blue / 10 % green mix the manual recommends.",
+    "offset": 20,
+    "type": "float",
+    "size": 4,
+    "declared_size": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 24,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     4,
+     6,
+     7
+    ],
+    "to": [
+     5,
+     7,
+     7
+    ],
+    "pipe": true
+   },
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     16,
+     0
+    ],
+    "to": [
+     7,
+     17,
+     0
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     6,
+     0
+    ],
+    "to": [
+     7,
+     7,
+     0
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 125,
+   "instances_mirrored": 50,
+   "unique_placements": 10,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 6
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "fuel": 6
+   },
+   "network_partners": {
+    "fuel(out)->in": 6
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "12": 5,
+    "15": 3,
+    "16": 1,
+    "21": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "8 x 24 x 8 cells (1 x 3 x 1 m), same evidence as the Blue Tank (size-field box: 6 hits / 0 misses; joint-area box: 0 / 6; parts stacked directly on the 24-cell top)."
+ },
+ "red_tank": {
+  "name": "Red Tank",
+  "description": "A highly efficient but very reactive fuel that must be carefully mixed with other fuels and kept under active cooling. The cooler needs a continuous power supply - if power is lost while fuel remains in the tank, it may explode. When properly mixed and cooled, red fuel delivers the best performance.",
+  "prefab": "SC_RedTank",
+  "hash": "2306fc0595d4f19a",
+  "mirrored_hash": "5fd04da8f72900c1",
+  "struct": "EPC_SCTank+Blueprint+BlueprintData",
+  "struct_hash": "8330a3be9531b668",
+  "class": "EPC_SCCryotank",
+  "size": [
+   16,
+   16,
+   16
+  ],
+  "ports": {
+   "fuel": {
+    "cell": [
+     8,
+     8,
+     16
+    ],
+    "face": [
+     8,
+     8,
+     15
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   },
+   "cooling": {
+    "cell": [
+     11,
+     7,
+     16
+    ],
+    "face": [
+     11,
+     7,
+     15
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 1,
+    "node": "Port Y"
+   },
+   "power": {
+    "cell": [
+     11,
+     6,
+     16
+    ],
+    "face": [
+     11,
+     6,
+     15
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 2,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_actionableValue": {
+    "default": 1.0,
+    "meaning": "outlet valve opening, f32 0..1 (EPC_Actionable_Valve: 0 = off/closed, 1 = on/open). The valve has no stored initial value, so the in-game default is not known; 1.0 (fully open) is used here. Corpus: blue 0.90-1.00, green 0.096-0.103, i.e. the 90 % blue / 10 % green mix the manual recommends.",
+    "offset": 20,
+    "type": "float",
+    "size": 4,
+    "declared_size": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 24,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     8,
+     6,
+     15
+    ],
+    "to": [
+     9,
+     7,
+     15
+    ],
+    "pipe": true
+   },
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     6,
+     0
+    ],
+    "to": [
+     15,
+     9,
+     0
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 0,
+   "instances_mirrored": 0,
+   "unique_placements": 0,
+   "ports_confirmed": "0/3",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {
+    "fuel": 0,
+    "cooling": 0,
+    "power": 0
+   },
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {},
+   "struct_confirmed": false
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances. 16 x 16 x 16 cells from the size field (the rule the Blue and Green tanks confirm). Class EPC_SCCryotank derives from EPC_SCTank and declares no Blueprint of its own, and its InitializeEntity calls EPC_SCTank.InitializeEntity first, so it saves with the EPC_SCTank struct (the same inheritance rule is corpus-confirmed for FramePipe/FrameWithPorts -> Frame and ZoomCamera/RotationalTelescope -> Camera). Port order from the baked list: fuel (node X), cooling (node Y), power (node P)."
+ },
+ "long_range_distance_meter": {
+  "name": "Long Range Distance Meter",
+  "description": "Measures the distance to the closest object in front of it, with no limitations on range.",
+  "prefab": "SC_LongRangeDistanceMeter",
+  "hash": "3f61c41e351bc890",
+  "mirrored_hash": "f0555bdc31f4faa4",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCLongRangeDistanceMeter",
+  "size": [
+   2,
+   2,
+   4
+  ],
+  "ports": {
+   "distance": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   },
+   "power": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 1,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     0,
+     3
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 178,
+   "instances_mirrored": 88,
+   "unique_placements": 30,
+   "ports_confirmed": "2/2",
+   "overlaps": 1,
+   "cable_hits": {
+    "data": 23,
+    "power": 27
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 3,
+   "twin_port_hits": 20,
+   "port_hits": {
+    "distance": 26,
+    "power": 27
+   },
+   "network_partners": {
+    "distance(out)->both": 16,
+    "distance(out)->in": 2
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "6": 1,
+    "12": 4,
+    "13": 6,
+    "14": 5,
+    "15": 1,
+    "16": 7,
+    "17": 1,
+    "20": 3,
+    "21": 2
+   },
+   "struct_confirmed": true,
+   "overlap_with": {
+    "SC_FrameQuarterD": 1
+   }
+  },
+  "confidence": "high",
+  "notes": "2 x 2 x 4; both ports on the back face, lower row. The confirmed placements include orientations where local y maps to a negative world axis (13, 14, 17), so the min-corner rule with the full 2-cell height holds. The one overlap is an SC_FrameQuarterD, a corner frame (triangular joint faces) whose 4 x 4 x 4 box has free cells."
+ },
+ "magnetometer": {
+  "name": "Magnetometer",
+  "description": "Measures electromagnetic activity from the Sun. Used to detect and predict incoming solar storms. <b>Make sure at least 70% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 70%, red = below 70%.</b>",
+  "prefab": "SC_Magnetometer",
+  "hash": "025d6eed42a3e79d",
+  "mirrored_hash": "8dc6971b63bc2da2",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCMagnetometer",
+  "size": [
+   4,
+   8,
+   4
+  ],
+  "ports": {
+   "activity": {
+    "cell": [
+     -1,
+     0,
+     1
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   },
+   "power": {
+    "cell": [
+     -1,
+     0,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 1,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     3,
+     0,
+     3
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 11,
+   "instances_mirrored": 1,
+   "unique_placements": 4,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "cable_hits": {
+    "power": 4,
+    "data": 3
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 1,
+   "twin_port_hits": 2,
+   "port_hits": {
+    "activity": 4,
+    "power": 4
+   },
+   "network_partners": {
+    "activity(out)->both": 2
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 3,
+    "21": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "4 x 8 x 4 mast; both ports face -x (left side), bottom row. In the twin they face +x."
+ },
+ "gyro_line": {
+  "name": "Gyro-Line",
+  "description": "Gyro-Line shows the spaceship’s pitch and roll orientation on the screen.",
+  "prefab": "SC_GyroLine",
+  "hash": "d2e3cf7477a4d1af",
+  "mirrored_hash": "019a964af2a8cd19",
+  "struct": "EPC_SCGyroLine+Blueprint+BlueprintData",
+  "struct_hash": "2dec554800fbfa4e",
+  "class": "EPC_SCGyroLine",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "pitch": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   },
+   "roll": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 1,
+    "node": "Port Y"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 2,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_rotKnobValue": {
+    "default": 0.0,
+    "meaning": "orientation knob (SCTypeGyroLine._actionableOrientationKnob), f32; corpus values 0, 0.25, 0.75 (quarter steps). Prefab knob default 0.",
+    "offset": 20,
+    "type": "float",
+    "size": 4,
+    "declared_size": 4
+   },
+   "_toggle": {
+    "default": 1,
+    "meaning": "on/off switch (bool; declared 4 B but 1 B). Prefab toggle initial state 1 = on.",
+    "offset": 24,
+    "type": "bool",
+    "size": 1,
+    "declared_size": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 25,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   },
+   "_degrees": {
+    "default": 40,
+    "meaning": "display range in degrees, byte: 40 / 60 / 90 / 180 (4-step \"Degrees\" knob; GyroLineDisplayRange). Corpus: 40 (12x), 60, 90.",
+    "offset": 26,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     3
+    ],
+    "to": [
+     3,
+     1,
+     3
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     3,
+     0,
+     3
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 165,
+   "instances_mirrored": 35,
+   "unique_placements": 26,
+   "ports_confirmed": "3/3",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 37,
+    "power": 21
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 28,
+   "port_hits": {
+    "pitch": 19,
+    "roll": 18,
+    "power": 21
+   },
+   "network_partners": {
+    "pitch(out)->in": 5,
+    "pitch(out)->out": 1,
+    "roll(out)->in": 5,
+    "roll(out)->out": 1
+   },
+   "direction_conflicts": 2,
+   "orientations": {
+    "8": 2,
+    "9": 3,
+    "10": 2,
+    "12": 7,
+    "13": 3,
+    "14": 6,
+    "15": 2,
+    "21": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "Port order (baked list): pitch = node X (x = 1), roll = node Y (x = 2), power = node P (x = 0). direction_conflicts = 2 is one twin placement in a scratch blueprint (\"Blah\") whose pitch and roll are cabled to Data Router 2 outputs (a wiring error); the other network partners are inputs."
+ },
+ "space_gps": {
+  "name": "Space GPS",
+  "description": "Used to determine world-space coordinates as distance, longitude, and latitude relative to the center of the universe (the Sun). <b>Make sure at least 60% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 60%, red = below 60%.</b>",
+  "prefab": "SC_SpaceGPS",
+  "hash": "26f0748d0f2d768a",
+  "mirrored_hash": "2eb7344005e6649f",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCSpaceGPS",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "distance": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 0,
+    "node": "Port X"
+   },
+   "longitude": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 1,
+    "node": "Port X (1)"
+   },
+   "latitude": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 2,
+    "node": "Port X (2)"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 3,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     3,
+     0,
+     3
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 11,
+   "instances_mirrored": 1,
+   "unique_placements": 4,
+   "ports_confirmed": "4/4",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 10,
+    "power": 4
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 4,
+   "port_hits": {
+    "distance": 4,
+    "longitude": 3,
+    "latitude": 3,
+    "power": 4
+   },
+   "network_partners": {
+    "distance(out)->both": 4,
+    "latitude(out)->both": 2,
+    "longitude(out)->both": 2
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 1,
+    "6": 1,
+    "16": 2
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "Port order (baked list): distance = node X (x = 3), longitude = X (1) (x = 2), latitude = X (2) (x = 1), power = P (x = 0); all on the front face, bottom row."
+ },
+ "space_scanner": {
+  "name": "Space Scanner",
+  "description": "A satellite module for detecting celestial bodies in deep space. It uses a configurable scanning cone to identify planets and large objects, outputting the distance to the nearest detected object. For proper functioning, there must be no obstacles in front of the component.",
+  "prefab": "SC_SpaceScanner",
+  "hash": "f860096ee38bc67a",
+  "mirrored_hash": "ddf9f57e2636cb6a",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCSpaceScanner",
+  "size": [
+   4,
+   4,
+   8
+  ],
+  "ports": {
+   "cone": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "index": 0,
+    "node": "Port I"
+   },
+   "distance": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 1,
+    "node": "Port X"
+   },
+   "power": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "face": [
+     3,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 2,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     3,
+     0,
+     3
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 163,
+   "instances_mirrored": 10,
+   "unique_placements": 20,
+   "ports_confirmed": "3/3",
+   "overlaps": 0,
+   "cable_hits": {
+    "power": 11,
+    "data": 23
+   },
+   "cable_misses": {
+    "data": 1
+   },
+   "kind_mismatches": 1,
+   "direct_contacts": 0,
+   "twin_port_hits": 9,
+   "port_hits": {
+    "cone": 11,
+    "distance": 12,
+    "power": 11
+   },
+   "network_partners": {
+    "cone(in)->both": 12,
+    "distance(out)->both": 12,
+    "distance(out)->in": 1
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "3": 10,
+    "6": 1,
+    "7": 1,
+    "8": 3,
+    "16": 2,
+    "20": 2,
+    "21": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "4 x 4 x 8; ports on the back face, bottom row: cone (in, x = 1), distance (x = 2), power (x = 3). The one miss and the one power-on-data contact are the same placement in an \"Autosave\" snapshot (BlueprintsBin) whose cables sit two cells to -x of the ports; the other 19 placements agree."
+ },
+ "fuel_analyzer": {
+  "name": "Fuel Analyzer",
+  "description": "Used to analyze fuel performance and stability.",
+  "prefab": "SC_FuelAnalyzer",
+  "hash": "61467efc0f03e0b0",
+  "mirrored_hash": "30af8ed1bc92298a",
+  "struct": "EPC_SCFuelAnalyzer+Blueprint+BlueprintData",
+  "struct_hash": "1d74bbbcfd545674",
+  "class": "EPC_SCFuelAnalyzer",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "value": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "data",
+    "index": 0,
+    "node": "Port A"
+   },
+   "performance": {
+    "cell": [
+     1,
+     1,
+     4
+    ],
+    "face": [
+     1,
+     1,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 1,
+    "node": "Port Y"
+   },
+   "stability": {
+    "cell": [
+     0,
+     1,
+     4
+    ],
+    "face": [
+     0,
+     1,
+     3
+    ],
+    "dir": "out",
+    "kind": "data",
+    "index": 2,
+    "node": "Port X"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "power",
+    "index": 3,
+    "node": "Port P"
+   }
+  },
+  "settings": {
+   "_knobVal": {
+    "default": 0.0,
+    "meaning": "input knob, f32 0..1: the value whose fuel performance is estimated when `_mode` = 0. Prefab knob default 0.",
+    "offset": 20,
+    "type": "float",
+    "size": 4,
+    "declared_size": 4
+   },
+   "_toggle": {
+    "default": 1,
+    "meaning": "on/off switch (bool). Prefab toggle initial state 1 = on.",
+    "offset": 24,
+    "type": "bool",
+    "size": 1,
+    "declared_size": 4
+   },
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 25,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   },
+   "_mode": {
+    "default": 0,
+    "meaning": "input source (bool): 0 = \"Input: Knob\" (`_knobVal`), 1 = \"Input: Data Port\" (port `value`, clamped to 0..1). Decoded from SCTick_FuelAnalyzer.OwnJob (mode toggle < 0.5 -> knob entity, else the data port). Set 1 when the input port is wired. The declared struct is 30 B; bytes 27..29 are padding (corpus shows junk there; write 0).",
+    "offset": 26,
+    "type": "bool",
+    "size": 1,
+    "declared_size": 4
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     2,
+     0,
+     3
+    ],
+    "to": [
+     3,
+     1,
+     3
+    ],
+    "pipe": true
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     3
+    ],
+    "to": [
+     1,
+     1,
+     3
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     3,
+     0,
+     3
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 19,
+   "instances_mirrored": 10,
+   "unique_placements": 5,
+   "ports_confirmed": "2/4",
+   "overlaps": 0,
+   "cable_hits": {
+    "data": 1,
+    "power": 5
+   },
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 4,
+   "port_hits": {
+    "value": 1,
+    "performance": 0,
+    "stability": 0,
+    "power": 5
+   },
+   "network_partners": {
+    "value(in)->both": 2
+   },
+   "direction_conflicts": 0,
+   "orientations": {
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 2
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "medium",
+  "notes": "Port order (baked list): value (in, x = 1, y = 0), performance = node Y (x = 1, y = 1), stability = node X (x = 0, y = 1), power = node P (x = 0, y = 0); all on the front face. Note performance/stability are NOT in node-name order. Also has a fuel-pipe joint on the front face, right half (x = 2..3). Outputs not confirmed by corpus cables (only 5 unique placements); power and input are."
+ },
+ "SC_PipeMeter": {
+  "name": "Pipe Meter",
+  "description": "Basic fuel pipe used to transport or temporarily store fuel. Safe for fuel stability ≥50%. Analyzes the proportion of components of the current fuel present in the pipe.",
+  "prefab": "SC_PipeMeter",
+  "hash": "9d1e58bec000e969",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCPipeMeter",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {},
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": true
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     1,
+     1
+    ],
+    "pipe": true
+   }
+  ],
+  "corpus": {
+   "instances": 155,
+   "instances_mirrored": 0,
+   "unique_placements": 7,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {},
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {
+    "0": 1,
+    "4": 1,
+    "6": 1,
+    "16": 1,
+    "21": 2,
+    "22": 1
+   },
+   "struct_confirmed": true
+  },
+  "confidence": "high",
+  "notes": "Not a data part: a fuel pipe segment with three indicator bars and no data or power ports (no port children, no baked port list, no Localization port rows). Pipe joints on the -z and +z faces. No mirrored twin prefab exists."
+ },
+ "SC_NanopipeMeter": {
+  "name": "Nanopipe Meter",
+  "description": "Advanced fuel pipe used to transport or temporarily store fuel. Safe for all fuel types. Analyzes the proportion of components of the current fuel present in the pipe.",
+  "prefab": "SC_NanopipeMeter",
+  "hash": "1494199aaa57d515",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCPipeMeter",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {},
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     1,
+     1,
+     0
+    ],
+    "pipe": true
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     1,
+     1,
+     1
+    ],
+    "pipe": true
+   }
+  ],
+  "corpus": {
+   "instances": 0,
+   "instances_mirrored": 0,
+   "unique_placements": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {},
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {},
+   "struct_confirmed": false
+  },
+  "confidence": "medium",
+  "notes": "Nanopipe version of the Pipe Meter: same geometry, no ports, no twin. No corpus instances."
+ },
+ "SC_BaobaraInterferencemeter": {
+  "name": "Baobara Interferencemeter",
+  "description": "Electronic equipment used to locate the source of interference on Baobara. Displays the distance to the interference source.",
+  "prefab": "SC_BaobaraInterferencemeter",
+  "hash": "b2801febb36dd039",
+  "mirrored_hash": "6ddd5bbb79bb99fa",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "struct_hash": "d40d6455d7a517da",
+  "class": "EPC_SCBaobaraInterferencemeter",
+  "size": [
+   4,
+   2,
+   2
+  ],
+  "ports": {},
+  "settings": {
+   "_col": {
+    "default": 0,
+    "meaning": "paint colour index (`_col`, 1 byte); 0 = unpainted/default",
+    "offset": 20,
+    "type": "byte",
+    "size": 1,
+    "declared_size": 1
+   }
+  },
+  "joint_faces": [
+   {
+    "normal": [
+     0,
+     -1,
+     0
+    ],
+    "from": [
+     0,
+     0,
+     0
+    ],
+    "to": [
+     3,
+     0,
+     1
+    ],
+    "pipe": false
+   },
+   {
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "from": [
+     0,
+     0,
+     1
+    ],
+    "to": [
+     3,
+     0,
+     1
+    ],
+    "pipe": false
+   }
+  ],
+  "corpus": {
+   "instances": 0,
+   "instances_mirrored": 0,
+   "unique_placements": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "cable_hits": {},
+   "cable_misses": {},
+   "kind_mismatches": 0,
+   "direct_contacts": 0,
+   "twin_port_hits": 0,
+   "port_hits": {},
+   "network_partners": {},
+   "direction_conflicts": 0,
+   "orientations": {},
+   "struct_confirmed": false
+  },
+  "confidence": "medium",
+  "notes": "Quest item (Void Watcher objective): a display that shows the distance to the interference source. No data or power ports. No corpus instances."
+ }
+}

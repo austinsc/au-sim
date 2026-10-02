@@ -1,0 +1,194 @@
+Abs	Absolute	Outputs the absolute value of the input signal.
+Accelerometer	Accelerometer	Measures acceleration in m/s².
+Accumulator	Accumulator	Adds the input value to its internal total and outputs the result. Can be reset to 0 via the Reset port in Continuous mode (resets while signal ≥ 0.5) or Pulse mode (resets only when the signal crosses ≥ 0.5)
+Acos	Arc Cosine	Outputs the arc cosine (inverse cosine) of the input value in radians.
+Acosh	Hyperbolic Arc Cosine	Outputs the hyperbolic arc cosine of the input value.
+Adder	Adder	Performs an addition operation on data from two input ports and outputs the result to the output port.
+AdditionArray	Addition Array	Outputs the sum of all connected inputs.
+Aerometer	Aerometer	Measures the current aerodynamics of the spaceship. Higher means better.
+Altimeter	Altimeter	Measures height above sea level. Outputs INF when outside any atmosphere. For proper functioning, it must be mounted outside the ship with an unobstructed view.
+AngryBox	Angry Box	A strange box containing something very angry from Aundara’s ocean.
+Arc270Meter	Arc-270 Meter	Displays the data signal from the input port.
+Arc90Meter	Arc-90 Meter	Displays the data signal from the input port.
+Asin	Arc Sine	Outputs the arc sine (inverse sine) of the input value in radians.
+Asinh	Hyperbolic Arc Sine	Outputs the hyperbolic arc sine of the input value.
+Atan2	Arc Tangent 2	Outputs the angle in radians between the positive x-axis and the point (y, x).
+Atan	Arc Tangent	Outputs the arc tangent (inverse tangent) of the input value in radians.
+Atanh	Hyperbolic Arc Tangent	Outputs the hyperbolic arc tangent of the input value.
+Atmometer	Atmometer	Measures current atmosphere density. For proper functioning it must be mounted outside the ship with an unobstructed view.
+AtmosphericFan	Atmospheric Fan	Provides the thrust required to move the spaceship. Its efficiency depends on atmospheric density, meaning it won't function in space, but works underwater (up to 5000m below sea level). Ideal for intraplanetary flights. Works in two directions - forward and backward. Requires electrical power to operate properly.
+AtmosphericLiftFan	Atmospheric Flat Fan	Provides the thrust required to move the spaceship. Its efficiency depends on atmospheric density, meaning it won't function in space, but works underwater (up to 5000m below sea level). Ideal for takeoff and landing. Requires electrical power to operate properly.
+AtmosphericThruster	Atmospheric Thruster	Provides the thrust required to move the spaceship. Its efficiency depends on atmospheric density, meaning it won't function in space. Does not work underwater. Ideal for intraplanetary flights. Requires electrical power to operate properly.
+AutohemisphereSolarPanel	Auto-Hemisphere Solar Panel	A hemispherical panel that automatically pivots to face the brightest light source and converts sunlight into electrical power. Efficiency is highest when the panel is perfectly aligned, and power output falls off as the angle between the panel and the light increases. Any object blocking its “sun zone” will also reduce its efficiency.
+AxisRotometer	Axis Rotometer	Measures the current angular velocity (degrees per second) about its mounted axis.
+Ballast	Ballast	Ballast is used to regulate buoyancy using electrical power, allowing a vessel to sink, hover, or rise when underwater.
+BaobaraInterferencemeter	Baobara Interferencemeter	Electronic equipment used to locate the source of interference on Baobara. Displays the distance to the interference source.
+Beeper	Beeper	Generates a beep sound whose period varies with the input data signal and includes a knob to adjust the volume.
+BidirectionalElectricManeuveringThruster	Bidirectional Maneuvering Thruster	Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Works bi-directional. Requires electrical power to function properly.
+BlueTank	Blue Tank	Blue alone is providing very small amount of effectivity with no reactivity. Appears as a blue-colored gas.
+BombC4	C4 Bomb	C4 Bomb that detonates at input signal ≥ 0.5.
+BrakingPointSystem	Braking Point System (BPS)	Uses current distance, speed, and acceleration to estimate the stopping distance. Results appear on a color scale - red means you’re at risk of collision, green means you have a safe stopping margin. While it’s actively computing and operational, the green light blinks.
+Button	Button	Outputs a data signal of 1 while held down and 0 when released.
+CameraOverlay	Camera Overlay	Can be used for displaying values and text on monitor screens.
+Camera	Camera	Outputs a live video to the output port. Requires electrical power to operate.
+CandyBouquet	Candy Bouquet	Mysterious flowers from the depths of Basalt’s canyons.
+ClimaBomb	Clima Bomb	Clima Bomb used to restore the Moon’s natural atmosphere. Detonate at an altitude of 1500 - 1600 meters above sea level.
+ColoredLightController	Colored Light Controller	Wireless controller for managing Colored Lights assigned to the same channel. Supports custom color configuration via RGB data inputs.
+ColoredLight	Colored Light	Colored light with adjustable intensity and color settings. Can be paired wirelessly with the Colored Light Controller.
+Condition	Condition	Performs the selected comparison on two inputs. If the condition is true, outputs the value from the True port, otherwise, outputs the value from the False port.
+Constant	Constant	Outputs a constant data signal to the output port.
+Cos	Cosine	Outputs the cosine of the input angle in radians.
+Cosh	Hyperbolic Cosine	Outputs the hyperbolic cosine of the input value.
+DamagedLargeFuelThruster	Damaged Large Fuel Thruster	Damaged Large Fuel Thruster that may randomly turn on or off due to leftover fuel remaining inside.
+DataCable	Data Cable	Connects two data ports. Can only be connected to yellow (input) or blue (output) ports.
+DataHub	Data Hub	Routes the signal from one of five input ports to the output port, determined by the currently pressed channel button.
+Datameter	Datameter	Displays the data signal from the input port.
+DecouplerQuarter	Decoupler Small	Holds components on the suction side. For instant release send a data signal of 0.5 or higher to the input port.
+Delay	Delay	Delays the input signal by a configurable amount from 1 to 60 ticks.
+Differentiator	Differentiator	Measures how much a signal changes over a selected time interval. It compares the current value to an earlier value and outputs the difference.
+DistanceMeter	Distance Meter	Measures distance to the nearest object up to 1000 meters and outputs the value to the data port.
+Divider	Divider	Divides the two input signals and outputs the result to the output port.
+DrumKit	Drum Kit	Space is silent. Your ship doesn't have to be.
+DuctedFan	Ducted Fan	Provides powerful thrust to move the spaceship. The fan can be tilted forwards and backwards to adjust the flight direction. The thruster's efficiency depends on atmospheric density, meaning it doesn't work in space and has minimal performance underwater. Ideal for intraplanetary flights. Requires a significant amount of electrical power to operate properly.
+DynamoBox	Dynamo Box	Generates a small amount of electrical power by rotating the lever.
+ETASystem	ETA System	Uses current distance, speed, and acceleration to estimate the stopping distance. Results appear on a color scale - red means you’re at risk of collision, green means you have a safe stopping margin. While it’s actively computing and operational, the green light blinks.
+ElectricLiftThruster	Electric Flat Thruster	Provides the thrust required to move the spaceship. Ideal for takeoff and landing. Requires electrical power to operate properly.
+Exp	Exponential	Outputs e raised to the power of the input value.
+ExtendableDamper	Extendable Damper	Electric extendable damper with an input port that controls its extension length up to 1.5 meters.
+Fader	Fader	Multiplies input signal by fader value (0.0 - 1.0).
+Floodlight	Floodlight	A hemispherical floodlight that provides long-range light. Requires electrical power to operate properly.
+FuelAnalyzer	Fuel Analyzer	Used to analyze fuel performance and stability.
+FuseBox	Fuse Box	Used to interrupt the electrical current if the power exceeds the specified threshold.
+GimbalController	RCS Controller	RCS Controller for 6 RCS Thrusters.
+GimbalThruster	RCS Thruster	Provides thrust to rotate the spaceship. No wiring required, so it’s quick and easy to set up. Each thruster contains a <b>built-in single-use battery</b> and becomes nonfunctional after discharge. Battery status is displayed on the RCS Controller’s indicator lights.
+Gravitymeter	Gravitymeter	Measures current gravity in m/s².
+GreenTank	Green Tank	Green is mediocre fuel. Appears as a green-colored gas.
+GreenTrenchPump	Green Trench Pump	Gas pump and tank used to collect gases from the bottom of Green Trench.
+GyroLine	Gyro-Line	Gyro-Line shows the spaceship’s pitch and roll orientation on the screen.
+HorizontalMeter	Horizontal Meter	Displays the data signal from the input port.
+IceCreamFreezer	Ice Cream Freezer	Keeps ice cream fresh and delicious as long as it's powered. Beware: if the power goes out for too long, the freezer will break down.
+Inclinometer	Inclinometer	Measures the difference in degrees between the component's down direction and the gravity direction.
+Initializer	Initializer	Block chains often take a few game ticks to initialize their values. Until then, they may output unintended signals and trigger components such as decouplers at the wrong moment. <b>Use this block to suppress all signals until the set number of ticks has passed after entering Fly Mode.</b>
+InvisibleBlock	Invisible block	Visible in Build Mode and invisible in Fly Mode. Can be used for things like cinematic shots.
+Joystick2D	Joystick 2D	A two-dimensional joystick used to control both horizontal and vertical axes.
+Joystick3D	Joystick 3D	A three-dimensional joystick used to control yaw, pitch and roll axes.
+JoystickHorizontal	Joystick Horizontal	A simple joystick used to control the horizontal axis.
+JoystickSplitter	Sign Splitter	Sends positive values to one output and negative values to the other, with both output as positive values.
+JoystickVertical	Joystick Vertical	A simple joystick used to control the vertical axis.
+LEDText	LED Text	Will illuminate the text when triggered by the input port value.
+LabelMedium	Large Label	Label for entering and displaying text.
+LabelSmall	Label	Label for entering and displaying text.
+LargeDamper	Large Damper	Used to absorb impact forces when landing on the ground, helping to reduce damage to the spaceship.
+LargeDatameter	Large Datameter	Displays the data signal from the input port.
+LargeDisposableBattery	Large Disposable Battery	Large non rechargeable battery with built in display serving as a source of electrical power.
+LargeElectricThruster	Large Electric Thruster	Provides the thrust required to move the spaceship. Suitable for long-range flights. Requires a lot of electrical power to function properly.
+LargeFuelThruster	Large Fuel Thruster	Provides the thrust required to move the spaceship. Suitable for long-range flights. If there isn't enough fuel, the thruster's efficiency is reduced, and the amount of thrust depends on the performance of the provided fuel.
+LargeGate	Large Gate	A structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+LargeManeuveringThruster	Large Maneuvering Thruster	Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Requires electrical power to function properly.
+LargeNanogate	Large Nanogate	Advanced structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+LargePowerRouter	Large Power Router	Serves as a large hub for connecting multiple power cables into same electric circuit.
+LargeRechargeableBattery	Large Rechargeable Battery	Large rechargeable battery with built in display serving as a source of electrical power. Can be recharged up to its initial maximum capacity when connected to an electric circuit containing any power generation source. Outputs current power units to output port.
+LavaSucker	Lava Pumping Tank	Lava pumping tank equipped with an extendable intake pipe, enabling efficient lava extraction on the Ashbelt planet.
+LeverHorizontal	Lever Horizontal	A simple lever used to control the horizontal axis. <b>Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.</b>
+LeverVerticalHalf	Lever Vertical Small	A simple lever used to control the vertical axis. <b>Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.</b>
+LeverVertical	Lever Vertical	A simple lever used to control the vertical axis. <b>Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.</b>
+Log	Natural Logarithm	Outputs the natural logarithm (base e) of the input value.
+LogicGateAnd	Logic Gate AND	Performs an AND operation on data from two input ports and outputs the result to the output port.
+LogicGateNot	Logic Gate NOT	Performs a NOT operation on data from input port and outputs the result to the output port.
+LogicGateOr	Logic Gate OR	Performs an OR operation on data from two input ports and outputs the result to the output port.
+LogicGateXor	Logic Gate XOR	Performs a XOR operation on data from two input ports and outputs the result to the output port.
+LogicValue	Logic Value	Outputs a data signal of 1 when the input signal is greater than or equal to 0.5, and outputs 0 when the input signal is less than 0.5.
+LongRangeDistanceMeter	Long Range Distance Meter	Measures the distance to the closest object in front of it, with no limitations on range.
+Magnetometer	Magnetometer	Measures electromagnetic activity from the Sun. Used to detect and predict incoming solar storms. <b>Make sure at least 70% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 70%, red = below 70%.</b>
+Massmeter	Massmeter	Measures the mass of the spaceship it is mounted on.
+Maximum	Maximum	Outputs the largest value among its inputs.
+MediumDamper	Medium Damper	Used to absorb impact forces when landing on the ground, helping to reduce damage to the spaceship.
+MediumDisposableBattery	Medium Disposable Battery	Medium non rechargeable battery with built in display serving as a source of electrical power.
+MediumElectricThruster	Medium Electric Thruster	Provides the thrust required to move the spaceship. Suitable for medium-range flights. Requires a lot of electrical power to function properly.
+MediumFuelThruster	Medium Fuel Thruster	Provides the thrust required to move the spaceship. Suitable for long-range flights. If there isn't enough fuel, the thruster's efficiency is reduced, and the amount of thrust depends on the performance of the provided fuel.
+MediumGate	Medium Gate	A structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+MediumManeuveringThruster	Medium Maneuvering Thruster	Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Requires electrical power to function properly.
+MediumNanogate	Medium Nanogate	Advanced structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+MediumRechargeableBattery	Medium Rechargeable Battery	Medium rechargeable battery with built in display serving as a source of electrical power. Can be recharged up to its initial maximum capacity when connected to an electric circuit containing any power generation source. Outputs current power units to output port.
+Memory	Memory	Stores a value internally and outputs it. The value is updated through the Set input using either Continuous mode (updates while signal ≥ 0.5) or Pulse mode (updates only when the signal crosses ≥ 0.5).
+Minimum	Minimum	Outputs the smallest value among its inputs.
+Mod	Modulo	Outputs the remainder of the division of the first input by the second input.
+MonitorCRT	Monitor CRT	A monitor that displays the signal from a connected camera. If no camera is connected, it shows noise. It uses CRT display technology and requires electrical power to function properly.
+MonitorLargeHologram	Large Holographic Display	A large-sized holographic display used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses hologram display technology and requires electrical power to function properly.
+MonitorLargeLCD	Monitor Large LCD	A large-sized monitor used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses LCD display technology and requires electrical power to function properly.
+MonitorMediumHologram	Medium Holographic Display	A medium-sized holographic display used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses hologram display technology and requires electrical power to function properly.
+MonitorMediumLCD	Monitor Medium LCD	A medium-sized monitor used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses LCD display technology and requires electrical power to function properly.
+MonitorSmallHologram	Small Holographic Display	A small-sized holographic display used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses hologram display technology and requires electrical power to function properly.
+MonitorSmallLCD	Monitor Small LCD	A small-sized monitor used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses LCD display technology and requires electrical power to function properly.
+Multiplier	Multiplier	Performs a multiplication operation on data from two input ports and outputs the result to the output port.
+NightVisionCamera	Night Vision Camera	Can see in the dark. Outputs a live video to the output port. Requires electrical power to operate.
+OutcastPolarAnchor	Outcast Polar Anchor	Polar Anchor used to stabilize wind on the Outcast.
+OverloadingCrystal	Overloading Crystal	A powerful energy crystal that generates a continuous energy output. It must be manually discharged every 108 seconds to prevent dangerous energy buildup and possible catastrophic failure. Once the timer turns red, you must press the discharge button immediately.
+PersonnelGate	Personnel Door	A structural frame with a built-in electric door used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+PersonnelNanogate	Personnel Nanodoor	Advanced structural frame with a built-in electric door used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+PlasmaCable	Plasma Cable	Used to connect plasma generator with shield generator together. Can only be connected to white-colored ports.
+Pow	Power	Outputs the first input raised to the power of the second input.
+PowerBlocker	Power Blocker	Blocks electric power between two power ports if receiving data signal in input port higher or equal to 0.5.
+PowerCable	Power Cable	Used to connect multiple electrical components together. Can only be connected to red-colored electric ports.
+PowerGenerationMeter	Power Generation Meter	Displays the current power generation per second in the connected electric circuit and outputs the value to the output port. The light on the indicator shows green when there is enough power in the circuit and red when there is a power deficiency.
+PowerNanocable	Power Nanocable	Advanced power cable. Used to connect multiple electrical components together. Can only be connected to red-colored electric ports.
+PowerRouter	Power Router	Serves as a hub for connecting multiple power cables into same electric circuit.
+PowerUsageMeter	Power Usage Meter	Displays the current power usage per second in the connected electric circuit and outputs the value to the output port. The light on the indicator shows green when there is enough power in the circuit and red when there is a power deficiency.
+Radar	Radar	Used to locate planetary stations and analyze terrain elevation, helping you identify flat surfaces for safe landings. The display automatically rotates to match the spaceship’s orientation. Requires electrical power to operate.
+RampGate	Ramp Gate	A structural frame with a built-in electric ramp used for entering and exiting the spaceship. The data signal on the input port controls the ramp's rotation. Requires electrical power to rotate the door and only consumes electricity when the ramp is in motion.
+RampNanogate	Nanoramp Gate	Advanced structural frame with a built-in electric ramp used for entering and exiting the spaceship. The data signal on the input port controls the ramp's rotation. Requires electrical power to rotate the door and only consumes electricity when the ramp is in motion.
+RedAlertLight	Red Alert Light	Provides a flickering red light when receiving an input signal higher than 0.333, and activates both the light and alarm sound when the signal is higher than 0.666.
+RedTank	Red Tank	A highly efficient but very reactive fuel that must be carefully mixed with other fuels and kept under active cooling. The cooler needs a continuous power supply - if power is lost while fuel remains in the tank, it may explode. When properly mixed and cooled, red fuel delivers the best performance.
+Remapper	Remapper	Linearly remaps a value from a given input range to a corresponding value in the output range.
+RimcoreTurbo	Rimcore Turbopump	Gas pump and tank used to collect gases from the core of Rimshell.
+RotationalTelescope	Rotational Telescopic Camera	Rotational telescopic camera operating within a hemisphere. Can rotate in three axes and zoom up to 60x. Require electrical power to function properly.
+Rotometer	Rotometer	Measures the current rotation in degrees per second.
+Round	Round	Rounds the input value based on the selected mode: Round to the nearest integer, Floor to the nearest lower integer, or Ceil to the nearest higher integer.
+Router2	Data Router 2	Clones the data signal from one input port and sends it to two output ports on the opposite side.
+Router4	Data Router 4	Clones the data signal from one input port and sends it to four output ports on the opposite side.
+Seat	Seat	Used to adjust and lock the player's view for improved control of the spaceship.
+SignalRouter3	Data Redirector 3	Based on the data signal from the rightmost input port, it redirects the input signal from the three left input ports to the output port on the opposite side.
+SimpleThreshold	Simple Threshold	Outputs 1 if the signal on the input port is equal to or higher than the set value, otherwise outputs 0.
+Sin	Sine	Outputs the sine of the input angle in radians.
+Sinh	Hyperbolic Sine	Outputs the hyperbolic sine of the input value.
+SmallButton	Small Button	Outputs a data signal of 1 while held down and 0 when released.
+SmallDamper	Small Damper	Used to absorb impact forces when landing on the ground, helping to reduce damage to the spaceship.
+SmallDisposableBattery	Small Disposable Battery	Small non rechargeable battery with built in strip indicator serving as a source of electrical power.
+SmallElectricThruster	Small Electric Thruster	Provides the thrust required to move the spaceship. Suitable for small-range or intraplanetary flights. Requires electrical power to function properly.
+SmallFuelThruster	Small Fuel Thruster	Provides the thrust required to move the spaceship. Suitable for long-range flights. If there isn't enough fuel, the thruster's efficiency is reduced, and the amount of thrust depends on the performance of the provided fuel.
+SmallGate	Small Gate	A structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+SmallKnob	Small Knob	Small knob that outputs signal from 0 to 1.
+SmallManeuveringThruster	Small Maneuvering Thruster	Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Requires electrical power to function properly.
+SmallNanogate	Small Nanogate	Advanced structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.
+SmallPlasmaGenerator	Small Plasma Generator	Converts electric energy into plasma.
+SmallRechargeableBattery	Small Rechargeable Battery	Small rechargeable battery with built-in strip indicator serving as a source of electrical power. Can be recharged up to its initial maximum capacity when connected to an electric circuit containing any power generation source.
+SmallSolidFuelThruster	Small Solid Fuel Thruster	Single-use thruster providing a lot of thrust for certain amount of time. For ignition it needs to be supplied with very large amount of electric power for small time period. After ignition it no longer requires any electric power and cannot be stopped.
+SmallSwitch	Small Switch	Outputs a data signal of 1 when the switch is in position 'I' and a data signal of 0 when the switch is in position 'O'.
+SmallToggleableLight	Small Toggleable Light	Small toggleable light providing light when turned on.
+SolarPanel	Solar Panel	Generates electric power when facing a light source. Efficiency decreases as the facing angle increases. Obstacles in front of the solar zone reduce efficiency.
+SolarShieldGenerator	Solar Shield Generator	Converts plasma into solar shield.
+SpaceGPS	Space GPS	Used to determine world-space coordinates as distance, longitude, and latitude relative to the center of the universe (the Sun). <b>Make sure at least 60% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 60%, red = below 60%.</b>
+SpaceScanner	Space Scanner	A satellite module for detecting celestial bodies in deep space. It uses a configurable scanning cone to identify planets and large objects, outputting the distance to the nearest detected object. For proper functioning, there must be no obstacles in front of the component.
+Speaker	Speaker	Plays the selected sound when triggered by an input port signal. Works in two modes:
+Sqrt	Square Root	Outputs the square root of the input value.
+StickSwitch	Stick Switch	Outputs a data signal of 1 when the switch is up and a data signal of 0 when the switch is down.
+Submarine	Unda Prime Submarine	Submarine for Unda Prime.
+Subtractor	Subtractor	Performs a subtraction operation on data from two input ports and outputs the result to the output port.
+SunflowerPot	Sunflower Pot	Beautiful sunflower.
+Switch	Switch	Outputs a data signal of 1 when the switch is in position 'I' and a data signal of 0 when the switch is in position 'O'.
+TNTBox	TNT Box	<color=yellow>Thanks for playing the Demo!</color> Now try it with the TNT Controller!
+TNTController	TNT Controller	<color=yellow>Thanks for playing the Demo!</color> Now try it with the TNT Box!
+Tan	Tangent	Outputs the tangent of the input angle in radians.
+Tanh	Hyperbolic Tangent	Outputs the hyperbolic tangent of the input value.
+Thermometer	Thermometer	Reads the current temperature and sends it to the data port. Make sure to place it on the outside of the spaceship for best results.
+Thermoscan	Thermoscan	Measures the temperature of the first object hit by a ray cast up to 1000 meters and outputs the value to the data port.
+TrajectoryCurvatureMeter	Trajectory Curvature Meter	Detects the difference in degrees between the spaceship's trajectory and its facing direction. For proper functioning, there must be no obstacles in front of the component.
+TungstenNanocube	Nanotungsten Cube	An extremely dense Nanotungsten cube with extreme mass.
+UnstableLightingCell	Unstable Lighting Cell	The Unstable Lighting Cell is a powerful experimental energy source with great potential. However, it is highly volatile and occasionally emits electric discharges that will disrupt nearby electronic systems for several seconds.
+VelocityMeter	Velocity Meter	Detects the current speed in meters per second. For proper functioning, there must be no obstacles in front of the component.
+VerticalMeter	Vertical Meter	Displays the data signal from the input port.
+Whiteboard	Whiteboard	Used for drawing or writing on it.
+WindShieldGenerator	Wind Shield Generator	Converts plasma into wind shield.
+Windmeter	Windmeter	Measures current wind strength outside of spaceship. For proper functioning it must be mounted outside the ship with an unobstructed view.
+WirelessTransmitter	Wireless Transmitter	Allows sending and receiving data signals on the same channel up to 2000 meters. The green light indicates the transmitter is successfully sending or receiving a data signal. The red light means multiple transmitters are broadcasting on the same channel, which is not allowed.
+ZoomCamera	Camera With Zoom	Outputs a live video to the output port. Requires electrical power to operate. The camera supports up to 12x zoom.

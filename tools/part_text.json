@@ -1,0 +1,1405 @@
+{
+ "abs": {
+  "desc": "Outputs the absolute value of the input signal.",
+  "name": "Absolute",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value."
+  }
+ },
+ "accelerometer": {
+  "desc": "Measures acceleration in m/s².",
+  "name": "Accelerometer",
+  "ports": {
+   "acceleration": "Outputs the current acceleration in m/s²."
+  }
+ },
+ "accumulator": {
+  "desc": "Adds the input value to its internal total and outputs the result. Can be reset to 0 via the Reset port in Continuous mode (resets while signal ≥ 0.5) or Pulse mode (resets only when the signal crosses ≥ 0.5)",
+  "name": "Accumulator",
+  "ports": {
+   "in": "Value added to the internal total.",
+   "out": "Current accumulated total.",
+   "reset": "Resets the total to 0 (Continuous or Pulse mode)."
+  }
+ },
+ "acos": {
+  "desc": "Outputs the arc cosine (inverse cosine) of the input value in radians.",
+  "name": "Arc Cosine",
+  "ports": {
+   "in": "Input value (expected in range [-1, 1]).",
+   "out": "Output value in radians."
+  }
+ },
+ "acosh": {
+  "desc": "Outputs the hyperbolic arc cosine of the input value.",
+  "name": "Hyperbolic Arc Cosine",
+  "ports": {
+   "in": "Input value (must be ≥ 1).",
+   "out": "Output value."
+  }
+ },
+ "adder": {
+  "desc": "Performs an addition operation on data from two input ports and outputs the result to the output port.\nX = A + B",
+  "name": "Adder",
+  "ports": {
+   "a": "Input data for A.\nX = A + B",
+   "b": "Input data for B.\nX = A + B",
+   "out": "Outputs data for X.\nX = A + B"
+  }
+ },
+ "aerometer": {
+  "desc": "Measures the current aerodynamics of the spaceship. Higher means better.",
+  "name": "Aerometer",
+  "ports": {
+   "aerodynamics": "Outputs the current aerodynamics of the spaceship in range from 0 (worst) to 1 (best)."
+  }
+ },
+ "altimeter": {
+  "desc": "Measures height above sea level. Outputs INF when outside any atmosphere. For proper functioning, it must be mounted outside the ship with an unobstructed view.",
+  "name": "Altimeter",
+  "ports": {
+   "height": "Outputs the height above sea level in meters."
+  }
+ },
+ "and": {
+  "desc": "Performs an AND operation on data from two input ports and outputs the result to the output port.\nX = A ∧ B",
+  "name": "Logic Gate AND",
+  "ports": {
+   "a": "Input data for A.\nX = A ∧ B",
+   "b": "Input data for B.\nX = A ∧ B",
+   "out": "Outputs data for X. X = A ∧ B"
+  }
+ },
+ "arc_270_meter": {
+  "desc": "Displays the data signal from the input port.",
+  "name": "Arc-270 Meter",
+  "ports": {
+   "in": "Input signal to be shown on the display."
+  }
+ },
+ "arc_90_meter": {
+  "desc": "Displays the data signal from the input port.",
+  "name": "Arc-90 Meter",
+  "ports": {
+   "in": "Input signal to be shown on the display."
+  }
+ },
+ "asin": {
+  "desc": "Outputs the arc sine (inverse sine) of the input value in radians.",
+  "name": "Arc Sine",
+  "ports": {
+   "in": "Input value (expected in range [-1, 1]).",
+   "out": "Output value in radians."
+  }
+ },
+ "asinh": {
+  "desc": "Outputs the hyperbolic arc sine of the input value.",
+  "name": "Hyperbolic Arc Sine",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value."
+  }
+ },
+ "atan": {
+  "desc": "Outputs the arc tangent (inverse tangent) of the input value in radians.",
+  "name": "Arc Tangent",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value in radians."
+  }
+ },
+ "atan2": {
+  "desc": "Outputs the angle in radians between the positive x-axis and the point (y, x).",
+  "name": "Arc Tangent 2",
+  "ports": {
+   "out": "Output angle in radians.",
+   "x": "X-coordinate input.",
+   "y": "Y-coordinate input."
+  }
+ },
+ "atanh": {
+  "desc": "Outputs the hyperbolic arc tangent of the input value.",
+  "name": "Hyperbolic Arc Tangent",
+  "ports": {
+   "in": "Input value (must be in range [-1, 1]).",
+   "out": "Output value."
+  }
+ },
+ "atmometer": {
+  "desc": "Measures current atmosphere density. For proper functioning it must be mounted outside the ship with an unobstructed view.",
+  "name": "Atmometer",
+  "ports": {
+   "density": "Outputs the atmosphere density in range from 0 to 1."
+  }
+ },
+ "atmospheric_fan": {
+  "desc": "Provides the thrust required to move the spaceship. Its efficiency depends on atmospheric density, meaning it won't function in space, but works underwater (up to 5000m below sea level). Ideal for intraplanetary flights. Works in two directions - forward and backward. Requires electrical power to operate properly.",
+  "name": "Atmospheric Fan",
+  "ports": {
+   "power": "Requires N P/s.",
+   "speed": "The input signal ranges from -1 (full reverse), through 0 (stop), to 1 (full forward), and controls the speed."
+  }
+ },
+ "atmospheric_lift_fan": {
+  "desc": "Provides the thrust required to move the spaceship. Its efficiency depends on atmospheric density, meaning it won't function in space, but works underwater (up to 5000m below sea level). Ideal for takeoff and landing. Requires electrical power to operate properly.",
+  "name": "Atmospheric Flat Fan",
+  "ports": {
+   "power": "Requires N P/s.",
+   "speed": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "atmospheric_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Its efficiency depends on atmospheric density, meaning it won't function in space. Does not work underwater. Ideal for intraplanetary flights. Requires electrical power to operate properly.",
+  "name": "Atmospheric Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "autohemisphere_solar_panel": {
+  "desc": "A hemispherical panel that automatically pivots to face the brightest light source and converts sunlight into electrical power. Efficiency is highest when the panel is perfectly aligned, and power output falls off as the angle between the panel and the light increases. Any object blocking its “sun zone” will also reduce its efficiency.",
+  "name": "Auto-Hemisphere Solar Panel",
+  "ports": {
+   "power": "Can generate up to N P/s."
+  }
+ },
+ "axis_rotometer": {
+  "desc": "Measures the current angular velocity (degrees per second) about its mounted axis.",
+  "name": "Axis Rotometer",
+  "ports": {
+   "angular_velocity": "Outputs the current angular velocity in degrees per second."
+  }
+ },
+ "ballast": {
+  "desc": "Ballast is used to regulate buoyancy using electrical power, allowing a vessel to sink, hover, or rise when underwater.",
+  "name": "Ballast",
+  "ports": {
+   "buoyancy": "Input value in range from 0 (no buoyancy) to 1 (max buoyancy).",
+   "power": "Requires up to N P/s."
+  }
+ },
+ "beeper": {
+  "desc": "Generates a beep sound whose period varies with the input data signal and includes a knob to adjust the volume.",
+  "name": "Beeper",
+  "ports": {
+   "in": "Input signal from 0 (mute) to 1 (static beep), with beep period increasing with the value."
+  }
+ },
+ "bidirectional_maneuvering_thruster": {
+  "desc": "Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Works bi-directional. Requires electrical power to function properly.",
+  "name": "Bidirectional Maneuvering Thruster",
+  "ports": {
+   "force": "Input a data signal from -1 (backward), through 0 (off), to 1 (forward) to control force.",
+   "power": "Requires N P/s."
+  }
+ },
+ "blue_tank": {
+  "desc": "Blue alone is providing very small amount of effectivity with no reactivity. Appears as a blue-colored gas.",
+  "name": "Blue Tank",
+  "ports": {
+   "fuel": "Outputs fuel level from 0 (empty) to 1 (full)."
+  }
+ },
+ "bomb_c4": {
+  "desc": "C4 Bomb that detonates at input signal ≥ 0.5.",
+  "name": "C4 Bomb",
+  "ports": {
+   "trigger": "Detonates at input signal ≥ 0.5."
+  }
+ },
+ "braking_point_system": {
+  "desc": "Uses current distance, speed, and acceleration to estimate the stopping distance. Results appear on a color scale - red means you’re at risk of collision, green means you have a safe stopping margin. While it’s actively computing and operational, the green light blinks.",
+  "name": "Braking Point System (BPS)",
+  "ports": {
+   "acceleration": "Input for acceleration in m/s².",
+   "distance": "Input for distance to planet in meters.",
+   "indicator": "Outputs the indicator position from -1 (left/red), through 0 (center/white), to 1 (right/green).",
+   "velocity": "Input for velocity in m/s."
+  }
+ },
+ "button": {
+  "desc": "Outputs a data signal of 1 while held down and 0 when released.",
+  "name": "Button",
+  "ports": {
+   "out": "Outputs 1 when pressed, 0 when not pressed."
+  }
+ },
+ "camera": {
+  "desc": "Outputs a live video to the output port. Requires electrical power to operate.",
+  "name": "Camera",
+  "ports": {
+   "power": "Requires N P/s.",
+   "video": "Outputs video signal."
+  }
+ },
+ "camera_overlay": {
+  "desc": "Can be used for displaying values and text on monitor screens.",
+  "name": "Camera Overlay",
+  "ports": {
+   "power": "Requires N P/s.",
+   "row_1": "Input data for row 1.",
+   "row_2": "Input data for row 2.",
+   "row_3": "Input data for row 3.",
+   "row_4": "Input data for row 4.",
+   "video": "Outputs video signal."
+  }
+ },
+ "clima_bomb": {
+  "desc": "Clima Bomb used to restore the Moon’s natural atmosphere. Detonate at an altitude of 1500 - 1600 meters above sea level.",
+  "name": "Clima Bomb",
+  "ports": {
+   "trigger": "Input a value ≥ 0.5 to decouple from your spaceship. Detonation will occur 5 seconds after separation."
+  }
+ },
+ "colored_light_controller": {
+  "desc": "Wireless controller for managing Colored Lights assigned to the same channel. Supports custom color configuration via RGB data inputs.",
+  "name": "Colored Light Controller",
+  "ports": {
+   "blue": "Data input value for the blue channel, ranging from 0 to 1.",
+   "green": "Data input value for the green channel, ranging from 0 to 1.",
+   "red": "Data input value for the red channel, ranging from 0 to 1."
+  }
+ },
+ "condition": {
+  "desc": "Performs the selected comparison on two inputs. If the condition is true, outputs the value from the True port, otherwise, outputs the value from the False port.",
+  "name": "Condition",
+  "ports": {
+   "a": "Input port A",
+   "b": "Input port B",
+   "false": "False input port. If unconnected, defaults to 0.",
+   "out": "Outputs the value chosen by the condition - either the True value or the False value.",
+   "true": "True input port. If unconnected, defaults to 1."
+  }
+ },
+ "constant": {
+  "desc": "Outputs a constant data signal to the output port.",
+  "name": "Constant"
+ },
+ "cos": {
+  "desc": "Outputs the cosine of the input angle in radians.",
+  "name": "Cosine",
+  "ports": {
+   "in": "Input angle in radians.",
+   "out": "Output value."
+  }
+ },
+ "cosh": {
+  "desc": "Outputs the hyperbolic cosine of the input value.",
+  "name": "Hyperbolic Cosine",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value."
+  }
+ },
+ "data_hub": {
+  "desc": "Routes the signal from one of five input ports to the output port, determined by the currently pressed channel button.",
+  "name": "Data Hub",
+  "ports": {
+   "i0": "Input signal for channel 1.",
+   "i1": "Input signal for channel 2.",
+   "i2": "Input signal for channel 3.",
+   "i3": "Input signal for channel 4.",
+   "i4": "Input signal for channel 5.",
+   "out": "Outputs one of five input signals determined by pressed channel button."
+  }
+ },
+ "data_redirector_3": {
+  "desc": "Based on the data signal from the rightmost input port, it redirects the input signal from the three left input ports to the output port on the opposite side.",
+  "name": "Data Redirector 3",
+  "ports": {
+   "a": "Input signal A.",
+   "b": "Input signal B.",
+   "c": "Input signal C.",
+   "out": "Outputs one of three input signals (A, B, C) based on the value of the D input port.",
+   "sel": "Input signal from 0 to 1 to determine which of the three input ports (A, B, C) is sent to the output port."
+  }
+ },
+ "data_router_2": {
+  "desc": "Clones the data signal from one input port and sends it to two output ports on the opposite side.",
+  "name": "Data Router 2",
+  "ports": {
+   "a": "Outputs the signal from the input port.",
+   "b": "Outputs the signal from the input port.",
+   "in": "Input signal is sent to both output ports."
+  }
+ },
+ "data_router_4": {
+  "desc": "Clones the data signal from one input port and sends it to four output ports on the opposite side.",
+  "name": "Data Router 4",
+  "ports": {
+   "a": "Outputs the signal from the input port.",
+   "b": "Outputs the signal from the input port.",
+   "c": "Outputs the signal from the input port.",
+   "d": "Outputs the signal from the input port.",
+   "in": "Input signal is sent to all four output ports."
+  }
+ },
+ "datameter": {
+  "desc": "Displays the data signal from the input port.",
+  "name": "Datameter",
+  "ports": {
+   "in": "Input signal to be shown on the display.",
+   "out": "Outputs the signal from the input port."
+  }
+ },
+ "decoupler_small": {
+  "desc": "Holds components on the suction side. For instant release send a data signal of 0.5 or higher to the input port.",
+  "name": "Decoupler Small",
+  "ports": {
+   "trigger": "Input a value of 0.5 or higher to break suction."
+  }
+ },
+ "delay": {
+  "desc": "Delays the input signal by a configurable amount from 1 to 60 ticks.",
+  "name": "Delay",
+  "ports": {
+   "in": "Input signal.",
+   "out": "Outputs the delayed signal."
+  }
+ },
+ "differentiator": {
+  "desc": "Measures how much a signal changes over a selected time interval. It compares the current value to an earlier value and outputs the difference.",
+  "name": "Differentiator",
+  "ports": {
+   "in": "Input signal to measure.",
+   "out": "Change in the signal over the selected time interval (current value minus earlier value)."
+  }
+ },
+ "distance_meter": {
+  "desc": "Measures distance to the nearest object up to 1000 meters and outputs the value to the data port.",
+  "name": "Distance Meter",
+  "ports": {
+   "distance": "Outputs distance to nearest object in meters (up to 1000 meters)."
+  }
+ },
+ "divider": {
+  "desc": "Divides the two input signals and outputs the result to the output port.",
+  "name": "Divider",
+  "ports": {
+   "a": "Input data for A.\nX = A / B",
+   "b": "Input data for B.\nX = A / B",
+   "out": "Outputs data for X.\nX = A / B"
+  }
+ },
+ "ducted_fan": {
+  "desc": "Provides powerful thrust to move the spaceship. The fan can be tilted forwards and backwards to adjust the flight direction. The thruster's efficiency depends on atmospheric density, meaning it doesn't work in space and has minimal performance underwater. Ideal for intraplanetary flights. Requires a significant amount of electrical power to operate properly.",
+  "name": "Ducted Fan",
+  "ports": {
+   "power": "Requires N P/s.",
+   "rotation": "Input data signal to control fan rotation: -1 (full reverse), 0 (upwards), 1 (full forward).",
+   "speed": "Input data signal from -1 (backward), through 0 (off), to 1 (forward) to control speed."
+  }
+ },
+ "dynamo_box": {
+  "desc": "Generates a small amount of electrical power by rotating the lever.",
+  "name": "Dynamo Box",
+  "ports": {
+   "power": "Can generate up to N P/s."
+  }
+ },
+ "electric_lift_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Ideal for takeoff and landing. Requires electrical power to operate properly.",
+  "name": "Electric Flat Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "eta_system": {
+  "desc": "Uses current distance, speed, and acceleration to estimate the stopping distance. Results appear on a color scale - red means you’re at risk of collision, green means you have a safe stopping margin. While it’s actively computing and operational, the green light blinks.",
+  "name": "ETA System",
+  "ports": {
+   "acceleration": "Input for acceleration in m/s².",
+   "distance": "Input for distance to planet in meters.",
+   "indicator": "Outputs indicator position from 0 (red) to 1 (green).",
+   "velocity": "Input for velocity in m/s."
+  }
+ },
+ "exp": {
+  "desc": "Outputs e raised to the power of the input value.",
+  "name": "Exponential",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value."
+  }
+ },
+ "extendable_damper": {
+  "desc": "Electric extendable damper with an input port that controls its extension length up to 1.5 meters.",
+  "name": "Extendable Damper",
+  "ports": {
+   "extension": "Input data from 0 to 1 to control the damper extension length (0 to 1.5 meters).",
+   "power": "Requires N P/s to extend or retract the damper."
+  }
+ },
+ "fader": {
+  "desc": "Multiplies input signal by fader value (0.0 - 1.0).",
+  "name": "Fader",
+  "ports": {
+   "in": "Input signal to be multiplied by fader. If unconnected, defaults to 1.",
+   "out": "Outputs input signal multiplied by fader."
+  }
+ },
+ "floodlight": {
+  "desc": "A hemispherical floodlight that provides long-range light. Requires electrical power to operate properly.",
+  "name": "Floodlight",
+  "ports": {
+   "horizontal": "Input data signal from 0 to 1 to control horizontal rotation.",
+   "intensity": "Input data signal from 0 (off) to 1 (full power) to adjust light intensity.",
+   "power": "Requires N P/s.",
+   "vertical": "Input data signal from -1 to 1 to control vertical rotation."
+  }
+ },
+ "fuel_analyzer": {
+  "desc": "Used to analyze fuel performance and stability.",
+  "name": "Fuel Analyzer",
+  "ports": {
+   "performance": "Outputs the estimated fuel performance for the input value.",
+   "power": "Requires N P/s.",
+   "stability": "Outputs the overall fuel stability.",
+   "value": "Input data in the range 0-1 to estimate fuel performance at the specified value."
+  }
+ },
+ "fuse_box": {
+  "desc": "Used to interrupt the electrical current if the power exceeds the specified threshold.",
+  "name": "Fuse Box",
+  "ports": {
+   "a": "Power port.",
+   "b": "Power port."
+  }
+ },
+ "gravitymeter": {
+  "desc": "Measures current gravity in m/s².",
+  "name": "Gravitymeter",
+  "ports": {
+   "gravity": "Outputs current gravity in m/s²."
+  }
+ },
+ "green_tank": {
+  "desc": "Green is mediocre fuel. Appears as a green-colored gas.",
+  "name": "Green Tank",
+  "ports": {
+   "fuel": "Outputs fuel level from 0 (empty) to 1 (full)."
+  }
+ },
+ "green_trench_pump": {
+  "desc": "Gas pump and tank used to collect gases from the bottom of Green Trench.",
+  "name": "Green Trench Pump",
+  "ports": {
+   "power": "Requires N P/s."
+  }
+ },
+ "gyro_line": {
+  "desc": "Gyro-Line shows the spaceship’s pitch and roll orientation on the screen.",
+  "name": "Gyro-Line",
+  "ports": {
+   "pitch": "Outputs pitch tilt in degrees.",
+   "power": "Requires N P/s.",
+   "roll": "Outputs roll tilt in degrees."
+  }
+ },
+ "horizontal_meter": {
+  "desc": "Displays the data signal from the input port.",
+  "name": "Horizontal Meter",
+  "ports": {
+   "in": "Input signal to be shown on the display."
+  }
+ },
+ "ice_cream_freezer": {
+  "desc": "Keeps ice cream fresh and delicious as long as it's powered. Beware: if the power goes out for too long, the freezer will break down.",
+  "name": "Ice Cream Freezer",
+  "ports": {
+   "power": "Requires N P/s for cooling."
+  }
+ },
+ "inclinometer": {
+  "desc": "Measures the difference in degrees between the component's down direction and the gravity direction.",
+  "name": "Inclinometer",
+  "ports": {
+   "angle": "Outputs the difference in degrees between the component's down direction and gravity direction."
+  }
+ },
+ "initializer": {
+  "desc": "Block chains often take a few game ticks to initialize their values. Until then, they may output unintended signals and trigger components such as decouplers at the wrong moment. Use this block to suppress all signals until the set number of ticks has passed after entering Fly Mode.",
+  "name": "Initializer",
+  "ports": {
+   "in": "Input signal.",
+   "out": "After the set number of game ticks, outputs the input signal. Until then, outputs 0."
+  }
+ },
+ "joystick_2d": {
+  "desc": "A two-dimensional joystick used to control both horizontal and vertical axes.",
+  "name": "Joystick 2D",
+  "ports": {
+   "horizontal": "Outputs the signal for the horizontal axis: -1 = left, 0 = middle, 1 = right.",
+   "vertical": "Outputs the signal for the vertical axis: -1 = down, 0 = middle, 1 = up."
+  }
+ },
+ "joystick_3d": {
+  "desc": "A three-dimensional joystick used to control yaw, pitch and roll axes.",
+  "name": "Joystick 3D",
+  "ports": {
+   "pitch": "Outputs the signal for the pitch axis: -1 = down, 0 = middle, 1 = up.",
+   "roll": "Outputs the signal for the roll axis: -1 = left, 0 = middle, 1 = right.",
+   "yaw": "Outputs the signal for the yaw axis: -1 = left, 0 = middle, 1 = right."
+  }
+ },
+ "joystick_horizontal": {
+  "desc": "A simple joystick used to control the horizontal axis.",
+  "name": "Joystick Horizontal",
+  "ports": {
+   "horizontal": "Outputs the signal for the horizontal axis: -1 = left, 0 = middle, 1 = right."
+  }
+ },
+ "joystick_vertical": {
+  "desc": "A simple joystick used to control the vertical axis.",
+  "name": "Joystick Vertical",
+  "ports": {
+   "vertical": "Outputs the signal for the vertical axis: -1 = down, 0 = middle, 1 = up."
+  }
+ },
+ "large_datameter": {
+  "desc": "Displays the data signal from the input port.",
+  "name": "Large Datameter",
+  "ports": {
+   "in": "Input signal to be shown on the display.",
+   "out": "Outputs the signal from the input port."
+  }
+ },
+ "large_disposable_battery": {
+  "desc": "Large non rechargeable battery with built in display serving as a source of electrical power.",
+  "name": "Large Disposable Battery",
+  "ports": {
+   "level": "Outputs the current battery level in Units.",
+   "power": "Provides the available power."
+  }
+ },
+ "large_electric_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Suitable for long-range flights. Requires a lot of electrical power to function properly.",
+  "name": "Large Electric Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "large_fuel_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Suitable for long-range flights. If there isn't enough fuel, the thruster's efficiency is reduced, and the amount of thrust depends on the performance of the provided fuel.",
+  "name": "Large Fuel Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "large_gate": {
+  "desc": "A structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Large Gate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "large_maneuvering_thruster": {
+  "desc": "Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Requires electrical power to function properly.",
+  "name": "Large Maneuvering Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "large_nanogate": {
+  "desc": "Advanced structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Large Nanogate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "large_power_router": {
+  "desc": "Serves as a large hub for connecting multiple power cables into same electric circuit.",
+  "name": "Large Power Router",
+  "ports": {
+   "a": "Power port.",
+   "b": "Power port.",
+   "c": "Power port.",
+   "d": "Power port.",
+   "e": "Power port.",
+   "f": "Power port.",
+   "g": "Power port.",
+   "h": "Power port."
+  }
+ },
+ "large_rechargeable_battery": {
+  "desc": "Large rechargeable battery with built in display serving as a source of electrical power. Can be recharged up to its initial maximum capacity when connected to an electric circuit containing any power generation source. Outputs current power units to output port.",
+  "name": "Large Rechargeable Battery",
+  "ports": {
+   "level": "Outputs the current battery level in Units.",
+   "power": "Provides the available power and can be used to recharge the battery."
+  }
+ },
+ "lava_sucker": {
+  "desc": "Lava pumping tank equipped with an extendable intake pipe, enabling efficient lava extraction on the Ashbelt planet.",
+  "name": "Lava Pumping Tank",
+  "ports": {
+   "length": "Input data range from 0 (retracted) to 1 (fully extended) to control intake pipe length.",
+   "on": "Input data value ≥ 0.5 to turn on.",
+   "power": "Requires N P/s."
+  }
+ },
+ "led_text": {
+  "desc": "Will illuminate the text when triggered by the input port value.",
+  "name": "LED Text",
+  "ports": {
+   "in": "Turns on at input signal ≥ 0.5."
+  }
+ },
+ "lever_horizontal": {
+  "desc": "A simple lever used to control the horizontal axis. Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.",
+  "name": "Lever Horizontal",
+  "ports": {
+   "out": "Outputs the signal for the vertical axis."
+  }
+ },
+ "lever_vertical": {
+  "desc": "A simple lever used to control the vertical axis. Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.",
+  "name": "Lever Vertical",
+  "ports": {
+   "out": "Outputs the signal for the vertical axis."
+  }
+ },
+ "lever_vertical_half": {
+  "desc": "A simple lever used to control the vertical axis. Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.",
+  "name": "Lever Vertical Small",
+  "ports": {
+   "out": "Outputs the signal for the vertical axis."
+  }
+ },
+ "log": {
+  "desc": "Outputs the natural logarithm (base e) of the input value.",
+  "name": "Natural Logarithm",
+  "ports": {
+   "in": "Input value (must be > 0).",
+   "out": "Output value."
+  }
+ },
+ "logic_value": {
+  "desc": "Outputs a data signal of 1 when the input signal is greater than or equal to 0.5, and outputs 0 when the input signal is less than 0.5.",
+  "name": "Logic Value",
+  "ports": {
+   "in": "Input signal.",
+   "out": "Outputs 1 when the input signal is greater than or equal to 0.5, otherwise outputs 0."
+  }
+ },
+ "long_range_distance_meter": {
+  "desc": "Measures the distance to the closest object in front of it, with no limitations on range.",
+  "name": "Long Range Distance Meter",
+  "ports": {
+   "distance": "Outputs distance to the closest object in front of the LRDM in meters.",
+   "power": "Requires N P/s."
+  }
+ },
+ "magnetometer": {
+  "desc": "Measures electromagnetic activity from the Sun. Used to detect and predict incoming solar storms. Make sure at least 70% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 70%, red = below 70%.",
+  "name": "Magnetometer",
+  "ports": {
+   "activity": "Outputs current electromagnetic activity levels on a scale from 0 to 1.",
+   "power": "Requires N P/s."
+  }
+ },
+ "massmeter": {
+  "desc": "Measures the mass of the spaceship it is mounted on.",
+  "name": "Massmeter",
+  "ports": {
+   "mass": "Outputs the mass of the spaceship it is mounted on."
+  }
+ },
+ "max": {
+  "desc": "Outputs the largest value among its inputs.",
+  "name": "Maximum",
+  "ports": {
+   "a": "Input value.",
+   "b": "Input value.",
+   "out": "The largest value among all inputs."
+  }
+ },
+ "medium_disposable_battery": {
+  "desc": "Medium non rechargeable battery with built in display serving as a source of electrical power.",
+  "name": "Medium Disposable Battery",
+  "ports": {
+   "level": "Outputs the current battery level in Units.",
+   "power": "Provides the available power."
+  }
+ },
+ "medium_electric_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Suitable for medium-range flights. Requires a lot of electrical power to function properly.",
+  "name": "Medium Electric Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "medium_fuel_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Suitable for long-range flights. If there isn't enough fuel, the thruster's efficiency is reduced, and the amount of thrust depends on the performance of the provided fuel.",
+  "name": "Medium Fuel Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "medium_gate": {
+  "desc": "A structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Medium Gate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "medium_maneuvering_thruster": {
+  "desc": "Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Requires electrical power to function properly.",
+  "name": "Medium Maneuvering Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "medium_nanogate": {
+  "desc": "Advanced structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Medium Nanogate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "medium_rechargeable_battery": {
+  "desc": "Medium rechargeable battery with built in display serving as a source of electrical power. Can be recharged up to its initial maximum capacity when connected to an electric circuit containing any power generation source. Outputs current power units to output port.",
+  "name": "Medium Rechargeable Battery",
+  "ports": {
+   "level": "Outputs the current battery level in Units.",
+   "power": "Provides the available power and can be used to recharge the battery."
+  }
+ },
+ "memory": {
+  "desc": "Stores a value internally and outputs it. The value is updated through the Set input using either Continuous mode (updates while signal ≥ 0.5) or Pulse mode (updates only when the signal crosses ≥ 0.5).",
+  "name": "Memory",
+  "ports": {
+   "out": "Currently stored value.",
+   "set": "Control signal that determines when the stored value is updated.",
+   "value": "Value to store when the block is triggered."
+  }
+ },
+ "min": {
+  "desc": "Outputs the smallest value among its inputs.",
+  "name": "Minimum",
+  "ports": {
+   "a": "Input value.",
+   "b": "Input value.",
+   "out": "The smallest value among all inputs."
+  }
+ },
+ "mod": {
+  "desc": "Outputs the remainder of the division of the first input by the second input.",
+  "name": "Modulo",
+  "ports": {
+   "a": "Dividend input.",
+   "b": "Divisor input.",
+   "out": "Output remainder."
+  }
+ },
+ "monitor_crt": {
+  "desc": "A monitor that displays the signal from a connected camera. If no camera is connected, it shows noise. It uses CRT display technology and requires electrical power to function properly.",
+  "name": "Monitor CRT",
+  "ports": {
+   "power": "Requires N P/s.",
+   "video": "Input video signal."
+  }
+ },
+ "monitor_large_hologram": {
+  "desc": "A large-sized holographic display used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses hologram display technology and requires electrical power to function properly.",
+  "name": "Large Holographic Display",
+  "ports": {
+   "power": "Requires N P/s.",
+   "primary": "Input primary video signal.",
+   "secondary": "Input secondary video signal."
+  }
+ },
+ "monitor_large_lcd": {
+  "desc": "A large-sized monitor used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses LCD display technology and requires electrical power to function properly.",
+  "name": "Monitor Large LCD",
+  "ports": {
+   "power": "Requires N P/s.",
+   "primary": "Input primary video signal.",
+   "secondary": "Input secondary video signal."
+  }
+ },
+ "monitor_medium_hologram": {
+  "desc": "A medium-sized holographic display used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses hologram display technology and requires electrical power to function properly.",
+  "name": "Medium Holographic Display",
+  "ports": {
+   "power": "Requires N P/s.",
+   "primary": "Input primary video signal.",
+   "secondary": "Input secondary video signal."
+  }
+ },
+ "monitor_medium_lcd": {
+  "desc": "A medium-sized monitor used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses LCD display technology and requires electrical power to function properly.",
+  "name": "Monitor Medium LCD",
+  "ports": {
+   "power": "Requires N P/s.",
+   "primary": "Input primary video signal.",
+   "secondary": "Input secondary video signal."
+  }
+ },
+ "monitor_small_hologram": {
+  "desc": "A small-sized holographic display used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses hologram display technology and requires electrical power to function properly.",
+  "name": "Small Holographic Display",
+  "ports": {
+   "power": "Requires N P/s.",
+   "primary": "Input primary video signal.",
+   "secondary": "Input secondary video signal."
+  }
+ },
+ "monitor_small_lcd": {
+  "desc": "A small-sized monitor used to display the signal from a connected camera. If no camera is connected, it shows noise. It uses LCD display technology and requires electrical power to function properly.",
+  "name": "Monitor Small LCD",
+  "ports": {
+   "power": "Requires N P/s.",
+   "primary": "Input primary video signal.",
+   "secondary": "Input secondary video signal."
+  }
+ },
+ "multiplier": {
+  "desc": "Performs a multiplication operation on data from two input ports and outputs the result to the output port.\nX = A * B",
+  "name": "Multiplier",
+  "ports": {
+   "a": "Input data for A.\nX = A * B",
+   "b": "Input data for B.\nX = A * B",
+   "out": "Outputs data for X.\nX = A * B"
+  }
+ },
+ "nanopipe_electric_valve": {
+  "desc": "Advanced one-way fuel pipe used to transport or temporarily store fuel. Safe for all fuel types. It features an electric valve that adjusts fuel flow from 0% to 100% based on the data signal from the input port. Requires electrical power to adjust the valve and only consumes electricity when the valve is adjusting.",
+  "name": "Nanopipe With Electric Valve",
+  "ports": {
+   "open": "Input data signal from 0 (close) to 1 (open).",
+   "power": "Requires N P/s when changing the valve state."
+  }
+ },
+ "night_vision_camera": {
+  "desc": "Can see in the dark. Outputs a live video to the output port. Requires electrical power to operate.",
+  "name": "Night Vision Camera",
+  "ports": {
+   "power": "Requires N P/s.",
+   "video": "Outputs video signal."
+  }
+ },
+ "not": {
+  "desc": "Performs a NOT operation on data from input port and outputs the result to the output port.\nX = 1 - A",
+  "name": "Logic Gate NOT",
+  "ports": {
+   "in": "Input data for A.\nX = 1 - A",
+   "out": "Outputs data for X.\nX = 1 - A"
+  }
+ },
+ "or": {
+  "desc": "Performs an OR operation on data from two input ports and outputs the result to the output port.\nX = A ∨ B",
+  "name": "Logic Gate OR",
+  "ports": {
+   "a": "Input data for A.\nX = A ∨ B",
+   "b": "Input data for B.\nX = A ∨ B",
+   "out": "Outputs data for X. X = A ∨ B"
+  }
+ },
+ "outcast_polar_anchor": {
+  "desc": "Polar Anchor used to stabilize wind on the Outcast.",
+  "name": "Outcast Polar Anchor",
+  "ports": {
+   "power": "Requires up to N P/s."
+  }
+ },
+ "personnel_gate": {
+  "desc": "A structural frame with a built-in electric door used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Personnel Door",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "personnel_nanogate": {
+  "desc": "Advanced structural frame with a built-in electric door used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Personnel Nanodoor",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "pipe_electric_valve": {
+  "desc": "Basic one-way fuel pipe used to transport or temporarily store fuel. Safe for fuel stability ≥50%. It features an electric valve that adjusts fuel flow from 0% to 100% based on the data signal from the input port. Requires electrical power to adjust the valve and only consumes electricity when the valve is adjusting.",
+  "name": "Pipe With Electric Valve",
+  "ports": {
+   "open": "Input data signal from 0 (close) to 1 (open).",
+   "power": "Requires N P/s when changing the valve state."
+  }
+ },
+ "power": {
+  "desc": "Outputs the first input raised to the power of the second input.",
+  "name": "Power",
+  "ports": {
+   "a": "Base input.",
+   "b": "Exponent input.",
+   "out": "Output value."
+  }
+ },
+ "power_blocker": {
+  "desc": "Blocks electric power between two power ports if receiving data signal in input port higher or equal to 0.5.",
+  "name": "Power Blocker",
+  "ports": {
+   "a": "Power port.",
+   "b": "Power port.",
+   "block": "Input data signal of 0.5 or higher to block power between the two power ports."
+  }
+ },
+ "power_generation_meter": {
+  "desc": "Displays the current power generation per second in the connected electric circuit and outputs the value to the output port. The light on the indicator shows green when there is enough power in the circuit and red when there is a power deficiency.",
+  "name": "Power Generation Meter",
+  "ports": {
+   "generation": "Outputs power generation in P/s of the connected electric circuit.",
+   "power": "Power port."
+  }
+ },
+ "power_router": {
+  "desc": "Serves as a hub for connecting multiple power cables into same electric circuit.",
+  "name": "Power Router",
+  "ports": {
+   "a": "Power port.",
+   "b": "Power port.",
+   "c": "Power port.",
+   "d": "Power port."
+  }
+ },
+ "power_usage_meter": {
+  "desc": "Displays the current power usage per second in the connected electric circuit and outputs the value to the output port. The light on the indicator shows green when there is enough power in the circuit and red when there is a power deficiency.",
+  "name": "Power Usage Meter",
+  "ports": {
+   "power": "Power port.",
+   "usage": "Outputs power usage in P/s of the connected electric circuit."
+  }
+ },
+ "radar": {
+  "desc": "Used to locate planetary stations and analyze terrain elevation, helping you identify flat surfaces for safe landings. The display automatically rotates to match the spaceship’s orientation. Requires electrical power to operate.\nSelect Mode: Wall when mounted on a wall or Mode: Floor when mounted on the floor.",
+  "name": "Radar",
+  "ports": {
+   "power": "Requires N P/s."
+  }
+ },
+ "ramp_gate": {
+  "desc": "A structural frame with a built-in electric ramp used for entering and exiting the spaceship. The data signal on the input port controls the ramp's rotation. Requires electrical power to rotate the door and only consumes electricity when the ramp is in motion.",
+  "name": "Ramp Gate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "ramp_nanogate": {
+  "desc": "Advanced structural frame with a built-in electric ramp used for entering and exiting the spaceship. The data signal on the input port controls the ramp's rotation. Requires electrical power to rotate the door and only consumes electricity when the ramp is in motion.",
+  "name": "Nanoramp Gate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "rcs_controller": {
+  "desc": "RCS Controller for 6 RCS Thrusters.",
+  "name": "RCS Controller",
+  "ports": {
+   "pitch": "Input signal for the pitch axis from joystick.",
+   "power": "Requires N P/s.",
+   "roll": "Input signal for the roll axis from joystick.",
+   "yaw": "Input signal for the yaw axis from joystick."
+  }
+ },
+ "red_alert_light": {
+  "desc": "Provides a flickering red light when receiving an input signal higher than 0.333, and activates both the light and alarm sound when the signal is higher than 0.666.",
+  "name": "Red Alert Light",
+  "ports": {
+   "in": "Input a signal higher than 0.333 to turn on the light, and higher than 0.666 to turn on both the light and alarm sound."
+  }
+ },
+ "red_tank": {
+  "desc": "A highly efficient but very reactive fuel that must be carefully mixed with other fuels and kept under active cooling. The cooler needs a continuous power supply - if power is lost while fuel remains in the tank, it may explode. When properly mixed and cooled, red fuel delivers the best performance.",
+  "name": "Red Tank",
+  "ports": {
+   "cooling": "Outputs the cooling state: 1 is normal, 0 indicates imminent failure.",
+   "fuel": "Outputs fuel level from 0 (empty) to 1 (full).",
+   "power": "Requires N P/s for cooling."
+  }
+ },
+ "remapper": {
+  "desc": "Linearly remaps a value from a given input range to a corresponding value in the output range.",
+  "name": "Remapper",
+  "ports": {
+   "in": "Input data signal to be remapped.",
+   "out": "Outputs remapped data signal."
+  }
+ },
+ "rimcore_turbo": {
+  "desc": "Gas pump and tank used to collect gases from the core of Rimshell.",
+  "name": "Rimcore Turbopump",
+  "ports": {
+   "on": "Turns on at input signal ≥ 0.5.",
+   "power": "Requires N P/s."
+  }
+ },
+ "rotational_telescope": {
+  "desc": "Rotational telescopic camera operating within a hemisphere. Can rotate in three axes and zoom up to 60x. Require electrical power to function properly.",
+  "name": "Rotational Telescopic Camera",
+  "ports": {
+   "horizontal": "Input data signal from 0 to 1 to control horizontal rotation.",
+   "power": "Requires N P/s.",
+   "roll": "Input data signal from 0 to 1 to control roll rotation.",
+   "vertical": "Input data signal from -1 to 1 to control vertical rotation.",
+   "video": "Outputs video signal.",
+   "zoom": "Input data signal from 0 to 1 to control camera zoom."
+  }
+ },
+ "rotometer": {
+  "desc": "Measures the current rotation in degrees per second.",
+  "name": "Rotometer",
+  "ports": {
+   "rotation": "Outputs the current rotation in degrees per second."
+  }
+ },
+ "round": {
+  "desc": "Rounds the input value based on the selected mode: Round to the nearest integer, Floor to the nearest lower integer, or Ceil to the nearest higher integer.",
+  "name": "Round",
+  "ports": {
+   "in": "Input value.",
+   "out": "Rounded output value."
+  }
+ },
+ "sign_splitter": {
+  "desc": "Sends positive values to one output and negative values to the other, with both output as positive values.",
+  "name": "Sign Splitter",
+  "ports": {
+   "in": "Input value.",
+   "neg": "Negative output: Outputs negative input values as positive values.",
+   "pos": "Positive output: Outputs positive input values."
+  }
+ },
+ "simple_threshold": {
+  "desc": "Outputs 1 if the signal on the input port is equal to or higher than the set value, otherwise outputs 0.",
+  "name": "Simple Threshold",
+  "ports": {
+   "in": "Input signal for comparison with set value",
+   "out": "Outputs data signal 1 when the input signal is greater than or equal to the set value, otherwise outputs 0."
+  }
+ },
+ "sin": {
+  "desc": "Outputs the sine of the input angle in radians.",
+  "name": "Sine",
+  "ports": {
+   "in": "Input angle in radians.",
+   "out": "Output value."
+  }
+ },
+ "sinh": {
+  "desc": "Outputs the hyperbolic sine of the input value.",
+  "name": "Hyperbolic Sine",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value."
+  }
+ },
+ "slider": {
+  "desc": "A simple lever used to control the vertical axis. Use the small red button at the back right to switch between 0 to 1 mode and −1 to 1 mode.",
+  "name": "Lever Vertical"
+ },
+ "small_button": {
+  "desc": "Outputs a data signal of 1 while held down and 0 when released.",
+  "name": "Small Button",
+  "ports": {
+   "out": "Outputs 1 when pressed, 0 when not pressed."
+  }
+ },
+ "small_disposable_battery": {
+  "desc": "Small non rechargeable battery with built in strip indicator serving as a source of electrical power.",
+  "name": "Small Disposable Battery",
+  "ports": {
+   "power": "Provides the available power."
+  }
+ },
+ "small_electric_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Suitable for small-range or intraplanetary flights. Requires electrical power to function properly.",
+  "name": "Small Electric Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "small_fuel_thruster": {
+  "desc": "Provides the thrust required to move the spaceship. Suitable for long-range flights. If there isn't enough fuel, the thruster's efficiency is reduced, and the amount of thrust depends on the performance of the provided fuel.",
+  "name": "Small Fuel Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "small_gate": {
+  "desc": "A structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Small Gate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "small_knob": {
+  "desc": "Small knob that outputs signal from 0 to 1.",
+  "name": "Small Knob",
+  "ports": {
+   "out": "Outputs signal in the range from 0 to 1."
+  }
+ },
+ "small_maneuvering_thruster": {
+  "desc": "Provides thrust to rotate the spaceship. It doesn't have a gimbal, so all the power is used for rotation. Requires electrical power to function properly.",
+  "name": "Small Maneuvering Thruster",
+  "ports": {
+   "power": "Requires N P/s.",
+   "throttle": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "small_nanogate": {
+  "desc": "Advanced structural frame with a built-in electric gate used for entering and exiting the spaceship. The data signal on the input port controls the door. Requires electrical power to move the door and only consumes electricity when the door is in motion.",
+  "name": "Small Nanogate",
+  "ports": {
+   "power": "Requires N P/s to open or close the gate.",
+   "state": "Input data from 0 to 1 to control the gate state."
+  }
+ },
+ "small_plasma_generator": {
+  "desc": "Converts electric energy into plasma.",
+  "name": "Small Plasma Generator",
+  "ports": {
+   "plasma": "Plasma output.",
+   "power": "Requires up to N P/s.",
+   "speed": "Input data signal from 0 (off) to 1 (max) to control speed."
+  }
+ },
+ "small_rechargeable_battery": {
+  "desc": "Small rechargeable battery with built-in strip indicator serving as a source of electrical power. Can be recharged up to its initial maximum capacity when connected to an electric circuit containing any power generation source.",
+  "name": "Small Rechargeable Battery",
+  "ports": {
+   "power": "Provides the available power and can be used to recharge the battery."
+  }
+ },
+ "small_solid_fuel_thruster": {
+  "desc": "Single-use thruster providing a lot of thrust for certain amount of time. For ignition it needs to be supplied with very large amount of electric power for small time period. After ignition it no longer requires any electric power and cannot be stopped.",
+  "name": "Small Solid Fuel Thruster",
+  "ports": {
+   "power": "Requires N P/s to ignite."
+  }
+ },
+ "small_switch": {
+  "desc": "Outputs a data signal of 1 when the switch is in position 'I' and a data signal of 0 when the switch is in position 'O'.",
+  "name": "Small Switch",
+  "ports": {
+   "out": "Outputs 1 when on (I), 0 when off (O)."
+  }
+ },
+ "solar_panel": {
+  "desc": "Generates electric power when facing a light source. Efficiency decreases as the facing angle increases. Obstacles in front of the solar zone reduce efficiency.",
+  "name": "Solar Panel",
+  "ports": {
+   "a": "Can generate up to N P/s.",
+   "b": "Can generate up to N P/s."
+  }
+ },
+ "solar_shield_generator": {
+  "desc": "Converts plasma into solar shield.",
+  "name": "Solar Shield Generator",
+  "ports": {
+   "max_heat": "Outputs the maximum amount of heat absorbed by the shield.",
+   "plasma": "Plasma port.",
+   "radius": "Input data in meters to control shield radius."
+  }
+ },
+ "space_gps": {
+  "desc": "Used to determine world-space coordinates as distance, longitude, and latitude relative to the center of the universe (the Sun). Make sure at least 60% of the space around it is clear so it can work properly! The indicator shows signal quality: green = above 60%, red = below 60%.",
+  "name": "Space GPS",
+  "ports": {
+   "distance": "Outputs distance.",
+   "latitude": "Outputs latitude in degrees (-90 to 90).",
+   "longitude": "Outputs longitude in degrees (-180 to 180).",
+   "power": "Requires N P/s."
+  }
+ },
+ "space_scanner": {
+  "desc": "A satellite module for detecting celestial bodies in deep space. It uses a configurable scanning cone to identify planets and large objects, outputting the distance to the nearest detected object. For proper functioning, there must be no obstacles in front of the component.",
+  "name": "Space Scanner",
+  "ports": {
+   "cone": "Input data signal from 0 (50 degrees) to 1 (1 degrees) to control cone angle.",
+   "distance": "Outputs the distance to the closest object in the front cone of the satellite, in meters.",
+   "power": "Requires N P/s."
+  }
+ },
+ "speaker": {
+  "desc": "Plays the selected sound when triggered by an input port signal. Works in two modes:\nPlay once: Plays the sound once when the signal changes from 0 to 1.\nRepeat: Continuously repeats the sound while the signal is greater than or equal to 0.5.",
+  "name": "Speaker",
+  "ports": {
+   "in": "Play once mode: Plays the sound once when the signal changes from 0 to 1.\nRepeat mode: Continuously repeats the sound while the signal is greater than or equal to 0.5."
+  }
+ },
+ "sqrt": {
+  "desc": "Outputs the square root of the input value.",
+  "name": "Square Root",
+  "ports": {
+   "in": "Input value (must be ≥ 0).",
+   "out": "Output value."
+  }
+ },
+ "stick_switch": {
+  "desc": "Outputs a data signal of 1 when the switch is up and a data signal of 0 when the switch is down.",
+  "name": "Stick Switch",
+  "ports": {
+   "out": "Outputs 1 when up, 0 when down."
+  }
+ },
+ "subtractor": {
+  "desc": "Performs a subtraction operation on data from two input ports and outputs the result to the output port.\nX = A - B",
+  "name": "Subtractor",
+  "ports": {
+   "a": "Input data for A.\nX = A - B",
+   "b": "Input data for B.\nX = A - B",
+   "out": "Outputs data for X.\nX = A - B"
+  }
+ },
+ "sum": {
+  "desc": "Outputs the sum of all connected inputs.",
+  "name": "Addition Array",
+  "ports": {
+   "a": "Additive input signal.",
+   "b": "Additive input signal.",
+   "c": "Additive input signal.",
+   "d": "Additive input signal.",
+   "e": "Additive input signal.",
+   "f": "Additive input signal.",
+   "g": "Additive input signal.",
+   "out": "Sum of all input signals."
+  }
+ },
+ "switch": {
+  "desc": "Outputs a data signal of 1 when the switch is in position 'I' and a data signal of 0 when the switch is in position 'O'.",
+  "name": "Switch",
+  "ports": {
+   "out": "Outputs 1 when on (I), 0 when off (O)."
+  }
+ },
+ "tan": {
+  "desc": "Outputs the tangent of the input angle in radians.",
+  "name": "Tangent",
+  "ports": {
+   "in": "Input angle in radians.",
+   "out": "Output value."
+  }
+ },
+ "tanh": {
+  "desc": "Outputs the hyperbolic tangent of the input value.",
+  "name": "Hyperbolic Tangent",
+  "ports": {
+   "in": "Input value.",
+   "out": "Output value."
+  }
+ },
+ "thermometer": {
+  "desc": "Reads the current temperature and sends it to the data port. Make sure to place it on the outside of the spaceship for best results.",
+  "name": "Thermometer",
+  "ports": {
+   "temperature": "Outputs the temperature."
+  }
+ },
+ "thermoscan": {
+  "desc": "Measures the temperature of the first object hit by a ray cast up to 1000 meters and outputs the value to the data port.",
+  "name": "Thermoscan",
+  "ports": {
+   "temperature": "Outputs temperature of the first detected object."
+  }
+ },
+ "tnt_box": {
+  "desc": "Thanks for playing the Demo! Now try it with the TNT Controller!",
+  "name": "TNT Box",
+  "ports": {
+   "trigger": "Detonates at input signal ≥ 0.5."
+  }
+ },
+ "tnt_controller": {
+  "desc": "Thanks for playing the Demo! Now try it with the TNT Box!",
+  "name": "TNT Controller",
+  "ports": {
+   "out": "Outputs 1 when pressed, 0 when not pressed."
+  }
+ },
+ "toggle": {
+  "desc": "Outputs a data signal of 1 when the switch is in position 'I' and a data signal of 0 when the switch is in position 'O'.",
+  "name": "Switch"
+ },
+ "trajectory_curvature_meter": {
+  "desc": "Detects the difference in degrees between the spaceship's trajectory and its facing direction. For proper functioning, there must be no obstacles in front of the component.",
+  "name": "Trajectory Curvature Meter",
+  "ports": {
+   "angle": "Outputs the difference in degrees between the spaceship's trajectory and the component's facing direction."
+  }
+ },
+ "velocity_meter": {
+  "desc": "Detects the current speed in meters per second. For proper functioning, there must be no obstacles in front of the component.",
+  "name": "Velocity Meter",
+  "ports": {
+   "velocity": "Outputs the current velocity in m/s."
+  }
+ },
+ "vertical_meter": {
+  "desc": "Displays the data signal from the input port.",
+  "name": "Vertical Meter",
+  "ports": {
+   "in": "Input signal to be shown on the display."
+  }
+ },
+ "wind_shield_generator": {
+  "desc": "Converts plasma into wind shield.",
+  "name": "Wind Shield Generator",
+  "ports": {
+   "max_wind": "Outputs the maximum wind speed the shield can absorb, in m/s.",
+   "plasma": "Plasma port.",
+   "radius": "Input data in meters to control shield radius."
+  }
+ },
+ "windmeter": {
+  "desc": "Measures current wind strength outside of spaceship. For proper functioning it must be mounted outside the ship with an unobstructed view.",
+  "name": "Windmeter",
+  "ports": {
+   "wind_speed": "Outputs the current wind speed in m/s²."
+  }
+ },
+ "wireless_transmitter": {
+  "desc": "Allows sending and receiving data signals on the same channel up to 2000 meters. The green light indicates the transmitter is successfully sending or receiving a data signal. The red light means multiple transmitters are broadcasting on the same channel, which is not allowed.",
+  "name": "Wireless Transmitter",
+  "ports": {
+   "rx": "Input/output port to send or receive via transmitter.",
+   "tx": "Input/output port to send or receive via transmitter."
+  }
+ },
+ "xor": {
+  "desc": "Performs a XOR operation on data from two input ports and outputs the result to the output port.\nX = A ⊕ B",
+  "name": "Logic Gate XOR",
+  "ports": {
+   "a": "Input data for A.\nX = A ⊕ B",
+   "b": "Input data for B.\nX = A ⊕ B",
+   "out": "Outputs data for X.\nX = A ⊕ B"
+  }
+ },
+ "zoom_camera": {
+  "desc": "Outputs a live video to the output port. Requires electrical power to operate. The camera supports up to 12x zoom.",
+  "name": "Camera With Zoom",
+  "ports": {
+   "power": "Requires N P/s.",
+   "video": "Outputs video signal.",
+   "zoom": "Input data signal from 0 to 1 to control camera zoom."
+  }
+ }
+}

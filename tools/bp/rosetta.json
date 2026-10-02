@@ -1,0 +1,29 @@
+{
+  "_about": "Reference ('rosetta') blueprint layout. Each row starts with a Label reading R1..R7; parts follow it in this order, all in the same orientation, two empty cells apart, rows parallel and in the same direction. A Large Label reading R8 is placed on its own. Saved in-game under the name 'rosetta'. tools/bp/decode_rosetta.py matches part hashes to these names by row and position.",
+  "marker": "Label",
+  "extra": [{ "name": "Large Label", "text": "R8", "type_id": null }],
+  "rows": [
+    { "label": "R1", "parts": [
+      ["Data Router 2", "data_router_2"], ["Data Router 4", "data_router_4"], ["Sign Splitter", "sign_splitter"],
+      ["Data Redirector 3", "data_redirector_3"], ["Data Hub", "data_hub"], ["Datameter", "datameter"],
+      ["Wireless Transmitter", "wireless_transmitter"], ["Constant", "constant"] ] },
+    { "label": "R2", "parts": [
+      ["Logic Gate AND", "and"], ["Logic Gate OR", "or"], ["Logic Gate XOR", "xor"], ["Logic Gate NOT", "not"],
+      ["Logic Value", "logic_value"], ["Simple Threshold", "simple_threshold"], ["Condition", "condition"] ] },
+    { "label": "R3", "parts": [
+      ["Adder", "adder"], ["Subtractor", "subtractor"], ["Multiplier", "multiplier"], ["Divider", "divider"],
+      ["Modulo", "mod"], ["Power", "power"], ["Maximum", "max"], ["Minimum", "min"] ] },
+    { "label": "R4", "parts": [
+      ["Absolute", "abs"], ["Square Root", "sqrt"], ["Exponential", "exp"], ["Natural Logarithm", "log"],
+      ["Round", "round"], ["Remapper", "remapper"], ["Addition Array", "sum"], ["Fader", "fader"] ] },
+    { "label": "R5", "parts": [
+      ["Sine", "sin"], ["Cosine", "cos"], ["Tangent", "tan"], ["Arc Sine", "asin"], ["Arc Cosine", "acos"],
+      ["Arc Tangent", "atan"], ["Arc Tangent 2", "atan2"] ] },
+    { "label": "R6", "optional": true, "parts": [
+      ["Hyperbolic Sine", "sinh"], ["Hyperbolic Cosine", "cosh"], ["Hyperbolic Tangent", "tanh"],
+      ["Hyperbolic Arc Sine", "asinh"], ["Hyperbolic Arc Cosine", "acosh"], ["Hyperbolic Arc Tangent", "atanh"] ] },
+    { "label": "R7", "parts": [
+      ["Accumulator", "accumulator"], ["Memory", "memory"], ["Delay", "delay"], ["Differentiator", "differentiator"],
+      ["Initializer", "initializer"] ] }
+  ]
+}

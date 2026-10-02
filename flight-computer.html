@@ -1,0 +1,662 @@
+<title>Approximately Up Flight Computer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  :root{
+    --bg:#f4f6f9; --panel:#ffffff; --panel-2:#eef1f5; --line:#c7d0da;
+    --text:#101822; --text-dim:#51606f;
+    --amber:#a5690a; --power:#c23b2c; --din:#8a6d00; --dout:#1c6fb0; --ok:#1f8f5f;
+    --grid:#dbe2ea;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0a0f16; --panel:#101822; --panel-2:#141e2a; --line:#243244;
+      --text:#e4ecf3; --text-dim:#8ea0b3;
+      --amber:#ffb84d; --power:#ff6a5a; --din:#ffd23f; --dout:#5ab6ff; --ok:#5fdba0;
+      --grid:#18222f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a0f16; --panel:#101822; --panel-2:#141e2a; --line:#243244;
+    --text:#e4ecf3; --text-dim:#8ea0b3;
+    --amber:#ffb84d; --power:#ff6a5a; --din:#ffd23f; --dout:#5ab6ff; --ok:#5fdba0;
+    --grid:#18222f;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+  header{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:18px 22px;
+    border-bottom:1px solid var(--line);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(6px);
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:20;
+  }
+  .brand{display:flex; flex-direction:column; gap:2px; min-width:0;}
+  .brand .kicker{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--amber);}
+  .brand h1{margin:0; font-size:17px; font-weight:700; letter-spacing:-.01em;}
+  .brand .sub{font-size:12.5px; color:var(--text-dim);}
+  .hdr-right{display:flex; align-items:center; gap:10px; flex-shrink:0;}
+  .tabs{display:flex; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .tab{
+    font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px;
+    padding:9px 14px; background:var(--panel); color:var(--text-dim); cursor:pointer;
+    border:none; border-right:1px solid var(--line); transition:.15s;
+  }
+  .tab:last-child{border-right:none;}
+  .tab.active{background:var(--amber); color:#1a1204; font-weight:700;}
+  @media (max-width:640px){ header{flex-wrap:wrap; padding:14px 16px;} main{padding:16px;} }
+  .tab:focus-visible, .theme-btn:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+  .theme-btn{
+    width:34px; height:34px; border-radius:9px; border:1px solid var(--line);
+    background:var(--panel); color:var(--text); cursor:pointer; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  main{max-width:1400px; margin:0 auto; padding:20px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .note{
+    font-size:13px; color:var(--text-dim); background:var(--panel-2);
+    border:1px solid var(--line); border-left:3px solid var(--amber);
+    border-radius:8px; padding:12px 14px; margin-bottom:16px; line-height:1.5;
+  }
+  .note b{color:var(--text);}
+  .legend{
+    display:flex; flex-wrap:wrap; gap:16px; font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11.5px; color:var(--text-dim); margin-bottom:12px;
+  }
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .legend i{width:9px; height:9px; border-radius:50%; display:inline-block;}
+  .schem-wrap{
+    border:1px solid var(--line); border-radius:12px; background:var(--panel);
+    overflow-x:auto; overflow-y:hidden;
+  }
+  .schem-wrap svg{display:block;}
+  .blk rect{fill:var(--panel-2); stroke:var(--line); stroke-width:1.3;}
+  .blk.logic rect{stroke:var(--amber);}
+  .blk.actuator rect{stroke:var(--ok);}
+  .blk.sensor rect{stroke:var(--dout);}
+  .blk .lbl{font:600 12px 'Inter',sans-serif; fill:var(--text); text-anchor:middle;}
+  .blk .sub{font:500 9.5px 'JetBrains Mono',monospace; fill:var(--text-dim); text-anchor:middle;}
+  .lanehead{font:700 12px 'JetBrains Mono',monospace; fill:var(--amber);}
+  .lanehead2{font:500 10px 'Inter',sans-serif; fill:var(--text-dim);}
+  .wire{fill:none; stroke:var(--line); stroke-width:1.6;}
+  .wire.data{stroke:var(--dout);}
+  .wire.dashed{stroke-dasharray:5 4; stroke:var(--text-dim);}
+  .wire.evac{stroke:var(--power);}
+  .dot.power{fill:var(--power);}
+  .dot.in{fill:var(--din);}
+  .dot.out{fill:var(--dout);}
+  .spine{stroke:var(--power); stroke-width:2.5;}
+  .spinelbl{font:700 10px 'JetBrains Mono',monospace; fill:var(--power);}
+  .busbox rect{fill:var(--panel-2); stroke:var(--amber); stroke-width:1.6; rx:10;}
+  .busbox .lbl{font:700 12px 'Inter',sans-serif; fill:var(--amber); text-anchor:middle;}
+
+  .layout-grid{display:grid; grid-template-columns:1fr 300px; gap:16px;}
+  @media (max-width:820px){ .layout-grid{grid-template-columns:1fr;} }
+  .stage{
+    position:relative; border:1px solid var(--line); border-radius:12px;
+    background:var(--panel); height:min(72vh,640px); overflow:hidden; touch-action:none;
+  }
+  .stage canvas{display:block; width:100%; height:100%;}
+  .stage .hint{
+    position:absolute; left:12px; bottom:12px; font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11px; color:var(--text-dim); background:color-mix(in srgb, var(--panel) 75%, transparent);
+    padding:5px 9px; border-radius:6px; border:1px solid var(--line); pointer-events:none;
+  }
+  .side{
+    border:1px solid var(--line); border-radius:12px; background:var(--panel);
+    padding:16px; display:flex; flex-direction:column; gap:12px; height:fit-content;
+  }
+  .side h3{margin:0; font-size:13px; font-family:'JetBrains Mono',monospace; color:var(--amber);}
+  #infoName{font-weight:700; font-size:15px;}
+  #infoWhy{font-size:13px; color:var(--text-dim); line-height:1.5;}
+  .catlist{display:flex; flex-direction:column; gap:6px; margin-top:4px;}
+  .catrow{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--text-dim);}
+  .catrow i{width:10px; height:10px; border-radius:3px; flex-shrink:0;}
+  footer{max-width:1400px; margin:8px auto 40px; padding:0 20px; font-size:11.5px; color:var(--text-dim);}
+</style>
+
+<header>
+  <div class="brand">
+    <span class="kicker">approximately up · onboard automation</span>
+    <h1>Flight Computer — Wiring Schematic &amp; Compact Layout</h1>
+    <span class="sub">Hover · obstacle avoidance · level flight · autopilot cruise · planet scan</span>
+  </div>
+  <div class="hdr-right">
+    <div class="tabs">
+      <button class="tab active" data-tab="schem">Schematic</button>
+      <button class="tab" data-tab="layout">3D Layout</button>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== SCHEMATIC ===================== -->
+  <section class="panel active" id="panel-schem">
+    <div class="note">
+      <b>Reading this:</b> each lane is one subsystem — sensor(s) on the left, logic in the middle, actuator on the right.
+      Dots mark port type the way the game colors them: <b>red = power</b>, <b>yellow = data in</b>, <b>blue = data out</b>.
+      Dashed lines cross subsystems (e.g. the obstacle trip reaching into the attitude loop, or the scanner handing a lock to the autopilot).
+      The vertical red spine on the left is the power run — every block with a red dot taps it via Frame‑Quarter‑With‑Ports, not a separate cable.
+      <br><b>Timing:</b> the game runs at 60 ticks/s and every block takes one tick (16.7 ms) to pass a signal on, so a lane's response time is its block count in ticks.
+      Parts shown are ones the game's own part list confirms; circuits for lanes 04 and 05 are <code>planet_hop_v2.json</code> and <code>raster_sweep.json</code>.
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--power)"></i>power in</span>
+      <span><i style="background:var(--din)"></i>data in</span>
+      <span><i style="background:var(--dout)"></i>data out</span>
+      <span><i style="background:var(--amber);border-radius:3px"></i>logic / math</span>
+      <span><i style="background:var(--dout);border-radius:3px"></i>sensor</span>
+      <span><i style="background:var(--ok);border-radius:3px"></i>actuator</span>
+    </div>
+    <div class="schem-wrap">
+      <svg id="schemSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </section>
+
+  <!-- ===================== 3D LAYOUT ===================== -->
+  <section class="panel" id="panel-layout">
+    <div class="note">
+      <b>What this is:</b> a zone‑level compaction, not tile‑perfect coordinates — exact part footprints aren't published anywhere I could verify,
+      so this shows <i>which module sits where relative to the others, and why</i>. Confirm exact fit against the real part sizes in the editor
+      (press <b>H</b> in build mode to see any wire run that ends up unsupported).
+    </div>
+    <div class="layout-grid">
+      <div class="stage" id="stage">
+        <div class="hint">drag to rotate · scroll to zoom · tap a block for details</div>
+      </div>
+      <div class="side">
+        <h3>Selected component</h3>
+        <div id="infoName">— tap a block —</div>
+        <div id="infoWhy">Select any module in the 3D view to see what it holds and which game rule drove its placement.</div>
+        <h3 style="margin-top:6px;">Zones</h3>
+        <div class="catlist" id="catlist"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Fan-built reference tool for Approximately Up. Not affiliated with Approximately Games, Steam, or Valve.</footer>
+
+<script>
+/* ---------- theme toggle ---------- */
+(function(){
+  const btn = document.getElementById('themeBtn');
+  let saved = null;
+  try{ saved = localStorage.getItem('fc-theme'); }catch(e){}
+  if(saved) document.documentElement.setAttribute('data-theme', saved);
+  btn.addEventListener('click', ()=>{
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('fc-theme', next); }catch(e){}
+  });
+})();
+
+/* ---------- tabs ---------- */
+const tabs = document.querySelectorAll('.tab');
+const panels = { schem: document.getElementById('panel-schem'), layout: document.getElementById('panel-layout') };
+tabs.forEach(t=>{
+  t.addEventListener('click', ()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    Object.values(panels).forEach(p=>p.classList.remove('active'));
+    panels[t.dataset.tab].classList.add('active');
+    if(t.dataset.tab === 'layout') setTimeout(resize3D, 30);
+  });
+});
+
+/* =========================================================
+   SCHEMATIC — built procedurally so coordinates never drift
+   ========================================================= */
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const BW = 148, BH = 58, GAPX = 44, LANE_H = 184, ROWB_DY = 82, LEFT = 232, TOP = 30;
+  let out = [];
+  let maxX = 0, maxY = 0;
+  const reg = {}; // id -> {x,y,w,h,cx,cy,left,right}
+
+  function block(id, x, y, label, sub, cls, power){
+    const w = BW, h = BH;
+    reg[id] = {x,y,w,h,cx:x+w/2, cy:y+h/2, left:x, right:x+w, top:y, bottom:y+h};
+    maxX = Math.max(maxX, x+w+40); maxY = Math.max(maxY, y+h+30);
+    let dots = `<circle class="dot in" cx="${x}" cy="${y+h/2}" r="4"/><circle class="dot out" cx="${x+w}" cy="${y+h/2}" r="4"/>`;
+    if(power) dots += `<circle class="dot power" cx="${x+w/2}" cy="${y}" r="4"/>`;
+    out.push(`<g class="blk ${cls}">
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9"/>
+      <text class="lbl" x="${x+w/2}" y="${y+h/2-3}">${label}</text>
+      ${sub?`<text class="sub" x="${x+w/2}" y="${y+h/2+14}">${sub}</text>`:''}
+      ${dots}
+    </g>`);
+  }
+  function wireAB(a,b,dashed,cls){
+    const A = reg[a], B = reg[b];
+    out.push(`<path class="wire ${cls||''} ${dashed?'dashed':''}" marker-end="url(#arrow)"
+      d="M ${A.right} ${A.cy} L ${B.left} ${B.cy}"/>`);
+  }
+  function wireXY(x1,y1,x2,y2,dashed,cls){
+    out.push(`<path class="wire ${cls||''} ${dashed?'dashed':''}" marker-end="url(#arrow)" d="M ${x1} ${y1} L ${x2} ${y2}"/>`);
+  }
+  function bendWire(a,b,dashed,cls){
+    // right-angle connector from a's right edge to b's left edge, used cross-lane
+    const A = reg[a], B = reg[b];
+    const midX = (A.right + 26);
+    out.push(`<path class="wire ${cls||''} ${dashed?'dashed':''}" marker-end="url(#arrow)"
+      d="M ${A.right} ${A.cy} L ${midX} ${A.cy} L ${midX} ${B.cy} L ${B.left} ${B.cy}"/>`);
+  }
+  function laneTitle(y, n, title, tag){
+    out.push(`<text class="lanehead" x="20" y="${y+30}">${n}</text>`);
+    out.push(`<text class="lanehead" x="20" y="${y+48}">${title}</text>`);
+    out.push(`<text class="lanehead2" x="20" y="${y+64}">${tag}</text>`);
+  }
+
+  // ---- lane cursors ----
+  let laneTop = TOP;
+  const L = i => laneTop + i*LANE_H;
+
+  function row(laneIdx, rowOffset, defs){
+    // defs: [{id,label,sub,cls,power}]
+    let x = LEFT, y = L(laneIdx)+16+rowOffset;
+    const ids = [];
+    defs.forEach(d=>{
+      block(d.id, x, y, d.label, d.sub, d.cls, d.power!==false);
+      ids.push(d.id);
+      x += BW + GAPX;
+    });
+    for(let i=0;i<ids.length-1;i++) wireAB(ids[i], ids[i+1], false, d_cls(defs[i+1]));
+    return ids;
+  }
+  function d_cls(d){ return d && d.cls==='sensor' ? 'data' : ''; }
+
+  // LANE 0 title (power spine) drawn as a side rail, not a row
+  const spineX = 70;
+
+  // LANE 1 — Level Flight
+  laneTitle(L(0), '01', 'Level Flight', 'attitude hold — always active');
+  row(0, 0, [
+    {id:'gyro', label:'Gyro-Line', sub:'pitch / roll °', cls:'sensor'},
+    {id:'pgain', label:'÷ −30', sub:'P-term (wiki gain)', cls:'logic'},
+    {id:'sum1', label:'Σ', sub:'P + D', cls:'logic'},
+    {id:'sum2', label:'Σ', sub:'+ joystick', cls:'logic'},
+    {id:'rcs1', label:'RCS Pitch/Roll', sub:'×4 thrusters', cls:'actuator', power:true},
+  ]);
+  row(0, ROWB_DY, [
+    {id:'diff1', label:'Differentiator', sub:'Δ tilt over N ticks', cls:'logic'},
+    {id:'dgain', label:'× Kd', sub:'D-term', cls:'logic'},
+  ]);
+  wireXY(reg.dgain.cx, reg.dgain.top, reg.sum1.cx, reg.sum1.bottom, false, '');
+  wireXY(reg.gyro.cx, reg.gyro.bottom, reg.gyro.cx, reg.diff1.top, false, 'dashed');
+
+  // LANE 2 — Hover
+  laneTitle(L(1), '02', 'Hover', 'gated: mode = hover');
+  row(1, 0, [
+    {id:'alt', label:'Altimeter', sub:'no power port', cls:'sensor', power:false},
+    {id:'altsub', label:'Σ target − alt', sub:'', cls:'logic'},
+    {id:'altgain', label:'÷K + damp', sub:'', cls:'logic'},
+    {id:'liftsum', label:'Σ', sub:'+ joystick', cls:'logic'},
+    {id:'lift', label:'Vertical Thrusters', sub:'fans / lift', cls:'actuator'},
+  ]);
+  row(1, ROWB_DY, [
+    {id:'vel', label:'Velocity Meter', sub:'X / Z, directional', cls:'sensor'},
+    {id:'velgain', label:'÷K', sub:'×2 axes', cls:'logic'},
+    {id:'drift', label:'Σ', sub:'+ joystick', cls:'logic'},
+    {id:'rcs2', label:'RCS Fwd/Side', sub:'drift cancel', cls:'actuator'},
+  ]);
+  wireXY(reg.alt.right+10, reg.alt.cy, reg.alt.right+10, reg.vel.cy, false, 'dashed'); // visual tie between rows
+
+  // LANE 3 — Obstacle Avoidance
+  laneTitle(L(2), '03', 'Obstacle Avoidance', 'reactive trip, interrupts other lanes');
+  row(2, 0, [
+    {id:'rf', label:'Distance Meters', sub:'fwd / L / R · ≤ 1000 m', cls:'sensor', power:false},
+    {id:'inv', label:'margin − range', sub:'invert', cls:'logic'},
+    {id:'fuse', label:'Simple Threshold', sub:'trips if > 0', cls:'logic'},
+    {id:'cut', label:'AND: cut thrust', sub:'', cls:'logic'},
+    {id:'maingate', label:'Main Thruster Gate', sub:'', cls:'actuator'},
+  ]);
+  row(2, ROWB_DY, [
+    {id:'evac', label:'Evasion Constant', sub:'fixed yaw/pitch offset', cls:'logic'},
+    {id:'timer', label:'Hold timer', sub:'Accumulator counts ticks', cls:'logic'},
+  ]);
+  wireXY(reg.fuse.cx, reg.fuse.bottom, reg.fuse.cx, reg.evac.top, false, '');
+  wireXY(reg.fuse.cx, reg.evac.top, reg.evac.left, reg.evac.cy, false, '');
+  // cross-lane: evasion feeds attitude sum junction (Lane 1 sum2)
+  wireXY(reg.timer.right, reg.timer.cy, reg.timer.right+30, reg.timer.cy, true, 'evac');
+  wireXY(reg.timer.right+30, reg.timer.cy, reg.timer.right+30, reg.sum2.bottom+20, true, 'evac');
+  wireXY(reg.timer.right+30, reg.sum2.bottom+20, reg.sum2.cx, reg.sum2.bottom+20, true, 'evac');
+  wireXY(reg.sum2.cx, reg.sum2.bottom+20, reg.sum2.cx, reg.sum2.bottom, true, 'evac');
+
+  // LANE 4 — Autopilot Cruise
+  laneTitle(L(3), '04', 'Autopilot Cruise', 'gated: mode = cruise');
+  row(3, 0, [
+    {id:'gps', label:'Space GPS', sub:'dist / lon / lat', cls:'sensor'},
+    {id:'delta', label:'Δ vs target', sub:'stored constants', cls:'logic'},
+    {id:'trig', label:'Atan2 + Remap', sub:'deg ⇄ rad', cls:'logic'},
+    {id:'thresh', label:'Threshold', sub:'aligned < 2°', cls:'logic'},
+    {id:'burn', label:'Main Thruster Gate', sub:'', cls:'actuator'},
+  ]);
+  row(3, ROWB_DY, [
+    {id:'dist', label:'LR Distance Meter', sub:'aimed at target', cls:'sensor'},
+    {id:'brake', label:'planet_hop_v2', sub:'v²/2a + Gravitymeter', cls:'logic'},
+    {id:'flip', label:'Flip + burn', sub:'Initializer-gated', cls:'logic'},
+    {id:'land', label:'Mode → Hover/Land', sub:'handoff', cls:'actuator'},
+  ]);
+  wireXY(reg.thresh.cx, reg.thresh.bottom, reg.thresh.cx, reg.brake.top-16, false, '');
+  wireXY(reg.thresh.cx, reg.brake.top-16, reg.brake.left-14, reg.brake.top-16, false, '');
+  wireXY(reg.brake.left-14, reg.brake.top-16, reg.brake.left-14, reg.brake.cy, false, '');
+  wireXY(reg.brake.left-14, reg.brake.cy, reg.brake.left, reg.brake.cy, false, '');
+
+  // LANE 5 — Planet Scan: Raster Sweep
+  laneTitle(L(4), '05', 'Scan — Raster Sweep', 'loop-free: the game tick is the clock');
+  row(4, 0, [
+    {id:'stepgate', label:'Step × Enable', sub:'2° per tick', cls:'logic'},
+    {id:'accum', label:'Accumulator', sub:'Σ, never reset', cls:'logic'},
+    {id:'mod', label:'mod range', sub:'yaw 0 … 358°', cls:'logic'},
+    {id:'pad', label:'2 × Data Router', sub:'align with pitch', cls:'logic'},
+    {id:'target', label:'Attitude Target', sub:'yaw + pitch', cls:'logic'},
+  ]);
+  row(4, ROWB_DY, [
+    {id:'rowdiv', label:'÷ range', sub:'row number', cls:'logic'},
+    {id:'rowfloor', label:'Round: Floor', sub:'', cls:'logic'},
+    {id:'rowmod', label:'mod rows', sub:'7 rows', cls:'logic'},
+    {id:'pitchout', label:'× step − ½ span', sub:'pitch −60 … +60°', cls:'logic'},
+  ]);
+  // the accumulator's total also feeds the row counter
+  wireXY(reg.accum.cx, reg.accum.bottom, reg.accum.cx, reg.rowdiv.top-14, false, '');
+  wireXY(reg.accum.cx, reg.rowdiv.top-14, reg.rowdiv.cx, reg.rowdiv.top-14, false, '');
+  wireXY(reg.rowdiv.cx, reg.rowdiv.top-14, reg.rowdiv.cx, reg.rowdiv.top, false, '');
+  // pitch merges up into the shared attitude target
+  wireXY(reg.pitchout.right, reg.pitchout.cy, reg.target.cx, reg.pitchout.cy, false, '');
+  wireXY(reg.target.cx, reg.pitchout.cy, reg.target.cx, reg.target.bottom, false, '');
+  // target feeds Lane 1's sum2 (ship physically points where the raster says)
+  wireXY(reg.target.right, reg.target.cy, reg.target.right+26, reg.target.cy, true, '');
+  wireXY(reg.target.right+26, reg.target.cy, reg.target.right+26, reg.sum2.bottom+40, true, '');
+  wireXY(reg.target.right+26, reg.sum2.bottom+40, reg.sum2.cx+20, reg.sum2.bottom+40, true, '');
+  wireXY(reg.sum2.cx+20, reg.sum2.bottom+40, reg.sum2.cx+20, reg.sum2.bottom, true, '');
+
+  // LANE 6 — Planet Scan: Range Filter & Lock
+  laneTitle(L(5), '06', 'Scan — Range Filter & Lock', 'band-pass: only min < distance < max counts as a hit');
+  row(5, 0, [
+    {id:'sample', label:'Space Scanner', sub:'cone 1°–50° · distance', cls:'sensor'},
+    {id:'gtmin', label:'> Min Dist?', sub:'', cls:'logic'},
+    {id:'andgate', label:'AND', sub:'in range', cls:'logic'},
+    {id:'cand', label:'Candidate Memory', sub:'yaw/pitch/dist', cls:'logic'},
+    {id:'narrow', label:'Narrow Switch', sub:'step ↓ · cone ↓', cls:'logic'},
+    {id:'confirm', label:'Confirm counter', sub:'N stable ticks', cls:'logic'},
+  ]);
+  row(5, ROWB_DY, [
+    {id:'minmax', label:'Min / Max Dist', sub:'2 constants, set via E', cls:'logic'},
+    {id:'ltmax', label:'< Max Dist?', sub:'', cls:'logic'},
+  ]);
+  // sample also feeds the max-distance comparison in row B
+  wireXY(reg.sample.cx, reg.sample.bottom, reg.sample.cx, reg.ltmax.top-14, false, 'dashed');
+  wireXY(reg.sample.cx, reg.ltmax.top-14, reg.ltmax.cx, reg.ltmax.top-14, false, 'dashed');
+  wireXY(reg.ltmax.cx, reg.ltmax.top-14, reg.ltmax.cx, reg.ltmax.top, false, 'dashed');
+  // minmax also feeds the min-distance comparison in row A
+  wireXY(reg.minmax.cx, reg.minmax.top, reg.gtmin.cx, reg.gtmin.bottom, false, '');
+  // ltmax's result is the AND gate's second input
+  wireXY(reg.ltmax.cx, reg.ltmax.top, reg.andgate.cx, reg.andgate.bottom, false, '');
+  // narrow feeds back into the raster's own step-size constant (Lane 5)
+  wireXY(reg.narrow.cx, reg.narrow.top, reg.narrow.cx, reg.narrow.top-30, true, 'dashed');
+  wireXY(reg.narrow.cx, reg.narrow.top-30, reg.accum.cx, reg.narrow.top-30, true, 'dashed');
+  wireXY(reg.accum.cx, reg.narrow.top-30, reg.accum.cx, reg.accum.bottom, true, 'dashed');
+  // confirm hands off to autopilot delta
+  wireXY(reg.confirm.right, reg.confirm.cy, reg.confirm.right+22, reg.confirm.cy, true, '');
+  wireXY(reg.confirm.right+22, reg.confirm.cy, reg.confirm.right+22, reg.delta.bottom+14, true, '');
+  wireXY(reg.confirm.right+22, reg.delta.bottom+14, reg.delta.cx, reg.delta.bottom+14, true, '');
+  wireXY(reg.delta.cx, reg.delta.bottom+14, reg.delta.cx, reg.delta.bottom, true, '');
+
+  // Power spine — vertical rail feeding every block with a power dot
+  const spineBottom = L(5) + ROWB_DY + BH + 16;
+  out.push(`<line class="spine" x1="${spineX}" y1="${TOP-10}" x2="${spineX}" y2="${spineBottom}"/>`);
+  out.push(`<text class="spinelbl" x="${spineX-58}" y="${TOP-16}" transform="rotate(0)">POWER SPINE</text>`);
+  Object.values(reg).forEach(r=>{});
+
+  // finalize svg
+  const svgW = Math.max(maxX, 1300) + 40;
+  const svgH = spineBottom + 20;
+  const svgEl = document.getElementById('schemSvg');
+  svgEl.setAttribute('viewBox', `0 0 ${svgW} ${svgH}`);
+  svgEl.setAttribute('width', svgW);
+  svgEl.setAttribute('height', svgH);
+  svgEl.innerHTML = `<defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--line)"/>
+      </marker>
+    </defs>` + out.join('');
+})();
+
+/* =========================================================
+   3D COMPACT LAYOUT
+   ========================================================= */
+let scene, camera, renderer, rig, raycaster, mouse, hoverGroup;
+const MODULES = [
+  {id:'cockpit', label:'Cockpit', cat:'cockpit', pos:[0,0.45,-3.6], size:[1.3,0.9,1.3],
+    why:'Seat, joystick, Joystick Splitter, RCS controller and a monitor for the Gyro-Line readout — kept together at the nose so the pilot can see every gauge without turning.'},
+  {id:'logic', label:'Core Logic Bay', cat:'logic', pos:[0,-0.2,-2.5], size:[1.7,0.85,1.7],
+    why:'All ~35 gates, memory cells and math blocks from every subsystem, packed onto one frame section. Wire runs longer than roughly 5–8 unsupported tiles snap, so density here is what keeps the whole computer wireable.'},
+  {id:'gyro', label:'Gyro-Line', cat:'sensor-int', pos:[0,0.35,-2.75], size:[0.35,0.3,0.35],
+    why:'Right at the cockpit — it doubles as the pilot\'s attitude readout, and its blue data-out chains straight to the cockpit monitor.'},
+  {id:'mass', label:'Massmeter', cat:'sensor-int', pos:[0.55,-0.15,-2.3], size:[0.3,0.3,0.3],
+    why:'Interior, beside the logic bay — feeds live mass into the braking calc so deceleration tracks the ship as fuel burns off, instead of using a stale constant.'},
+  {id:'gravm', label:'Gravitymeter', cat:'sensor-int', pos:[0.55,-0.15,-1.85], size:[0.3,0.3,0.3],
+    why:'Interior, beside the Massmeter. Outputs local gravity in m/s², which feeds the gravity input of the planet_hop_v2 braking calc directly.'},
+  {id:'velm', label:'Velocity Meter', cat:'sensor-int', pos:[-0.55,-0.15,-2.3], size:[0.3,0.3,0.3],
+    why:'Interior — directional mode reads X/Z drift for the hover-hold loop.'},
+  {id:'alt', label:'Altimeter', cat:'sensor-ext', pos:[0,-1.35,-1.2], size:[0.42,0.18,0.42],
+    why:'Belly-mounted, blue face down, nothing else in its downward sightline. It\'s data-only — no power port — which is exactly why it can sit out on the hull with a short, simple cable run.'},
+  {id:'gps', label:'Space GPS', cat:'sensor-ext', pos:[0,1.45,-0.1], size:[0.4,0.4,0.4],
+    why:'Dorsal blister, kept clear of every other bump. Needs at least 60% free space around it (patch 1.0.104) or it stops reporting distance/longitude/latitude — the faint halo shows that clearance zone.'},
+  {id:'rf_fwd', label:'Forward LR Distance Meter + Camera', cat:'sensor-ext', pos:[0,0.15,-5.1], size:[0.4,0.35,0.4],
+    why:'Nose tip, unobstructed forward view. The Long Range Distance Meter is a single ray with no range limit, which is what the braking calc needs when aimed at the destination planet. Needs power.'},
+  {id:'scanner', label:'Space Scanner', cat:'sensor-ext', pos:[0,0.75,-4.4], size:[0.38,0.3,0.38],
+    why:'Planet-scan sensor: reports the distance to the nearest body inside a cone you set from 50° down to 1° with a 0–1 input. It needs a clear view forward, so it sits on top of the nose, ahead of the GPS blister.'},
+  {id:'rf_l', label:'Left Distance Meter', cat:'sensor-ext', pos:[-1.35,0.15,-4.3], size:[0.32,0.3,0.32],
+    why:'Stock Distance Meter (reads up to 1000 m), angled off-axis so the obstacle logic can compare left and right returns and steer the dodge instead of flinching blind.'},
+  {id:'rf_r', label:'Right Distance Meter', cat:'sensor-ext', pos:[1.35,0.15,-4.3], size:[0.32,0.3,0.32],
+    why:'Mirrors the left Distance Meter, so the obstacle logic gets a direction as well as a distance.'},
+  {id:'battery', label:'Battery', cat:'power', pos:[0,-1,1.6], size:[1,0.75,1.3],
+    why:'Low and central — batteries only mount by their bottom face, so it sits flush on a belly frame instead of a wall.'},
+  {id:'router', label:'Power Router', cat:'power', pos:[0,-0.55,0.6], size:[0.35,0.3,0.35],
+    why:'Right beside the battery — it has a single sticky mounting side, and everything tied into it becomes one shared circuit, so it\'s the root of the power spine running the length of the hull.'},
+  {id:'rcs_t', label:'RCS — Top', cat:'thruster', pos:[0,1.5,-2], size:[0.32,0.32,0.32], why:'One thruster per axis — mounting two on the same axis reads red on the LED as a wiring error, so each gets its own clear face at a hull extremity for maximum torque arm.'},
+  {id:'rcs_b', label:'RCS — Bottom', cat:'thruster', pos:[0,-1.55,-2], size:[0.32,0.32,0.32], why:'Same rule as the top unit, mirrored — pitch authority in the other direction.'},
+  {id:'rcs_l', label:'RCS — Left', cat:'thruster', pos:[-1.55,0,-2], size:[0.32,0.32,0.32], why:'Roll/yaw authority to port, kept clear of the sensor blisters on the nose and belly.'},
+  {id:'rcs_r', label:'RCS — Right', cat:'thruster', pos:[1.55,0,-2], size:[0.32,0.32,0.32], why:'Mirrors the left unit for starboard authority.'},
+  {id:'main', label:'Main Liquid-Fuel Thruster', cat:'thruster', pos:[0,0,3.3], size:[0.7,0.7,1.1],
+    why:'Dead aft, on the centerline — straight-line thrust with the least torque coupling back into the attitude-hold loop.'},
+  {id:'lift_l', label:'Lift Thruster — Left', cat:'thruster', pos:[-0.75,-1.4,1], size:[0.4,0.3,0.4],
+    why:'Belly-mounted, symmetric about the centerline, for atmospheric hover lift.'},
+  {id:'lift_r', label:'Lift Thruster — Right', cat:'thruster', pos:[0.75,-1.4,1], size:[0.4,0.3,0.4],
+    why:'Mirrors the left lift thruster to keep hover thrust balanced.'},
+  {id:'elec_t', label:'Electric Thruster — Top', cat:'thruster', pos:[0,1.25,0.4], size:[0.3,0.4,0.3],
+    why:'Mounted vertically through the vertical center of mass, lander-style, matching the community\'s post-mission wiring convention.'},
+  {id:'elec_b', label:'Electric Thruster — Bottom', cat:'thruster', pos:[0,-1.25,0.4], size:[0.3,0.4,0.3],
+    why:'Paired with the top unit on the same vertical axis for balanced vacuum maneuvering.'},
+];
+const CAT_COLOR = {
+  cockpit:0x2dd4bf, logic:0xffb84d, 'sensor-int':0x5ab6ff, 'sensor-ext':0xf472b6,
+  power:0xff6a5a, thruster:0xf97316,
+};
+const CAT_LABEL = {
+  cockpit:'Cockpit', logic:'Core logic', 'sensor-int':'Interior sensors', 'sensor-ext':'Exterior sensors (mounting-constrained)',
+  power:'Power spine', thruster:'Thrusters',
+};
+
+function initCatList(){
+  const el = document.getElementById('catlist');
+  el.innerHTML = Object.keys(CAT_LABEL).map(k=>{
+    const c = '#'+CAT_COLOR[k].toString(16).padStart(6,'0');
+    return `<div class="catrow"><i style="background:${c}"></i>${CAT_LABEL[k]}</div>`;
+  }).join('');
+}
+initCatList();
+
+function makeLabelSprite(text, colorHex){
+  const cnv = document.createElement('canvas');
+  const ctx = cnv.getContext('2d');
+  const scale = 3;
+  cnv.width = 320*scale; cnv.height = 64*scale;
+  ctx.scale(scale,scale);
+  ctx.font = '600 22px Inter, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = 'rgba(10,14,20,0.72)';
+  const tw = ctx.measureText(text).width;
+  const padX = 14;
+  ctx.beginPath();
+  const bw = tw+padX*2, bh = 30, bx=(320-bw)/2, by=(64-bh)/2;
+  if(ctx.roundRect) ctx.roundRect(bx,by,bw,bh,8); else ctx.rect(bx,by,bw,bh);
+  ctx.fill();
+  ctx.fillStyle = '#eef3f8';
+  ctx.fillText(text, 160, 32);
+  const tex = new THREE.CanvasTexture(cnv);
+  tex.minFilter = THREE.LinearFilter;
+  const mat = new THREE.SpriteMaterial({map:tex, transparent:true, depthTest:false});
+  const spr = new THREE.Sprite(mat);
+  spr.scale.set(1.5,0.3,1);
+  return spr;
+}
+
+function init3D(){
+  const stage = document.getElementById('stage');
+  // the layout panel starts hidden (display:none), so clientWidth/Height read 0
+  // at construction time — fall back to sane numbers, then correct via resize3D()
+  const iw = stage.clientWidth || 900, ih = stage.clientHeight || 560;
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(42, iw/ih, 0.1, 100);
+  camera.position.set(6.5,4,7.5);
+  camera.lookAt(0,0,0);
+
+  renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(iw, ih);
+  stage.insertBefore(renderer.domElement, stage.firstChild);
+  if(window.ResizeObserver){
+    new ResizeObserver(()=>resize3D()).observe(stage);
+  }
+
+  scene.add(new THREE.AmbientLight(0xffffff,0.65));
+  const dl = new THREE.DirectionalLight(0xffffff,0.9);
+  dl.position.set(5,8,4);
+  scene.add(dl);
+  const dl2 = new THREE.DirectionalLight(0x88aaff,0.35);
+  dl2.position.set(-6,-3,-4);
+  scene.add(dl2);
+
+  rig = new THREE.Group();
+  scene.add(rig);
+
+  // hull envelope
+  const hullGeo = new THREE.BoxGeometry(3.6,3.6,9.6);
+  const hullMat = new THREE.MeshBasicMaterial({color:0x5ab6ff, wireframe:true, transparent:true, opacity:0.14});
+  const hull = new THREE.Mesh(hullGeo, hullMat);
+  hull.position.set(0,0,-1);
+  rig.add(hull);
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(1.05,1.8,4), new THREE.MeshBasicMaterial({color:0x5ab6ff, wireframe:true, transparent:true, opacity:0.18}));
+  nose.rotation.x = -Math.PI/2; nose.rotation.y = Math.PI/4;
+  nose.position.set(0,0,-6.7);
+  rig.add(nose);
+
+  // GPS clearance halo
+  const halo = new THREE.Mesh(new THREE.SphereGeometry(0.85,16,12), new THREE.MeshBasicMaterial({color:0xf472b6, wireframe:true, transparent:true, opacity:0.16}));
+  const gpsMod = MODULES.find(m=>m.id==='gps');
+  halo.position.set(...gpsMod.pos);
+  rig.add(halo);
+
+  MODULES.forEach(m=>{
+    const geo = new THREE.BoxGeometry(...m.size);
+    const mat = new THREE.MeshStandardMaterial({color:CAT_COLOR[m.cat], roughness:0.45, metalness:0.15, emissive:0x000000});
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(...m.pos);
+    mesh.userData.mod = m;
+    rig.add(mesh);
+    const label = makeLabelSprite(m.label, CAT_COLOR[m.cat]);
+    label.position.set(m.pos[0], m.pos[1]+m.size[1]/2+0.32, m.pos[2]);
+    rig.add(label);
+    m._mesh = mesh;
+  });
+
+  raycaster = new THREE.Raycaster();
+  mouse = new THREE.Vector2();
+
+  // interaction: drag to rotate, wheel to zoom, click/tap to select
+  let dragging=false, lastX=0, lastY=0, moved=false, autorotate=true;
+  const dom = renderer.domElement;
+  dom.style.cursor='grab';
+  function down(x,y){ dragging=true; moved=false; lastX=x; lastY=y; autorotate=false; dom.style.cursor='grabbing'; }
+  function move(x,y){
+    if(!dragging) return;
+    const dx=x-lastX, dy=y-lastY;
+    if(Math.abs(dx)+Math.abs(dy) > 3) moved=true;
+    rig.rotation.y += dx*0.008;
+    rig.rotation.x += dy*0.008;
+    rig.rotation.x = Math.max(-1.1, Math.min(1.1, rig.rotation.x));
+    lastX=x; lastY=y;
+  }
+  function up(x,y){
+    dragging=false; dom.style.cursor='grab';
+    if(!moved) selectAt(x,y);
+  }
+  dom.addEventListener('mousedown', e=>down(e.clientX,e.clientY));
+  window.addEventListener('mousemove', e=>move(e.clientX,e.clientY));
+  window.addEventListener('mouseup', e=>up(e.clientX,e.clientY));
+  dom.addEventListener('touchstart', e=>{const t=e.touches[0]; down(t.clientX,t.clientY);}, {passive:true});
+  dom.addEventListener('touchmove', e=>{const t=e.touches[0]; move(t.clientX,t.clientY);}, {passive:true});
+  dom.addEventListener('touchend', e=>{ const t=e.changedTouches[0]; up(t.clientX,t.clientY);});
+  dom.addEventListener('wheel', e=>{
+    e.preventDefault();
+    const d = camera.position.length();
+    const nd = Math.max(5, Math.min(18, d + e.deltaY*0.01));
+    camera.position.setLength(nd);
+  }, {passive:false});
+
+  function selectAt(cx,cy){
+    const rect = dom.getBoundingClientRect();
+    mouse.x = ((cx-rect.left)/rect.width)*2-1;
+    mouse.y = -((cy-rect.top)/rect.height)*2+1;
+    raycaster.setFromCamera(mouse, camera);
+    const hits = raycaster.intersectObjects(MODULES.map(m=>m._mesh));
+    MODULES.forEach(m=>m._mesh.material.emissive.setHex(0x000000));
+    if(hits.length){
+      const m = hits[0].object.userData.mod;
+      m._mesh.material.emissive.setHex(0x333333);
+      document.getElementById('infoName').textContent = m.label;
+      document.getElementById('infoWhy').textContent = m.why;
+    }
+  }
+
+  function animate(){
+    requestAnimationFrame(animate);
+    if(autorotate) rig.rotation.y += 0.0022;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', resize3D);
+}
+
+function resize3D(){
+  if(!renderer) return;
+  const stage = document.getElementById('stage');
+  const w = stage.clientWidth, h = stage.clientHeight;
+  if(w===0||h===0) return;
+  camera.aspect = w/h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w,h);
+}
+
+init3D();
+</script>

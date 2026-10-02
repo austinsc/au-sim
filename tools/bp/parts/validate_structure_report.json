@@ -1,0 +1,296 @@
+{
+ "SC_DecouplerQuarter": {
+  "instances": 444,
+  "twin_instances": 221,
+  "port_hits": 59,
+  "ports_seen": "1/1"
+ },
+ "SC_FrameA": {
+  "instances": 17791,
+  "twin_instances": 8018,
+  "ports_seen": "-"
+ },
+ "SC_FrameB": {
+  "instances": 4196,
+  "twin_instances": 1930,
+  "overlap_with_ducted_fan_design": 6,
+  "ports_seen": "-"
+ },
+ "SC_FrameC": {
+  "instances": 382,
+  "twin_instances": 63,
+  "overlap_with_ducted_fan_design": 6,
+  "ports_seen": "-"
+ },
+ "SC_FrameD": {
+  "instances": 28,
+  "twin_instances": 15,
+  "ports_seen": "-"
+ },
+ "SC_FrameF": {
+  "instances": 26,
+  "twin_instances": 13,
+  "ports_seen": "-"
+ },
+ "SC_FrameG": {
+  "instances": 146,
+  "twin_instances": 60,
+  "ports_seen": "-"
+ },
+ "SC_FrameH": {
+  "instances": 31,
+  "twin_instances": 7,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfA": {
+  "instances": 11247,
+  "twin_instances": 842,
+  "overlap_encasing_glitch": 9,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfB": {
+  "instances": 635,
+  "twin_instances": 221,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfC": {
+  "instances": 789,
+  "twin_instances": 273,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfD": {
+  "instances": 106,
+  "twin_instances": 45,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfE": {
+  "instances": 111,
+  "twin_instances": 47,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfF": {
+  "instances": 2839,
+  "twin_instances": 408,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfG": {
+  "instances": 70,
+  "twin_instances": 30,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfH": {
+  "instances": 1220,
+  "twin_instances": 463,
+  "ports_seen": "-"
+ },
+ "SC_FrameHalfI": {
+  "instances": 57,
+  "twin_instances": 24,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterA": {
+  "instances": 4461,
+  "twin_instances": 308,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterB": {
+  "instances": 1096,
+  "twin_instances": 277,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterC": {
+  "instances": 762,
+  "twin_instances": 114,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterD": {
+  "instances": 460,
+  "twin_instances": 54,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterE": {
+  "instances": 749,
+  "twin_instances": 206,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterF": {
+  "instances": 43,
+  "twin_instances": 7,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterPipe": {
+  "instances": 1384,
+  "twin_instances": 41,
+  "ports_seen": "-"
+ },
+ "SC_FrameQuarterPorts": {
+  "instances": 3387,
+  "twin_instances": 99,
+  "port_hits": 2829,
+  "ports_seen": "8/8"
+ },
+ "SC_FrameQuarterPortsCorner": {
+  "instances": 1782,
+  "twin_instances": 70,
+  "port_hits": 3996,
+  "ports_seen": "8/8"
+ },
+ "SC_GlassA": {
+  "instances": 380,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassB": {
+  "instances": 127,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassC": {
+  "instances": 36,
+  "twin_instances": 6,
+  "ports_seen": "-"
+ },
+ "SC_GlassD": {
+  "instances": 4,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassG": {
+  "instances": 28,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfA": {
+  "instances": 71,
+  "twin_instances": 0,
+  "overlap_encasing_glitch": 4,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfB": {
+  "instances": 2,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfC": {
+  "instances": 26,
+  "twin_instances": 7,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfD": {
+  "instances": 1,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfE": {
+  "instances": 1,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfF": {
+  "instances": 241,
+  "twin_instances": 29,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfG": {
+  "instances": 16,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassHalfH": {
+  "instances": 14,
+  "twin_instances": 5,
+  "ports_seen": "-"
+ },
+ "SC_GlassQuarterA": {
+  "instances": 26,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassQuarterB": {
+  "instances": 18,
+  "twin_instances": 3,
+  "ports_seen": "-"
+ },
+ "SC_GlassQuarterC": {
+  "instances": 48,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_GlassQuarterD": {
+  "instances": 12,
+  "twin_instances": 6,
+  "ports_seen": "-"
+ },
+ "SC_GlassQuarterE": {
+  "instances": 8,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_LabelMedium": {
+  "instances": 95,
+  "twin_instances": 0,
+  "label_back_fully_supported": 48,
+  "label_back_free": 46,
+  "label_back_partly_supported": 1,
+  "ports_seen": "-"
+ },
+ "SC_LabelSmall": {
+  "instances": 1063,
+  "twin_instances": 0,
+  "overlap_encasing_glitch": 7,
+  "label_back_fully_supported": 1045,
+  "label_back_partly_supported": 14,
+  "label_back_free": 4,
+  "ports_seen": "-"
+ },
+ "SC_WindowDual": {
+  "instances": 205,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowDualA": {
+  "instances": 12,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowDualB": {
+  "instances": 2,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowEdge": {
+  "instances": 1,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowEnd": {
+  "instances": 91,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowEndA": {
+  "instances": 4,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowEndB": {
+  "instances": 2,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowEndC": {
+  "instances": 2,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowRound": {
+  "instances": 2,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ },
+ "SC_WindowRoundA": {
+  "instances": 7,
+  "twin_instances": 0,
+  "ports_seen": "-"
+ }
+}

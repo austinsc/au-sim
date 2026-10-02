@@ -1,0 +1,462 @@
+{
+ "instances": [
+  {
+   "id": "k_2_5a",
+   "type_id": "constant",
+   "parameters": {
+    "value": 2.5
+   },
+   "position": {
+    "x": 40,
+    "y": 40
+   },
+   "mirrored": false
+  },
+  {
+   "id": "round",
+   "type_id": "round",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 300,
+    "y": 40
+   },
+   "mirrored": false
+  },
+  {
+   "id": "round=3",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 560,
+    "y": 40
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_2_5b",
+   "type_id": "constant",
+   "parameters": {
+    "value": 2.5
+   },
+   "position": {
+    "x": 820,
+    "y": 40
+   },
+   "mirrored": false
+  },
+  {
+   "id": "floor",
+   "type_id": "round",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 40,
+    "y": 200
+   },
+   "mirrored": false
+  },
+  {
+   "id": "floor=2",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 300,
+    "y": 200
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_m2_5",
+   "type_id": "constant",
+   "parameters": {
+    "value": -2.5
+   },
+   "position": {
+    "x": 560,
+    "y": 200
+   },
+   "mirrored": false
+  },
+  {
+   "id": "round_neg",
+   "type_id": "round",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 820,
+    "y": 200
+   },
+   "mirrored": false
+  },
+  {
+   "id": "round=-3",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 40,
+    "y": 360
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_1",
+   "type_id": "constant",
+   "parameters": {
+    "value": 1
+   },
+   "position": {
+    "x": 300,
+    "y": 360
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_2",
+   "type_id": "constant",
+   "parameters": {
+    "value": 2
+   },
+   "position": {
+    "x": 560,
+    "y": 360
+   },
+   "mirrored": false
+  },
+  {
+   "id": "less",
+   "type_id": "condition",
+   "parameters": {
+    "op": 2
+   },
+   "position": {
+    "x": 820,
+    "y": 360
+   },
+   "mirrored": false
+  },
+  {
+   "id": "1<2 => 1",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 40,
+    "y": 520
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_3",
+   "type_id": "constant",
+   "parameters": {
+    "value": 3
+   },
+   "position": {
+    "x": 300,
+    "y": 520
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_3b",
+   "type_id": "constant",
+   "parameters": {
+    "value": 3
+   },
+   "position": {
+    "x": 560,
+    "y": 520
+   },
+   "mirrored": false
+  },
+  {
+   "id": "le",
+   "type_id": "condition",
+   "parameters": {
+    "op": 4
+   },
+   "position": {
+    "x": 820,
+    "y": 520
+   },
+   "mirrored": false
+  },
+  {
+   "id": "3<=3 => 1",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 40,
+    "y": 680
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_5",
+   "type_id": "constant",
+   "parameters": {
+    "value": 5
+   },
+   "position": {
+    "x": 300,
+    "y": 680
+   },
+   "mirrored": false
+  },
+  {
+   "id": "remap",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10,
+    "out_min": 0,
+    "out_max": 100
+   },
+   "position": {
+    "x": 560,
+    "y": 680
+   },
+   "mirrored": false
+  },
+  {
+   "id": "remap=50",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 820,
+    "y": 680
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_20",
+   "type_id": "constant",
+   "parameters": {
+    "value": 20
+   },
+   "position": {
+    "x": 40,
+    "y": 840
+   },
+   "mirrored": false
+  },
+  {
+   "id": "remap_clamp",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10,
+    "out_min": 0,
+    "out_max": 100
+   },
+   "position": {
+    "x": 300,
+    "y": 840
+   },
+   "mirrored": false
+  },
+  {
+   "id": "clamp=100",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 560,
+    "y": 840
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_8",
+   "type_id": "constant",
+   "parameters": {
+    "value": 8
+   },
+   "position": {
+    "x": 820,
+    "y": 840
+   },
+   "mirrored": false
+  },
+  {
+   "id": "half",
+   "type_id": "fader",
+   "parameters": {
+    "value": 0.5
+   },
+   "position": {
+    "x": 40,
+    "y": 1000
+   },
+   "mirrored": false
+  },
+  {
+   "id": "fader=4",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 300,
+    "y": 1000
+   },
+   "mirrored": false
+  },
+  {
+   "id": "k_7",
+   "type_id": "constant",
+   "parameters": {
+    "value": 7
+   },
+   "position": {
+    "x": 560,
+    "y": 1000
+   },
+   "mirrored": false
+  },
+  {
+   "id": "delay60",
+   "type_id": "delay",
+   "parameters": {
+    "ticks": 60
+   },
+   "position": {
+    "x": 820,
+    "y": 1000
+   },
+   "mirrored": false
+  },
+  {
+   "id": "delay=7 after1s",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 40,
+    "y": 1160
+   },
+   "mirrored": false
+  }
+ ],
+ "edges": [
+  {
+   "from_instance": "k_2_5a",
+   "from_port": "out",
+   "to_instance": "round",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "round",
+   "from_port": "out",
+   "to_instance": "round=3",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_2_5b",
+   "from_port": "out",
+   "to_instance": "floor",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "floor",
+   "from_port": "out",
+   "to_instance": "floor=2",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_m2_5",
+   "from_port": "out",
+   "to_instance": "round_neg",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "round_neg",
+   "from_port": "out",
+   "to_instance": "round=-3",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_1",
+   "from_port": "out",
+   "to_instance": "less",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "k_2",
+   "from_port": "out",
+   "to_instance": "less",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "less",
+   "from_port": "out",
+   "to_instance": "1<2 => 1",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_3",
+   "from_port": "out",
+   "to_instance": "le",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "k_3b",
+   "from_port": "out",
+   "to_instance": "le",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "le",
+   "from_port": "out",
+   "to_instance": "3<=3 => 1",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_5",
+   "from_port": "out",
+   "to_instance": "remap",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "remap",
+   "from_port": "out",
+   "to_instance": "remap=50",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_20",
+   "from_port": "out",
+   "to_instance": "remap_clamp",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "remap_clamp",
+   "from_port": "out",
+   "to_instance": "clamp=100",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_8",
+   "from_port": "out",
+   "to_instance": "half",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "half",
+   "from_port": "out",
+   "to_instance": "fader=4",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "k_7",
+   "from_port": "out",
+   "to_instance": "delay60",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "delay60",
+   "from_port": "out",
+   "to_instance": "delay=7 after1s",
+   "to_port": "in"
+  }
+ ]
+}

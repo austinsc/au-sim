@@ -1,0 +1,5050 @@
+{
+ "small_electric_thruster": {
+  "name": "Small Electric Thruster",
+  "prefab": "SC_SmallElectricThruster",
+  "hash": "449fbdbc1782386e",
+  "mirrored_hash": "a01b61f90b06f7ea",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   16,
+   8
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 600,
+     "1": 298
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 836,
+     "2": 50,
+     "3": 8,
+     "1": 4
+    }
+   }
+  },
+  "corpus": {
+   "instances": 898,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 451,
+   "twin": 447,
+   "orientations_seen": 16,
+   "cable_hits": {
+    "data": 852,
+    "power": 860
+   },
+   "twin_cable_hits": {
+    "data": 423,
+    "power": 427
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "data": 13,
+    "power": 13
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the bottom face (y = -1) at the z = 0 corner: power x = 0, throttle x = 1. Exhaust and heat zone along +y, from the top face up (force on the ship is -y). Body/mount is the lower half (y 0-3); the upper part is the nozzle.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      16,
+      0
+     ],
+     [
+      7,
+      63,
+      7
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     16,
+     0
+    ],
+    [
+     7,
+     63,
+     7
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -330000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 0.25,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 15.0
+  },
+  "twin_reflection_verified": true
+ },
+ "medium_electric_thruster": {
+  "name": "Medium Electric Thruster",
+  "prefab": "SC_MediumElectricThruster",
+  "hash": "0d26d5a41f34a32f",
+  "mirrored_hash": "2a76d7ec5340f682",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   16,
+   24,
+   16
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 127
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 97,
+     "2": 22,
+     "3": 6,
+     "10": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 127,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 65,
+   "twin": 62,
+   "orientations_seen": 11,
+   "cable_hits": {
+    "data": 126,
+    "power": 126
+   },
+   "twin_cable_hits": {
+    "data": 62,
+    "power": 62
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Same layout as the small one, scaled: ports on the bottom face at the z = 0 corner (power x = 0, throttle x = 1); exhaust +y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      2,
+      24,
+      2
+     ],
+     [
+      13,
+      87,
+      13
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     2,
+     24,
+     2
+    ],
+    [
+     13,
+     83,
+     13
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -1300000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 0.7,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 60.0
+  },
+  "twin_reflection_verified": true
+ },
+ "large_electric_thruster": {
+  "name": "Large Electric Thruster",
+  "prefab": "SC_LargeElectricThruster",
+  "hash": "c3aedbe627b1407c",
+  "mirrored_hash": "36f22b6aaa08f5c5",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   24,
+   32,
+   24
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)"
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Same port layout as the small/medium electric thrusters (confirmed for those): bottom face, z = 0 corner, power x = 0, throttle x = 1. Exhaust +y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      32,
+      0
+     ],
+     [
+      23,
+      111,
+      23
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     32,
+     0
+    ],
+    [
+     23,
+     111,
+     23
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -4300000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 0.95,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 160.0
+  },
+  "twin_reflection_verified": true
+ },
+ "electric_lift_thruster": {
+  "name": "Electric Flat Thruster",
+  "prefab": "SC_ElectricLiftThruster",
+  "hash": "8f6cb71e3319c9b1",
+  "mirrored_hash": "32aa1100d204f0fc",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 955
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "201": 859,
+     "2": 74,
+     "3": 14,
+     "1": 6,
+     "9": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 955,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 489,
+   "twin": 466,
+   "orientations_seen": 8,
+   "cable_hits": {
+    "data": 716,
+    "power": 929
+   },
+   "twin_cable_hits": {
+    "data": 346,
+    "power": 453
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "data": 14,
+    "power": 13
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "In-game name \"Electric Flat Thruster\". Ports on the bottom face at the z = 0 corner (power x = 0, throttle x = 1); exhaust +y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      8,
+      0
+     ],
+     [
+      7,
+      55,
+      7
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     8,
+     0
+    ],
+    [
+     7,
+     51,
+     7
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -235000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 0.2,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 11.0
+  },
+  "twin_reflection_verified": true
+ },
+ "bidirectional_maneuvering_thruster": {
+  "name": "Bidirectional Maneuvering Thruster",
+  "prefab": "SC_BidirectionalElectricManeuveringThruster",
+  "hash": "2183e44f01c8474f",
+  "mirrored_hash": "4dc49e63d72aaaa6",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   4,
+   12,
+   4
+  ],
+  "ports": {
+   "force": {
+    "cell": [
+     4,
+     6,
+     0
+    ],
+    "face": [
+     3,
+     6,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     4,
+     5,
+     0
+    ],
+    "face": [
+     3,
+     5,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)"
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the +x face (x = 4) at z = 0: power y = 5, force y = 6. Fires both ways along y (two heat zones, +y and -y) depending on the input sign.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ],
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      -24,
+      0
+     ],
+     [
+      3,
+      -1,
+      3
+     ]
+    ],
+    [
+     [
+      0,
+      12,
+      0
+     ],
+     [
+      3,
+      35,
+      3
+     ]
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": true,
+   "force_type": 1,
+   "max_force": [
+    0.0,
+    80000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 0.2,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 15.0
+  },
+  "twin_reflection_verified": true
+ },
+ "small_maneuvering_thruster": {
+  "name": "Small Maneuvering Thruster",
+  "prefab": "SC_SmallManeuveringThruster",
+  "hash": "ea94d8777e19af24",
+  "mirrored_hash": "d08db19406b4ff7b",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   4,
+   8,
+   4
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     4,
+     2,
+     0
+    ],
+    "face": [
+     3,
+     2,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     4,
+     1,
+     0
+    ],
+    "face": [
+     3,
+     1,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 156,
+     "1": 101
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 211,
+     "2": 28,
+     "3": 12,
+     "10": 6
+    }
+   }
+  },
+  "corpus": {
+   "instances": 257,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 137,
+   "twin": 120,
+   "orientations_seen": 16,
+   "cable_hits": {
+    "power": 257,
+    "data": 257
+   },
+   "twin_cable_hits": {
+    "power": 120,
+    "data": 120
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the +x face (x = 4) at z = 0: power y = 1, throttle y = 2. Exhaust and heat zone along -y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      -24,
+      0
+     ],
+     [
+      3,
+      -1,
+      3
+     ]
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 1,
+   "max_force": [
+    0.0,
+    30000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.3,
+   "acceleration_time": 0.1,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 5.0
+  },
+  "twin_reflection_verified": true
+ },
+ "medium_maneuvering_thruster": {
+  "name": "Medium Maneuvering Thruster",
+  "prefab": "SC_MediumManeuveringThruster",
+  "hash": "913df46ec3e165a1",
+  "mirrored_hash": "06757313880b7b77",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   4,
+   12,
+   4
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     4,
+     2,
+     0
+    ],
+    "face": [
+     3,
+     2,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     4,
+     1,
+     0
+    ],
+    "face": [
+     3,
+     1,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 77,
+     "1": 1
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 50,
+     "9": 20,
+     "201": 8
+    }
+   }
+  },
+  "corpus": {
+   "instances": 78,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 50,
+   "twin": 28,
+   "orientations_seen": 18,
+   "cable_hits": {
+    "power": 77,
+    "data": 58
+   },
+   "twin_cable_hits": {
+    "data": 18,
+    "power": 27
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "power": 1,
+    "data": 20
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the +x face (x = 4) at z = 0: power y = 1, throttle y = 2. Exhaust -y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      -40,
+      0
+     ],
+     [
+      3,
+      -1,
+      3
+     ]
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 1,
+   "max_force": [
+    0.0,
+    100000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.3,
+   "acceleration_time": 0.25,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 17.0
+  },
+  "twin_reflection_verified": true
+ },
+ "large_maneuvering_thruster": {
+  "name": "Large Maneuvering Thruster",
+  "prefab": "SC_LargeManeuveringThruster",
+  "hash": "1b9166b95bca9ec3",
+  "mirrored_hash": "a44e9f658aaa87fc",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   16,
+   4
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     8,
+     2,
+     0
+    ],
+    "face": [
+     7,
+     2,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     8,
+     1,
+     0
+    ],
+    "face": [
+     7,
+     1,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)"
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the +x face (x = 8) at z = 0: power y = 1, throttle y = 2. Exhaust -y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      -56,
+      0
+     ],
+     [
+      7,
+      -1,
+      3
+     ]
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 1,
+   "max_force": [
+    0.0,
+    370000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.3,
+   "acceleration_time": 0.35,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 50.0
+  },
+  "twin_reflection_verified": true
+ },
+ "small_fuel_thruster": {
+  "name": "Small Fuel Thruster",
+  "prefab": "SC_SmallFuelThruster",
+  "hash": "f62c7ba446fdbd53",
+  "mirrored_hash": "163f0c364fdee2f4",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   16,
+   8
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     2,
+     -1,
+     0
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   }
+  },
+  "absent_ports": [
+   "power"
+  ],
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 245,
+     "1": 2
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 197,
+     "2": 46,
+     "1": 4
+    }
+   }
+  },
+  "corpus": {
+   "instances": 247,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 124,
+   "twin": 123,
+   "orientations_seen": 11,
+   "cable_hits": {
+    "data": 245
+   },
+   "twin_cable_hits": {
+    "data": 122
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {
+    "data": 1
+   },
+   "cable_wrong_kind": {
+    "power cable on data port": 1
+   },
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Only ONE port exists: the throttle input on the bottom face at (2,-1,0). The prefab has no power port, although Localization still lists Port1 \"Requires {0} P/s\" and the simulator models one (\"power\" is listed in absent_ports). Corpus: 245 data-cable hits, zero power cables anywhere around 247 instances. The one miss and the one power cable on the data port are both in the game's own MainMenuBlueprint.bp, built with an older two-port layout. Exhaust +y; fuel arrives by pipe.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      16,
+      0
+     ],
+     [
+      7,
+      63,
+      7
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     16,
+     0
+    ],
+    [
+     7,
+     63,
+     7
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -1700000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 10.0,
+   "max_fuel_per_s": 0.85,
+   "power_ps": 0.0
+  },
+  "twin_reflection_verified": true
+ },
+ "medium_fuel_thruster": {
+  "name": "Medium Fuel Thruster",
+  "prefab": "SC_MediumFuelThruster",
+  "hash": "e098cf410d1bfaeb",
+  "mirrored_hash": "5e193253dd9ac3be",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   16,
+   24,
+   16
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     2,
+     -1,
+     0
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   }
+  },
+  "absent_ports": [
+   "power"
+  ],
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 57
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 48,
+     "2": 9
+    }
+   }
+  },
+  "corpus": {
+   "instances": 57,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 57,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "data": 57
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Only the throttle input exists, bottom face at (2,-1,0); no power port (see small_fuel_thruster). Exhaust +y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      2,
+      24,
+      2
+     ],
+     [
+      13,
+      87,
+      13
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     24,
+     0
+    ],
+    [
+     15,
+     83,
+     15
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -5500000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 20.0,
+   "max_fuel_per_s": 2.5,
+   "power_ps": 0.0
+  },
+  "twin_reflection_verified": true
+ },
+ "large_fuel_thruster": {
+  "name": "Large Fuel Thruster",
+  "prefab": "SC_LargeFuelThruster",
+  "hash": "bcd0f5a4dc00ceeb",
+  "mirrored_hash": "55c2b6a77f7d1b2e",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   24,
+   32,
+   24
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     2,
+     -1,
+     0
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   }
+  },
+  "absent_ports": [
+   "power"
+  ],
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)"
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/1",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Only the throttle input exists, bottom face at (2,-1,0); no power port. Exhaust +y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      32,
+      0
+     ],
+     [
+      23,
+      111,
+      23
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     32,
+     0
+    ],
+    [
+     23,
+     111,
+     23
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -20000000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 30.0,
+   "max_fuel_per_s": 7.5,
+   "power_ps": 0.0
+  },
+  "twin_reflection_verified": true
+ },
+ "small_solid_fuel_thruster": {
+  "name": "Small Solid Fuel Thruster",
+  "prefab": "SC_SmallSolidFuelThruster",
+  "hash": "dfec22c952a940b3",
+  "mirrored_hash": "542b8cd915495e8b",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   32,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     8,
+     15,
+     4
+    ],
+    "face": [
+     7,
+     15,
+     4
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 51
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "201": 35,
+     "2": 16
+    }
+   }
+  },
+  "corpus": {
+   "instances": 51,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 42,
+   "twin": 9,
+   "orientations_seen": 4,
+   "cable_hits": {
+    "power": 49
+   },
+   "twin_cable_hits": {
+    "power": 8
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Single power port on the +x face at mid height (8,15,4); it ignites once enough power is delivered. Exhaust -y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      -64,
+      0
+     ],
+     [
+      7,
+      -1,
+      7
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     -56,
+     0
+    ],
+    [
+     7,
+     -1,
+     7
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    950000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 5.0,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 0.0,
+   "solid_fuel_time": 1000.0,
+   "solid_fuel_ignition_power": 200.0
+  },
+  "twin_reflection_verified": true
+ },
+ "atmospheric_thruster": {
+  "name": "Atmospheric Thruster",
+  "prefab": "SC_AtmosphericThruster",
+  "hash": "b004a61411dd8792",
+  "mirrored_hash": "99d002f529432b8f",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   16
+  ],
+  "ports": {
+   "throttle": {
+    "cell": [
+     0,
+     8,
+     5
+    ],
+    "face": [
+     0,
+     7,
+     5
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     8,
+     4
+    ],
+    "face": [
+     0,
+     7,
+     4
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 18,
+     "1": 2
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 8,
+     "200": 6,
+     "3": 4,
+     "10": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 20,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 11,
+   "twin": 9,
+   "orientations_seen": 6,
+   "cable_hits": {
+    "power": 20,
+    "data": 20
+   },
+   "twin_cable_hits": {
+    "power": 9,
+    "data": 9
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the top face (y = 8) at x = 0: power z = 4, throttle z = 5. Blows along -z (behind the part).",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     0,
+     -1
+    ]
+   ],
+   "heat_zones": [],
+   "blow_zone": [
+    [
+     0,
+     0,
+     -64
+    ],
+    [
+     7,
+     7,
+     -1
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    0.0,
+    550000.0
+   ],
+   "efficiency_space": 0.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 0.8,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 11.0
+  },
+  "twin_reflection_verified": true
+ },
+ "atmospheric_fan": {
+  "name": "Atmospheric Fan",
+  "prefab": "SC_AtmosphericFan",
+  "hash": "737fd24dcd612d03",
+  "mirrored_hash": "9316151a8d64a305",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   16
+  ],
+  "ports": {
+   "speed": {
+    "cell": [
+     0,
+     8,
+     5
+    ],
+    "face": [
+     0,
+     7,
+     5
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     8,
+     4
+    ],
+    "face": [
+     0,
+     7,
+     4
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 109,
+     "1": 15
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 104,
+     "3": 10,
+     "2": 8,
+     "10": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 124,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 67,
+   "twin": 57,
+   "orientations_seen": 8,
+   "cable_hits": {
+    "power": 123,
+    "data": 122
+   },
+   "twin_cable_hits": {
+    "power": 57,
+    "data": 57
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the top face (y = 8) at x = 0: power z = 4, speed z = 5. Blows along -z for positive input (signed input).",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     0,
+     -1
+    ]
+   ],
+   "heat_zones": [],
+   "blow_zone": [
+    [
+     0,
+     0,
+     -64
+    ],
+    [
+     7,
+     7,
+     -1
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": true,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    0.0,
+    400000.0
+   ],
+   "efficiency_space": 0.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.6,
+   "acceleration_time": 0.75,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 8.0
+  },
+  "twin_reflection_verified": true
+ },
+ "atmospheric_lift_fan": {
+  "name": "Atmospheric Flat Fan",
+  "prefab": "SC_AtmosphericLiftFan",
+  "hash": "6f101bf8ae67c951",
+  "mirrored_hash": "94a67ec115f5947f",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "speed": {
+    "cell": [
+     1,
+     -1,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     -1,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 324
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 300,
+     "2": 18,
+     "3": 6
+    }
+   }
+  },
+  "corpus": {
+   "instances": 324,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 172,
+   "twin": 152,
+   "orientations_seen": 6,
+   "cable_hits": {
+    "data": 324,
+    "power": 324
+   },
+   "twin_cable_hits": {
+    "data": 152,
+    "power": 152
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "In-game name \"Atmospheric Flat Fan\". Ports on the bottom face at the z = 0 corner (power x = 0, speed x = 1). Blows along +y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [],
+   "blow_zone": [
+    [
+     0,
+     8,
+     0
+    ],
+    [
+     7,
+     63,
+     7
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -125000.0,
+    0.0
+   ],
+   "efficiency_space": 0.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.6,
+   "acceleration_time": 0.5,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 4.0
+  },
+  "twin_reflection_verified": true
+ },
+ "ducted_fan": {
+  "name": "Ducted Fan",
+  "prefab": "SC_DuctedFan",
+  "hash": "14db589acb1e49b6",
+  "mirrored_hash": "708f60c72b501c7c",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   48,
+   8,
+   48
+  ],
+  "ports": {
+   "speed": {
+    "cell": [
+     26,
+     8,
+     47
+    ],
+    "face": [
+     26,
+     7,
+     47
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "power": {
+    "cell": [
+     25,
+     8,
+     47
+    ],
+    "face": [
+     25,
+     7,
+     47
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port P"
+   },
+   "rotation": {
+    "cell": [
+     24,
+     8,
+     47
+    ],
+    "face": [
+     24,
+     7,
+     47
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 2,
+    "prefab_node": "Port B"
+   }
+  },
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)",
+    "corpus_values": {
+     "0": 6
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 6
+    }
+   }
+  },
+  "corpus": {
+   "instances": 6,
+   "ports_confirmed": "3/3",
+   "overlaps": 6,
+   "normal": 3,
+   "twin": 3,
+   "orientations_seen": 2,
+   "cable_hits": {
+    "power": 6,
+    "data": 12
+   },
+   "twin_cable_hits": {
+    "power": 3,
+    "data": 6
+   },
+   "twin_cable_misses": {
+    "data": 12,
+    "power": 6
+   },
+   "direct_contacts": {},
+   "cable_misses": {
+    "data": 24,
+    "power": 12
+   },
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {
+    "cable": 6,
+    "SC_FrameB": 6,
+    "SC_FrameC": 6,
+    "SC_Multiplier": 1
+   }
+  },
+  "confidence": "medium",
+  "notes": "Ports on the top face (y = 8) at the +z edge (z = 47): rotation x = 24, power x = 25, speed x = 26. Mount strip (JointsArea) is the +z face for x 16-31. IRREGULAR: the duct is round (6 m across). All 6 corpus instances have frames and cables in the empty corners of the 48x8x48 bounding box (z 44-47, x 0-12 and 35-47), hence the overlaps and the 36 cable \"misses\". Treat the bounding box as occupied (safe over-approximation). The fan tilts with the rotation input, so its swept volume can leave the box. Blows along -y at rotation 0.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ]
+   ],
+   "heat_zones": [],
+   "blow_zone": [
+    [
+     8,
+     -80,
+     8
+    ],
+    [
+     39,
+     -1,
+     39
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": true,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    2500000.0,
+    0.0
+   ],
+   "efficiency_space": 0.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.45,
+   "acceleration_time": 6.0,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 60.0
+  },
+  "twin_reflection_verified": true
+ },
+ "ballast": {
+  "name": "Ballast",
+  "prefab": "SC_Ballast",
+  "hash": "7cbd7290296be6d1",
+  "mirrored_hash": "3de683d38a076a1c",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   24,
+   8,
+   8
+  ],
+  "ports": {
+   "buoyancy": {
+    "cell": [
+     5,
+     0,
+     -1
+    ],
+    "face": [
+     5,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "power": {
+    "cell": [
+     4,
+     0,
+     -1
+    ],
+    "face": [
+     4,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 10,
+     "2": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 12,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 6,
+   "twin": 6,
+   "orientations_seen": 6,
+   "cable_hits": {
+    "power": 10,
+    "data": 12
+   },
+   "twin_cable_hits": {
+    "data": 6,
+    "power": 5
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "power": 2
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the back face (z = -1), bottom row: power x = 4, buoyancy x = 5.",
+  "game_params": {
+   "power_ps": 30.0,
+   "max_buoyancy": 100.0,
+   "speed": 0.15
+  },
+  "twin_reflection_verified": true
+ },
+ "rcs_controller": {
+  "name": "RCS Controller",
+  "prefab": "SC_GimbalController",
+  "hash": "a5e9dd405298510a",
+  "mirrored_hash": "82626aa762963e0c",
+  "struct": "EPC_SCGimbalController+Blueprint+BlueprintData",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "yaw": {
+    "cell": [
+     3,
+     0,
+     4
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port K"
+   },
+   "pitch": {
+    "cell": [
+     2,
+     0,
+     4
+    ],
+    "face": [
+     2,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 1,
+    "prefab_node": "Port J"
+   },
+   "roll": {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "face": [
+     1,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 2,
+    "prefab_node": "Port I"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 3,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_leverA": {
+    "offset": 16,
+    "bytes": 4,
+    "default": 1.0,
+    "default_source": "prefab",
+    "meaning": "RCS Controller lever A (float 0..1)",
+    "corpus_values": {
+     "1.0": 206
+    }
+   },
+   "_leverB": {
+    "offset": 20,
+    "bytes": 4,
+    "default": 1.0,
+    "default_source": "prefab",
+    "meaning": "RCS Controller lever B (float 0..1)",
+    "corpus_values": {
+     "1.0": 206
+    }
+   },
+   "_leverC": {
+    "offset": 24,
+    "bytes": 4,
+    "default": 1.0,
+    "default_source": "prefab",
+    "meaning": "RCS Controller lever C (float 0..1)",
+    "corpus_values": {
+     "1.0": 160,
+     "0.0": 46
+    }
+   },
+   "_leverD": {
+    "offset": 28,
+    "bytes": 4,
+    "default": 1.0,
+    "default_source": "prefab",
+    "meaning": "RCS Controller lever D (float 0..1)",
+    "corpus_values": {
+     "1.0": 167,
+     "0.0": 39
+    }
+   },
+   "_leverE": {
+    "offset": 32,
+    "bytes": 4,
+    "default": 1.0,
+    "default_source": "prefab",
+    "meaning": "RCS Controller lever E (float 0..1)",
+    "corpus_values": {
+     "1.0": 206
+    }
+   },
+   "_leverF": {
+    "offset": 36,
+    "bytes": 4,
+    "default": 1.0,
+    "default_source": "prefab",
+    "meaning": "RCS Controller lever F (float 0..1)",
+    "corpus_values": {
+     "1.0": 206
+    }
+   },
+   "_col": {
+    "offset": 44,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 206
+    }
+   },
+   "_toggle": {
+    "offset": 45,
+    "bytes": 1,
+    "default": 1,
+    "default_source": "prefab",
+    "meaning": "on/off toggle (bool, 1 byte; the declared 4-byte width overlaps the following bytes)",
+    "corpus_values": {
+     "1": 206
+    }
+   }
+  },
+  "corpus": {
+   "instances": 206,
+   "ports_confirmed": "4/4",
+   "overlaps": 0,
+   "normal": 158,
+   "twin": 48,
+   "orientations_seen": 9,
+   "cable_hits": {
+    "data": 546,
+    "power": 197
+   },
+   "twin_cable_hits": {
+    "data": 144,
+    "power": 48
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "data": 3
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "In-game name \"RCS Controller\" (prefab SC_GimbalController). All four ports on the front face (z = 4), bottom row: power x = 0, roll x = 1, pitch x = 2, yaw x = 3. Drives up to 6 RCS Thrusters (SC_GimbalThruster) wirelessly.",
+  "game_params": {
+   "power_ps": 4.0
+  },
+  "twin_reflection_verified": true
+ },
+ "floodlight": {
+  "name": "Floodlight",
+  "prefab": "SC_Floodlight",
+  "hash": "ecf2f3a936dfd534",
+  "mirrored_hash": "08e6f402b3c63502",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "intensity": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "horizontal": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 1,
+    "prefab_node": "Port B"
+   },
+   "vertical": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 2,
+    "prefab_node": "Port C"
+   },
+   "power": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "face": [
+     3,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 3,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 16,
+     "2": 13,
+     "9": 10,
+     "3": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 41,
+   "ports_confirmed": "4/4",
+   "overlaps": 0,
+   "normal": 31,
+   "twin": 10,
+   "orientations_seen": 13,
+   "cable_hits": {
+    "power": 41,
+    "data": 69
+   },
+   "twin_cable_hits": {
+    "data": 16,
+    "power": 10
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "data": 4
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the back face (z = -1), bottom row: intensity x = 0, horizontal x = 1, vertical x = 2, power x = 3. The lamp head rotates.",
+  "game_params": {
+   "power_ps": 4.0
+  },
+  "twin_reflection_verified": true
+ },
+ "rimcore_turbo": {
+  "name": "Rimcore Turbopump",
+  "prefab": "SC_RimcoreTurbo",
+  "hash": "3b8f7a8eafd5f482",
+  "mirrored_hash": "767338323892134c",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   16,
+   16,
+   20
+  ],
+  "ports": {
+   "on": {
+    "cell": [
+     10,
+     16,
+     12
+    ],
+    "face": [
+     10,
+     15,
+     12
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "power": {
+    "cell": [
+     9,
+     16,
+     12
+    ],
+    "face": [
+     9,
+     15,
+     12
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the top face (y = 16) at z = 12: power x = 9, on x = 10.",
+  "game_params": {
+   "power_ps": 300.0
+  },
+  "twin_reflection_verified": true
+ },
+ "lava_sucker": {
+  "name": "Lava Pumping Tank",
+  "prefab": "SC_LavaSucker",
+  "hash": "5a18108eb43b7a87",
+  "mirrored_hash": "a942d5c30eb99818",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   16,
+   16,
+   16
+  ],
+  "ports": {
+   "on": {
+    "cell": [
+     12,
+     12,
+     16
+    ],
+    "face": [
+     12,
+     12,
+     15
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "length": {
+    "cell": [
+     12,
+     11,
+     16
+    ],
+    "face": [
+     12,
+     11,
+     15
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 1,
+    "prefab_node": "Port B"
+   },
+   "power": {
+    "cell": [
+     12,
+     10,
+     16
+    ],
+    "face": [
+     12,
+     10,
+     15
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 2,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/3",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "In-game name \"Lava Pumping Tank\". No corpus instances; prefab only. Ports on the front face (z = 16) at x = 12: power y = 10, length y = 11, on y = 12. Its intake pipe extends (length input).",
+  "game_params": {
+   "power_ps": 80.0
+  },
+  "twin_reflection_verified": true
+ },
+ "extendable_damper": {
+  "name": "Extendable Damper",
+  "prefab": "SC_ExtendableDamper",
+  "hash": "6022bd7a84f9ef3f",
+  "mirrored_hash": "71184cd0a2185fad",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "extension": {
+    "cell": [
+     6,
+     6,
+     8
+    ],
+    "face": [
+     6,
+     6,
+     7
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "power": {
+    "cell": [
+     5,
+     6,
+     8
+    ],
+    "face": [
+     5,
+     6,
+     7
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 5,
+     "201": 1
+    }
+   }
+  },
+  "corpus": {
+   "instances": 6,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 3,
+   "twin": 3,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "power": 6,
+    "data": 6
+   },
+   "twin_cable_hits": {
+    "power": 3,
+    "data": 3
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the front face (z = 8) at y = 6: power x = 5, extension x = 6. The leg extends out of the bottom face (-y) by up to 1.5 m (12 cells); keep that clear.",
+  "game_params": {
+   "absorption": 0.94,
+   "power_ps": 20.0
+  },
+  "twin_reflection_verified": true
+ },
+ "pipe_electric_valve": {
+  "name": "Pipe With Electric Valve",
+  "prefab": "SC_PipeElectricValve",
+  "hash": "656a9abb2f5ca827",
+  "mirrored_hash": "cbe07a62af952772",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "open": {
+    "cell": [
+     0,
+     2,
+     1
+    ],
+    "face": [
+     0,
+     1,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "power": {
+    "cell": [
+     1,
+     2,
+     1
+    ],
+    "face": [
+     1,
+     1,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 2,
+   "twin": 0,
+   "orientations_seen": 2,
+   "cable_hits": {
+    "power": 2,
+    "data": 2
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "A 2x2x2 pipe piece. Ports on the top face (y = 2) at z = 1: open x = 0, power x = 1. The pipe ends are fuel connections, not cable ports.",
+  "game_params": {
+   "fuel_capacity": 0.25,
+   "fuel_stability_threshold": 0.5,
+   "fuel_stability_speed": 0.6,
+   "power_ps": 2.5,
+   "accelerator_speed": 1.0
+  },
+  "twin_reflection_verified": true
+ },
+ "nanopipe_electric_valve": {
+  "name": "Nanopipe With Electric Valve",
+  "prefab": "SC_NanopipeElectricValve",
+  "hash": "6ff0d1b476b62cf4",
+  "mirrored_hash": "09bd5cd1de87b7db",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "open": {
+    "cell": [
+     0,
+     2,
+     1
+    ],
+    "face": [
+     0,
+     1,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   },
+   "power": {
+    "cell": [
+     1,
+     2,
+     1
+    ],
+    "face": [
+     1,
+     1,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Same geometry and ports as the Pipe With Electric Valve.",
+  "game_params": {
+   "fuel_capacity": 0.25,
+   "fuel_stability_threshold": 0.0,
+   "fuel_stability_speed": 0.25,
+   "power_ps": 2.5,
+   "accelerator_speed": 1.0
+  },
+  "twin_reflection_verified": true
+ },
+ "small_gate": {
+  "name": "Small Gate",
+  "prefab": "SC_SmallGate",
+  "hash": "6a55dba0bc326992",
+  "mirrored_hash": "1de878f9c39120ef",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   16,
+   16,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     15,
+     0,
+     -1
+    ],
+    "face": [
+     15,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     14,
+     0,
+     -1
+    ],
+    "face": [
+     14,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 15,
+     "1": 4,
+     "200": 4,
+     "3": 4
+    }
+   }
+  },
+  "corpus": {
+   "instances": 27,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 17,
+   "twin": 10,
+   "orientations_seen": 10,
+   "cable_hits": {
+    "power": 25,
+    "data": 24
+   },
+   "twin_cable_hits": {
+    "data": 10,
+    "power": 10
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the back face (z = -1), bottom row, at the +x end. The door/ramp moves when the state input changes; keep its swing clear. Nanogate = same geometry and ports as the gate of that size.",
+  "game_params": {
+   "power_ps": 5.0,
+   "accelerator_speed": 0.5
+  },
+  "twin_reflection_verified": true
+ },
+ "medium_gate": {
+  "name": "Medium Gate",
+  "prefab": "SC_MediumGate",
+  "hash": "4f9f77acf8bef6b6",
+  "mirrored_hash": "7288a9b523c1cd3f",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   24,
+   24,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     23,
+     0,
+     -1
+    ],
+    "face": [
+     23,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     22,
+     0,
+     -1
+    ],
+    "face": [
+     22,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 4,
+     "3": 1
+    }
+   }
+  },
+  "corpus": {
+   "instances": 5,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 5,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "data": 5,
+    "power": 5
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the back face (z = -1), bottom row, at the +x end. The door/ramp moves when the state input changes; keep its swing clear. Nanogate = same geometry and ports as the gate of that size.",
+  "game_params": {
+   "power_ps": 8.0,
+   "accelerator_speed": 0.3
+  },
+  "twin_reflection_verified": true
+ },
+ "large_gate": {
+  "name": "Large Gate",
+  "prefab": "SC_LargeGate",
+  "hash": "7b4291f934b22638",
+  "mirrored_hash": "87270e0cfff541bf",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   48,
+   32,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     47,
+     0,
+     -1
+    ],
+    "face": [
+     47,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     46,
+     0,
+     -1
+    ],
+    "face": [
+     46,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 13,
+     "3": 3,
+     "200": 1
+    }
+   }
+  },
+  "corpus": {
+   "instances": 17,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 17,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "power": 17,
+    "data": 17
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the back face (z = -1), bottom row, at the +x end. The door/ramp moves when the state input changes; keep its swing clear. Nanogate = same geometry and ports as the gate of that size.",
+  "game_params": {
+   "power_ps": 10.0,
+   "accelerator_speed": 0.2
+  },
+  "twin_reflection_verified": true
+ },
+ "small_nanogate": {
+  "name": "Small Nanogate",
+  "prefab": "SC_SmallNanogate",
+  "hash": "bbe14a8e48c619de",
+  "mirrored_hash": "1b51cb53284437af",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   16,
+   16,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     15,
+     0,
+     -1
+    ],
+    "face": [
+     15,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     14,
+     0,
+     -1
+    ],
+    "face": [
+     14,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the back face (z = -1), bottom row, at the +x end. The door/ramp moves when the state input changes; keep its swing clear. Nanogate = same geometry and ports as the gate of that size.",
+  "game_params": {
+   "power_ps": 5.0,
+   "accelerator_speed": 0.5
+  },
+  "twin_reflection_verified": true
+ },
+ "medium_nanogate": {
+  "name": "Medium Nanogate",
+  "prefab": "SC_MediumNanogate",
+  "hash": "18683a9038ac4559",
+  "mirrored_hash": "db4759e6cfc6e1de",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   24,
+   24,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     23,
+     0,
+     -1
+    ],
+    "face": [
+     23,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     22,
+     0,
+     -1
+    ],
+    "face": [
+     22,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the back face (z = -1), bottom row, at the +x end. The door/ramp moves when the state input changes; keep its swing clear. Nanogate = same geometry and ports as the gate of that size.",
+  "game_params": {
+   "power_ps": 8.0,
+   "accelerator_speed": 0.3
+  },
+  "twin_reflection_verified": true
+ },
+ "large_nanogate": {
+  "name": "Large Nanogate",
+  "prefab": "SC_LargeNanogate",
+  "hash": "e74ce77b0d089e10",
+  "mirrored_hash": "66a64b1b5282895e",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   48,
+   32,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     47,
+     0,
+     -1
+    ],
+    "face": [
+     47,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     46,
+     0,
+     -1
+    ],
+    "face": [
+     46,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the back face (z = -1), bottom row, at the +x end. The door/ramp moves when the state input changes; keep its swing clear. Nanogate = same geometry and ports as the gate of that size.",
+  "game_params": {
+   "power_ps": 10.0,
+   "accelerator_speed": 0.2
+  },
+  "twin_reflection_verified": true
+ },
+ "personnel_gate": {
+  "name": "Personnel Door",
+  "prefab": "SC_PersonnelGate",
+  "hash": "2075109cc7ca4351",
+  "mirrored_hash": "12bcabeac0289235",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   16,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     7,
+     1,
+     -1
+    ],
+    "face": [
+     7,
+     1,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     7,
+     0,
+     -1
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 17,
+     "200": 3
+    }
+   }
+  },
+  "corpus": {
+   "instances": 20,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 20,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "data": 17,
+    "power": 18
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "In-game name \"Personnel Door\". Ports on the back face (z = -1) at x = 7: power y = 0, state y = 1.",
+  "game_params": {
+   "power_ps": 5.0,
+   "accelerator_speed": 2.0
+  },
+  "twin_reflection_verified": true
+ },
+ "personnel_nanogate": {
+  "name": "Personnel Nanodoor",
+  "prefab": "SC_PersonnelNanogate",
+  "hash": "a65cb30c3ed229c1",
+  "mirrored_hash": "ca36e06edc93754c",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   16,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     7,
+     1,
+     -1
+    ],
+    "face": [
+     7,
+     1,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     7,
+     0,
+     -1
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "In-game name \"Personnel Nanodoor\". No corpus instances; prefab only. Same ports as the Personnel Door.",
+  "game_params": {
+   "power_ps": 5.0,
+   "accelerator_speed": 2.0
+  },
+  "twin_reflection_verified": true
+ },
+ "ramp_gate": {
+  "name": "Ramp Gate",
+  "prefab": "SC_RampGate",
+  "hash": "9ed29ab59b4b7a0f",
+  "mirrored_hash": "5d12a65fef4aa3ae",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   32,
+   28,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     31,
+     5,
+     -1
+    ],
+    "face": [
+     31,
+     5,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     31,
+     4,
+     -1
+    ],
+    "face": [
+     31,
+     4,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "ports_confirmed": "2/2",
+   "overlaps": 0,
+   "normal": 1,
+   "twin": 1,
+   "orientations_seen": 2,
+   "cable_hits": {
+    "power": 2,
+    "data": 2
+   },
+   "twin_cable_hits": {
+    "power": 1,
+    "data": 1
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the back face (z = -1) at x = 31: power y = 4, state y = 5. The ramp swings out when opened.",
+  "game_params": {
+   "power_ps": 12.0,
+   "accelerator_speed": 0.2
+  },
+  "twin_reflection_verified": true
+ },
+ "ramp_nanogate": {
+  "name": "Nanoramp Gate",
+  "prefab": "SC_RampNanogate",
+  "hash": "512d0b401a26f0a5",
+  "mirrored_hash": "c0fc1a074ac2ef89",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   32,
+   28,
+   4
+  ],
+  "ports": {
+   "state": {
+    "cell": [
+     31,
+     5,
+     -1
+    ],
+    "face": [
+     31,
+     5,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     31,
+     4,
+     -1
+    ],
+    "face": [
+     31,
+     4,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 201,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/2",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "In-game name \"Nanoramp Gate\". No corpus instances; prefab only. Same ports as the Ramp Gate.",
+  "game_params": {
+   "power_ps": 12.0,
+   "accelerator_speed": 0.2
+  },
+  "twin_reflection_verified": true
+ },
+ "radar": {
+  "name": "Radar",
+  "prefab": "SC_Radar",
+  "hash": "a059e2744c12a035",
+  "mirrored_hash": "bcc356e0bd75db1a",
+  "struct": "EPC_SCRadar+Blueprint+BlueprintData",
+  "size": [
+   4,
+   2,
+   4
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_knob0Value": {
+    "offset": 20,
+    "bytes": 4,
+    "default": 0.0,
+    "default_source": "prefab",
+    "meaning": "radar knob 0 (float 0..1)",
+    "corpus_values": {
+     "0.0": 76,
+     "0.597073": 3
+    }
+   },
+   "_knob1Value": {
+    "offset": 24,
+    "bytes": 4,
+    "default": 0.0,
+    "default_source": "prefab",
+    "meaning": "radar knob 1 (float 0..1)",
+    "corpus_values": {
+     "0.0": 57,
+     "0.500616": 14,
+     "0.499301": 3,
+     "0.000239": 2,
+     "0.500703": 2,
+     "0.50055": 1
+    }
+   },
+   "_knob2Value": {
+    "offset": 28,
+    "bytes": 4,
+    "default": 0.4,
+    "default_source": "prefab",
+    "meaning": "radar knob 2 (float 0..1)",
+    "corpus_values": {
+     "0.267547": 48,
+     "0.4": 28,
+     "0.100674": 2,
+     "0.2": 1
+    }
+   },
+   "_toggle": {
+    "offset": 32,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "corpus mode",
+    "meaning": "on/off toggle (bool, 1 byte; the declared 4-byte width overlaps the following bytes)",
+    "corpus_values": {
+     "0": 48,
+     "1": 31
+    }
+   },
+   "_col": {
+    "offset": 33,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 55,
+     "2": 17,
+     "3": 7
+    }
+   },
+   "_mode": {
+    "offset": 34,
+    "bytes": 1,
+    "default": 1,
+    "default_source": "corpus mode",
+    "meaning": "radar mounting mode (bool, 1 byte): 'Mode: Wall' / 'Mode: Floor'",
+    "corpus_values": {
+     "1": 51,
+     "0": 28
+    }
+   }
+  },
+  "corpus": {
+   "instances": 79,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 29,
+   "twin": 50,
+   "orientations_seen": 7,
+   "cable_hits": {
+    "power": 79
+   },
+   "twin_cable_hits": {
+    "power": 50
+   },
+   "twin_cable_misses": {
+    "power": 1
+   },
+   "direct_contacts": {},
+   "cable_misses": {
+    "power": 1
+   },
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Single power port on the front face (z = 4) at x = 0, y = 0. One power-cable \"miss\" in an autosave, one of 80 events.",
+  "game_params": {
+   "power_ps": 2.0
+  },
+  "twin_reflection_verified": true
+ },
+ "green_trench_pump": {
+  "name": "Green Trench Pump",
+  "prefab": "SC_GreenTrenchPump",
+  "hash": "f723296f4305a973",
+  "mirrored_hash": "850799e8b395584d",
+  "struct": "EPC_SCGreenTrenchPump+Blueprint+BlueprintData",
+  "size": [
+   16,
+   16,
+   16
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     8,
+     7,
+     16
+    ],
+    "face": [
+     8,
+     7,
+     15
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_toggle": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "corpus mode",
+    "meaning": "on/off toggle (bool, 1 byte; the declared 4-byte width overlaps the following bytes)",
+    "corpus_values": {
+     "0": 3
+    }
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 3
+    }
+   }
+  },
+  "corpus": {
+   "instances": 3,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 3,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "power": 3
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Single power port on the front face (z = 16) at (8,7).",
+  "game_params": {
+   "power_ps": 90.0
+  },
+  "twin_reflection_verified": true
+ },
+ "ice_cream_freezer": {
+  "name": "Ice Cream Freezer",
+  "prefab": "SC_IceCreamFreezer",
+  "hash": "a2547142c060e2cc",
+  "mirrored_hash": "67dba64d12d7163a",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     8,
+     0,
+     0
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/1",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Single power port on the +x face at (8,0,0).",
+  "game_params": {
+   "idle_power_ps": 1.0,
+   "max_time_without_power": 50.0
+  },
+  "twin_reflection_verified": true
+ },
+ "outcast_polar_anchor": {
+  "name": "Outcast Polar Anchor",
+  "prefab": "SC_OutcastPolarAnchor",
+  "hash": "764b7275dc182ddb",
+  "mirrored_hash": "33cbd2492b546331",
+  "struct": "EPC_SCOutcastPolarAnchor+Blueprint+BlueprintData",
+  "size": [
+   16,
+   24,
+   16
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     2,
+     2,
+     -1
+    ],
+    "face": [
+     2,
+     2,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "prefab_node": "Port P"
+   }
+  },
+  "settings": {
+   "_leverValue": {
+    "offset": 20,
+    "bytes": 4,
+    "default": 0.0,
+    "default_source": "prefab",
+    "meaning": "polar anchor lever (float 0..1)",
+    "corpus_values": {
+     "0.298107": 2
+    }
+   },
+   "_col": {
+    "offset": 24,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 1,
+   "twin": 1,
+   "orientations_seen": 2,
+   "cable_hits": {
+    "power": 2
+   },
+   "twin_cable_hits": {
+    "power": 1
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Single power port on the back face at (2,2,-1).",
+  "game_params": {
+   "power_ps": 40.0,
+   "max_charging_per_s": 500.0,
+   "cables_damage_radius": 27.0,
+   "cables_damage_per_s": 5.0
+  },
+  "twin_reflection_verified": true
+ },
+ "solar_shield_generator": {
+  "name": "Solar Shield Generator",
+  "prefab": "SC_SolarShieldGenerator",
+  "hash": "968c80c4b3d811a0",
+  "mirrored_hash": "a6c743dc5a3def4a",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "plasma": {
+    "cell": [
+     3,
+     0,
+     8
+    ],
+    "face": [
+     3,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "plasma",
+    "game_port": 0,
+    "prefab_node": "Port Plasma"
+   },
+   "radius": {
+    "cell": [
+     4,
+     0,
+     8
+    ],
+    "face": [
+     4,
+     0,
+     7
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 1,
+    "prefab_node": "Port Input"
+   },
+   "max_heat": {
+    "cell": [
+     5,
+     0,
+     8
+    ],
+    "face": [
+     5,
+     0,
+     7
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 2,
+    "prefab_node": "Port Output"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/3",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. Ports on the front face (z = 8), bottom row: plasma x = 3, radius x = 4, max_heat out x = 5. The plasma port is undirected in the game (kind 4); the simulator calls it plin.",
+  "game_params": {
+   "min_radius": 1.0,
+   "max_radius": 50.0,
+   "accelerator_speed": 3.0
+  },
+  "twin_reflection_verified": true
+ },
+ "wind_shield_generator": {
+  "name": "Wind Shield Generator",
+  "prefab": "SC_WindShieldGenerator",
+  "hash": "d6bc5c208b27638b",
+  "mirrored_hash": "afd97c913ee12e87",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "plasma": {
+    "cell": [
+     3,
+     0,
+     8
+    ],
+    "face": [
+     3,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "plasma",
+    "game_port": 0,
+    "prefab_node": "Port Plasma"
+   },
+   "radius": {
+    "cell": [
+     4,
+     0,
+     8
+    ],
+    "face": [
+     4,
+     0,
+     7
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 1,
+    "prefab_node": "Port Input"
+   },
+   "max_wind": {
+    "cell": [
+     5,
+     0,
+     8
+    ],
+    "face": [
+     5,
+     0,
+     7
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 2,
+    "prefab_node": "Port Output"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "3": 3,
+     "5": 1,
+     "0": 1
+    }
+   }
+  },
+  "corpus": {
+   "instances": 5,
+   "ports_confirmed": "3/3",
+   "overlaps": 0,
+   "normal": 3,
+   "twin": 2,
+   "orientations_seen": 4,
+   "cable_hits": {
+    "data": 9,
+    "plasma": 5
+   },
+   "twin_cable_hits": {
+    "data": 4,
+    "plasma": 2
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the front face (z = 8), bottom row: plasma x = 3, radius x = 4, max_wind out x = 5. Plasma port undirected in the game.",
+  "game_params": {
+   "min_radius": 1.0,
+   "max_radius": 50.0,
+   "accelerator_speed": 3.0
+  },
+  "twin_reflection_verified": true
+ },
+ "small_plasma_generator": {
+  "name": "Small Plasma Generator",
+  "prefab": "SC_SmallPlasmaGenerator",
+  "hash": "9046d8dc0ca9a755",
+  "mirrored_hash": "7078b871732cd94a",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "speed": {
+    "cell": [
+     1,
+     0,
+     8
+    ],
+    "face": [
+     1,
+     0,
+     7
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port Input"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     8
+    ],
+    "face": [
+     0,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "prefab_node": "Port Power"
+   },
+   "plasma": {
+    "cell": [
+     2,
+     0,
+     8
+    ],
+    "face": [
+     2,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "plasma",
+    "game_port": 2,
+    "prefab_node": "Port Plasma"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "3": 2,
+     "13": 1,
+     "5": 1,
+     "0": 1
+    }
+   }
+  },
+  "corpus": {
+   "instances": 5,
+   "ports_confirmed": "3/3",
+   "overlaps": 0,
+   "normal": 5,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {
+    "data": 5,
+    "plasma": 5,
+    "power": 5
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Ports on the front face (z = 8), bottom row: power x = 0, speed x = 1, plasma x = 2. Plasma port undirected in the game.",
+  "game_params": {
+   "max_plasma": 100.0,
+   "max_power_ps": 100.0,
+   "accelerator_speed": 0.05
+  },
+  "twin_reflection_verified": true
+ },
+ "bomb_c4": {
+  "name": "C4 Bomb",
+  "prefab": "SC_BombC4",
+  "hash": "0e77043c2adcd96b",
+  "mirrored_hash": "6d56a13b5d2e1d57",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   2,
+   4
+  ],
+  "ports": {
+   "trigger": {
+    "cell": [
+     3,
+     2,
+     1
+    ],
+    "face": [
+     3,
+     1,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 2,
+   "twin": 0,
+   "orientations_seen": 2,
+   "cable_hits": {
+    "data": 1
+   },
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "data": 1
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Single trigger input on the top face at (3,2,1).",
+  "game_params": {
+   "delay": 0.25,
+   "explosion_strength": 220000000.0
+  },
+  "twin_reflection_verified": true
+ },
+ "tnt_box": {
+  "name": "TNT Box",
+  "prefab": "SC_TNTBox",
+  "hash": null,
+  "mirrored_hash": null,
+  "struct": null,
+  "size": null,
+  "ports": {},
+  "settings": {},
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0
+  },
+  "confidence": "none",
+  "notes": "Not in this game build: no SC_TNTBox GameObject in globalgamemanagers.assets (its Localization rows are a demo leftover). Would-be hashes: SC_TNTBox 7ca51030c1cc7b8f, twin 7a465c630a077c20. Not placeable."
+ },
+ "clima_bomb": {
+  "name": "Clima Bomb",
+  "prefab": "SC_ClimaBomb",
+  "hash": "0e9da637dc6db63a",
+  "mirrored_hash": "3438e7a69fc7bce4",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   24,
+   24,
+   56
+  ],
+  "ports": {
+   "trigger": {
+    "cell": [
+     -1,
+     12,
+     38
+    ],
+    "face": [
+     0,
+     12,
+     38
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/1",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "No corpus instances; prefab only. 24x24x56. Single trigger input on the -x face at (-1,12,38).",
+  "twin_reflection_verified": true
+ },
+ "decoupler_small": {
+  "name": "Decoupler Small",
+  "prefab": "SC_DecouplerQuarter",
+  "hash": "3ac248b85f319239",
+  "mirrored_hash": "8c6dee6a2b1d9ad1",
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "trigger": {
+    "cell": [
+     4,
+     0,
+     3
+    ],
+    "face": [
+     3,
+     0,
+     3
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "prefab_node": "Port A"
+   }
+  },
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "0": 386,
+     "2": 58
+    }
+   }
+  },
+  "corpus": {
+   "instances": 444,
+   "ports_confirmed": "1/1",
+   "overlaps": 0,
+   "normal": 223,
+   "twin": 221,
+   "orientations_seen": 8,
+   "cable_hits": {
+    "data": 59
+   },
+   "twin_cable_hits": {
+    "data": 29
+   },
+   "twin_cable_misses": {},
+   "direct_contacts": {
+    "data": 385
+   },
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "Prefab SC_DecouplerQuarter, in-game \"Decoupler Small\". Single trigger input on the +x face at (4,0,3). Usually touches a port directly (385 direct contacts, 59 cabled).",
+  "twin_reflection_verified": true
+ },
+ "SC_GimbalThruster": {
+  "name": "RCS Thruster",
+  "prefab": "SC_GimbalThruster",
+  "hash": "df5ffb35e66fa41a",
+  "mirrored_hash": "7d0042ed4e029fc8",
+  "struct": "EPC_SCGimbalThruster+Blueprint+BlueprintData",
+  "size": [
+   4,
+   4,
+   2
+  ],
+  "ports": {},
+  "settings": {
+   "_channel": {
+    "offset": 16,
+    "bytes": 4,
+    "default": 0.0,
+    "default_source": "prefab",
+    "meaning": "RCS Thruster mode knob (float 0..1, 6 steps). Saved values are (2k+1)/12, i.e. the centres of 6 equal bins: mode k = floor(value*6). Corpus torque analysis (the thruster force about the ship centroid, in the pilot seat frame; ~89% consistent): modes 0/1 = yaw (torque -y/+y), 2/3 = pitch (+x/-x), 4/5 = roll (+z/-z), matching the controller inputs yaw/pitch/roll. Signs are tentative.",
+    "corpus_values": {
+     "0.416667": 206,
+     "0.25": 200,
+     "0.75": 197,
+     "0.916667": 196,
+     "0.583333": 163,
+     "0.083333": 147,
+     "0.0": 92,
+     "0.17581": 1
+    }
+   },
+   "_col": {
+    "offset": 24,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 1166,
+     "3": 32,
+     "10": 6
+    }
+   }
+  },
+  "corpus": {
+   "instances": 1204,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "normal": 820,
+   "twin": 384,
+   "orientations_seen": 18,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "In-game \"RCS Thruster\". No cable ports: it links wirelessly to the RCS Controller (rcs_controller) and has a built-in single-use battery. Mode knob setting _channel. Exhaust/heat zone along -y.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     -1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      -24,
+      0
+     ],
+     [
+      3,
+      -1,
+      1
+     ]
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 1,
+   "max_force": [
+    0.0,
+    10000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.3,
+   "acceleration_time": 0.04,
+   "max_fuel_per_s": 0.0,
+   "power_ps": 5.0,
+   "battery_capacity": 700.0
+  },
+  "twin_reflection_verified": true
+ },
+ "SC_SmallDamper": {
+  "name": "Small Damper",
+  "prefab": "SC_SmallDamper",
+  "hash": "87a0993a19df6877",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {},
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 297,
+     "3": 21,
+     "7": 6,
+     "5": 1
+    }
+   }
+  },
+  "corpus": {
+   "instances": 325,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "normal": 325,
+   "twin": 0,
+   "orientations_seen": 3,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "No ports, no settings (EPC_SCSpring on the settings-free struct). No twin prefab.",
+  "game_params": {
+   "spring_max_distance": 0.1,
+   "absorption": 0.9
+  },
+  "twin_reflection_verified": null
+ },
+ "SC_MediumDamper": {
+  "name": "Medium Damper",
+  "prefab": "SC_MediumDamper",
+  "hash": "7754beb2309e18e2",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   8,
+   4,
+   8
+  ],
+  "ports": {},
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "2": 116,
+     "200": 31,
+     "3": 12,
+     "10": 8,
+     "7": 2
+    }
+   }
+  },
+  "corpus": {
+   "instances": 169,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "normal": 169,
+   "twin": 0,
+   "orientations_seen": 4,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "No ports, no settings. No twin prefab.",
+  "game_params": {
+   "spring_max_distance": 0.2,
+   "absorption": 0.92
+  },
+  "twin_reflection_verified": null
+ },
+ "SC_LargeDamper": {
+  "name": "Large Damper",
+  "prefab": "SC_LargeDamper",
+  "hash": "1ca905aa01ca2c2a",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent+Blueprint+BlueprintData",
+  "size": [
+   16,
+   8,
+   16
+  ],
+  "ports": {},
+  "settings": {
+   "_col": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 200,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)",
+    "corpus_values": {
+     "200": 239,
+     "2": 18
+    }
+   }
+  },
+  "corpus": {
+   "instances": 257,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "normal": 257,
+   "twin": 0,
+   "orientations_seen": 2,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "high",
+  "notes": "No ports, no settings. No twin prefab.",
+  "game_params": {
+   "spring_max_distance": 0.3,
+   "absorption": 0.93
+  },
+  "twin_reflection_verified": null
+ },
+ "SC_DamagedLargeFuelThruster": {
+  "name": "Damaged Large Fuel Thruster",
+  "prefab": "SC_DamagedLargeFuelThruster",
+  "hash": "caad1fb2d473ae5e",
+  "mirrored_hash": "e8477af0daca5f65",
+  "struct": "EPC_SCThruster+Blueprint+BlueprintData",
+  "size": [
+   24,
+   32,
+   24
+  ],
+  "ports": {},
+  "settings": {
+   "_reverseButton": {
+    "offset": 20,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab",
+    "meaning": "the 'Reversed Input' toggle button beside the input port: 0 off, 1 on (1 byte; the declared 4-byte width overlaps _col)"
+   },
+   "_col": {
+    "offset": 21,
+    "bytes": 1,
+    "default": 0,
+    "default_source": "prefab _defaultPaintableColor",
+    "meaning": "paint colour index (cosmetic; 0xc8/0xc9 are the unpainted factory finishes)"
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "ports_confirmed": "0/0",
+   "overlaps": 0,
+   "normal": 0,
+   "twin": 0,
+   "orientations_seen": 0,
+   "cable_hits": {},
+   "twin_cable_hits": {},
+   "twin_cable_misses": {},
+   "direct_contacts": {},
+   "cable_misses": {},
+   "cable_wrong_kind": {},
+   "bad_contacts": {},
+   "overlap_with": {}
+  },
+  "confidence": "medium",
+  "notes": "Quest item (\"Damaged Large Fuel Thruster\"). No ports; class derives from EPC_SCThruster, so it saves the EPC_SCThruster struct. No corpus instances.",
+  "exhaust": {
+   "dir": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "heat_zones": [
+    [
+     [
+      0,
+      32,
+      0
+     ],
+     [
+      23,
+      96,
+      23
+     ]
+    ]
+   ],
+   "blow_zone": [
+    [
+     0,
+     32,
+     0
+    ],
+    [
+     23,
+     95,
+     23
+    ]
+   ]
+  },
+  "game_params": {
+   "is_bidirectional": false,
+   "force_type": 0,
+   "max_force": [
+    0.0,
+    -6500000.0,
+    0.0
+   ],
+   "efficiency_space": 1.0,
+   "efficiency_atmosphere": 1.0,
+   "efficiency_water": 0.0,
+   "acceleration_time": 13.0,
+   "max_fuel_per_s": 6.0,
+   "power_ps": 0.0
+  },
+  "twin_reflection_verified": true
+ }
+}

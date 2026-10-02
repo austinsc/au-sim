@@ -1,0 +1,5595 @@
+{
+ "cable_rules": {
+  "kinds": {
+   "data": {
+    "prefab": "SC_DataCable",
+    "hash": "e60658e2e04f33ce",
+    "_type": 0,
+    "max_power_ps": null,
+    "corpus_cells": 111044
+   },
+   "power": {
+    "prefab": "SC_PowerCable",
+    "hash": "743531fcd428bc2c",
+    "_type": 1,
+    "max_power_ps": 150,
+    "corpus_cells": 107818
+   },
+   "power_nano": {
+    "prefab": "SC_PowerNanocable",
+    "hash": "796f2b5d0244e1af",
+    "_type": 2,
+    "max_power_ps": 400,
+    "corpus_cells": 0,
+    "in_game_name": "Power Nanocable",
+    "notes": "No corpus instance (unlocked by the \"Package_Ascensia_NanopowerCables\" package). The prefab SC_PowerNanocable exists in globalgamemanagers.assets; its EPC_SCCable has _type 2 and _maxPower 400 (power cable: 1 and 150). Same struct, shapes and orientations as every cable; not yet load-tested."
+   },
+   "plasma": {
+    "prefab": "SC_PlasmaCable",
+    "hash": "e8f9b8dac4e23b9c",
+    "_type": 3,
+    "max_power_ps": null,
+    "corpus_cells": 83
+   }
+  },
+  "struct": "EPC_SCCable, 24 bytes: _guid @0 (16), _gt @16 (4), _shape @20, _type @21, _col @22 (1 each)",
+  "q1_same_geometry": {
+   "answer": "Yes. All cable kinds share EPC_SCCable and the data cable's open-face rule: _shape 0 = straight, open at local +z and -z; _shape 1 = corner, open at local +y and +z; rotated by the orientation code (1x1x1 cell, so the origin is the cell itself). Only _type differs: 0 data, 1 power, 2 power nano, 3 plasma (SpaceshipCableType; the game's SCTypeCableCell_Singleton mesh tables are ordered Data, Power, PowerNano, Plasma and each prefab's EPC_SCCable stores the same number). _col is paint. No corpus record has a _type other than its prefab's.",
+   "shape_type_counts": {
+    "data": {
+     "1,0": 40072,
+     "0,0": 70972
+    },
+    "plasma": {
+     "0,3": 62,
+     "1,3": 21
+    },
+    "power": {
+     "0,1": 80340,
+     "1,1": 27478
+    }
+   },
+   "open_rule_hits": {
+    "data straight": "140183/141944",
+    "data corner": "80043/80144",
+    "power straight": "160610/160680",
+    "power corner": "54925/54956",
+    "plasma straight": "124/124",
+    "plasma corner": "42/42"
+   },
+   "best_alternative_corner_rule_hits": {
+    "data": 29531,
+    "power": 22331,
+    "plasma": 20
+   },
+   "method": "An open face scores when its neighbour is a same-kind cable opening back, or a compatible port whose port cell is this cell and whose inward direction is this face. All 15 possible corner face pairs were scored; local +y/+z wins for every kind by a wide margin.",
+   "connect_rule": "Two cells connect only if both open toward each other AND have the same _type (UpdateCellsAndPortsJob compares the neighbour's _type before the alignment test), so a power cable never joins a nano power cable or a data cable directly. Corpus open faces meeting a cable of another kind: {'power->data': 3, 'data->power': 4} (dead ends)."
+  },
+  "q2_port_kinds": {
+   "rule": "GarageUpdateCables.UpdateCellsAndPortsJob switches on SpaceshipElectricPort._setupType: DataInput (0), DataOutput (1) and DataInOut (3) accept _type 0 only; Power (2) accepts _type 1 or 2; Plasma (4) accepts _type 3 only; Unset (5), the pass-through ports of the frames with ports, accepts any _type 0..3. The cable must sit in the port cell and open toward the part (dot < -0.99).",
+   "data": [
+    "DataInput",
+    "DataOutput",
+    "DataInOut (Wireless Transmitter)",
+    "Unset (frame ports)"
+   ],
+   "power": [
+    "Power",
+    "Unset (frame ports)"
+   ],
+   "power_nano": [
+    "Power",
+    "Unset (frame ports)"
+   ],
+   "plasma": [
+    "Plasma",
+    "Unset (frame ports)"
+   ],
+   "corpus_joins": {
+    "plasma": {
+     "plasma/both": 10
+    },
+    "data": {
+     "data/in": 13002,
+     "data/out": 11840,
+     "data/both": 3088,
+     "universal/both": 3666
+    },
+    "power": {
+     "power/both": 14906,
+     "universal/both": 3159
+    }
+   },
+   "corpus_incompatible_ends": {
+    "power": {
+     "data": 23
+    },
+    "data": {
+     "power": 4
+    }
+   },
+   "ports_per_network": {
+    "data": {
+     "2": 14878,
+     "1": 1840,
+     "0": 11
+    },
+    "plasma": {
+     "2": 5
+    },
+    "power": {
+     "2": 8986,
+     "1": 93,
+     "0": 4
+    }
+   },
+   "note": "The 4 data-cable ends in power ports and 23 power-cable ends in data ports are dead ends (no connection). The thrusters' \"Port Input Reverse Mode Button\" renderer looks like a port but is not one (absent from _electricPorts and Localization)."
+  },
+  "q3_nano": "A separate prefab, SC_PowerNanocable (hash above), on EPC_SCCable with _type = 2 and the same _shape/orientation rules as every cable. It joins Power and Unset ports only and connects only to other _type-2 cells. Rated 400 P/s against 150 P/s for SC_PowerCable (prefab _maxPower; Bulb_31: a cable burns out when the circuit's total consumption or generation exceeds it).",
+  "q4_reach": {
+   "rule": "A cable cell is ANCHORED if (a) it is joined to a compatible port (_anchorEntity = the port's part), or (b) it is STRAIGHT (_shape 0) and one of its 4 side probes (perpendicular to the cable axis, 0.0725 m from the cell centre) hits a frame (SCTypeFrame) face that is welded (_solidFaces bit set; on a frame with ports, not at a port) or, for an unwelded face, hits within 0.08 m of that face polygon's edge, i.e. the cable runs along the frame's border cells. Corner cells are never frame-anchored. Every other cell is in range if an anchored cell of the same chain is at most 10 cable steps away (MAX_UNANCHORED_CELLS = 10). Any cell out of range blocks Fly Mode (\"Cannot enter Fly Mode because some cable cells are not anchored.\"); such blueprints still save and load.",
+   "limits": "Stub held at one end: the anchored cell + 10 = 11 cells. Port-to-port with no frame support: 22 cells (every cell within 10 of an end); 21 leaves one cell of margin.",
+   "code": "UpdateCellsAndPortsJob sets _anchorEntity (port: the Parent of the port; frame: the frame, probed only when _shape == 0) and _anchorRangeEntity/_anchorRangeDistance = self/0. UpdateAnchoringJob walks _connectedFwd/_connectedBwd from every anchored cell for d = 1..10 (stops at d == 11 or at another anchored cell) and keeps the minimum d. AreAllCableCellsAnchoredJob fails if any cell has _anchorRangeEntity == Null. Constants from global-metadata.dat: MAX_UNANCHORED_CELLS = 10, CABLE_CELL_SIZE = 0.125, MAX_MOUNT_DISTANCE = 4.2.",
+   "corpus": {
+    "networks_by_max_distance_ports_and_frame_sides": {
+     "0": 9065,
+     "1": 6667,
+     "2": 2819,
+     "3": 2595,
+     "4": 2100,
+     "5": 898,
+     "6": 793,
+     "7": 322,
+     "8": 259,
+     "9": 101,
+     "10": 160,
+     "11": 3,
+     "12": 3,
+     "13": 5,
+     "14": 1,
+     "15": 5,
+     "16": 7,
+     "17": 4,
+     "18": 1,
+     "999": 9
+    },
+    "frame_free_networks_by_max_distance_ports_only": {
+     "0": 4259,
+     "1": 1261,
+     "2": 736,
+     "3": 1235,
+     "4": 117,
+     "5": 246,
+     "6": 338,
+     "7": 126,
+     "8": 53,
+     "9": 23,
+     "10": 110,
+     "11": 2,
+     "12": 3,
+     "13": 3,
+     "14": 1,
+     "15": 5,
+     "16": 5,
+     "17": 4,
+     "18": 1,
+     "999": 8
+    },
+    "reading": "Anchors = compatible ports + straight cells touching a frame (a superset of the game's anchors): 160 networks reach exactly 10, only 29 exceed it and 9 have no anchor at all. The exceptions are the loose I/O stubs of one Workshop circuit (\"Triple PID - All Hover\", 12-18 cells held at one end), autosaves and three other saves.",
+    "longest_frame_free": [
+     [
+      18,
+      19,
+      "data",
+      "20b9259e-1786-4d22-b7cc-7d14fec8b4ef.bp"
+     ],
+     [
+      17,
+      18,
+      "data",
+      "2d9ecd1b-c6a6-4e00-ad19-0fc5189f7817.bp"
+     ],
+     [
+      17,
+      18,
+      "data",
+      "2d9ecd1b-c6a6-4e00-ad19-0fc5189f7817.bp"
+     ],
+     [
+      17,
+      18,
+      "data",
+      "2d9ecd1b-c6a6-4e00-ad19-0fc5189f7817.bp"
+     ],
+     [
+      17,
+      18,
+      "data",
+      "2d9ecd1b-c6a6-4e00-ad19-0fc5189f7817.bp"
+     ],
+     [
+      16,
+      17,
+      "data",
+      "2d9ecd1b-c6a6-4e00-ad19-0fc5189f7817.bp"
+     ]
+    ],
+    "frame_free_port_to_port_lengths": {
+     "2": 1297,
+     "3": 994,
+     "4": 254,
+     "5": 540,
+     "6": 181,
+     "7": 1103,
+     "8": 119,
+     "9": 85,
+     "10": 21,
+     "11": 76,
+     "12": 165,
+     "13": 180,
+     "14": 130,
+     "15": 113,
+     "16": 11,
+     "17": 49,
+     "18": 3,
+     "19": 17,
+     "20": 5,
+     "21": 106,
+     "22": 3,
+     "26": 1,
+     "27": 1,
+     "29": 1,
+     "32": 1
+    },
+    "frame_free_one_port_stub_lengths": {
+     "1": 2962,
+     "2": 13,
+     "3": 15,
+     "4": 13,
+     "5": 11,
+     "6": 5,
+     "7": 28,
+     "8": 2,
+     "9": 1,
+     "10": 1,
+     "11": 1,
+     "12": 2,
+     "13": 2,
+     "14": 2,
+     "16": 4,
+     "17": 5,
+     "18": 4,
+     "19": 1
+    },
+    "frame_face_models": {
+     "ports": {
+      "networks_over_10": 1691,
+      "files_over_10": 215,
+      "networks_at_9_10_11_12": [
+       645,
+       532,
+       171,
+       177
+      ],
+      "anchored_cells": 46514
+     },
+     "edge": {
+      "networks_over_10": 46,
+      "files_over_10": 19,
+      "networks_at_9_10_11_12": [
+       179,
+       220,
+       5,
+       5
+      ],
+      "anchored_cells": 99295
+     },
+     "weld": {
+      "networks_over_10": 45,
+      "files_over_10": 18,
+      "networks_at_9_10_11_12": [
+       122,
+       217,
+       5,
+       5
+      ],
+      "anchored_cells": 105832
+     },
+     "weldfar": {
+      "networks_over_10": 44,
+      "files_over_10": 18,
+      "networks_at_9_10_11_12": [
+       121,
+       218,
+       5,
+       5
+      ],
+      "anchored_cells": 105270
+     },
+     "any": {
+      "networks_over_10": 38,
+      "files_over_10": 13,
+      "networks_at_9_10_11_12": [
+       101,
+       160,
+       3,
+       3
+      ],
+      "anchored_cells": 125882
+     }
+    },
+    "reading_frame_models": "power_anchor.py applies the exact rule with each frame prefab's plain JointsArea polygons as its faces (near face, 0.08 m edge test, record _solidFaces): ports only -> 1691 networks exceed 10; + frame edge rule -> 46 (220 networks at exactly 10, 5 at 11); + welded faces -> 45; any straight cell touching a frame (upper bound) -> 38. The edge rule accounts for nearly all frame anchoring; the 8 networks between the edge model and the upper bound sit on curved/wedge frames (SC_FrameB etc., whose sloped face is not a JointsArea polygon) or on welded faces, where the face list/bit order is a structure-agent question.",
+    "reading_lengths": "Port-to-port cables that touch no frame: 106 networks of 21 cells and 3 of 22 (the code limit: every cell within 10 of an end), then nothing until four one-off saves of 26-32 cells. One-port stubs that touch no frame stop at 11 cells apart from the same Workshop/autosave exceptions."
+   }
+  }
+ },
+ "small_disposable_battery": {
+  "name": "Small Disposable Battery",
+  "prefab": "SC_SmallDisposableBattery",
+  "hash": "1fa8fb58e3c13ead",
+  "mirrored_hash": "3ee716a3abde8b5a",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     2,
+     1,
+     -1
+    ],
+    "face": [
+     2,
+     1,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      800
+     ],
+     [
+      5,
+      24
+     ],
+     [
+      2,
+      19
+     ],
+     [
+      6,
+      8
+     ],
+     [
+      7,
+      8
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 859,
+   "normal": 526,
+   "twin": 333,
+   "ports_confirmed": "1/1",
+   "port_use": {
+    "power": "cable 857 + contact 0 of 859"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x4x4 block. One power port on the back face (z = -1), x = 2, y = 1."
+ },
+ "medium_disposable_battery": {
+  "name": "Medium Disposable Battery",
+  "prefab": "SC_MediumDisposableBattery",
+  "hash": "9bab51c99b079f89",
+  "mirrored_hash": "c0e29316570ecef4",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   4,
+   8,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     3,
+     3,
+     -1
+    ],
+    "face": [
+     3,
+     3,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "level": {
+    "cell": [
+     2,
+     3,
+     -1
+    ],
+    "face": [
+     2,
+     3,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 1,
+    "game_type": "DataOutput"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      295
+     ],
+     [
+      2,
+      84
+     ],
+     [
+      12,
+      8
+     ],
+     [
+      6,
+      6
+     ],
+     [
+      11,
+      4
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 401,
+   "normal": 301,
+   "twin": 100,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "power": "cable 400 + contact 0 of 401",
+    "level": "cable 99 + contact 0 of 401"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x8x8 (w x h x d). Both ports on the back face at y = 3: power x = 3, level (data output) x = 2. The level output is seldom wired; its port cell often holds the power cable leaving the power port sideways (corpus \"cable_not_open\")."
+ },
+ "large_disposable_battery": {
+  "name": "Large Disposable Battery",
+  "prefab": "SC_LargeDisposableBattery",
+  "hash": "edb5cf9aa33baf20",
+  "mirrored_hash": "eae63d8b28f871ff",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   8,
+   16,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     7,
+     0,
+     -1
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "level": {
+    "cell": [
+     6,
+     0,
+     -1
+    ],
+    "face": [
+     6,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 1,
+    "game_type": "DataOutput"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      307
+     ],
+     [
+      12,
+      49
+     ],
+     [
+      8,
+      49
+     ],
+     [
+      2,
+      31
+     ],
+     [
+      3,
+      3
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 440,
+   "normal": 419,
+   "twin": 21,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "power": "cable 440 + contact 0 of 440",
+    "level": "cable 29 + contact 0 of 440"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "8x16x8. Both ports on the back face, bottom row (y = 0): power x = 7, level (data output) x = 6."
+ },
+ "small_rechargeable_battery": {
+  "name": "Small Rechargeable Battery",
+  "prefab": "SC_SmallRechargeableBattery",
+  "hash": "336f2ac52d4787be",
+  "mirrored_hash": "0f03d9e1ab941736",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "face": [
+     3,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      9,
+      30
+     ],
+     [
+      0,
+      11
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      7,
+      3
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 53,
+   "normal": 46,
+   "twin": 7,
+   "ports_confirmed": "1/1",
+   "port_use": {
+    "power": "cable 48 + contact 5 of 53"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x4x4. One power port on the back face at x = 3, y = 0."
+ },
+ "medium_rechargeable_battery": {
+  "name": "Medium Rechargeable Battery",
+  "prefab": "SC_MediumRechargeableBattery",
+  "hash": "cd89d4664fdb88d1",
+  "mirrored_hash": "835c73f722e6f815",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   4,
+   8,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "face": [
+     3,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "level": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 1,
+    "game_type": "DataOutput"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      142
+     ],
+     [
+      2,
+      71
+     ],
+     [
+      9,
+      52
+     ],
+     [
+      6,
+      5
+     ],
+     [
+      8,
+      4
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 285,
+   "normal": 159,
+   "twin": 126,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "power": "cable 187 + contact 98 of 285",
+    "level": "cable 81 + contact 4 of 285"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x8x8. Back face, bottom row: power x = 3, level (data output) x = 2. Batteries stacked back to back touch power-to-power directly (49 + 49 contacts)."
+ },
+ "large_rechargeable_battery": {
+  "name": "Large Rechargeable Battery",
+  "prefab": "SC_LargeRechargeableBattery",
+  "hash": "e3b42b942f0609a0",
+  "mirrored_hash": "c4410a00c671f5f4",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   8,
+   16,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     7,
+     0,
+     -1
+    ],
+    "face": [
+     7,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "level": {
+    "cell": [
+     6,
+     0,
+     -1
+    ],
+    "face": [
+     6,
+     0,
+     0
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 1,
+    "game_type": "DataOutput"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only, twin prefab dumped). Same 8x16x8 size and the same port layout as the Large Disposable Battery, which is confirmed on 440 instances."
+ },
+ "solar_panel": {
+  "name": "Solar Panel",
+  "prefab": "SC_SolarPanel",
+  "hash": "b50151c544d28980",
+  "mirrored_hash": "c66a560c250a02cc",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   8,
+   1,
+   16
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "b": {
+    "cell": [
+     0,
+     0,
+     16
+    ],
+    "face": [
+     0,
+     0,
+     15
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      318
+     ],
+     [
+      15,
+      72
+     ],
+     [
+      2,
+      32
+     ],
+     [
+      3,
+      12
+     ],
+     [
+      1,
+      4
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 442,
+   "normal": 342,
+   "twin": 100,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "a": "cable 278 + contact 60 of 442",
+    "b": "cable 262 + contact 60 of 442"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "8x1x16 flat panel. Two power ports, both at x = 0: a on the back face, b on the front face (16 cells apart). Both are the same circuit."
+ },
+ "autohemisphere_solar_panel": {
+  "name": "Auto-Hemisphere Solar Panel",
+  "prefab": "SC_AutohemisphereSolarPanel",
+  "hash": "c71fefef7fdd7a6d",
+  "mirrored_hash": "98b5868e9920859d",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   8,
+   8,
+   8
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     4,
+     0,
+     8
+    ],
+    "face": [
+     4,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      9,
+      34
+     ],
+     [
+      2,
+      23
+     ],
+     [
+      0,
+      17
+     ],
+     [
+      3,
+      12
+     ],
+     [
+      15,
+      5
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 95,
+   "normal": 63,
+   "twin": 32,
+   "ports_confirmed": "1/1",
+   "port_use": {
+    "power": "cable 94 + contact 1 of 95"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 1
+  },
+  "confidence": "high",
+  "notes": "8x8x8. One power port on the front face, bottom row, x = 4."
+ },
+ "dynamo_box": {
+  "name": "Dynamo Box",
+  "prefab": "SC_DynamoBox",
+  "hash": "f7e679584541cb43",
+  "mirrored_hash": "658727e656088e61",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   4,
+   4,
+   4
+  ],
+  "ports": {
+   "power": {
+    "cell": [
+     -1,
+     0,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      3,
+      3
+     ],
+     [
+      0,
+      2
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 5,
+   "normal": 1,
+   "twin": 4,
+   "ports_confirmed": "1/1",
+   "port_use": {
+    "power": "cable 5 + contact 0 of 5"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x4x4. One power port on the LEFT face (-x) at the bottom back corner, cell (-1,0,0); the twin has it on the right face, (4,0,0). Only 5 corpus instances, all wired there."
+ },
+ "power_router": {
+  "name": "Power Router",
+  "prefab": "SC_PowerRouter",
+  "hash": "113f69c2ce431379",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "b": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   },
+   "c": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 2,
+    "game_type": "Power"
+   },
+   "d": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 3,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      1180
+     ],
+     [
+      10,
+      122
+     ],
+     [
+      9,
+      93
+     ],
+     [
+      2,
+      82
+     ],
+     [
+      8,
+      71
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 1757,
+   "normal": 1757,
+   "twin": 0,
+   "ports_confirmed": "4/4",
+   "port_use": {
+    "a": "cable 1294 + contact 102 of 1757",
+    "b": "cable 1287 + contact 128 of 1757",
+    "c": "cable 1211 + contact 151 of 1757",
+    "d": "cable 1147 + contact 149 of 1757"
+   },
+   "misses": 3,
+   "misses_by_cable_kind": {
+    "data": 1,
+    "power": 2
+   },
+   "overlaps": 1
+  },
+  "confidence": "high",
+  "notes": "2x1x2. Four power ports, two on the back face and two on the front; one circuit, so they are interchangeable. Names follow the game port order (Port0..3), which runs front x=1, front x=0, back x=0, back x=1. No mirrored twin."
+ },
+ "large_power_router": {
+  "name": "Large Power Router",
+  "prefab": "SC_LargePowerRouter",
+  "hash": "59f14dc51f340839",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   4,
+   1,
+   2
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     3,
+     0,
+     2
+    ],
+    "face": [
+     3,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "b": {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "face": [
+     2,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   },
+   "c": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 2,
+    "game_type": "Power"
+   },
+   "d": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 3,
+    "game_type": "Power"
+   },
+   "e": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 4,
+    "game_type": "Power"
+   },
+   "f": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 5,
+    "game_type": "Power"
+   },
+   "g": {
+    "cell": [
+     2,
+     0,
+     -1
+    ],
+    "face": [
+     2,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 6,
+    "game_type": "Power"
+   },
+   "h": {
+    "cell": [
+     3,
+     0,
+     -1
+    ],
+    "face": [
+     3,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 7,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      0,
+      309
+     ],
+     [
+      2,
+      67
+     ],
+     [
+      8,
+      59
+     ],
+     [
+      10,
+      52
+     ],
+     [
+      12,
+      49
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 584,
+   "normal": 584,
+   "twin": 0,
+   "ports_confirmed": "8/8",
+   "port_use": {
+    "a": "cable 347 + contact 11 of 584",
+    "b": "cable 467 + contact 58 of 584",
+    "c": "cable 302 + contact 58 of 584",
+    "d": "cable 327 + contact 0 of 584",
+    "e": "cable 313 + contact 0 of 584",
+    "f": "cable 400 + contact 0 of 584",
+    "g": "cable 489 + contact 0 of 584",
+    "h": "cable 405 + contact 1 of 584"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x1x2. Eight power ports, four on the back face and four on the front; one circuit. Game port order: front x = 3..0, then back x = 0..3. No mirrored twin."
+ },
+ "fuse_box": {
+  "name": "Fuse Box",
+  "prefab": "SC_FuseBox",
+  "hash": "28930cd939c68265",
+  "mirrored_hash": "a5c58bbc386a1af4",
+  "struct": "EPC_SCFuseBox",
+  "size": [
+   4,
+   4,
+   1
+  ],
+  "ports": {
+   "a": {
+    "cell": [
+     2,
+     4,
+     0
+    ],
+    "face": [
+     2,
+     3,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 0,
+    "game_type": "Power"
+   },
+   "b": {
+    "cell": [
+     1,
+     4,
+     0
+    ],
+    "face": [
+     1,
+     3,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_threshold": {
+    "default": 0.1505,
+    "type": "f32 @20",
+    "meaning": "Trip-threshold lever position 0..1. Threshold in P/s = clamp(floor(v * 1000), 0, 999) (SCTick_FuseBox: int(value * roundingIntervals); the prefab lever has roundingIntervals 1000 and default 150). Default 0.1505 = 150 P/s (all 47 corpus records). To set T P/s write (T + 0.5) / 1000."
+   },
+   "_col": {
+    "default": 0,
+    "type": "u8 @24",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      8,
+      11
+     ],
+     [
+      11,
+      10
+     ],
+     [
+      9,
+      10
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      2,
+      5
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 47,
+   "normal": 43,
+   "twin": 4,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "a": "cable 46 + contact 1 of 47",
+    "b": "cable 42 + contact 1 of 47"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "4x4x1 upright plate. Both power ports on the TOP face (+y): a at x = 2, b at x = 1."
+ },
+ "power_blocker": {
+  "name": "Power Blocker",
+  "prefab": "SC_PowerBlocker",
+  "hash": "753599ac7ffa22ec",
+  "mirrored_hash": "4025ee436b7aa71c",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "block": {
+    "cell": [
+     1,
+     0,
+     -1
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "game_type": "DataInput"
+   },
+   "a": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   },
+   "b": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 2,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      2,
+      71
+     ],
+     [
+      0,
+      38
+     ],
+     [
+      9,
+      12
+     ],
+     [
+      8,
+      10
+     ],
+     [
+      11,
+      10
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 149,
+   "normal": 106,
+   "twin": 43,
+   "ports_confirmed": "3/3",
+   "port_use": {
+    "block": "cable 83 + contact 63 of 149",
+    "a": "cable 103 + contact 43 of 149",
+    "b": "cable 129 + contact 17 of 149"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x1x2. Back face: block (data input) x = 1 and a (power) x = 0; front face: b (power) x = 0. Power flows a <-> b unless block >= 0.5."
+ },
+ "power_generation_meter": {
+  "name": "Power Generation Meter",
+  "prefab": "SC_PowerGenerationMeter",
+  "hash": "cf9a9b322af3088c",
+  "mirrored_hash": "7cbe6cf9ba5f1558",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "generation": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 0,
+    "game_type": "DataOutput"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      2,
+      17
+     ],
+     [
+      15,
+      10
+     ],
+     [
+      8,
+      9
+     ],
+     [
+      11,
+      9
+     ],
+     [
+      9,
+      9
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 67,
+   "normal": 27,
+   "twin": 40,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "generation": "cable 12 + contact 1 of 67",
+    "power": "cable 20 + contact 47 of 67"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x1x2. Both ports on the front face: generation (data output) x = 1, power x = 0."
+ },
+ "power_usage_meter": {
+  "name": "Power Usage Meter",
+  "prefab": "SC_PowerUsageMeter",
+  "hash": "ca5b4160d4b2717c",
+  "mirrored_hash": "3df572d815326c80",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "ports": {
+   "usage": {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "face": [
+     1,
+     0,
+     1
+    ],
+    "dir": "out",
+    "kind": "data",
+    "game_port": 0,
+    "game_type": "DataOutput"
+   },
+   "power": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      8,
+      10
+     ],
+     [
+      11,
+      10
+     ],
+     [
+      9,
+      10
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      2,
+      7
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 52,
+   "normal": 47,
+   "twin": 5,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "usage": "cable 31 + contact 0 of 52",
+    "power": "cable 17 + contact 35 of 52"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x1x2. Both ports on the front face: usage (data output) x = 1, power x = 0."
+ },
+ "pipe_electric_valve": {
+  "name": "Pipe With Electric Valve",
+  "prefab": "SC_PipeElectricValve",
+  "hash": "656a9abb2f5ca827",
+  "mirrored_hash": "cbe07a62af952772",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "open": {
+    "cell": [
+     0,
+     2,
+     1
+    ],
+    "face": [
+     0,
+     1,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "game_type": "DataInput"
+   },
+   "power": {
+    "cell": [
+     1,
+     2,
+     1
+    ],
+    "face": [
+     1,
+     1,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      2
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 2,
+   "normal": 2,
+   "twin": 0,
+   "ports_confirmed": "4/4",
+   "port_use": {
+    "open": "cable 2 + contact 0 of 2",
+    "power": "cable 2 + contact 0 of 2",
+    "end_+z": "joined 2 of 2",
+    "end_-z": "joined 2 of 2"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "2x2x2 pipe segment along z (pipe ends -z and +z), electric ports on the top face: open (data input) x = 0, power x = 1. 2 corpus instances, both ports wired and both ends joined. One-way valve: in both corpus designs (Gecko, Outcast) the -z end leads only to tanks and the +z end only to thrusters, so inlet = end_-z, outlet = end_+z (2/2, not confirmed in code)."
+ },
+ "nanopipe_electric_valve": {
+  "name": "Nanopipe With Electric Valve",
+  "prefab": "SC_NanopipeElectricValve",
+  "hash": "6ff0d1b476b62cf4",
+  "mirrored_hash": "09bd5cd1de87b7db",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "open": {
+    "cell": [
+     0,
+     2,
+     1
+    ],
+    "face": [
+     0,
+     1,
+     1
+    ],
+    "dir": "in",
+    "kind": "data",
+    "game_port": 0,
+    "game_type": "DataInput"
+   },
+   "power": {
+    "cell": [
+     1,
+     2,
+     1
+    ],
+    "face": [
+     1,
+     1,
+     1
+    ],
+    "dir": "both",
+    "kind": "power",
+    "game_port": 1,
+    "game_type": "Power"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/4",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only, twin dumped). Same geometry and ports as the Pipe With Electric Valve."
+ },
+ "SC_PipeFull": {
+  "name": "Pipe Full",
+  "prefab": "SC_PipeFull",
+  "hash": "72c3c84be0745184",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   8
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     8
+    ],
+    "face": [
+     0,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      8
+     ],
+     [
+      0,
+      1,
+      8
+     ],
+     [
+      1,
+      0,
+      8
+     ],
+     [
+      1,
+      1,
+      8
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      7
+     ],
+     [
+      0,
+      1,
+      7
+     ],
+     [
+      1,
+      0,
+      7
+     ],
+     [
+      1,
+      1,
+      7
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      177
+     ],
+     [
+      15,
+      92
+     ],
+     [
+      13,
+      36
+     ],
+     [
+      2,
+      7
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 312,
+   "normal": 312,
+   "twin": 0,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "end_-z": "joined 312 of 312",
+    "end_+z": "joined 312 of 312"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x8 straight pipe along z; pipe ends are the whole 2x2 faces at -z and +z."
+ },
+ "SC_PipeHalf": {
+  "name": "Pipe Half",
+  "prefab": "SC_PipeHalf",
+  "hash": "77d3b9de6947ecdb",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   4
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      4
+     ],
+     [
+      1,
+      0,
+      4
+     ],
+     [
+      1,
+      1,
+      4
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      3
+     ],
+     [
+      0,
+      1,
+      3
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      1,
+      1,
+      3
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      15,
+      88
+     ],
+     [
+      200,
+      75
+     ],
+     [
+      13,
+      27
+     ],
+     [
+      2,
+      4
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 194,
+   "normal": 194,
+   "twin": 0,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "end_-z": "joined 194 of 194",
+    "end_+z": "joined 194 of 194"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x4 straight pipe; ends at -z and +z."
+ },
+ "SC_PipeQuarter": {
+  "name": "Pipe Quarter",
+  "prefab": "SC_PipeQuarter",
+  "hash": "412a44636f7305d1",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      264
+     ],
+     [
+      15,
+      148
+     ],
+     [
+      13,
+      27
+     ],
+     [
+      2,
+      10
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 449,
+   "normal": 449,
+   "twin": 0,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "end_-z": "joined 448 of 449",
+    "end_+z": "joined 449 of 449"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x2 straight pipe; ends at -z and +z."
+ },
+ "SC_PipeCorner": {
+  "name": "Pipe Corner",
+  "prefab": "SC_PipeCorner",
+  "hash": "4ea7430169fc121c",
+  "mirrored_hash": "51586b0d9b2c7fa9",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+x": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      700
+     ],
+     [
+      15,
+      160
+     ],
+     [
+      13,
+      36
+     ],
+     [
+      2,
+      10
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 906,
+   "normal": 857,
+   "twin": 49,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "end_+z": "joined 906 of 906",
+    "end_+x": "joined 906 of 906"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x2 elbow; ends at +z and +x (twin: +z and -x)."
+ },
+ "SC_PipeThreeway": {
+  "name": "Pipe Threeway",
+  "prefab": "SC_PipeThreeway",
+  "hash": "d29ccf71936083f3",
+  "mirrored_hash": "f780dce5ee3d34ce",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+x": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      439
+     ],
+     [
+      15,
+      86
+     ],
+     [
+      13,
+      9
+     ],
+     [
+      2,
+      4
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 538,
+   "normal": 526,
+   "twin": 12,
+   "ports_confirmed": "3/3",
+   "port_use": {
+    "end_-z": "joined 538 of 538",
+    "end_+z": "joined 537 of 538",
+    "end_+x": "joined 538 of 538"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x2 tee; ends at -z, +z and +x (twin: -x)."
+ },
+ "SC_PipeCross": {
+  "name": "Pipe Cross",
+  "prefab": "SC_PipeCross",
+  "hash": "235f4af9d0bb1206",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_-x": {
+    "cell": [
+     -1,
+     0,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      -1,
+      0,
+      0
+     ],
+     [
+      -1,
+      0,
+      1
+     ],
+     [
+      -1,
+      1,
+      0
+     ],
+     [
+      -1,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+x": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      1
+     ],
+     [
+      15,
+      1
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 2,
+   "normal": 2,
+   "twin": 0,
+   "ports_confirmed": "4/4",
+   "port_use": {
+    "end_-z": "joined 2 of 2",
+    "end_-x": "joined 2 of 2",
+    "end_+z": "joined 2 of 2",
+    "end_+x": "joined 2 of 2"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "2x2x2 cross; ends at -z, +z, -x and +x. 2 corpus instances, all ends joined."
+ },
+ "SC_PipeManualValve": {
+  "name": "Pipe With Manual Valve",
+  "prefab": "SC_PipeManualValve",
+  "hash": "a0e7fa229a881e99",
+  "mirrored_hash": "2bd1afd649134885",
+  "struct": "EPC_SCPipeManualValve",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_actionableValue": {
+    "default": 1.0,
+    "type": "f32 @20",
+    "meaning": "Valve opening 0..1 (1 = fully open: 96 of 99 corpus records; others 0.80, 0.37, 0.93)."
+   },
+   "_col": {
+    "default": 200,
+    "type": "u8 @24",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      99
+     ]
+    ]
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 99,
+   "normal": 99,
+   "twin": 0,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "end_+z": "joined 99 of 99",
+    "end_-z": "joined 98 of 99"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x2 one-way valve; ends at -z and +z. Geometry high; flow direction unresolved: the only corpus design (two valves in a loop) is inconclusive; by analogy with the electric valve, inlet probably end_-z, outlet end_+z."
+ },
+ "SC_PipeMeter": {
+  "name": "Pipe Meter",
+  "prefab": "SC_PipeMeter",
+  "hash": "9d1e58bec000e969",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": [
+     [
+      200,
+      146
+     ],
+     [
+      15,
+      9
+     ]
+    ]
+   }
+  },
+  "corpus": {
+   "instances": 155,
+   "normal": 155,
+   "twin": 0,
+   "ports_confirmed": "2/2",
+   "port_use": {
+    "end_-z": "joined 155 of 155",
+    "end_+z": "joined 155 of 155"
+   },
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "high",
+  "notes": "2x2x2 inline meter; ends at -z and +z. No electric ports (display only)."
+ },
+ "SC_PipeDecoupling": {
+  "name": "Pipe Decoupling",
+  "prefab": "SC_PipeDecoupling",
+  "hash": "ec1c63538250be7c",
+  "mirrored_hash": "4b8b5ccd966e5475",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "decoupling"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 200,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance. 2x2x2; plain end at -z, decoupling end at +z (SpaceshipComponentAreaPoly _type 2, \"the marked side\")."
+ },
+ "SC_NanopipeFull": {
+  "name": "Nanopipe Full",
+  "prefab": "SC_NanopipeFull",
+  "hash": "3d45d5d35a324d71",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   8
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     8
+    ],
+    "face": [
+     0,
+     0,
+     7
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      8
+     ],
+     [
+      0,
+      1,
+      8
+     ],
+     [
+      1,
+      0,
+      8
+     ],
+     [
+      1,
+      1,
+      8
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      7
+     ],
+     [
+      0,
+      1,
+      7
+     ],
+     [
+      1,
+      0,
+      7
+     ],
+     [
+      1,
+      1,
+      7
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeFull."
+ },
+ "SC_NanopipeHalf": {
+  "name": "Nanopipe Half",
+  "prefab": "SC_NanopipeHalf",
+  "hash": "4e40943dfefd6564",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   4
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     4
+    ],
+    "face": [
+     0,
+     0,
+     3
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      4
+     ],
+     [
+      1,
+      0,
+      4
+     ],
+     [
+      1,
+      1,
+      4
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      3
+     ],
+     [
+      0,
+      1,
+      3
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      1,
+      1,
+      3
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeHalf."
+ },
+ "SC_NanopipeQuarter": {
+  "name": "Nanopipe Quarter",
+  "prefab": "SC_NanopipeQuarter",
+  "hash": "c344e608c65b2d86",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeQuarter."
+ },
+ "SC_NanopipeCorner": {
+  "name": "Nanopipe Corner",
+  "prefab": "SC_NanopipeCorner",
+  "hash": "1dc1acb9b2e4ac5f",
+  "mirrored_hash": "9c8a0ae0f165d705",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+x": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeCorner."
+ },
+ "SC_NanopipeThreeway": {
+  "name": "Nanopipe Threeway",
+  "prefab": "SC_NanopipeThreeway",
+  "hash": "0247bab6022a94de",
+  "mirrored_hash": "ad07ca150eb4692f",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+x": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/3",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeThreeway."
+ },
+ "SC_NanopipeCross": {
+  "name": "Nanopipe Cross",
+  "prefab": "SC_NanopipeCross",
+  "hash": "402fa1c784445a7c",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_-x": {
+    "cell": [
+     -1,
+     0,
+     0
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      -1,
+      0,
+      0
+     ],
+     [
+      -1,
+      0,
+      1
+     ],
+     [
+      -1,
+      1,
+      0
+     ],
+     [
+      -1,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     -1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+x": {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "face": [
+     1,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      1,
+      1
+     ]
+    ],
+    "faces": [
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     1,
+     0,
+     0
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/4",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeCross."
+ },
+ "SC_NanopipeManualValve": {
+  "name": "Nanopipe With Manual Valve",
+  "prefab": "SC_NanopipeManualValve",
+  "hash": "77401d3c0277b38a",
+  "mirrored_hash": "32547c700a05e35d",
+  "struct": "EPC_SCPipeManualValve",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   },
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_actionableValue": {
+    "default": 1.0,
+    "type": "f32 @20",
+    "meaning": "Valve opening 0..1 (1 = fully open: 96 of 99 corpus records; others 0.80, 0.37, 0.93)."
+   },
+   "_col": {
+    "default": 0,
+    "type": "u8 @24",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeManualValve."
+ },
+ "SC_NanopipeMeter": {
+  "name": "Nanopipe Meter",
+  "prefab": "SC_NanopipeMeter",
+  "hash": "1494199aaa57d515",
+  "mirrored_hash": null,
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "pipe"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeMeter."
+ },
+ "SC_NanopipeDecoupling": {
+  "name": "Nanopipe Decoupling",
+  "prefab": "SC_NanopipeDecoupling",
+  "hash": "e04bfa547aab9cf4",
+  "mirrored_hash": "db61bd908d7184f7",
+  "struct": "EPC_SpaceshipComponent",
+  "size": [
+   2,
+   2,
+   2
+  ],
+  "ports": {
+   "end_-z": {
+    "cell": [
+     0,
+     0,
+     -1
+    ],
+    "face": [
+     0,
+     0,
+     0
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      1,
+      -1
+     ],
+     [
+      1,
+      0,
+      -1
+     ],
+     [
+      1,
+      1,
+      -1
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     -1
+    ],
+    "end_type": "pipe"
+   },
+   "end_+z": {
+    "cell": [
+     0,
+     0,
+     2
+    ],
+    "face": [
+     0,
+     0,
+     1
+    ],
+    "dir": "both",
+    "kind": "fluid",
+    "cells": [
+     [
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      2
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      1,
+      1,
+      2
+     ]
+    ],
+    "faces": [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "end_type": "decoupling"
+   }
+  },
+  "settings": {
+   "_col": {
+    "default": 0,
+    "type": "u8 @20",
+    "meaning": "paint colour index; default = the prefab's _defaultPaintableColor (0 on power parts and nanopipes, 200 on pipes)",
+    "corpus_top": []
+   }
+  },
+  "twin_prefab_ports_are_x_reflection": true,
+  "corpus": {
+   "instances": 0,
+   "normal": 0,
+   "twin": 0,
+   "ports_confirmed": "0/2",
+   "port_use": {},
+   "misses": 0,
+   "misses_by_cable_kind": {},
+   "overlaps": 0
+  },
+  "confidence": "medium",
+  "notes": "No corpus instance (prefab only). Same size and pipe ends as SC_PipeDecoupling."
+ }
+}

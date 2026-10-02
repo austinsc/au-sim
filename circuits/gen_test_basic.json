@@ -1,0 +1,13 @@
+{
+  "instances": [
+    { "id": "three", "type_id": "constant", "parameters": { "value": 3 }, "position": { "x": 40, "y": 40 }, "mirrored": false },
+    { "id": "two", "type_id": "constant", "parameters": { "value": 2 }, "position": { "x": 40, "y": 200 }, "mirrored": false },
+    { "id": "times", "type_id": "multiplier", "parameters": {}, "position": { "x": 300, "y": 100 }, "mirrored": false },
+    { "id": "readout", "type_id": "datameter", "parameters": {}, "position": { "x": 560, "y": 100 }, "mirrored": false }
+  ],
+  "edges": [
+    { "from_instance": "three", "from_port": "out", "to_instance": "times", "to_port": "a" },
+    { "from_instance": "two", "from_port": "out", "to_instance": "times", "to_port": "b" },
+    { "from_instance": "times", "from_port": "out", "to_instance": "readout", "to_port": "in" }
+  ]
+}

@@ -1,0 +1,71 @@
+RoundModeRound	Mode: Round
+RoundModeFloor	Mode: Floor
+RoundModeCeil	Mode: Ceil
+ConditionMode0	Mode: Equal
+ConditionMode1	Mode: Not Equal
+ConditionMode2	Mode: Less
+ConditionMode3	Mode: Less Equal
+ConditionMode4	Mode: Greater
+ConditionMode5	Mode: Greater Equal
+DifferentiatorMode	Update interval: {0}/{1}
+SignalModeContinuous	Continuous Mode
+SignalModePulse	Pulse Mode
+VelocityMeterModeOverall	Overall Mode
+VelocityMeterModeDirectional	Directional Mode
+ManualPage_UsingGate_Title	Open Or Close The Gate
+ManualPage_UsingGate_Desc	Gates require a power supply from batteries and a controller, such as a switch or lever, to control their state. Connect a battery to the gate using a Power cable through the <color="red">power ports</color>. Then connect the controller’s <color="blue">output port</color> to the gate’s <color="yellow">input port</color> using Data cables.
+ManualPage_ManeuveringSpaceship_Title	Maneuvering Spaceship
+ManualPage_ManeuveringSpaceship_Desc	To rotate your spaceship around all 3 axes, you need 2 maneuvering thrusters per axis, for a total of 6 maneuvering thrusters. The simplest maneuvering thruster is the <b>RCS Thruster</b>. It does not require an external battery or a direct data connection. Instead, it connects wirelessly to a <b>RCS Controller</b>, which requires a small amount of electrical power. The RCS Controller provides 3 input ports - one for each axis. These ports can be connected directly to the corresponding 3 output ports of a <b>Joystick 3D</b> in a 1:1 ratio for each axis. Finally, <color=green><b>configure the operating mode of each RCS Thruster using the control knob on the side</b></color> to achieve the desired rotational behavior of your spaceship.
+ManualPage_MultipleThrustersOneLever_Title	One Lever, Multiple Thrusters
+ManualPage_MultipleThrustersOneLever_Desc	To control multiple thrusters with a single lever, you must split the lever’s output signal using a Data Router 2. Connect the lever’s <color="blue">output port</color> to the <color="yellow">input port</color> of the Data Router 2 using Data cables. Then connect each <color="blue">output port</color> of the Data Router 2 to the <color="yellow">input port</color> of the corresponding thruster. Both thrusters can be powered by the same battery using a Power Router, which functions as a power junction. Connect the battery and both thrusters to the Power Router via their <color="red">power ports</color> using Power cables.
+ManualPage_CablesThroughTheFrame_Title	Cables Through The Frame
+ManualPage_CablesThroughTheFrame_Desc	To route cables through a frame, use the Frame Quarter with Ports, which provides 4 ports for passing cables through. You can also place multiple frames next to each other to route cables through a larger structure. <b>The corresponding cables will be consumed from your inventory as if they were physically placed inside the frames.</b>
+ManualPage_WirelessTransmitters_Title	Wireless Transmitters
+ManualPage_WirelessTransmitters_Desc	You can use Wireless Transmitters to route signals without running cables over long distances or through the frame. Simply set the same channel on each Wireless Transmitter to transmit the same signal. Multiple receivers can listen on the same channel, but only one output device should transmit on that channel. For example, if Lever and Switch are set to the same channel, their signals will conflict and produce an error.
+ManualPage_FuelThroughTheFrame_Title	Fuel Through The Frame
+ManualPage_FuelThroughTheFrame_Desc	To transport fuel through the frame, use the component Frame Quarter With Pipe, which functions as a frame with a built-in fuel pipe.
+ManualPage_BrakingPointSystem_Title	Braking Point System
+ManualPage_BrakingPointSystem_Desc	Braking Point System is a crucial component for flying between planets. Since the most efficient way to travel is to accelerate for the first half of the journey and decelerate for the second half, the system tells you the exact moment when you should start slowing down. Plug in an Accelerometer, Velocity Meter, and a Long Range Distance Meter aimed at the destination planet and watch the indicator as it moves - green area means it is safe to keep accelerating, while red area means you will probably crash if you continue at the current speed and acceleration or deceleration.
+ManualPage_Beeper_Title	Beeper
+ManualPage_Beeper_Desc	You can use the Beeper to estimate your height above the ground during landing. Place a Distance Meter on the bottom of your spaceship pointing toward the surface. Because it outputs the current distance in meters, you need to remap this value to the beeper’s input range: at 0 the Beeper is silent, and as the signal approaches 1 it beeps more frequently. To make the Beeper start sounding at about 100 meters above the ground and switch to constant beeping when you are closer than 2 meters, configure the values in the Remapper as shown in the manual.
+ManualPage_PlaceOnFrame_Title	Always Build On Frames
+ManualPage_PlaceOnFrame_Desc	Always place components on a frame. Cables do not count as support and will break if nothing else is holding the components together.
+ManualPage_ThrustersHeat_Title	Heat From Thrusters
+ManualPage_ThrustersHeat_Desc	Almost every thruster produces heat in front of or behind it, especially electric and fuel thrusters, including RCS Thrusters.
+ManualPage_GeneratingPower_Title	Generating Power
+ManualPage_GeneratingPower_Desc	Some components can generate power, such as Solar Panels and the Dynamo Box.
+ManualPage_CameraOverlay_Title	Camera Overlay
+ManualPage_CameraOverlay_Desc	LCD Monitors support up to two video sources. You can connect two Cameras, two Camera Overlays, or one Camera and one Camera Overlay.
+ManualPage_SmallManeuveringThrusters_Title	Small Maneuvering Thrusters
+ManualPage_SmallManeuveringThrusters_Desc	Small Maneuvering Thrusters work similarly to RCS Thrusters, but you need to do the wiring yourself.
+ManualPage_FuseBox_Title	Fuse Box
+ManualPage_FuseBox_Desc	Basic Power Cables can carry up to 150 P/s. They will begin to burn if either power usage or power generation exceeds 150 P/s.
+ManualPage_Shields_Title	Plasma Generator And Shields
+ManualPage_Shields_Desc	Every shield requires plasma to operate. Use a Small Plasma Generator to convert electrical power into plasma.
+ManualPage_Decouplers_Title	Decouplers
+ManualPage_Decouplers_Desc	Decouplers are used to split your spaceship into multiple separate sections.
+ManualPage_DecouplingPipe_Title	Decoupling Pipe
+ManualPage_DecouplingPipe_Desc	Regular pipes can hold separate sections of your spaceship together, preventing them from separating when a Decoupler is activated.
+ManualPage_ColoredLightController_Title	Colored Lights
+ManualPage_ColoredLightController_Desc	Colored Lights can be used in Manual Mode, where you choose one of the preset colors and set its intensity.
+ManualPage_MixingFuel_Title	Mixing Fuel
+ManualPage_MixingFuel_Desc	You can mix different fuels to create a custom fuel mixture with specific properties. Simply send multiple fuels into the same pipe, and they will blend based on their flow rates.
+ManualPage_Aerodynamics_Title	Aerodynamics
+ManualPage_Aerodynamics_Desc	Better aerodynamics allow your spaceship to reach higher speeds inside an atmosphere by reducing atmospheric drag.
+ManualPage_FuelAnalyzerIntroduction_Title	Fuel Analyzer - Introduction
+ManualPage_FuelAnalyzerIntroduction_Desc	Electric Thrusters work linearly: the amount of thrust they produce is always proportional to their power usage.
+ManualPage_FuelAnalyzer90B10G_Title	Fuel Analyzer - Additions
+ManualPage_FuelAnalyzer90B10G_Desc	Blue fuel should be treated as the base fuel, with green or red fuel used as additives.
+ManualPage_FuelAnalyzerDanger_Title	Fuel Analyzer - Danger
+ManualPage_FuelAnalyzerDanger_Desc	Be careful of two things when working with fuel:
+ManualPage_GMode_Title	Multiselect Mode
+ManualPage_GMode_Desc	To move one or multiple components at once, use Multiselect Mode!
+ManualPage_Delay_Title	Component Delay
+ManualPage_Delay_Desc	The game runs at a fixed rate of <b>60 ticks per second</b>. Each component requires one tick—approximately 0.0166667 seconds—to process and pass on a signal.
+ManualPage_You_Title	You
+ManualPage_You_Desc	You can move using {0}{1}{2}{3}. Press {4} to jump and {5} to toggle crouching.
+ManualPage_SpaceScanner_Title	Space Scanner
+ManualPage_SpaceScanner_Desc	The main advantage of the <b>Space Scanner</b> over the <b>Long Range Distance Meter</b> is that it uses a <b>cone</b> instead of a ray to detect celestial bodies. It outputs the distance to the closest celestial body within that cone.
+ManualPage_SolarStorms_Title	Solar Storms
+ManualPage_SolarStorms_Desc	Be careful of solar storms! They occur around the Sun. If you get closer than <b>250 million meters</b>, you may start encountering them. At first, solar storms will only slightly interfere with your spaceship and should not cause any damage.
+GyroLineDisplayRange	Display Range: {0} degrees

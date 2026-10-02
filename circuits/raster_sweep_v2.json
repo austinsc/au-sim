@@ -1,0 +1,8690 @@
+{
+  "instances": [
+    {
+      "id": "in_scan_dist",
+      "type_id": "slider",
+      "parameters": {
+        "value": 100000000000000000000
+      },
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_yaw_rate",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_pitch_rate",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_joy_yaw",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_joy_pitch",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_cone_manual",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0.4
+      },
+      "position": {
+        "x": 40,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_start",
+      "type_id": "toggle",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_rcs",
+      "type_id": "constant",
+      "parameters": {
+        "value": 20
+      },
+      "position": {
+        "x": 40,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_yaw_sign",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_pitch_sign",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_tol",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.05
+      },
+      "position": {
+        "x": 40,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_probe_period",
+      "type_id": "constant",
+      "parameters": {
+        "value": 18
+      },
+      "position": {
+        "x": 40,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_probe_due",
+      "type_id": "constant",
+      "parameters": {
+        "value": 17
+      },
+      "position": {
+        "x": 40,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_probe_last",
+      "type_id": "constant",
+      "parameters": {
+        "value": 11
+      },
+      "position": {
+        "x": 40,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_nudge_frac",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.3
+      },
+      "position": {
+        "x": 40,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_nudge_min",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 2290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_nudge_max",
+      "type_id": "constant",
+      "parameters": {
+        "value": 5
+      },
+      "position": {
+        "x": 40,
+        "y": 2440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_sweep_base",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.005
+      },
+      "position": {
+        "x": 40,
+        "y": 2590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_sweep_grow",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.02
+      },
+      "position": {
+        "x": 40,
+        "y": 2740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_sweep_max",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.03333333333333333
+      },
+      "position": {
+        "x": 40,
+        "y": 2890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_settle_err",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.05
+      },
+      "position": {
+        "x": 40,
+        "y": 3040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_settle_rate",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 3190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_settle_ticks",
+      "type_id": "constant",
+      "parameters": {
+        "value": 20
+      },
+      "position": {
+        "x": 40,
+        "y": 3340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_blank",
+      "type_id": "constant",
+      "parameters": {
+        "value": 30
+      },
+      "position": {
+        "x": 40,
+        "y": 3490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_settle_timeout",
+      "type_id": "constant",
+      "parameters": {
+        "value": 240
+      },
+      "position": {
+        "x": 40,
+        "y": 3640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_lost_ticks",
+      "type_id": "constant",
+      "parameters": {
+        "value": 600
+      },
+      "position": {
+        "x": 40,
+        "y": 3790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_abort",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.3
+      },
+      "position": {
+        "x": 40,
+        "y": 3940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_dt",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.016666666666666666
+      },
+      "position": {
+        "x": 40,
+        "y": 4090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_kp_num",
+      "type_id": "constant",
+      "parameters": {
+        "value": 6.25
+      },
+      "position": {
+        "x": 40,
+        "y": 4240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_kd_num",
+      "type_id": "constant",
+      "parameters": {
+        "value": 4.25
+      },
+      "position": {
+        "x": 40,
+        "y": 4390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 4540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_neg_one",
+      "type_id": "constant",
+      "parameters": {
+        "value": -1
+      },
+      "position": {
+        "x": 40,
+        "y": 4690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_half",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 4840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_empty",
+      "type_id": "constant",
+      "parameters": {
+        "value": 10000000000000000000
+      },
+      "position": {
+        "x": 40,
+        "y": 4990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_50",
+      "type_id": "constant",
+      "parameters": {
+        "value": 50
+      },
+      "position": {
+        "x": 40,
+        "y": 5140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_49",
+      "type_id": "constant",
+      "parameters": {
+        "value": 49
+      },
+      "position": {
+        "x": 40,
+        "y": 5290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_skip",
+      "type_id": "constant",
+      "parameters": {
+        "value": 6
+      },
+      "position": {
+        "x": 40,
+        "y": 5440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_done",
+      "type_id": "constant",
+      "parameters": {
+        "value": 12
+      },
+      "position": {
+        "x": 40,
+        "y": 5590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_2",
+      "type_id": "constant",
+      "parameters": {
+        "value": 2
+      },
+      "position": {
+        "x": 40,
+        "y": 5740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_3",
+      "type_id": "constant",
+      "parameters": {
+        "value": 3
+      },
+      "position": {
+        "x": 40,
+        "y": 5890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_4",
+      "type_id": "constant",
+      "parameters": {
+        "value": 4
+      },
+      "position": {
+        "x": 40,
+        "y": 6040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_5",
+      "type_id": "constant",
+      "parameters": {
+        "value": 5
+      },
+      "position": {
+        "x": 40,
+        "y": 6190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_6",
+      "type_id": "constant",
+      "parameters": {
+        "value": 6
+      },
+      "position": {
+        "x": 40,
+        "y": 6340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_7",
+      "type_id": "constant",
+      "parameters": {
+        "value": 7
+      },
+      "position": {
+        "x": 40,
+        "y": 6490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_8",
+      "type_id": "constant",
+      "parameters": {
+        "value": 8
+      },
+      "position": {
+        "x": 40,
+        "y": 6640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_9",
+      "type_id": "constant",
+      "parameters": {
+        "value": 9
+      },
+      "position": {
+        "x": 40,
+        "y": 6790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_10",
+      "type_id": "constant",
+      "parameters": {
+        "value": 10
+      },
+      "position": {
+        "x": 40,
+        "y": 6940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_11",
+      "type_id": "constant",
+      "parameters": {
+        "value": 11
+      },
+      "position": {
+        "x": 40,
+        "y": 7090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "w_yaw",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "w_pitch",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dyaw",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dpitch",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_yaw",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 1000,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_pitch",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 1000,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dist_valid",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 760,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dist_diff",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dist_absdiff",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_tol",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dist_match",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 9400,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "det_raw",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 7720,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_far",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_farther",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 7720,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_det",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_near",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "unmasked",
+      "type_id": "condition",
+      "parameters": {
+        "op": 5
+      },
+      "position": {
+        "x": 7720,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "det_set",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "det",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 8200,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 8440,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_set",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto_val",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto_set",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 7720,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 8200,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_auto",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "joy_yaw_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "joy_pitch_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "joy_yaw_big",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 760,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "joy_pitch_big",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 760,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "joy_active",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nodet_reset",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nodet_count",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 8680,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "lost",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 8920,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "abort",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "no_abort",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 7720,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_reset",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_count",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "done",
+      "type_id": "condition",
+      "parameters": {
+        "op": 5
+      },
+      "position": {
+        "x": 7720,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_0",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_1",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_2",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_3",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_4",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_5",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_6",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_7",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_8",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_9",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 2290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_10",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 2440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_11",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 7720,
+        "y": 2590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_prev",
+      "type_id": "delay",
+      "parameters": {
+        "ticks": 1
+      },
+      "position": {
+        "x": 7720,
+        "y": 2740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "changed",
+      "type_id": "condition",
+      "parameters": {
+        "op": 1
+      },
+      "position": {
+        "x": 7960,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "changed_late",
+      "type_id": "delay",
+      "parameters": {
+        "ticks": 12
+      },
+      "position": {
+        "x": 8440,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "entry_1",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "entry_3",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "entry_5",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "entry_8",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "entry_11",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_st1",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_st",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probing",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_probing",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_tick",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 3880,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pt_phase",
+      "type_id": "mod",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pt_due",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 4360,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sample",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_k",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 5080,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_mid",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_probe",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 8920,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_in_val",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_out_val",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "hit",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "no_probe_det",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "miss",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_in_set",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_out_set",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_in",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_out",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pk_last",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 5560,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "meas_done",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 5800,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "c_in49",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "c_in",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f_now",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f0_set",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f0",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f1_set",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f1",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f2_set",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f2",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pk_zero",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 5560,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "first_hit",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "close_skip",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge_raw",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge_lo",
+      "type_id": "max",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f0sq",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f1sq",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f2sq",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge_sq",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "two_nudge",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d01",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 2290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cx_num",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cx",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d02",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 2440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cy_a",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cy_b",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cy",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "slew_yaw",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "slew_pitch",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 2590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "kp",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "kd",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "fall_not",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "fall_prev",
+      "type_id": "delay",
+      "parameters": {
+        "ticks": 2
+      },
+      "position": {
+        "x": 8680,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "fall",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 2290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_6",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 2440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_7",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 2590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_9",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 2740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_10",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 2890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_base",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 2740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_m1",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 2890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_m2",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 3040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_to_centre",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 5080,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_m3",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 3190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_m12",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_moves",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_acc",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 3340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_hold",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 3490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_grow",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_rate_raw",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_rate",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_flagneg",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 3640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_in",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 3790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_notL",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 3940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 4090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 2290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR_grow",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 4240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR_rate_raw",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR_rate",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR_in",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 4390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_notR",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 4540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 4690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_sp1",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 4840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_sp",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 2440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_left",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 1720,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_right",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 1720,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_fallL",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 4990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_fallR",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 5140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_setL",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_setR",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_edgeL",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 2590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_edgeR",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 2740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_edge_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 5290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_centre",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 4840,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_err",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 5440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_kp_e",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 4360,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_kd_w",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_u",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 4600,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_u_hi",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 4840,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_u_c",
+      "type_id": "max",
+      "parameters": {},
+      "position": {
+        "x": 5080,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_err_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 4360,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_w_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_base",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 5590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_m1",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 5740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_m2",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_to_centre",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 5080,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_m3",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 5890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_m12",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_moves",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_acc",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 6040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_hold",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 2890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 6190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_grow",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_rate_raw",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_rate",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_flagneg",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 6340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_in",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 6490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_notL",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 6640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 6790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 3040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR_grow",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 6940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR_rate_raw",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR_rate",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR_in",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 7090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_notR",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 7240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 7390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_sp1",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 7540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_sp",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 3190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_left",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 1720,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_right",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 1720,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_fallL",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 7690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_fallR",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 7840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_setL",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_setR",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_edgeL",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 3340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_edgeR",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 9160,
+        "y": 3490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_edge_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 7990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_centre",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 4840,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_err",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 8140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_kp_e",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 4360,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_kd_w",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_u",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 4600,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_u_hi",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 4840,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_u_c",
+      "type_id": "max",
+      "parameters": {},
+      "position": {
+        "x": 5080,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_err_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 4360,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_w_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "err_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 4600,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "w_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "err_ok",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 4840,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "w_ok",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settled_raw",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 5080,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "st_a",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "st_b",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "st_ab",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "st_all",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_phase",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 3040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "since_change",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 8440,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "blanked",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 8920,
+        "y": 3190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_ok_time",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 8290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_on",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 5320,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_off",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 5560,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_count",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 5800,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_hit",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 6040,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_late",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 8920,
+        "y": 3340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_late_on",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 8440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_done",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 6280,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "no_det",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 2290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "slew_end",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "restart",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 3490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_restart",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 8590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "edge_yaw",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 3640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "edge_pitch",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 3790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "edge_any",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 8740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_adv",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 3940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "adv_a",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 8890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "adv1",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 7240,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "skip_amt",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 9040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "adv_amount",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 2440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cone_auto",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 9190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "rcs_yaw",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 8920,
+        "y": 3640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "rcs_pitch",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 8920,
+        "y": 3790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cone_cmd",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 9400,
+        "y": 9340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "locked_and",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 2590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "locked",
+      "type_id": "datameter",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 3940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "progress",
+      "type_id": "datameter",
+      "parameters": {},
+      "position": {
+        "x": 7720,
+        "y": 2890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "w_yaw_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_dt_2",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.016666666666666666
+      },
+      "position": {
+        "x": 40,
+        "y": 7240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "w_pitch_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_scan_dist_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_scan_dist_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_scan_dist_fan2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 2740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_tol_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "dist_valid_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_2",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 7390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_3",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 7540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_4",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 7690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_5",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 7840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_6",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 7990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_7",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 8140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_8",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 8290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_9",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 8440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_10",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 8590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_11",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 8740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_12",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 8890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_13",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 9040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_one_14",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 9190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "det_raw_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_auto_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_auto_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 9490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_auto_fan2",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 9640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_start_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "abort_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 9790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 2890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto_fan2",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "auto_fan3",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_joy_yaw_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_joy_pitch_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_abort_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_det_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "restart_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_count_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 9940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_count_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7480,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_count_fan2",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7480,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_count_fan3",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7480,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "s_count_fan4",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7480,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_2_2",
+      "type_id": "constant",
+      "parameters": {
+        "value": 2
+      },
+      "position": {
+        "x": 40,
+        "y": 9340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "changed_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8200,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "changed_late_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "changed_late_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "changed_late_fan2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_1_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_3_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_5_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_8_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_11_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_0_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_2_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "is_4_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probing_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_probing_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 10090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_probing_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "not_probing_fan2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sample_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 10240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_in_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 10390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_half_2",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 9490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_half_3",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 9640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_half_4",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 9790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "probe_k_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 5320,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "v_probe_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "hit_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "meas_done_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 6040,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f_now_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f0_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f1_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f2_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 3940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 7720,
+        "y": 3040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "nudge_fan2",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 7960,
+        "y": 2140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "f0sq_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 4990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "two_nudge_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cx_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_rcs_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "det_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 8440,
+        "y": 1990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_yaw_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_yaw_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_yaw_fan2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "entry_5_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 10540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_hold_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 10690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offL_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 5140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_sweep_grow_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_sweep_base_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_sweep_max_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_6_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 5290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_offR_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_7_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 5440
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "fall_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 5590
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_setL_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_setR_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_err_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "kp_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "kd_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "k_neg_one_2",
+      "type_id": "constant",
+      "parameters": {
+        "value": -1
+      },
+      "position": {
+        "x": 40,
+        "y": 9940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_pitch_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_pitch_fan1",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "theta_pitch_fan2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_hold_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9400,
+        "y": 10840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offL_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 5740
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_9_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 5890
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_offR_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 4990
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "sw_10_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 6040
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_setL_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 5140
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_setR_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8920,
+        "y": 5290
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_err_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "since_change_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 8680,
+        "y": 4090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_phase_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 9160,
+        "y": 6190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "settle_done_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 6520,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    }
+  ],
+  "edges": [
+    {
+      "from_instance": "in_yaw_rate",
+      "from_port": "out",
+      "to_instance": "w_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_yaw_sign",
+      "from_port": "out",
+      "to_instance": "w_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_pitch_rate",
+      "from_port": "out",
+      "to_instance": "w_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_pitch_sign",
+      "from_port": "out",
+      "to_instance": "w_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_yaw",
+      "from_port": "out",
+      "to_instance": "w_yaw_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_yaw_fan",
+      "from_port": "a",
+      "to_instance": "dyaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_yaw_fan",
+      "from_port": "b",
+      "to_instance": "yaw_kd_w",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_yaw_fan",
+      "from_port": "c",
+      "to_instance": "yaw_w_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_dt",
+      "from_port": "out",
+      "to_instance": "dyaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_dt_2",
+      "from_port": "out",
+      "to_instance": "dpitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_pitch",
+      "from_port": "out",
+      "to_instance": "w_pitch_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_pitch_fan",
+      "from_port": "a",
+      "to_instance": "dpitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_pitch_fan",
+      "from_port": "b",
+      "to_instance": "pitch_kd_w",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_pitch_fan",
+      "from_port": "c",
+      "to_instance": "pitch_w_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dyaw",
+      "from_port": "out",
+      "to_instance": "theta_yaw",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dpitch",
+      "from_port": "out",
+      "to_instance": "theta_pitch",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist",
+      "from_port": "out",
+      "to_instance": "in_scan_dist_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan",
+      "from_port": "a",
+      "to_instance": "in_scan_dist_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan1",
+      "from_port": "a",
+      "to_instance": "dist_valid",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan1",
+      "from_port": "b",
+      "to_instance": "dist_diff",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan1",
+      "from_port": "c",
+      "to_instance": "not_farther",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan1",
+      "from_port": "d",
+      "to_instance": "unmasked",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan",
+      "from_port": "b",
+      "to_instance": "in_scan_dist_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan2",
+      "from_port": "a",
+      "to_instance": "d0",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_empty",
+      "from_port": "out",
+      "to_instance": "dist_valid",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0",
+      "from_port": "out",
+      "to_instance": "d0_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_fan",
+      "from_port": "a",
+      "to_instance": "dist_diff",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_fan",
+      "from_port": "b",
+      "to_instance": "d0_tol",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_fan",
+      "from_port": "c",
+      "to_instance": "d0_far",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_fan",
+      "from_port": "d",
+      "to_instance": "d0_near",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dist_diff",
+      "from_port": "out",
+      "to_instance": "dist_absdiff",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_tol",
+      "from_port": "out",
+      "to_instance": "d0_tol",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dist_absdiff",
+      "from_port": "out",
+      "to_instance": "dist_match",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_tol",
+      "from_port": "out",
+      "to_instance": "d0_tol_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_tol_fan",
+      "from_port": "a",
+      "to_instance": "dist_match",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_tol_fan",
+      "from_port": "b",
+      "to_instance": "d0_far",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_tol_fan",
+      "from_port": "c",
+      "to_instance": "d0_near",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dist_valid",
+      "from_port": "out",
+      "to_instance": "dist_valid_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dist_valid_fan",
+      "from_port": "a",
+      "to_instance": "det_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dist_valid_fan",
+      "from_port": "b",
+      "to_instance": "probe_det",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "dist_match",
+      "from_port": "out",
+      "to_instance": "det_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_far",
+      "from_port": "out",
+      "to_instance": "not_farther",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_farther",
+      "from_port": "out",
+      "to_instance": "probe_det",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_near",
+      "from_port": "out",
+      "to_instance": "unmasked",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "unmasked",
+      "from_port": "out",
+      "to_instance": "det_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one",
+      "from_port": "out",
+      "to_instance": "det_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_2",
+      "from_port": "out",
+      "to_instance": "nodet_count",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_3",
+      "from_port": "out",
+      "to_instance": "is_1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_4",
+      "from_port": "out",
+      "to_instance": "probe_tick",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_5",
+      "from_port": "out",
+      "to_instance": "v_out_val",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_6",
+      "from_port": "out",
+      "to_instance": "yaw_u_hi",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_7",
+      "from_port": "out",
+      "to_instance": "pitch_u_hi",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_8",
+      "from_port": "out",
+      "to_instance": "since_change",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_9",
+      "from_port": "out",
+      "to_instance": "settle_count",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_10",
+      "from_port": "out",
+      "to_instance": "cone_auto",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_11",
+      "from_port": "out",
+      "to_instance": "cone_auto",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_12",
+      "from_port": "out",
+      "to_instance": "rcs_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_13",
+      "from_port": "out",
+      "to_instance": "rcs_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_one_14",
+      "from_port": "out",
+      "to_instance": "cone_cmd",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_raw",
+      "from_port": "out",
+      "to_instance": "det_raw_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_raw_fan",
+      "from_port": "a",
+      "to_instance": "det",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_raw_fan",
+      "from_port": "b",
+      "to_instance": "d0_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_set",
+      "from_port": "out",
+      "to_instance": "det",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_set",
+      "from_port": "out",
+      "to_instance": "d0",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto",
+      "from_port": "out",
+      "to_instance": "not_auto_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan",
+      "from_port": "a",
+      "to_instance": "not_auto_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan1",
+      "from_port": "a",
+      "to_instance": "d0_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan1",
+      "from_port": "b",
+      "to_instance": "nodet_reset",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan1",
+      "from_port": "c",
+      "to_instance": "s_reset",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan1",
+      "from_port": "d",
+      "to_instance": "yaw_base",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan",
+      "from_port": "b",
+      "to_instance": "not_auto_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan2",
+      "from_port": "a",
+      "to_instance": "yaw_acc",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan2",
+      "from_port": "b",
+      "to_instance": "pitch_base",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_auto_fan2",
+      "from_port": "c",
+      "to_instance": "pitch_acc",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_start",
+      "from_port": "out",
+      "to_instance": "in_start_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_start_fan",
+      "from_port": "a",
+      "to_instance": "auto_val",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_start_fan",
+      "from_port": "b",
+      "to_instance": "auto_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "no_abort",
+      "from_port": "out",
+      "to_instance": "auto_val",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "abort",
+      "from_port": "out",
+      "to_instance": "abort_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "abort_fan",
+      "from_port": "a",
+      "to_instance": "auto_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "abort_fan",
+      "from_port": "b",
+      "to_instance": "no_abort",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_val",
+      "from_port": "out",
+      "to_instance": "auto",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_set",
+      "from_port": "out",
+      "to_instance": "auto",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto",
+      "from_port": "out",
+      "to_instance": "auto_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan",
+      "from_port": "a",
+      "to_instance": "auto_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan1",
+      "from_port": "a",
+      "to_instance": "not_auto",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan1",
+      "from_port": "b",
+      "to_instance": "probing",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan1",
+      "from_port": "c",
+      "to_instance": "sw_6",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan1",
+      "from_port": "d",
+      "to_instance": "sw_7",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan",
+      "from_port": "b",
+      "to_instance": "auto_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan2",
+      "from_port": "a",
+      "to_instance": "sw_9",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan2",
+      "from_port": "b",
+      "to_instance": "sw_10",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan2",
+      "from_port": "c",
+      "to_instance": "settle_phase",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan2",
+      "from_port": "d",
+      "to_instance": "rcs_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan",
+      "from_port": "c",
+      "to_instance": "auto_fan3",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan3",
+      "from_port": "a",
+      "to_instance": "rcs_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "auto_fan3",
+      "from_port": "b",
+      "to_instance": "cone_cmd",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_yaw",
+      "from_port": "out",
+      "to_instance": "in_joy_yaw_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_yaw_fan",
+      "from_port": "a",
+      "to_instance": "joy_yaw_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_yaw_fan",
+      "from_port": "b",
+      "to_instance": "rcs_yaw",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_pitch",
+      "from_port": "out",
+      "to_instance": "in_joy_pitch_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_pitch_fan",
+      "from_port": "a",
+      "to_instance": "joy_pitch_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_pitch_fan",
+      "from_port": "b",
+      "to_instance": "rcs_pitch",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "joy_yaw_abs",
+      "from_port": "out",
+      "to_instance": "joy_yaw_big",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_abort",
+      "from_port": "out",
+      "to_instance": "tune_abort_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_abort_fan",
+      "from_port": "a",
+      "to_instance": "joy_yaw_big",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_abort_fan",
+      "from_port": "b",
+      "to_instance": "joy_pitch_big",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "joy_pitch_abs",
+      "from_port": "out",
+      "to_instance": "joy_pitch_big",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "joy_yaw_big",
+      "from_port": "out",
+      "to_instance": "joy_active",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "joy_pitch_big",
+      "from_port": "out",
+      "to_instance": "joy_active",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_det",
+      "from_port": "out",
+      "to_instance": "probe_det_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_det_fan",
+      "from_port": "a",
+      "to_instance": "nodet_reset",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_det_fan",
+      "from_port": "b",
+      "to_instance": "hit",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_det_fan",
+      "from_port": "c",
+      "to_instance": "no_probe_det",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nodet_reset",
+      "from_port": "out",
+      "to_instance": "nodet_count",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nodet_count",
+      "from_port": "out",
+      "to_instance": "lost",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_lost_ticks",
+      "from_port": "out",
+      "to_instance": "lost",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "joy_active",
+      "from_port": "out",
+      "to_instance": "abort",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "lost",
+      "from_port": "out",
+      "to_instance": "abort",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "restart",
+      "from_port": "out",
+      "to_instance": "restart_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "restart_fan",
+      "from_port": "a",
+      "to_instance": "s_reset",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "restart_fan",
+      "from_port": "b",
+      "to_instance": "not_restart",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "adv_amount",
+      "from_port": "out",
+      "to_instance": "s_count",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_reset",
+      "from_port": "out",
+      "to_instance": "s_count",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count",
+      "from_port": "out",
+      "to_instance": "s_count_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan",
+      "from_port": "a",
+      "to_instance": "s_count_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan1",
+      "from_port": "a",
+      "to_instance": "done",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan1",
+      "from_port": "b",
+      "to_instance": "is_0",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan1",
+      "from_port": "c",
+      "to_instance": "is_1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan1",
+      "from_port": "d",
+      "to_instance": "is_2",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan",
+      "from_port": "b",
+      "to_instance": "s_count_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan2",
+      "from_port": "a",
+      "to_instance": "is_3",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan2",
+      "from_port": "b",
+      "to_instance": "is_4",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan2",
+      "from_port": "c",
+      "to_instance": "is_5",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan2",
+      "from_port": "d",
+      "to_instance": "is_6",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan",
+      "from_port": "c",
+      "to_instance": "s_count_fan3",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan3",
+      "from_port": "a",
+      "to_instance": "is_7",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan3",
+      "from_port": "b",
+      "to_instance": "is_8",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan3",
+      "from_port": "c",
+      "to_instance": "is_9",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan3",
+      "from_port": "d",
+      "to_instance": "is_10",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan",
+      "from_port": "d",
+      "to_instance": "s_count_fan4",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan4",
+      "from_port": "a",
+      "to_instance": "is_11",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan4",
+      "from_port": "b",
+      "to_instance": "s_prev",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan4",
+      "from_port": "c",
+      "to_instance": "changed",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_count_fan4",
+      "from_port": "d",
+      "to_instance": "progress",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_done",
+      "from_port": "out",
+      "to_instance": "done",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_2",
+      "from_port": "out",
+      "to_instance": "is_2",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_2_2",
+      "from_port": "out",
+      "to_instance": "two_nudge",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_3",
+      "from_port": "out",
+      "to_instance": "is_3",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_4",
+      "from_port": "out",
+      "to_instance": "is_4",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_5",
+      "from_port": "out",
+      "to_instance": "is_5",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_6",
+      "from_port": "out",
+      "to_instance": "is_6",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_7",
+      "from_port": "out",
+      "to_instance": "is_7",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_8",
+      "from_port": "out",
+      "to_instance": "is_8",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_9",
+      "from_port": "out",
+      "to_instance": "is_9",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_10",
+      "from_port": "out",
+      "to_instance": "is_10",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_11",
+      "from_port": "out",
+      "to_instance": "is_11",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "s_prev",
+      "from_port": "out",
+      "to_instance": "changed",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed",
+      "from_port": "out",
+      "to_instance": "changed_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_fan",
+      "from_port": "a",
+      "to_instance": "changed_late",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_fan",
+      "from_port": "b",
+      "to_instance": "since_change",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late",
+      "from_port": "out",
+      "to_instance": "changed_late_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan",
+      "from_port": "a",
+      "to_instance": "changed_late_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan1",
+      "from_port": "a",
+      "to_instance": "entry_1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan1",
+      "from_port": "b",
+      "to_instance": "entry_3",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan1",
+      "from_port": "c",
+      "to_instance": "entry_5",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan1",
+      "from_port": "d",
+      "to_instance": "entry_8",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan",
+      "from_port": "b",
+      "to_instance": "changed_late_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "changed_late_fan2",
+      "from_port": "a",
+      "to_instance": "entry_11",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_1",
+      "from_port": "out",
+      "to_instance": "is_1_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_1_fan",
+      "from_port": "a",
+      "to_instance": "entry_1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_1_fan",
+      "from_port": "b",
+      "to_instance": "st_a",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_3",
+      "from_port": "out",
+      "to_instance": "is_3_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_3_fan",
+      "from_port": "a",
+      "to_instance": "entry_3",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_3_fan",
+      "from_port": "b",
+      "to_instance": "st_a",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_5",
+      "from_port": "out",
+      "to_instance": "is_5_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_5_fan",
+      "from_port": "a",
+      "to_instance": "entry_5",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_5_fan",
+      "from_port": "b",
+      "to_instance": "st_b",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_5_fan",
+      "from_port": "c",
+      "to_instance": "slew_end",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_8",
+      "from_port": "out",
+      "to_instance": "is_8_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_8_fan",
+      "from_port": "a",
+      "to_instance": "entry_8",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_8_fan",
+      "from_port": "b",
+      "to_instance": "st_b",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_11",
+      "from_port": "out",
+      "to_instance": "is_11_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_11_fan",
+      "from_port": "a",
+      "to_instance": "entry_11",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_11_fan",
+      "from_port": "b",
+      "to_instance": "st_all",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_0",
+      "from_port": "out",
+      "to_instance": "is_0_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_0_fan",
+      "from_port": "a",
+      "to_instance": "probe_st1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_0_fan",
+      "from_port": "b",
+      "to_instance": "f0_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_0_fan",
+      "from_port": "c",
+      "to_instance": "close_skip",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_2",
+      "from_port": "out",
+      "to_instance": "is_2_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_2_fan",
+      "from_port": "a",
+      "to_instance": "probe_st1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_2_fan",
+      "from_port": "b",
+      "to_instance": "f1_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_st1",
+      "from_port": "out",
+      "to_instance": "probe_st",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_4",
+      "from_port": "out",
+      "to_instance": "is_4_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_4_fan",
+      "from_port": "a",
+      "to_instance": "probe_st",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_4_fan",
+      "from_port": "b",
+      "to_instance": "f2_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_st",
+      "from_port": "out",
+      "to_instance": "probing",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probing",
+      "from_port": "out",
+      "to_instance": "probing_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probing_fan",
+      "from_port": "a",
+      "to_instance": "not_probing",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probing_fan",
+      "from_port": "b",
+      "to_instance": "sample",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probing_fan",
+      "from_port": "c",
+      "to_instance": "cone_auto",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing",
+      "from_port": "out",
+      "to_instance": "not_probing_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan",
+      "from_port": "a",
+      "to_instance": "not_probing_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan1",
+      "from_port": "a",
+      "to_instance": "probe_tick",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan1",
+      "from_port": "b",
+      "to_instance": "probe_k",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan1",
+      "from_port": "c",
+      "to_instance": "v_in_val",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan1",
+      "from_port": "d",
+      "to_instance": "v_out_val",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan",
+      "from_port": "b",
+      "to_instance": "not_probing_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan2",
+      "from_port": "a",
+      "to_instance": "v_in_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_probing_fan2",
+      "from_port": "b",
+      "to_instance": "v_out_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_tick",
+      "from_port": "out",
+      "to_instance": "pt_phase",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_probe_period",
+      "from_port": "out",
+      "to_instance": "pt_phase",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pt_phase",
+      "from_port": "out",
+      "to_instance": "pt_due",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_probe_due",
+      "from_port": "out",
+      "to_instance": "pt_due",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pt_due",
+      "from_port": "out",
+      "to_instance": "sample",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sample",
+      "from_port": "out",
+      "to_instance": "sample_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sample_fan",
+      "from_port": "a",
+      "to_instance": "probe_k",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sample_fan",
+      "from_port": "b",
+      "to_instance": "hit",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sample_fan",
+      "from_port": "c",
+      "to_instance": "miss",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sample_fan",
+      "from_port": "d",
+      "to_instance": "meas_done",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_in",
+      "from_port": "out",
+      "to_instance": "v_in_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_in_fan",
+      "from_port": "a",
+      "to_instance": "v_sum",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_in_fan",
+      "from_port": "b",
+      "to_instance": "c_in49",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_out",
+      "from_port": "out",
+      "to_instance": "v_sum",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_sum",
+      "from_port": "out",
+      "to_instance": "v_mid",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_half",
+      "from_port": "out",
+      "to_instance": "v_mid",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_half_2",
+      "from_port": "out",
+      "to_instance": "f_now",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_half_3",
+      "from_port": "out",
+      "to_instance": "yaw_centre",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_half_4",
+      "from_port": "out",
+      "to_instance": "pitch_centre",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_k",
+      "from_port": "out",
+      "to_instance": "probe_k_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_k_fan",
+      "from_port": "a",
+      "to_instance": "v_probe",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_k_fan",
+      "from_port": "b",
+      "to_instance": "pk_last",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "probe_k_fan",
+      "from_port": "c",
+      "to_instance": "pk_zero",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_mid",
+      "from_port": "out",
+      "to_instance": "v_probe",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_probe",
+      "from_port": "out",
+      "to_instance": "v_probe_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_probe_fan",
+      "from_port": "a",
+      "to_instance": "v_in_val",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_probe_fan",
+      "from_port": "b",
+      "to_instance": "v_out_val",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_probe_fan",
+      "from_port": "c",
+      "to_instance": "cone_auto",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "no_probe_det",
+      "from_port": "out",
+      "to_instance": "miss",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "hit",
+      "from_port": "out",
+      "to_instance": "hit_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "hit_fan",
+      "from_port": "a",
+      "to_instance": "v_in_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "hit_fan",
+      "from_port": "b",
+      "to_instance": "first_hit",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "miss",
+      "from_port": "out",
+      "to_instance": "v_out_set",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_in_val",
+      "from_port": "out",
+      "to_instance": "v_in",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_in_set",
+      "from_port": "out",
+      "to_instance": "v_in",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_out_val",
+      "from_port": "out",
+      "to_instance": "v_out",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "v_out_set",
+      "from_port": "out",
+      "to_instance": "v_out",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_probe_last",
+      "from_port": "out",
+      "to_instance": "pk_last",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pk_last",
+      "from_port": "out",
+      "to_instance": "meas_done",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_49",
+      "from_port": "out",
+      "to_instance": "c_in49",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_50",
+      "from_port": "out",
+      "to_instance": "c_in",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "c_in49",
+      "from_port": "out",
+      "to_instance": "c_in",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "c_in",
+      "from_port": "out",
+      "to_instance": "f_now",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "meas_done",
+      "from_port": "out",
+      "to_instance": "meas_done_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "meas_done_fan",
+      "from_port": "a",
+      "to_instance": "f0_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "meas_done_fan",
+      "from_port": "b",
+      "to_instance": "f1_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "meas_done_fan",
+      "from_port": "c",
+      "to_instance": "f2_set",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "meas_done_fan",
+      "from_port": "d",
+      "to_instance": "adv_a",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f_now",
+      "from_port": "out",
+      "to_instance": "f_now_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f_now_fan",
+      "from_port": "a",
+      "to_instance": "f0",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f_now_fan",
+      "from_port": "b",
+      "to_instance": "f1",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f_now_fan",
+      "from_port": "c",
+      "to_instance": "f2",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0_set",
+      "from_port": "out",
+      "to_instance": "f0",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f1_set",
+      "from_port": "out",
+      "to_instance": "f1",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f2_set",
+      "from_port": "out",
+      "to_instance": "f2",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pk_zero",
+      "from_port": "out",
+      "to_instance": "first_hit",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "first_hit",
+      "from_port": "out",
+      "to_instance": "close_skip",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0",
+      "from_port": "out",
+      "to_instance": "f0_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0_fan",
+      "from_port": "a",
+      "to_instance": "nudge_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0_fan",
+      "from_port": "b",
+      "to_instance": "f0sq",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0_fan",
+      "from_port": "c",
+      "to_instance": "f0sq",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_nudge_frac",
+      "from_port": "out",
+      "to_instance": "nudge_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_raw",
+      "from_port": "out",
+      "to_instance": "nudge_lo",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_nudge_min",
+      "from_port": "out",
+      "to_instance": "nudge_lo",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_lo",
+      "from_port": "out",
+      "to_instance": "nudge",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_nudge_max",
+      "from_port": "out",
+      "to_instance": "nudge",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f1",
+      "from_port": "out",
+      "to_instance": "f1_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f1_fan",
+      "from_port": "a",
+      "to_instance": "f1sq",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f1_fan",
+      "from_port": "b",
+      "to_instance": "f1sq",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f2",
+      "from_port": "out",
+      "to_instance": "f2_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f2_fan",
+      "from_port": "a",
+      "to_instance": "f2sq",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f2_fan",
+      "from_port": "b",
+      "to_instance": "f2sq",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge",
+      "from_port": "out",
+      "to_instance": "nudge_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan",
+      "from_port": "a",
+      "to_instance": "nudge_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan1",
+      "from_port": "a",
+      "to_instance": "nudge_sq",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan1",
+      "from_port": "b",
+      "to_instance": "nudge_sq",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan1",
+      "from_port": "c",
+      "to_instance": "two_nudge",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan1",
+      "from_port": "d",
+      "to_instance": "cy_b",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan",
+      "from_port": "b",
+      "to_instance": "nudge_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan2",
+      "from_port": "a",
+      "to_instance": "slew_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan2",
+      "from_port": "b",
+      "to_instance": "slew_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan2",
+      "from_port": "c",
+      "to_instance": "yaw_m1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_fan2",
+      "from_port": "d",
+      "to_instance": "pitch_m1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0sq",
+      "from_port": "out",
+      "to_instance": "f0sq_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0sq_fan",
+      "from_port": "a",
+      "to_instance": "d01",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f0sq_fan",
+      "from_port": "b",
+      "to_instance": "d02",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f1sq",
+      "from_port": "out",
+      "to_instance": "d01",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d01",
+      "from_port": "out",
+      "to_instance": "cx_num",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "nudge_sq",
+      "from_port": "out",
+      "to_instance": "cx_num",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cx_num",
+      "from_port": "out",
+      "to_instance": "cx",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "two_nudge",
+      "from_port": "out",
+      "to_instance": "two_nudge_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "two_nudge_fan",
+      "from_port": "a",
+      "to_instance": "cx",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "two_nudge_fan",
+      "from_port": "b",
+      "to_instance": "cy_a",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "f2sq",
+      "from_port": "out",
+      "to_instance": "d02",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d02",
+      "from_port": "out",
+      "to_instance": "cy_a",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cy_a",
+      "from_port": "out",
+      "to_instance": "cy_b",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cy_b",
+      "from_port": "out",
+      "to_instance": "cy",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cx",
+      "from_port": "out",
+      "to_instance": "cx_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cx_fan",
+      "from_port": "a",
+      "to_instance": "cy",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cx_fan",
+      "from_port": "b",
+      "to_instance": "slew_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cy",
+      "from_port": "out",
+      "to_instance": "slew_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_kp_num",
+      "from_port": "out",
+      "to_instance": "kp",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_rcs",
+      "from_port": "out",
+      "to_instance": "tune_rcs_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_rcs_fan",
+      "from_port": "a",
+      "to_instance": "kp",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_rcs_fan",
+      "from_port": "b",
+      "to_instance": "kd",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_kd_num",
+      "from_port": "out",
+      "to_instance": "kd",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det",
+      "from_port": "out",
+      "to_instance": "det_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_fan",
+      "from_port": "a",
+      "to_instance": "fall_not",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_fan",
+      "from_port": "b",
+      "to_instance": "fall_prev",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_fan",
+      "from_port": "c",
+      "to_instance": "no_det",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "det_fan",
+      "from_port": "d",
+      "to_instance": "locked_and",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall_not",
+      "from_port": "out",
+      "to_instance": "fall",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall_prev",
+      "from_port": "out",
+      "to_instance": "fall",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_6",
+      "from_port": "out",
+      "to_instance": "sw_6",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_7",
+      "from_port": "out",
+      "to_instance": "sw_7",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_9",
+      "from_port": "out",
+      "to_instance": "sw_9",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "is_10",
+      "from_port": "out",
+      "to_instance": "sw_10",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw",
+      "from_port": "out",
+      "to_instance": "theta_yaw_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan",
+      "from_port": "a",
+      "to_instance": "theta_yaw_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan1",
+      "from_port": "a",
+      "to_instance": "yaw_base",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan1",
+      "from_port": "b",
+      "to_instance": "yaw_left",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan1",
+      "from_port": "c",
+      "to_instance": "yaw_right",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan1",
+      "from_port": "d",
+      "to_instance": "yaw_edgeL",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan",
+      "from_port": "b",
+      "to_instance": "theta_yaw_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan2",
+      "from_port": "a",
+      "to_instance": "yaw_edgeR",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_yaw_fan2",
+      "from_port": "b",
+      "to_instance": "yaw_err",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_1",
+      "from_port": "out",
+      "to_instance": "yaw_m1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "slew_yaw",
+      "from_port": "out",
+      "to_instance": "yaw_m2",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_5",
+      "from_port": "out",
+      "to_instance": "entry_5_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_5_fan",
+      "from_port": "a",
+      "to_instance": "yaw_m2",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_5_fan",
+      "from_port": "b",
+      "to_instance": "pitch_m2",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_centre",
+      "from_port": "out",
+      "to_instance": "yaw_to_centre",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_hold",
+      "from_port": "out",
+      "to_instance": "yaw_hold_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_hold_fan",
+      "from_port": "a",
+      "to_instance": "yaw_to_centre",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_hold_fan",
+      "from_port": "b",
+      "to_instance": "yaw_sp1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_hold_fan",
+      "from_port": "c",
+      "to_instance": "yaw_left",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_hold_fan",
+      "from_port": "d",
+      "to_instance": "yaw_right",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_to_centre",
+      "from_port": "out",
+      "to_instance": "yaw_m3",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_8",
+      "from_port": "out",
+      "to_instance": "yaw_m3",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_m1",
+      "from_port": "out",
+      "to_instance": "yaw_m12",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_m2",
+      "from_port": "out",
+      "to_instance": "yaw_m12",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_m12",
+      "from_port": "out",
+      "to_instance": "yaw_moves",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_m3",
+      "from_port": "out",
+      "to_instance": "yaw_moves",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_moves",
+      "from_port": "out",
+      "to_instance": "yaw_acc",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_base",
+      "from_port": "out",
+      "to_instance": "yaw_hold",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_acc",
+      "from_port": "out",
+      "to_instance": "yaw_hold",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL",
+      "from_port": "out",
+      "to_instance": "yaw_offL_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offL_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_fan",
+      "from_port": "b",
+      "to_instance": "yaw_sp1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_abs",
+      "from_port": "out",
+      "to_instance": "yaw_offL_grow",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_grow",
+      "from_port": "out",
+      "to_instance": "tune_sweep_grow_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_grow_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offL_grow",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_grow_fan",
+      "from_port": "b",
+      "to_instance": "yaw_offR_grow",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_grow_fan",
+      "from_port": "c",
+      "to_instance": "pitch_offL_grow",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_grow_fan",
+      "from_port": "d",
+      "to_instance": "pitch_offR_grow",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_grow",
+      "from_port": "out",
+      "to_instance": "yaw_offL_rate_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_base",
+      "from_port": "out",
+      "to_instance": "tune_sweep_base_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_base_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offL_rate_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_base_fan",
+      "from_port": "b",
+      "to_instance": "yaw_offR_rate_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_base_fan",
+      "from_port": "c",
+      "to_instance": "pitch_offL_rate_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_base_fan",
+      "from_port": "d",
+      "to_instance": "pitch_offR_rate_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_rate_raw",
+      "from_port": "out",
+      "to_instance": "yaw_offL_rate",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_max",
+      "from_port": "out",
+      "to_instance": "tune_sweep_max_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_max_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offL_rate",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_max_fan",
+      "from_port": "b",
+      "to_instance": "yaw_offR_rate",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_max_fan",
+      "from_port": "c",
+      "to_instance": "pitch_offL_rate",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_sweep_max_fan",
+      "from_port": "d",
+      "to_instance": "pitch_offR_rate",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_6",
+      "from_port": "out",
+      "to_instance": "sw_6_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_6_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offL_flagneg",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_6_fan",
+      "from_port": "b",
+      "to_instance": "yaw_notL",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_6_fan",
+      "from_port": "c",
+      "to_instance": "yaw_fallL",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_rate",
+      "from_port": "out",
+      "to_instance": "yaw_offL_in",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_flagneg",
+      "from_port": "out",
+      "to_instance": "yaw_offL_in",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offL_in",
+      "from_port": "out",
+      "to_instance": "yaw_offL",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_notL",
+      "from_port": "out",
+      "to_instance": "yaw_offL",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR",
+      "from_port": "out",
+      "to_instance": "yaw_offR_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offR_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_fan",
+      "from_port": "b",
+      "to_instance": "yaw_sp",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_abs",
+      "from_port": "out",
+      "to_instance": "yaw_offR_grow",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_grow",
+      "from_port": "out",
+      "to_instance": "yaw_offR_rate_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_rate_raw",
+      "from_port": "out",
+      "to_instance": "yaw_offR_rate",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_rate",
+      "from_port": "out",
+      "to_instance": "yaw_offR_in",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_7",
+      "from_port": "out",
+      "to_instance": "sw_7_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_7_fan",
+      "from_port": "a",
+      "to_instance": "yaw_offR_in",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_7_fan",
+      "from_port": "b",
+      "to_instance": "yaw_notR",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_7_fan",
+      "from_port": "c",
+      "to_instance": "yaw_fallR",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_offR_in",
+      "from_port": "out",
+      "to_instance": "yaw_offR",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_notR",
+      "from_port": "out",
+      "to_instance": "yaw_offR",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_sp1",
+      "from_port": "out",
+      "to_instance": "yaw_sp",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall",
+      "from_port": "out",
+      "to_instance": "fall_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall_fan",
+      "from_port": "a",
+      "to_instance": "yaw_fallL",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall_fan",
+      "from_port": "b",
+      "to_instance": "yaw_fallR",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall_fan",
+      "from_port": "c",
+      "to_instance": "pitch_fallL",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "fall_fan",
+      "from_port": "d",
+      "to_instance": "pitch_fallR",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_fallL",
+      "from_port": "out",
+      "to_instance": "yaw_setL",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_left",
+      "from_port": "out",
+      "to_instance": "yaw_setL",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_fallR",
+      "from_port": "out",
+      "to_instance": "yaw_setR",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_right",
+      "from_port": "out",
+      "to_instance": "yaw_setR",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_setL",
+      "from_port": "out",
+      "to_instance": "yaw_setL_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_setL_fan",
+      "from_port": "a",
+      "to_instance": "yaw_edgeL",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_setL_fan",
+      "from_port": "b",
+      "to_instance": "edge_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_setR",
+      "from_port": "out",
+      "to_instance": "yaw_setR_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_setR_fan",
+      "from_port": "a",
+      "to_instance": "yaw_edgeR",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_setR_fan",
+      "from_port": "b",
+      "to_instance": "edge_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_edgeL",
+      "from_port": "out",
+      "to_instance": "yaw_edge_sum",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_edgeR",
+      "from_port": "out",
+      "to_instance": "yaw_edge_sum",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_edge_sum",
+      "from_port": "out",
+      "to_instance": "yaw_centre",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_sp",
+      "from_port": "out",
+      "to_instance": "yaw_err",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_err",
+      "from_port": "out",
+      "to_instance": "yaw_err_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_err_fan",
+      "from_port": "a",
+      "to_instance": "yaw_kp_e",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_err_fan",
+      "from_port": "b",
+      "to_instance": "yaw_err_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "kp",
+      "from_port": "out",
+      "to_instance": "kp_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "kp_fan",
+      "from_port": "a",
+      "to_instance": "yaw_kp_e",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "kp_fan",
+      "from_port": "b",
+      "to_instance": "pitch_kp_e",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "kd",
+      "from_port": "out",
+      "to_instance": "kd_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "kd_fan",
+      "from_port": "a",
+      "to_instance": "yaw_kd_w",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "kd_fan",
+      "from_port": "b",
+      "to_instance": "pitch_kd_w",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_kp_e",
+      "from_port": "out",
+      "to_instance": "yaw_u",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_kd_w",
+      "from_port": "out",
+      "to_instance": "yaw_u",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_u",
+      "from_port": "out",
+      "to_instance": "yaw_u_hi",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_u_hi",
+      "from_port": "out",
+      "to_instance": "yaw_u_c",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_neg_one",
+      "from_port": "out",
+      "to_instance": "yaw_u_c",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_neg_one_2",
+      "from_port": "out",
+      "to_instance": "pitch_u_c",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch",
+      "from_port": "out",
+      "to_instance": "theta_pitch_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan",
+      "from_port": "a",
+      "to_instance": "theta_pitch_fan1",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan1",
+      "from_port": "a",
+      "to_instance": "pitch_base",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan1",
+      "from_port": "b",
+      "to_instance": "pitch_left",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan1",
+      "from_port": "c",
+      "to_instance": "pitch_right",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan1",
+      "from_port": "d",
+      "to_instance": "pitch_edgeL",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan",
+      "from_port": "b",
+      "to_instance": "theta_pitch_fan2",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan2",
+      "from_port": "a",
+      "to_instance": "pitch_edgeR",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "theta_pitch_fan2",
+      "from_port": "b",
+      "to_instance": "pitch_err",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_3",
+      "from_port": "out",
+      "to_instance": "pitch_m1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "slew_pitch",
+      "from_port": "out",
+      "to_instance": "pitch_m2",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_centre",
+      "from_port": "out",
+      "to_instance": "pitch_to_centre",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_hold",
+      "from_port": "out",
+      "to_instance": "pitch_hold_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_hold_fan",
+      "from_port": "a",
+      "to_instance": "pitch_to_centre",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_hold_fan",
+      "from_port": "b",
+      "to_instance": "pitch_sp1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_hold_fan",
+      "from_port": "c",
+      "to_instance": "pitch_left",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_hold_fan",
+      "from_port": "d",
+      "to_instance": "pitch_right",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_to_centre",
+      "from_port": "out",
+      "to_instance": "pitch_m3",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "entry_11",
+      "from_port": "out",
+      "to_instance": "pitch_m3",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_m1",
+      "from_port": "out",
+      "to_instance": "pitch_m12",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_m2",
+      "from_port": "out",
+      "to_instance": "pitch_m12",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_m12",
+      "from_port": "out",
+      "to_instance": "pitch_moves",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_m3",
+      "from_port": "out",
+      "to_instance": "pitch_moves",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_moves",
+      "from_port": "out",
+      "to_instance": "pitch_acc",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_base",
+      "from_port": "out",
+      "to_instance": "pitch_hold",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_acc",
+      "from_port": "out",
+      "to_instance": "pitch_hold",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL",
+      "from_port": "out",
+      "to_instance": "pitch_offL_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_fan",
+      "from_port": "a",
+      "to_instance": "pitch_offL_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_fan",
+      "from_port": "b",
+      "to_instance": "pitch_sp1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_abs",
+      "from_port": "out",
+      "to_instance": "pitch_offL_grow",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_grow",
+      "from_port": "out",
+      "to_instance": "pitch_offL_rate_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_rate_raw",
+      "from_port": "out",
+      "to_instance": "pitch_offL_rate",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_9",
+      "from_port": "out",
+      "to_instance": "sw_9_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_9_fan",
+      "from_port": "a",
+      "to_instance": "pitch_offL_flagneg",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_9_fan",
+      "from_port": "b",
+      "to_instance": "pitch_notL",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_9_fan",
+      "from_port": "c",
+      "to_instance": "pitch_fallL",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_rate",
+      "from_port": "out",
+      "to_instance": "pitch_offL_in",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_flagneg",
+      "from_port": "out",
+      "to_instance": "pitch_offL_in",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offL_in",
+      "from_port": "out",
+      "to_instance": "pitch_offL",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_notL",
+      "from_port": "out",
+      "to_instance": "pitch_offL",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR",
+      "from_port": "out",
+      "to_instance": "pitch_offR_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_fan",
+      "from_port": "a",
+      "to_instance": "pitch_offR_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_fan",
+      "from_port": "b",
+      "to_instance": "pitch_sp",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_abs",
+      "from_port": "out",
+      "to_instance": "pitch_offR_grow",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_grow",
+      "from_port": "out",
+      "to_instance": "pitch_offR_rate_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_rate_raw",
+      "from_port": "out",
+      "to_instance": "pitch_offR_rate",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_rate",
+      "from_port": "out",
+      "to_instance": "pitch_offR_in",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_10",
+      "from_port": "out",
+      "to_instance": "sw_10_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_10_fan",
+      "from_port": "a",
+      "to_instance": "pitch_offR_in",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_10_fan",
+      "from_port": "b",
+      "to_instance": "pitch_notR",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "sw_10_fan",
+      "from_port": "c",
+      "to_instance": "pitch_fallR",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_offR_in",
+      "from_port": "out",
+      "to_instance": "pitch_offR",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_notR",
+      "from_port": "out",
+      "to_instance": "pitch_offR",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_sp1",
+      "from_port": "out",
+      "to_instance": "pitch_sp",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_fallL",
+      "from_port": "out",
+      "to_instance": "pitch_setL",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_left",
+      "from_port": "out",
+      "to_instance": "pitch_setL",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_fallR",
+      "from_port": "out",
+      "to_instance": "pitch_setR",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_right",
+      "from_port": "out",
+      "to_instance": "pitch_setR",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_setL",
+      "from_port": "out",
+      "to_instance": "pitch_setL_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_setL_fan",
+      "from_port": "a",
+      "to_instance": "pitch_edgeL",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_setL_fan",
+      "from_port": "b",
+      "to_instance": "edge_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_setR",
+      "from_port": "out",
+      "to_instance": "pitch_setR_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_setR_fan",
+      "from_port": "a",
+      "to_instance": "pitch_edgeR",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_setR_fan",
+      "from_port": "b",
+      "to_instance": "edge_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_edgeL",
+      "from_port": "out",
+      "to_instance": "pitch_edge_sum",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_edgeR",
+      "from_port": "out",
+      "to_instance": "pitch_edge_sum",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_edge_sum",
+      "from_port": "out",
+      "to_instance": "pitch_centre",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_sp",
+      "from_port": "out",
+      "to_instance": "pitch_err",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_err",
+      "from_port": "out",
+      "to_instance": "pitch_err_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_err_fan",
+      "from_port": "a",
+      "to_instance": "pitch_kp_e",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_err_fan",
+      "from_port": "b",
+      "to_instance": "pitch_err_abs",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_kp_e",
+      "from_port": "out",
+      "to_instance": "pitch_u",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_kd_w",
+      "from_port": "out",
+      "to_instance": "pitch_u",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_u",
+      "from_port": "out",
+      "to_instance": "pitch_u_hi",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_u_hi",
+      "from_port": "out",
+      "to_instance": "pitch_u_c",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_err_abs",
+      "from_port": "out",
+      "to_instance": "err_sum",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_err_abs",
+      "from_port": "out",
+      "to_instance": "err_sum",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_w_abs",
+      "from_port": "out",
+      "to_instance": "w_sum",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_w_abs",
+      "from_port": "out",
+      "to_instance": "w_sum",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "err_sum",
+      "from_port": "out",
+      "to_instance": "err_ok",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_settle_err",
+      "from_port": "out",
+      "to_instance": "err_ok",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_sum",
+      "from_port": "out",
+      "to_instance": "w_ok",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_settle_rate",
+      "from_port": "out",
+      "to_instance": "w_ok",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "err_ok",
+      "from_port": "out",
+      "to_instance": "settled_raw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "w_ok",
+      "from_port": "out",
+      "to_instance": "settled_raw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "st_a",
+      "from_port": "out",
+      "to_instance": "st_ab",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "st_b",
+      "from_port": "out",
+      "to_instance": "st_ab",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "st_ab",
+      "from_port": "out",
+      "to_instance": "st_all",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "st_all",
+      "from_port": "out",
+      "to_instance": "settle_phase",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "since_change",
+      "from_port": "out",
+      "to_instance": "since_change_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "since_change_fan",
+      "from_port": "a",
+      "to_instance": "blanked",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "since_change_fan",
+      "from_port": "b",
+      "to_instance": "settle_late",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_blank",
+      "from_port": "out",
+      "to_instance": "blanked",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_phase",
+      "from_port": "out",
+      "to_instance": "settle_phase_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_phase_fan",
+      "from_port": "a",
+      "to_instance": "settle_ok_time",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_phase_fan",
+      "from_port": "b",
+      "to_instance": "settle_late_on",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "blanked",
+      "from_port": "out",
+      "to_instance": "settle_ok_time",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settled_raw",
+      "from_port": "out",
+      "to_instance": "settle_on",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_ok_time",
+      "from_port": "out",
+      "to_instance": "settle_on",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_on",
+      "from_port": "out",
+      "to_instance": "settle_off",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_off",
+      "from_port": "out",
+      "to_instance": "settle_count",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_count",
+      "from_port": "out",
+      "to_instance": "settle_hit",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_settle_ticks",
+      "from_port": "out",
+      "to_instance": "settle_hit",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_settle_timeout",
+      "from_port": "out",
+      "to_instance": "settle_late",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_late",
+      "from_port": "out",
+      "to_instance": "settle_late_on",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_hit",
+      "from_port": "out",
+      "to_instance": "settle_done",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_late_on",
+      "from_port": "out",
+      "to_instance": "settle_done",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_done",
+      "from_port": "out",
+      "to_instance": "settle_done_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_done_fan",
+      "from_port": "a",
+      "to_instance": "slew_end",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_done_fan",
+      "from_port": "b",
+      "to_instance": "settle_adv",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "slew_end",
+      "from_port": "out",
+      "to_instance": "restart",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "no_det",
+      "from_port": "out",
+      "to_instance": "restart",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "edge_yaw",
+      "from_port": "out",
+      "to_instance": "edge_any",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "edge_pitch",
+      "from_port": "out",
+      "to_instance": "edge_any",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "not_restart",
+      "from_port": "out",
+      "to_instance": "settle_adv",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "settle_adv",
+      "from_port": "out",
+      "to_instance": "adv_a",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "adv_a",
+      "from_port": "out",
+      "to_instance": "adv1",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "edge_any",
+      "from_port": "out",
+      "to_instance": "adv1",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "close_skip",
+      "from_port": "out",
+      "to_instance": "skip_amt",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "k_skip",
+      "from_port": "out",
+      "to_instance": "skip_amt",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "adv1",
+      "from_port": "out",
+      "to_instance": "adv_amount",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "skip_amt",
+      "from_port": "out",
+      "to_instance": "adv_amount",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "yaw_u_c",
+      "from_port": "out",
+      "to_instance": "rcs_yaw",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "pitch_u_c",
+      "from_port": "out",
+      "to_instance": "rcs_pitch",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "cone_auto",
+      "from_port": "out",
+      "to_instance": "cone_cmd",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_cone_manual",
+      "from_port": "out",
+      "to_instance": "cone_cmd",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "done",
+      "from_port": "out",
+      "to_instance": "locked_and",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "locked_and",
+      "from_port": "out",
+      "to_instance": "locked",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    }
+  ],
+  "groups": [],
+  "max_per_column": 4,
+  "max_rows": 4,
+  "max_columns": 8
+}

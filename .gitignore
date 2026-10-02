@@ -1,0 +1,17 @@
+node_modules/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
+# scratch file written (and removed) by parameter sweeps that load a builder
+tools/.fan_stats_tmp.js
+
+# Raw data extracted from the game's files. Nothing in the tests or the generator reads it, and the scripts in
+# tools/bp rebuild it from a local install (prefab_dump.py, parts/*_dump.py, extract_structure.py).
+tools/bp/prefab_dump.json
+tools/bp/parts/*_prefabs.json
+tools/bp/parts/*_prefab_dump.json
+tools/bp/parts/cd_prefab_extra.json
+tools/bp/parts/structure_meshes.json
+tools/bp/meshes/

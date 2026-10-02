@@ -1,0 +1,1518 @@
+{
+  "instances": [
+    {
+      "id": "in_distance",
+      "type_id": "slider",
+      "parameters": {
+        "value": 50000000
+      },
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "in_velocity",
+      "type_id": "slider",
+      "parameters": {
+        "value": 300000
+      },
+      "position": {
+        "x": 40,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "in_accel",
+      "type_id": "slider",
+      "parameters": {
+        "value": 500
+      },
+      "position": {
+        "x": 40,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "in_thrust_ratio",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "in_gravity",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 1195
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "in_enable",
+      "type_id": "toggle",
+      "parameters": {
+        "value": 1
+      },
+      "position": {
+        "x": 40,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_lead_s",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.25
+      },
+      "position": {
+        "x": 520,
+        "y": 205
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_standoff_m",
+      "type_id": "constant",
+      "parameters": {
+        "value": 50
+      },
+      "position": {
+        "x": 760,
+        "y": 205
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_cut_s",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.15
+      },
+      "position": {
+        "x": 1480,
+        "y": 2020
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_two_margin",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1.9
+      },
+      "position": {
+        "x": 1480,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_a_floor",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.01
+      },
+      "position": {
+        "x": 1240,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_v_floor",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.01
+      },
+      "position": {
+        "x": 520,
+        "y": 2020
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tune_min_brake",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 2440,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "dist_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "vel_router",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "vel_router_2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "v_squared",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "lead_m",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "dist_after_lead",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "dist_plan",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "d_plan_router",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "accel_abs",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "accel_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "ratio_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "ratio_or_one",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 520,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "ratio_if_accel",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 760,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_brake",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_brake_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_measured_pos",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 1240,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_update",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_held",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 1240,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_held_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_known",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 1720,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_known_settled",
+      "type_id": "delay",
+      "parameters": {
+        "ticks": 10
+      },
+      "position": {
+        "x": 1960,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_with_gravity",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "gravity_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1195
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_net_now",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_floored",
+      "type_id": "max",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "two_a_plan",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1720,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "stopping_distance",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 1960,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "stop_router",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 2200,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "decision",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 2440,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "decision_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 2680,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "brake_ratio",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 2440,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "brake_floor",
+      "type_id": "max",
+      "parameters": {},
+      "position": {
+        "x": 2680,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "brake_level",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 2680,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "brake_cmd",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 2920,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "brake_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 3160,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "wants_brake",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 2920,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "commit_now",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 3160,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "commit_or",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 3400,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "committed",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "committed_router",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "command",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 3400,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "command_router",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "command_router_2",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "command_delayed",
+      "type_id": "delay",
+      "parameters": {
+        "ticks": 10
+      },
+      "position": {
+        "x": 4120,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "command_steady",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 4360,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "v_cut",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1720,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "is_slow",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 1960,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "is_braking",
+      "type_id": "condition",
+      "parameters": {
+        "op": 2
+      },
+      "position": {
+        "x": 3880,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "stop_now",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "stop_or",
+      "type_id": "or",
+      "parameters": {},
+      "position": {
+        "x": 4360,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "stopped",
+      "type_id": "and",
+      "parameters": {},
+      "position": {
+        "x": 4600,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "stopped_router",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 4840,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "arrived",
+      "type_id": "datameter",
+      "parameters": {},
+      "position": {
+        "x": 5080,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "enable_init",
+      "type_id": "initializer",
+      "parameters": {
+        "ticks": 10
+      },
+      "position": {
+        "x": 280,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "enable_router",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "hold_if_stopped",
+      "type_id": "condition",
+      "parameters": {
+        "op": 0
+      },
+      "position": {
+        "x": 4120,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "thruster_out",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 4360,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "v_safe",
+      "type_id": "max",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 2020
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "time_to_arrival",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 2020
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    }
+  ],
+  "edges": [
+    {
+      "from_instance": "in_distance",
+      "from_port": "out",
+      "to_instance": "dist_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "in_velocity",
+      "from_port": "out",
+      "to_instance": "vel_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vel_router",
+      "from_port": "a",
+      "to_instance": "v_squared",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vel_router",
+      "from_port": "b",
+      "to_instance": "v_squared",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vel_router",
+      "from_port": "c",
+      "to_instance": "lead_m",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vel_router",
+      "from_port": "d",
+      "to_instance": "vel_router_2",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_lead_s",
+      "from_port": "out",
+      "to_instance": "lead_m",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "dist_router",
+      "from_port": "a",
+      "to_instance": "dist_after_lead",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "lead_m",
+      "from_port": "out",
+      "to_instance": "dist_after_lead",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "dist_after_lead",
+      "from_port": "out",
+      "to_instance": "dist_plan",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_standoff_m",
+      "from_port": "out",
+      "to_instance": "dist_plan",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "dist_plan",
+      "from_port": "out",
+      "to_instance": "d_plan_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "in_accel",
+      "from_port": "out",
+      "to_instance": "accel_abs",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "in_thrust_ratio",
+      "from_port": "out",
+      "to_instance": "ratio_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ratio_router",
+      "from_port": "a",
+      "to_instance": "ratio_or_one",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ratio_router",
+      "from_port": "b",
+      "to_instance": "ratio_or_one",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ratio_or_one",
+      "from_port": "out",
+      "to_instance": "ratio_if_accel",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_router",
+      "from_port": "c",
+      "to_instance": "ratio_if_accel",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "accel_abs",
+      "from_port": "out",
+      "to_instance": "accel_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "accel_router",
+      "from_port": "a",
+      "to_instance": "a_brake",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ratio_if_accel",
+      "from_port": "out",
+      "to_instance": "a_brake",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_brake",
+      "from_port": "out",
+      "to_instance": "a_brake_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_brake_router",
+      "from_port": "a",
+      "to_instance": "a_held",
+      "to_port": "value",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_brake_router",
+      "from_port": "b",
+      "to_instance": "a_measured_pos",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_router",
+      "from_port": "d",
+      "to_instance": "command_router_2",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_router_2",
+      "from_port": "a",
+      "to_instance": "command_steady",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_router_2",
+      "from_port": "b",
+      "to_instance": "command_delayed",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_delayed",
+      "from_port": "out",
+      "to_instance": "command_steady",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_steady",
+      "from_port": "out",
+      "to_instance": "a_update",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_measured_pos",
+      "from_port": "out",
+      "to_instance": "a_update",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_update",
+      "from_port": "out",
+      "to_instance": "a_held",
+      "to_port": "set",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_held",
+      "from_port": "out",
+      "to_instance": "a_held_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_held_router",
+      "from_port": "a",
+      "to_instance": "a_with_gravity",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_held_router",
+      "from_port": "b",
+      "to_instance": "a_known",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "in_gravity",
+      "from_port": "out",
+      "to_instance": "gravity_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "gravity_router",
+      "from_port": "a",
+      "to_instance": "a_with_gravity",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_with_gravity",
+      "from_port": "out",
+      "to_instance": "a_floored",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_a_floor",
+      "from_port": "out",
+      "to_instance": "a_floored",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_floored",
+      "from_port": "out",
+      "to_instance": "two_a_plan",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_two_margin",
+      "from_port": "out",
+      "to_instance": "two_a_plan",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_squared",
+      "from_port": "out",
+      "to_instance": "stopping_distance",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "two_a_plan",
+      "from_port": "out",
+      "to_instance": "stopping_distance",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stopping_distance",
+      "from_port": "out",
+      "to_instance": "stop_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_plan_router",
+      "from_port": "a",
+      "to_instance": "decision",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stop_router",
+      "from_port": "a",
+      "to_instance": "decision",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_router",
+      "from_port": "a",
+      "to_instance": "decision",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "decision",
+      "from_port": "out",
+      "to_instance": "decision_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stop_router",
+      "from_port": "b",
+      "to_instance": "brake_ratio",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_plan_router",
+      "from_port": "b",
+      "to_instance": "brake_ratio",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_plan_router",
+      "from_port": "c",
+      "to_instance": "brake_level",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stop_router",
+      "from_port": "c",
+      "to_instance": "brake_level",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_ratio",
+      "from_port": "out",
+      "to_instance": "brake_floor",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_min_brake",
+      "from_port": "out",
+      "to_instance": "brake_floor",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_floor",
+      "from_port": "out",
+      "to_instance": "brake_level",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_level",
+      "from_port": "out",
+      "to_instance": "brake_cmd",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_cmd",
+      "from_port": "out",
+      "to_instance": "brake_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "decision_router",
+      "from_port": "a",
+      "to_instance": "command",
+      "to_port": "true",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "decision_router",
+      "from_port": "b",
+      "to_instance": "wants_brake",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "wants_brake",
+      "from_port": "out",
+      "to_instance": "commit_now",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_known",
+      "from_port": "out",
+      "to_instance": "a_known_settled",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_known_settled",
+      "from_port": "out",
+      "to_instance": "commit_now",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "commit_now",
+      "from_port": "out",
+      "to_instance": "commit_or",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "committed_router",
+      "from_port": "b",
+      "to_instance": "commit_or",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "commit_or",
+      "from_port": "out",
+      "to_instance": "committed",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "enable_router",
+      "from_port": "c",
+      "to_instance": "committed",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "committed",
+      "from_port": "out",
+      "to_instance": "committed_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "committed_router",
+      "from_port": "a",
+      "to_instance": "command",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_router",
+      "from_port": "b",
+      "to_instance": "command",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command",
+      "from_port": "out",
+      "to_instance": "command_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "accel_router",
+      "from_port": "b",
+      "to_instance": "a_net_now",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "gravity_router",
+      "from_port": "b",
+      "to_instance": "a_net_now",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_net_now",
+      "from_port": "out",
+      "to_instance": "v_cut",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_cut_s",
+      "from_port": "out",
+      "to_instance": "v_cut",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vel_router_2",
+      "from_port": "a",
+      "to_instance": "is_slow",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_cut",
+      "from_port": "out",
+      "to_instance": "is_slow",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_router",
+      "from_port": "b",
+      "to_instance": "is_braking",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "is_slow",
+      "from_port": "out",
+      "to_instance": "stop_now",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "is_braking",
+      "from_port": "out",
+      "to_instance": "stop_now",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stop_now",
+      "from_port": "out",
+      "to_instance": "stop_or",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stopped_router",
+      "from_port": "b",
+      "to_instance": "stop_or",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stop_or",
+      "from_port": "out",
+      "to_instance": "stopped",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "enable_router",
+      "from_port": "d",
+      "to_instance": "stopped",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stopped",
+      "from_port": "out",
+      "to_instance": "stopped_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stopped_router",
+      "from_port": "c",
+      "to_instance": "arrived",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "in_enable",
+      "from_port": "out",
+      "to_instance": "enable_init",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "enable_init",
+      "from_port": "out",
+      "to_instance": "enable_router",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "stopped_router",
+      "from_port": "a",
+      "to_instance": "hold_if_stopped",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "command_router",
+      "from_port": "a",
+      "to_instance": "hold_if_stopped",
+      "to_port": "true",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "hold_if_stopped",
+      "from_port": "out",
+      "to_instance": "thruster_out",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "enable_router",
+      "from_port": "a",
+      "to_instance": "thruster_out",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vel_router_2",
+      "from_port": "b",
+      "to_instance": "v_safe",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "tune_v_floor",
+      "from_port": "out",
+      "to_instance": "v_safe",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "dist_router",
+      "from_port": "b",
+      "to_instance": "time_to_arrival",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_safe",
+      "from_port": "out",
+      "to_instance": "time_to_arrival",
+      "to_port": "b",
+      "color": "#e9c46a"
+    }
+  ],
+  "groups": [],
+  "max_per_column": 4,
+  "max_rows": 4,
+  "max_columns": 8
+}

@@ -1,0 +1,1581 @@
+{
+ "EPC_SCAccumulator+Blueprint+BlueprintData": {
+  "hash": "2ba6e472e5d8ae29",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_mode",
+    20,
+    1
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCActionableLight+Blueprint+BlueprintData": {
+  "hash": "b7b81edd74c7e795",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_toggle",
+    20,
+    4
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCAnalogMeter+Blueprint+BlueprintData": {
+  "hash": "ce486cb4b7aebeca",
+  "size": 66,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_rangeMin",
+    52,
+    4
+   ],
+   [
+    "_rangeMax",
+    56,
+    4
+   ],
+   [
+    "_col",
+    60,
+    1
+   ],
+   [
+    "_labelRotated",
+    61,
+    4
+   ]
+  ]
+ },
+ "EPC_SCBeeper+Blueprint+BlueprintData": {
+  "hash": "b3ce975cd1fcbe15",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knobValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCButton+Blueprint+BlueprintData": {
+  "hash": "be022eddda7b51c4",
+  "size": 58,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_buttonPressed",
+    52,
+    4
+   ],
+   [
+    "_col",
+    53,
+    1
+   ],
+   [
+    "_labelRotated",
+    54,
+    4
+   ]
+  ]
+ },
+ "EPC_SCCable+Blueprint+BlueprintData": {
+  "hash": "ac55b0d723fc7373",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_shape",
+    20,
+    1
+   ],
+   [
+    "_type",
+    21,
+    1
+   ],
+   [
+    "_col",
+    22,
+    1
+   ]
+  ]
+ },
+ "EPC_SCCamera+Blueprint+BlueprintData": {
+  "hash": "d2736f54c39ffcd9",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_cameraOrientation",
+    20,
+    1
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCCameraOverlay+Blueprint+BlueprintData": {
+  "hash": "95ff1e6e6f153abc",
+  "size": 156,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_cameraOrientation",
+    20,
+    1
+   ],
+   [
+    "_col",
+    21,
+    1
+   ],
+   [
+    "_alignment",
+    22,
+    1
+   ],
+   [
+    "_size",
+    23,
+    1
+   ],
+   [
+    "_graphics",
+    24,
+    1
+   ],
+   [
+    "_position",
+    25,
+    1
+   ],
+   [
+    "_inputSwitches",
+    26,
+    1
+   ],
+   [
+    "_label0",
+    28,
+    32
+   ],
+   [
+    "_label1",
+    60,
+    32
+   ],
+   [
+    "_label2",
+    92,
+    32
+   ],
+   [
+    "_label3",
+    124,
+    32
+   ]
+  ]
+ },
+ "EPC_SCColoredLight+Blueprint+BlueprintData": {
+  "hash": "1e3e9caf1d00c715",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knobIntensity",
+    20,
+    4
+   ],
+   [
+    "_knobColor",
+    24,
+    1
+   ],
+   [
+    "_knobChannel",
+    25,
+    1
+   ],
+   [
+    "_col",
+    26,
+    1
+   ]
+  ]
+ },
+ "EPC_SCColoredLightController+Blueprint+BlueprintData": {
+  "hash": "cfcec9715c1da831",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knobChannel",
+    20,
+    1
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCCondition+Blueprint+BlueprintData": {
+  "hash": "3a6e906aeb9d8da7",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_mode",
+    20,
+    1
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCConstant+Blueprint+BlueprintData": {
+  "hash": "4bebf2e4eb16d986",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_value",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCDataHub+Blueprint+BlueprintData": {
+  "hash": "b1944748547c05b7",
+  "size": 58,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_channel",
+    52,
+    1
+   ],
+   [
+    "_col",
+    53,
+    1
+   ],
+   [
+    "_labelRotated",
+    54,
+    4
+   ]
+  ]
+ },
+ "EPC_SCDataMeter+Blueprint+BlueprintData": {
+  "hash": "220b39863b13c40e",
+  "size": 58,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_col",
+    52,
+    1
+   ],
+   [
+    "_inputSwitch",
+    53,
+    4
+   ],
+   [
+    "_labelRotated",
+    54,
+    4
+   ]
+  ]
+ },
+ "EPC_SCDelay+Blueprint+BlueprintData": {
+  "hash": "41dcea421311207c",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_rotKnobValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCDifferentiator+Blueprint+BlueprintData": {
+  "hash": "7a00849b4499913a",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_rotKnobValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCETASystem+Blueprint+BlueprintData": {
+  "hash": "2db3795ba18133a2",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knobValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCFader+Blueprint+BlueprintData": {
+  "hash": "e409fc1b1cbe1b9c",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_lever",
+    16,
+    4
+   ],
+   [
+    "_gt",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCFrame+Blueprint+BlueprintData": {
+  "hash": "065c7955e8c0be6b",
+  "size": 32,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_solidFaces",
+    20,
+    1
+   ],
+   [
+    "_col0",
+    21,
+    1
+   ],
+   [
+    "_col1",
+    22,
+    1
+   ],
+   [
+    "_col2",
+    23,
+    1
+   ],
+   [
+    "_col3",
+    24,
+    1
+   ],
+   [
+    "_col4",
+    25,
+    1
+   ],
+   [
+    "_col5",
+    26,
+    1
+   ],
+   [
+    "_col6",
+    27,
+    1
+   ],
+   [
+    "_col7",
+    28,
+    1
+   ]
+  ]
+ },
+ "EPC_SCFuelAnalyzer+Blueprint+BlueprintData": {
+  "hash": "1d74bbbcfd545674",
+  "size": 30,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knobVal",
+    20,
+    4
+   ],
+   [
+    "_toggle",
+    24,
+    4
+   ],
+   [
+    "_col",
+    25,
+    1
+   ],
+   [
+    "_mode",
+    26,
+    4
+   ]
+  ]
+ },
+ "EPC_SCFuseBox+Blueprint+BlueprintData": {
+  "hash": "89515914122a7eac",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_threshold",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCGimbalController+Blueprint+BlueprintData": {
+  "hash": "7b729f32a0b56d16",
+  "size": 49,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_leverA",
+    16,
+    4
+   ],
+   [
+    "_leverB",
+    20,
+    4
+   ],
+   [
+    "_leverC",
+    24,
+    4
+   ],
+   [
+    "_leverD",
+    28,
+    4
+   ],
+   [
+    "_leverE",
+    32,
+    4
+   ],
+   [
+    "_leverF",
+    36,
+    4
+   ],
+   [
+    "_gt",
+    40,
+    4
+   ],
+   [
+    "_col",
+    44,
+    1
+   ],
+   [
+    "_toggle",
+    45,
+    4
+   ]
+  ]
+ },
+ "EPC_SCGimbalThruster+Blueprint+BlueprintData": {
+  "hash": "cd4597c9093fdf38",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_channel",
+    16,
+    4
+   ],
+   [
+    "_gt",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCGreenTrenchPump+Blueprint+BlueprintData": {
+  "hash": "8c130cb958a9b53d",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_toggle",
+    20,
+    4
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCGyroLine+Blueprint+BlueprintData": {
+  "hash": "2dec554800fbfa4e",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_rotKnobValue",
+    20,
+    4
+   ],
+   [
+    "_toggle",
+    24,
+    4
+   ],
+   [
+    "_col",
+    25,
+    1
+   ],
+   [
+    "_degrees",
+    26,
+    1
+   ]
+  ]
+ },
+ "EPC_SCInitializer+Blueprint+BlueprintData": {
+  "hash": "981437c0d8f94200",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_col",
+    20,
+    1
+   ],
+   [
+    "_ticks",
+    21,
+    2
+   ]
+  ]
+ },
+ "EPC_SCJoystick+Blueprint+BlueprintData": {
+  "hash": "aa74eeb1b74ac75f",
+  "size": 74,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_leverActionableValue",
+    48,
+    16
+   ],
+   [
+    "_gt",
+    64,
+    4
+   ],
+   [
+    "_col",
+    68,
+    1
+   ],
+   [
+    "_labelRotated",
+    69,
+    4
+   ]
+  ]
+ },
+ "EPC_SCKnob+Blueprint+BlueprintData": {
+  "hash": "9b91c802de1868a5",
+  "size": 62,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_knobValue",
+    48,
+    4
+   ],
+   [
+    "_gt",
+    52,
+    4
+   ],
+   [
+    "_col",
+    56,
+    1
+   ],
+   [
+    "_labelRotated",
+    57,
+    4
+   ]
+  ]
+ },
+ "EPC_SCLEDText+Blueprint+BlueprintData": {
+  "hash": "dd545e80e2dd2a2a",
+  "size": 58,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_col",
+    52,
+    1
+   ],
+   [
+    "_knobColor",
+    53,
+    1
+   ],
+   [
+    "_labelRotated",
+    54,
+    4
+   ]
+  ]
+ },
+ "EPC_SCLabel+Blueprint+BlueprintData": {
+  "hash": "90ef24df4ed7024b",
+  "size": 58,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_col",
+    52,
+    1
+   ],
+   [
+    "_labelRotated",
+    53,
+    4
+   ]
+  ]
+ },
+ "EPC_SCLever+Blueprint+BlueprintData": {
+  "hash": "733a7f52af5ab157",
+  "size": 62,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_leverValue",
+    48,
+    4
+   ],
+   [
+    "_gt",
+    52,
+    4
+   ],
+   [
+    "_col",
+    56,
+    1
+   ],
+   [
+    "_toggle",
+    57,
+    4
+   ],
+   [
+    "_labelRotated",
+    58,
+    4
+   ]
+  ]
+ },
+ "EPC_SCMemory+Blueprint+BlueprintData": {
+  "hash": "1169615290e0b3f2",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_mode",
+    20,
+    1
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCMonitor+Blueprint+BlueprintData": {
+  "hash": "e28cfb6188ca5843",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_toggle",
+    20,
+    4
+   ],
+   [
+    "_col",
+    21,
+    1
+   ],
+   [
+    "_mode",
+    22,
+    1
+   ]
+  ]
+ },
+ "EPC_SCOutcastPolarAnchor+Blueprint+BlueprintData": {
+  "hash": "466f00f4dfc540f0",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_leverValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCPipeManualValve+Blueprint+BlueprintData": {
+  "hash": "a25fad0f7410ad39",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_actionableValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCRadar+Blueprint+BlueprintData": {
+  "hash": "9ddc1941ee3f0325",
+  "size": 38,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knob0Value",
+    20,
+    4
+   ],
+   [
+    "_knob1Value",
+    24,
+    4
+   ],
+   [
+    "_knob2Value",
+    28,
+    4
+   ],
+   [
+    "_toggle",
+    32,
+    4
+   ],
+   [
+    "_col",
+    33,
+    1
+   ],
+   [
+    "_mode",
+    34,
+    4
+   ]
+  ]
+ },
+ "EPC_SCRemapper+Blueprint+BlueprintData": {
+  "hash": "678f7e2f43801b9f",
+  "size": 40,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_value0",
+    20,
+    4
+   ],
+   [
+    "_value1",
+    24,
+    4
+   ],
+   [
+    "_value2",
+    28,
+    4
+   ],
+   [
+    "_value3",
+    32,
+    4
+   ],
+   [
+    "_col",
+    36,
+    1
+   ]
+  ]
+ },
+ "EPC_SCRound+Blueprint+BlueprintData": {
+  "hash": "b5708772abdf336e",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_col",
+    20,
+    1
+   ],
+   [
+    "_mode",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCSeat+Blueprint+BlueprintData": {
+  "hash": "d9ffa924de711418",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_leverActionableValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCSimpleThreshold+Blueprint+BlueprintData": {
+  "hash": "1a4198f93d382bce",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_value",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCSpeaker+Blueprint+BlueprintData": {
+  "hash": "1bda3e07f3c8d18f",
+  "size": 30,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_knobValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ],
+   [
+    "_sound",
+    25,
+    1
+   ],
+   [
+    "_inputMode",
+    26,
+    4
+   ]
+  ]
+ },
+ "EPC_SCSwitch+Blueprint+BlueprintData": {
+  "hash": "7e3f5336e954442a",
+  "size": 58,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_actionableLabel",
+    16,
+    32
+   ],
+   [
+    "_gt",
+    48,
+    4
+   ],
+   [
+    "_buttonPressed",
+    52,
+    4
+   ],
+   [
+    "_col",
+    53,
+    1
+   ],
+   [
+    "_labelRotated",
+    54,
+    4
+   ]
+  ]
+ },
+ "EPC_SCTank+Blueprint+BlueprintData": {
+  "hash": "8330a3be9531b668",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_actionableValue",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCThruster+Blueprint+BlueprintData": {
+  "hash": "12393a4a6d15483f",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_reverseButton",
+    20,
+    4
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCVelocityMeter+Blueprint+BlueprintData": {
+  "hash": "af9895f68763d377",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_modeButton",
+    20,
+    4
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ },
+ "EPC_SCWhiteboard+Blueprint+BlueprintData": {
+  "hash": "02c0f83b34424edc",
+  "size": 28,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_extraData",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ]
+  ]
+ },
+ "EPC_SCWirelessTransmitter+Blueprint+BlueprintData": {
+  "hash": "a6a2972b8647cd1a",
+  "size": 60,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_channel",
+    20,
+    4
+   ],
+   [
+    "_col",
+    24,
+    1
+   ],
+   [
+    "_labelRotated",
+    25,
+    4
+   ],
+   [
+    "_actionableLabel",
+    28,
+    32
+   ]
+  ]
+ },
+ "EPC_SpaceshipComponent+Blueprint+BlueprintData": {
+  "hash": "d40d6455d7a517da",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_col",
+    20,
+    1
+   ]
+  ]
+ },
+ "?a0a17e9c56d75ad2": {
+  "hash": "a0a17e9c56d75ad2",
+  "size": 24,
+  "fields": [
+   [
+    "_guid",
+    0,
+    16
+   ],
+   [
+    "_gt",
+    16,
+    4
+   ],
+   [
+    "_toggle",
+    20,
+    4
+   ],
+   [
+    "_col",
+    21,
+    1
+   ]
+  ]
+ }
+}

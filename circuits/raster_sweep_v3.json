@@ -1,0 +1,923 @@
+{
+  "instances": [
+    {
+      "id": "in_scan_dist",
+      "type_id": "slider",
+      "parameters": {
+        "value": 100000000000000000000
+      },
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_yaw_rate",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_pitch_rate",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_joy_yaw",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 490
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_joy_pitch",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 640
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_cone_manual",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0.5
+      },
+      "position": {
+        "x": 40,
+        "y": 790
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_auto",
+      "type_id": "toggle",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 940
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_damp",
+      "type_id": "constant",
+      "parameters": {
+        "value": -0.25
+      },
+      "position": {
+        "x": 40,
+        "y": 1090
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_gain",
+      "type_id": "constant",
+      "parameters": {
+        "value": -6.6
+      },
+      "position": {
+        "x": 40,
+        "y": 1240
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_match",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1.05
+      },
+      "position": {
+        "x": 40,
+        "y": 1390
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_narrow",
+      "type_id": "constant",
+      "parameters": {
+        "value": -0.015
+      },
+      "position": {
+        "x": 40,
+        "y": 1540
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_widen",
+      "type_id": "constant",
+      "parameters": {
+        "value": 0.015
+      },
+      "position": {
+        "x": 40,
+        "y": 1690
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "tune_turn",
+      "type_id": "constant",
+      "parameters": {
+        "value": 1.5707963267948966
+      },
+      "position": {
+        "x": 40,
+        "y": 1840
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "manual",
+      "type_id": "not",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0_scale",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "d0",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 1
+      },
+      "position": {
+        "x": 760,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "L_step",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 1000,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "L",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "W_rel",
+      "type_id": "exp",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "W",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1720,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "cone_cmd",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 0,
+        "in_max": 1.02,
+        "out_min": 1.02,
+        "out_max": 0
+      },
+      "position": {
+        "x": 2200,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "widened",
+      "type_id": "differentiator",
+      "parameters": {
+        "interval": 60
+      },
+      "position": {
+        "x": 2200,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "checked",
+      "type_id": "differentiator",
+      "parameters": {
+        "interval": 1
+      },
+      "position": {
+        "x": 2680,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "turn_amt",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 2680,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "turn",
+      "type_id": "condition",
+      "parameters": {
+        "op": 1
+      },
+      "position": {
+        "x": 2920,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "heading",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 3160,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "head_x",
+      "type_id": "cos",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "head_y",
+      "type_id": "sin",
+      "parameters": {},
+      "position": {
+        "x": 3640,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "damp_k",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "speed_lim",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 2200,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "speed_d",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 2440,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "speed",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 2680,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "steer_yaw",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "steer_pitch",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 3880,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "damp_yaw",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "damp_pitch",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 340
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "rcs_yaw",
+      "type_id": "sum",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "rcs_pitch",
+      "type_id": "sum",
+      "parameters": {},
+      "position": {
+        "x": 4120,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_auto_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "in_scan_dist_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "W_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 1960,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "widened_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 2440,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "heading_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 3400,
+        "y": 40
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "damp_k_fan",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    },
+    {
+      "id": "speed_fan",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 2920,
+        "y": 190
+      },
+      "color": "#7aa2f7",
+      "mirrored": false
+    }
+  ],
+  "edges": [
+    {
+      "from_instance": "in_auto",
+      "from_port": "out",
+      "to_instance": "in_auto_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_auto_fan",
+      "from_port": "a",
+      "to_instance": "manual",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_auto_fan",
+      "from_port": "b",
+      "to_instance": "d0",
+      "to_port": "set",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_auto_fan",
+      "from_port": "c",
+      "to_instance": "damp_k",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_auto_fan",
+      "from_port": "d",
+      "to_instance": "speed_lim",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist",
+      "from_port": "out",
+      "to_instance": "in_scan_dist_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan",
+      "from_port": "a",
+      "to_instance": "d0_scale",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_scan_dist_fan",
+      "from_port": "b",
+      "to_instance": "L_step",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_match",
+      "from_port": "out",
+      "to_instance": "d0_scale",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0_scale",
+      "from_port": "out",
+      "to_instance": "d0",
+      "to_port": "value",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "d0",
+      "from_port": "out",
+      "to_instance": "L_step",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_narrow",
+      "from_port": "out",
+      "to_instance": "L_step",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_widen",
+      "from_port": "out",
+      "to_instance": "L_step",
+      "to_port": "false",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "L_step",
+      "from_port": "out",
+      "to_instance": "L",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "manual",
+      "from_port": "out",
+      "to_instance": "L",
+      "to_port": "reset",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "L",
+      "from_port": "out",
+      "to_instance": "W_rel",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "W_rel",
+      "from_port": "out",
+      "to_instance": "W",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_cone_manual",
+      "from_port": "out",
+      "to_instance": "W",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "W",
+      "from_port": "out",
+      "to_instance": "W_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "W_fan",
+      "from_port": "a",
+      "to_instance": "cone_cmd",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "W_fan",
+      "from_port": "b",
+      "to_instance": "widened",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "W_fan",
+      "from_port": "c",
+      "to_instance": "speed_lim",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "widened",
+      "from_port": "out",
+      "to_instance": "widened_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "widened_fan",
+      "from_port": "a",
+      "to_instance": "checked",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "widened_fan",
+      "from_port": "b",
+      "to_instance": "turn_amt",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_turn",
+      "from_port": "out",
+      "to_instance": "turn_amt",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "checked",
+      "from_port": "out",
+      "to_instance": "turn",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "turn_amt",
+      "from_port": "out",
+      "to_instance": "turn",
+      "to_port": "true",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "turn",
+      "from_port": "out",
+      "to_instance": "heading",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "heading",
+      "from_port": "out",
+      "to_instance": "heading_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "heading_fan",
+      "from_port": "a",
+      "to_instance": "head_x",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "heading_fan",
+      "from_port": "b",
+      "to_instance": "head_y",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_damp",
+      "from_port": "out",
+      "to_instance": "damp_k",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "speed_lim",
+      "from_port": "out",
+      "to_instance": "speed_d",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "damp_k",
+      "from_port": "out",
+      "to_instance": "damp_k_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "damp_k_fan",
+      "from_port": "a",
+      "to_instance": "speed_d",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "damp_k_fan",
+      "from_port": "b",
+      "to_instance": "damp_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "damp_k_fan",
+      "from_port": "c",
+      "to_instance": "damp_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "speed_d",
+      "from_port": "out",
+      "to_instance": "speed",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "tune_gain",
+      "from_port": "out",
+      "to_instance": "speed",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "speed",
+      "from_port": "out",
+      "to_instance": "speed_fan",
+      "to_port": "in",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "speed_fan",
+      "from_port": "a",
+      "to_instance": "steer_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "speed_fan",
+      "from_port": "b",
+      "to_instance": "steer_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "head_x",
+      "from_port": "out",
+      "to_instance": "steer_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "head_y",
+      "from_port": "out",
+      "to_instance": "steer_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_yaw_rate",
+      "from_port": "out",
+      "to_instance": "damp_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_pitch_rate",
+      "from_port": "out",
+      "to_instance": "damp_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_yaw",
+      "from_port": "out",
+      "to_instance": "rcs_yaw",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "steer_yaw",
+      "from_port": "out",
+      "to_instance": "rcs_yaw",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "damp_yaw",
+      "from_port": "out",
+      "to_instance": "rcs_yaw",
+      "to_port": "c",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "in_joy_pitch",
+      "from_port": "out",
+      "to_instance": "rcs_pitch",
+      "to_port": "a",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "steer_pitch",
+      "from_port": "out",
+      "to_instance": "rcs_pitch",
+      "to_port": "b",
+      "color": "#7aa2f7"
+    },
+    {
+      "from_instance": "damp_pitch",
+      "from_port": "out",
+      "to_instance": "rcs_pitch",
+      "to_port": "c",
+      "color": "#7aa2f7"
+    }
+  ],
+  "groups": [],
+  "max_per_column": 4,
+  "max_rows": 4,
+  "max_columns": 8
+}

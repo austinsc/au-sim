@@ -1,0 +1,177 @@
+{
+ "SC_FrameA": {
+  "edge/welded": 8522,
+  "inner/welded": 5569,
+  "edge/open": 16635,
+  "inner/open": 9206,
+  "inner/open_by_jointsarea_order": 10068,
+  "inner/welded_by_jointsarea_order": 4707
+ },
+ "SC_FrameB": {
+  "edge/open": 4162,
+  "inner/open": 1825,
+  "inner/welded": 1055,
+  "edge/welded": 1636,
+  "inner/open_by_jointsarea_order": 1185,
+  "inner/welded_by_jointsarea_order": 1695
+ },
+ "SC_FrameC": {
+  "edge/welded": 76,
+  "edge/open": 8
+ },
+ "SC_FrameD": {
+  "inner/welded": 21,
+  "edge/welded": 28,
+  "edge/open": 83,
+  "inner/open": 55,
+  "inner/welded_by_jointsarea_order": 21,
+  "inner/open_by_jointsarea_order": 55
+ },
+ "SC_FrameF": {
+  "inner/open": 9,
+  "edge/open": 57,
+  "inner/open_by_jointsarea_order": 9
+ },
+ "SC_FrameG": {
+  "inner/open": 86,
+  "inner/welded": 111,
+  "edge/welded": 130,
+  "edge/open": 145,
+  "inner/open_by_jointsarea_order": 60,
+  "inner/welded_by_jointsarea_order": 137
+ },
+ "SC_FrameH": {
+  "edge/open": 72,
+  "edge/welded": 22,
+  "inner/welded": 5,
+  "inner/welded_by_jointsarea_order": 5
+ },
+ "SC_FrameHalfA": {
+  "inner/open": 4261,
+  "inner/welded": 1772,
+  "edge/open": 12600,
+  "edge/welded": 3531,
+  "inner/open_by_jointsarea_order": 5187,
+  "inner/welded_by_jointsarea_order": 846
+ },
+ "SC_FrameHalfB": {
+  "inner/welded": 37,
+  "edge/open": 399,
+  "edge/welded": 170,
+  "inner/open": 87,
+  "inner/open_by_jointsarea_order": 124
+ },
+ "SC_FrameHalfC": {
+  "edge/welded": 58,
+  "edge/open": 204,
+  "inner/welded": 6,
+  "inner/open_by_jointsarea_order": 6
+ },
+ "SC_FrameHalfD": {
+  "edge/open": 318,
+  "inner/open": 82,
+  "inner/open_by_jointsarea_order": 82
+ },
+ "SC_FrameHalfE": {
+  "edge/open": 126,
+  "inner/open": 48,
+  "edge/welded": 5,
+  "inner/open_by_jointsarea_order": 48
+ },
+ "SC_FrameHalfF": {
+  "inner/welded": 175,
+  "edge/open": 1369,
+  "inner/open": 675,
+  "edge/welded": 246,
+  "inner/open_by_jointsarea_order": 839,
+  "inner/welded_by_jointsarea_order": 11
+ },
+ "SC_FrameHalfG": {
+  "edge/welded": 81,
+  "edge/open": 49
+ },
+ "SC_FrameHalfH": {
+  "inner/welded": 205,
+  "edge/welded": 466,
+  "inner/open": 365,
+  "edge/open": 1195,
+  "inner/welded_by_jointsarea_order": 271,
+  "inner/open_by_jointsarea_order": 299
+ },
+ "SC_FrameHalfI": {
+  "edge/welded": 38,
+  "inner/welded": 6,
+  "edge/open": 70,
+  "inner/open": 10,
+  "inner/welded_by_jointsarea_order": 6,
+  "inner/open_by_jointsarea_order": 10
+ },
+ "SC_FrameQuarterA": {
+  "inner/open": 1708,
+  "edge/welded": 1416,
+  "edge/open": 5633,
+  "inner/welded": 459,
+  "inner/open_by_jointsarea_order": 2045,
+  "inner/welded_by_jointsarea_order": 122
+ },
+ "SC_FrameQuarterB": {
+  "edge/open": 87,
+  "edge/welded": 18,
+  "inner/open": 1,
+  "inner/welded_by_jointsarea_order": 1
+ },
+ "SC_FrameQuarterC": {
+  "edge/open": 625,
+  "inner/open": 151,
+  "inner/welded": 26,
+  "edge/welded": 87,
+  "inner/open_by_jointsarea_order": 154,
+  "inner/welded_by_jointsarea_order": 23
+ },
+ "SC_FrameQuarterD": {
+  "edge/welded": 6,
+  "edge/open": 221,
+  "inner/open": 74,
+  "inner/open_by_jointsarea_order": 74
+ },
+ "SC_FrameQuarterE": {
+  "edge/open": 216,
+  "inner/open": 25,
+  "inner/welded": 36,
+  "edge/welded": 211,
+  "inner/open_by_jointsarea_order": 44,
+  "inner/welded_by_jointsarea_order": 17
+ },
+ "SC_FrameQuarterPipe": {
+  "edge/welded": 899,
+  "inner/welded": 404,
+  "edge/open": 140,
+  "inner/open": 18,
+  "inner/open_by_jointsarea_order": 258,
+  "inner/welded_by_jointsarea_order": 164
+ },
+ "SC_FrameQuarterPorts": {
+  "inner/open": 246,
+  "edge/open": 2833,
+  "inner/welded": 93,
+  "edge/welded": 1093,
+  "inner/open_by_jointsarea_order": 274,
+  "inner/welded_by_jointsarea_order": 65
+ },
+ "SC_FrameQuarterPortsCorner": {
+  "edge/welded": 566,
+  "inner/open": 997,
+  "edge/open": 3493,
+  "inner/welded": 71,
+  "inner/open_by_jointsarea_order": 1055,
+  "inner/welded_by_jointsarea_order": 13
+ },
+ "_SC_FrameA_unwelded_by_edge_distance": {
+  "edge 0.0": 2270,
+  "edge 0.0625": 14365,
+  "inner 0.0884": 2727,
+  "inner 0.1768": 2017,
+  "inner 0.1875": 4045,
+  "inner 0.2652": 417
+ }
+}
