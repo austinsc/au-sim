@@ -311,6 +311,7 @@ Confirmed type_ids and ports:
   - Interior faces are unconnected faces facing the ship's inside; exterior faces are unconnected faces on the outside.
   - A partly covered face still needs welding. One side can be two coplanar faces, each welded separately.
   - "Curved" parts are angular, with 1:1 (45°) and 1:2 (26.6°, "30°") slopes.
+- **Frame rotation model:** `tools/bp/parts/orientation_check.py` confirmed it against the corpus: slopes rest against another part 0.4% of the time, flat faces 78% (6% and 53% for the inverse rotation).
 - **Reference blueprint:** `rosetta.json` is the spec for the "rosetta" reference blueprint the user built in-game. It maps part hashes to part names.
   - The user removed "rosetta", "rosetta M" and "mirror test" from the game on 2026-10-02. Copies are in `tools/bp/reference/`, where `decode_rosetta.py` and `corpus.py` look for them.
 - **User's blueprints:** `%USERPROFILE%\AppData\LocalLow\ApproximatelyGames\ApproximatelyUp\Blueprints` (plus `BlueprintsBin`, which the game writes to on launch).
