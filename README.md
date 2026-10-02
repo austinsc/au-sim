@@ -21,5 +21,7 @@ Flight-computer tools for the game *Approximately Up*. The project has three par
 
 Run the tests with `node --test` (Node 20 or later).
 
-This is a fan project, not affiliated with the developers of *Approximately Up*. The part icons and part text
-come from the game.
+## Copyright
+
+*Approximately Up* and all of its assets belong to its developer, Approximately Games. That includes the part icons, part names and descriptions, the in-game manual text and the data taken from the game files (part sizes, meshes and properties). They are included here for reference only; all rights to them remain with the developer. au-sim is an unofficial fan project, not affiliated with or endorsed by Approximately Games.
+
