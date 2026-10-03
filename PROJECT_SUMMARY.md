@@ -5,7 +5,7 @@ Carried over from the earlier "gyro-line" chat (claude.ai), 2026-10-01. The goal
 ## Repository
 
 GitHub: https://github.com/austinsc/au-sim (public, created 2026-10-02).
-- The simulator is published on GitHub Pages at https://austinsc.github.io/au-sim/, served from the `gh-pages` branch as `index.html`, a copy of `circuit-simulator.html`.
+- The simulator is published on GitHub Pages at https://austinsc.github.io/au-sim/, served from the `gh-pages` branch as `index.html`, a copy of `circuit-simulator.html`. The workflow `.github/workflows/pages.yml` refreshes that copy whenever `circuit-simulator.html` changes on main. It can also be run by hand from the Actions tab.
 - Raw game extracts (prefab dumps, meshes) are left out by `.gitignore`; the scripts in `tools/bp` rebuild them from a local install.
 
 ## Files in this folder

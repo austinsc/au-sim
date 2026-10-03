@@ -1,0 +1,50 @@
+# Publishes the circuit simulator to GitHub Pages (https://austinsc.github.io/au-sim/).
+# Pages serves the gh-pages branch, which holds only index.html (a copy of circuit-simulator.html) and .nojekyll.
+# This runs whenever circuit-simulator.html changes on main; run it by hand from the Actions tab at any time.
+name: Publish simulator
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - circuit-simulator.html
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-simulator
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v7
+
+      - name: Check out gh-pages
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: site
+
+      - name: Copy the simulator
+        run: |
+          cp circuit-simulator.html site/index.html
+          touch site/.nojekyll
+
+      - name: Commit and push if it changed
+        working-directory: site
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The published simulator is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish circuit-simulator.html from ${GITHUB_SHA::7}"
+          git push
