@@ -49,6 +49,8 @@ const frontOf = (k) => rot(ORI[k], [0, 0, 1]);
 const upOf = (k) => rot(ORI[k], [0, 1, 0]);
 const UPRIGHT = {};                              // front direction index -> code with local +y = world +y
 for (const k of KS) if (veq(upOf(k), [0, 1, 0])) UPRIGHT[dirIndex(frontOf(k))] = k;
+const LYING = {};                                // reading direction index -> code of a label lying face up
+for (const k of KS) if (veq(frontOf(k), [0, 1, 0])) LYING[dirIndex(rot(ORI[k], [-1, 0, 0]))] = k;
 const CORNER = {};                               // (open a, open b) -> code with local +y -> a, local +z -> b
 for (const k of KS) CORNER[dirIndex(upOf(k)) * 6 + dirIndex(frontOf(k))] = k;
 const STRAIGHT = [0, 0, 9, 9, 16, 16];           // codes the game itself uses for x, y and z runs
@@ -59,6 +61,11 @@ for (let i = 0; i < 6; i += 2) {
 
 // ---------- part geometry ----------
 const geoCache = new Map();
+// Where a part's joint areas are, when they do not cover every face: (local cell, outward normal) -> whether that
+// cell face holds. The Wireless Transmitter's prefab JointsArea list covers its bottom and the lower row of its four
+// sides; its top and upper row hold nothing. Every other logic part is one cell tall with a joint on each face.
+const JOINT_AT = { wireless_transmitter: (c, n) => n[1] === -1 || (n[1] === 0 && c[1] === 0) };
+
 function geometry(type, k, mir) {
   const key = `${type}|${k}|${mir ? 1 : 0}`;
   let g = geoCache.get(key);
@@ -81,14 +88,18 @@ function geometry(type, k, mir) {
     const cell = vsub(rot(m, [x, y, z]), mn), fc = vsub(rot(m, face), mn);
     ports[name] = { name, cell, face: fc, inward: dirIndex(vsub(fc, cell)), dir: p.dir, kind: p.kind || 'data' };
   }
-  // cells just outside the footprint (for contact / support checks)
-  const inside = new Set(cells.map((c) => c.join()));
-  const shellSet = new Map();
-  for (const c of cells) for (const dd of DIRS) {
-    const n = vadd(c, dd);
-    if (!inside.has(n.join())) shellSet.set(n.join(), n);
+  // cells just outside the footprint (for contact / support checks), and those across a joint area
+  const inside = new Set(local.map((c) => c.join()));
+  const shellSet = new Map(), jointSet = new Map();
+  const holds = JOINT_AT[type];
+  for (const c of local) for (const dd of DIRS) {
+    const nl = vadd(c, dd);
+    if (inside.has(nl.join())) continue;
+    const n = vsub(rot(m, nl), mn);
+    shellSet.set(n.join(), n);
+    if (!holds || holds(c, dd)) jointSet.set(n.join(), n);
   }
-  g = { cells, dims, ports, shell: [...shellSet.values()], portList: Object.values(ports) };
+  g = { cells, dims, ports, shell: [...shellSet.values()], jointShell: [...jointSet.values()], portList: Object.values(ports) };
   geoCache.set(key, g);
   return g;
 }
@@ -96,9 +107,10 @@ function geometry(type, k, mir) {
 function variantsFor(type, all = true) {
   // every orientation the game allows (all 24 occur in saved blueprints), normal or mirrored twin;
   // upright ones (local +y = world +y) are marked so the placer can prefer them
+  // (a part flagged upright_only, e.g. an Axis Rotometer that must measure yaw, only ever stands upright)
   const out = [];
   const twins = !!D.parts[type].mirrored_hash;
-  const ks = all ? KS : [4, 5, 0, 1].map((f) => UPRIGHT[f]);
+  const ks = all && !D.parts[type].upright_only ? KS : [4, 5, 0, 1].map((f) => UPRIGHT[f]);
   for (const k of ks) {
     const upright = veq(upOf(k), [0, 1, 0]);
     out.push({ k, mir: false, upright });
@@ -152,10 +164,16 @@ const MAX_NET = 21, MAX_STUB = 11;
 const NET_OVERHEAD = 2;                          // extra cost per cabled net, so direct contact is preferred
 
 class Layout {
-  constructor(parts, nets, stubs, box, buses = []) {
+  // opts.flat: one layer on a floor (see generate). Every part stands upright on the floor (y = 0), none on another;
+  // cables run on the floor and one level up, over the parts too, but never over a label. The floor holds the parts
+  // and the labels, which lie on it, so they need not hold each other. opts.floor: the floor is in the blueprint.
+  // opts.maxNet / opts.maxStub: cable reach (a floor anchors the straight cells lying on it).
+  constructor(parts, nets, stubs, box, buses = [], opts = {}) {
     this.parts = parts;                           // [{id, type, vars, v, o}]
     this.nets = nets; this.stubs = stubs;         // stubs carry face ('-z' / '+z') and, on a bus, its index
     this.box = box;
+    this.flat = !!opts.flat; this.floor = !!opts.floor;
+    this.maxNet = opts.maxNet || MAX_NET; this.maxStub = opts.maxStub || MAX_STUB;
     const [X, Y, Z] = box;
     this.grid = new Int16Array(X * Y * Z).fill(-1);
     this.portOwner = new Int32Array(X * Y * Z).fill(-1);
@@ -187,6 +205,7 @@ class Layout {
   geo(i) { const p = this.parts[i]; const v = p.vars[p.v]; return geometry(p.type, v.k, v.mir); }
   fits(i, o, g) {
     const [X, Y, Z] = this.box;
+    if (this.flat && o[1] !== 0) return false;
     for (const c of g.cells) {
       const x = o[0] + c[0], y = o[1] + c[1], z = o[2] + c[2];
       if (x < 0 || y < 0 || z < 0 || x >= X || y >= Y || z >= Z) return false;
@@ -200,20 +219,24 @@ class Layout {
   // A bus is a row of stub ends on one z face. The end cells sit side by side (one label width apart), each with
   // its label directly above or below it; each cable runs straight out through its end cell, arriving from the goal
   // cell just inside it. A bus too wide for the box wraps onto further rows, three cells apart (label line, end
-  // line, label line).
+  // line, label line). A flat bus is one row on the floor: each label lies beside its end, before its first letter
+  // (the end is left of the text as you face the row from outside), so a slot is one cell wider than its label.
   busLayout(b) {
     const X = this.box[0], slots = [];
     let dx = 0, row = 0, width = 0;
     for (const si of b.members) {
-      const w = this.parts[this.stubLabel[si]].label.w;
-      if (dx + w > X && dx > 0) { row++; dx = 0; }
+      const w = this.parts[this.stubLabel[si]].label.w + (this.flat ? 1 : 0);
+      if (dx + w > X && dx > 0 && !this.flat) { row++; dx = 0; }
       slots.push({ si, dx, row, w });
       dx += w;
       if (dx > width) width = dx;
     }
     return { slots, rows: row + 1, width };
   }
-  busExit(li) { const p = this.parts[li]; return [p.o[0] + p.label.exitDx, p.o[1] + (p.label.down ? 1 : -1), p.o[2]]; }
+  busExit(li) {
+    const p = this.parts[li];
+    return [p.o[0] + p.label.exitDx, p.o[1] + (this.flat ? 0 : p.label.down ? 1 : -1), p.o[2]];
+  }
   busGoal(li) { const e = this.busExit(li); return [e[0], e[1], e[2] + this.parts[li].label.back]; }
   busPlace(b) {
     const [X, Y, Z] = this.box, lay = this.busLayout(b);
@@ -226,8 +249,9 @@ class Layout {
     const labels = [], tails = [];
     for (const sl of lay.slots) {
       const li = this.stubLabel[sl.si], lab = this.parts[li].label, down = b.down.has(sl.si);
-      const ey = b.y0 + 3 * sl.row + 1, o = [b.x0 + sl.dx, down ? ey - 1 : ey + 1, zf];
-      for (let x = 0; x < sl.w; x++) if (!free(o[0] + x, o[1], zf)) return false;
+      const ey = this.flat ? 0 : b.y0 + 3 * sl.row + 1;
+      const o = this.flat ? [b.x0 + sl.dx + (b.face === '-z' ? 1 : 0), 0, zf] : [b.x0 + sl.dx, down ? ey - 1 : ey + 1, zf];
+      for (let x = 0; x < lab.w; x++) if (!free(o[0] + x, o[1], zf)) return false;
       const ex = o[0] + lab.exitDx;
       if (!free(ex, ey, zf) || !free(ex, ey, zf + s)) return false;
       labels.push([li, o, down]);
@@ -244,11 +268,14 @@ class Layout {
     b.tails = [];
   }
   // Make cells (and their neighbours) expensive for parts to occupy, so the next anneal opens room there.
+  // Flat: parts lie only at y = 0, so a hot cell counts on the floor cell under it.
   markHot(cells, w) {
     const [X, Y, Z] = this.box;
     if (!this.hot) this.hot = new Float32Array(X * Y * Z);
-    for (const v of cells) {
-      const z = v % Z, t = (v - z) / Z, y = t % Y, x = (t - y) / Y;
+    for (let v of cells) {
+      const z = v % Z, t = (v - z) / Z, x = (t - t % Y) / Y;
+      let y = t % Y;
+      if (this.flat) { y = 0; v = x * Y * Z + z; }
       this.hot[v] += w;
       for (const d of DIRS) {
         const nx = x + d[0], ny = y + d[1], nz = z + d[2];
@@ -273,20 +300,25 @@ class Layout {
       const a = Math.floor(rng() * n), c = Math.floor(rng() * n);
       if (a === c || this.stubs[b.members[a]].io !== this.stubs[b.members[c]].io) { this.busRestore(b, st); return null; }
       [b.members[a], b.members[c]] = [b.members[c], b.members[a]];
-    } else if (r < 0.5) {
+    } else if (r < 0.5 && !this.flat) {
       const si = b.members[Math.floor(rng() * n)];
       if (b.down.has(si)) b.down.delete(si); else b.down.add(si);
     } else if (r < 0.85) {
-      b.x0 += Math.round((rng() * 2 - 1) * 2); b.y0 += Math.round((rng() * 2 - 1) * 1);
+      b.x0 += Math.round((rng() * 2 - 1) * 2); if (!this.flat) b.y0 += Math.round((rng() * 2 - 1) * 1);
     } else {
-      b.x0 = Math.floor(rng() * Math.max(1, X - (b.width || 0) + 1)); b.y0 = Math.floor(rng() * (Y + 1)) - 1;
+      b.x0 = Math.floor(rng() * Math.max(1, X - (b.width || 0) + 1)); if (!this.flat) b.y0 = Math.floor(rng() * (Y + 1)) - 1;
     }
     if (!this.busPlace(b)) { this.busRestore(b, st); return null; }
     return st;
   }
   stamp(i, val) {
-    const [, Y, Z] = this.box, o = this.parts[i].o;
-    for (const c of this.geo(i).cells) this.grid[((o[0] + c[0]) * Y + o[1] + c[1]) * Z + o[2] + c[2]] = val;
+    const [, Y, Z] = this.box, o = this.parts[i].o, g = this.geo(i);
+    for (const c of g.cells) {
+      const x = o[0] + c[0], y = o[1] + c[1], z = o[2] + c[2];
+      this.grid[(x * Y + y) * Z + z] = val;
+      // flat: the cells above a label are closed too, so its text stays in view
+      if (this.flat && this.isLabel[i] && c[1] === g.dims[1] - 1) for (let u = y + 1; u < Y; u++) this.grid[(x * Y + u) * Z + z] = val;
+    }
   }
   worldPort(i, name) {
     const p = this.geo(i).ports[name], o = this.parts[i].o;
@@ -301,6 +333,24 @@ class Layout {
     const direct = this.direct; direct.fill(0);
     const touched = [];
     const problems = full ? [] : null;
+    // flat: every used port's cell up front, so a port does not count its neighbour's port cell as a way out
+    let mark = null;
+    const marked = [];
+    if (this.flat) {
+      if (!this.mark) this.mark = new Int32Array(X * Y * Z).fill(-1);
+      mark = this.mark;
+      for (let i = 0; i < parts.length; i++) {
+        const g = this.geo(i), o = parts[i].o;
+        for (const q of g.portList) {
+          const r = this.role[i][q.name];
+          if (!r) continue;
+          const cx = o[0] + q.cell[0], cy = o[1] + q.cell[1], cz = o[2] + q.cell[2];
+          if (cx < 0 || cy < 0 || cz < 0 || cx >= X || cy >= Y || cz >= Z) continue;
+          const ci = (cx * Y + cy) * Z + cz;
+          mark[ci] = r.net !== undefined ? r.net : -2 - r.stub; marked.push(ci);
+        }
+      }
+    }
     for (let i = 0; i < parts.length; i++) {
       const g = this.geo(i), o = parts[i].o, role = this.role[i];
       for (const q of g.portList) {
@@ -333,13 +383,18 @@ class Layout {
           const prev = portOwner[ci];
           if (prev !== -1 && prev !== owner) { cost += BIG; if (full) problems.push(`two nets share a port cell at ${cx},${cy},${cz}`); }
           portOwner[ci] = owner; touched.push(ci);
-          // the cable leaving this port needs at least one free neighbouring cell (or the partner's port cell)
+          // the cable leaving this port needs at least one free neighbouring cell (or the partner's port cell); flat:
+          // not another cable's port or bus cell
           let exits = 0;
           for (let d = 0; d < 6; d++) {
             if (d === q.inward) continue;
             const nx = cx + DIRS[d][0], ny = cy + DIRS[d][1], nz = cz + DIRS[d][2];
-            if (nx < 0 || ny < 0 || nz < 0 || nx >= X || ny >= Y || nz >= Z) { if (r.stub !== undefined) exits++; continue; }
-            if (grid[(nx * Y + ny) * Z + nz] === -1) exits++;
+            if (nx < 0 || ny < 0 || nz < 0 || nx >= X || ny >= Y || nz >= Z) {
+              if (r.stub !== undefined && !(this.flat && DIRS[d][1] !== 0)) exits++;
+              continue;
+            }
+            const nb = (nx * Y + ny) * Z + nz, tail = this.tailOwner[nb];
+            if (grid[nb] === -1 && (!mark || ((tail < 0 || tail === r.stub) && (mark[nb] === -1 || mark[nb] === owner)))) exits++;
           }
           if (exits === 0) { cost += 60; if (full) problems.push(`port boxed in: ${parts[i].id}.${q.name}`); }
           else if (exits === 1) cost += 4;
@@ -347,6 +402,7 @@ class Layout {
       }
     }
     for (const ci of touched) portOwner[ci] = -1;
+    for (const ci of marked) mark[ci] = -1;
     const usedPortCells = touched;
     let wire = 0, longest = 0;
     for (let ni = 0; ni < this.netEnds.length; ni++) {
@@ -357,7 +413,7 @@ class Layout {
         Math.abs(oa[2] + qa.cell[2] - ob[2] - qb.cell[2]) + 1;
       wire += len; if (len > longest) longest = len;
       cost += NET_OVERHEAD;
-      if (len > MAX_NET - 5) cost += 50 * (len - MAX_NET + 5);
+      if (len > this.maxNet - 5) cost += 50 * (len - this.maxNet + 5);
     }
     for (let si = 0; si < this.stubEnds.length; si++) {
       const [ia, pa] = this.stubEnds[si];
@@ -371,7 +427,7 @@ class Layout {
         len = Math.abs(px - g[0]) + Math.abs(py - g[1]) + Math.abs(pz - g[2]) + 2;
       } else len = (this.stubs[si].face === '-z' ? pz : Z - 1 - pz) + 1;
       wire += len;
-      if (len > MAX_STUB - 3) cost += 50 * (len - MAX_STUB + 3);
+      if (len > this.maxStub - 3) cost += 50 * (len - this.maxStub + 3);
       if (!lab) continue;
       const lpo = parts[li].o;
       let loose = 0, near = Infinity;
@@ -381,6 +437,7 @@ class Layout {
         if (occ < 0 || this.isLabel[occ]) loose++;
         if (!onBus) { const d = Math.abs(x - px) + Math.abs(y - py); if (d < near) near = d; }
       }
+      if (this.flat) loose = 0;                        // a label lying on the floor is held by the floor
       if (onBus) {
         // a bus label is one plate held by its back face: at least half of that face must rest on parts
         const short = Math.max(0, loose - Math.floor(lab.w / 2));
@@ -393,7 +450,8 @@ class Layout {
     }
     cost += wire;
     for (const p of parts) if (!p.vars[p.v].upright) cost += 1;
-    // compactness: frame quarters spanned by the parts (z always spans the whole box for the stubs)
+    // compactness: frame quarters spanned by the parts (z always spans the whole box for the stubs; a flat layout
+    // counts as one quarter high)
     {
       let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
       for (let i = 0; i < parts.length; i++) {
@@ -401,59 +459,12 @@ class Layout {
         if (o[0] < x0) x0 = o[0]; if (o[1] < y0) y0 = o[1];
         if (o[0] + d[0] > x1) x1 = o[0] + d[0]; if (o[1] + d[1] > y1) y1 = o[1] + d[1];
       }
-      cost += 6 * ((x1 - x0) / 4) * ((y1 - y0) / 4) * (Z / 4);
+      cost += 6 * ((x1 - x0) / 4) * (this.flat ? 1 : (y1 - y0) / 4) * (Z / 4);
     }
     // reachability: a cable's two ends must reach a common free region (other cables' port cells are walls),
     // and a stub's region must reach its face
     if (this.regionCheck || full) {
-      const walls = usedPortCells.slice();             // bus end and goal cells belong to their stub: walls too
-      for (const b of this.buses) for (const id of b.tails || []) walls.push(id);
-      const { region, touchIn, touchOut } = this.regions(walls);
-      const exits = (i, name) => {
-        const o = parts[i].o, q = this.geo(i).ports[name], c = [o[0] + q.cell[0], o[1] + q.cell[1], o[2] + q.cell[2]];
-        const out = [];
-        for (let d = 0; d < 6; d++) {
-          if (d === q.inward) continue;
-          const nx = c[0] + DIRS[d][0], ny = c[1] + DIRS[d][1], nz = c[2] + DIRS[d][2];
-          if (nx < 0 || ny < 0 || nz < 0 || nx >= X || ny >= Y || nz >= Z) continue;
-          const rr = region[(nx * Y + ny) * Z + nz];
-          if (rr >= 0) out.push(rr);
-        }
-        return { c, out };
-      };
-      let sealed = 0;
-      for (let ni = 0; ni < this.netEnds.length; ni++) {
-        if (direct[ni]) continue;
-        const [ia, pa, ib, pb] = this.netEnds[ni];
-        const A = exits(ia, pa), B = exits(ib, pb);
-        const dist = Math.abs(A.c[0] - B.c[0]) + Math.abs(A.c[1] - B.c[1]) + Math.abs(A.c[2] - B.c[2]);
-        if (dist <= 1) continue;
-        if (!A.out.some((r) => B.out.includes(r))) sealed++;
-      }
-      for (let si = 0; si < this.stubEnds.length; si++) {
-        const [ia, pa] = this.stubEnds[si];
-        const A = exits(ia, pa);
-        const li = this.stubLabel[si];
-        if (li >= 0 && parts[li].label.bus !== undefined) {
-          // the goal cell is a wall for every other cable; this stub reaches it through any free neighbour
-          const g = this.busGoal(li);
-          if (veq(A.c, g)) continue;
-          let reach = false;
-          for (let d = 0; d < 6 && !reach; d++) {
-            const nx = g[0] + DIRS[d][0], ny = g[1] + DIRS[d][1], nz = g[2] + DIRS[d][2];
-            if (nx === A.c[0] && ny === A.c[1] && nz === A.c[2]) reach = true;
-            else if (nx >= 0 && ny >= 0 && nz >= 0 && nx < X && ny < Y && nz < Z) {
-              const rr = region[(nx * Y + ny) * Z + nz];
-              if (rr >= 0 && A.out.includes(rr)) reach = true;
-            }
-          }
-          if (!reach) sealed++;
-          continue;
-        }
-        const inFace = this.stubs[si].face === '-z';
-        if (A.c[2] === (inFace ? 0 : Z - 1)) continue;
-        if (!A.out.some((r) => (inFace ? touchIn[r] : touchOut[r]))) sealed++;
-      }
+      const sealed = this.sealedCables(usedPortCells, direct);
       cost += 80 * sealed;
       if (full && sealed) problems.push(`${sealed} cables have no free route between their ends`);
     }
@@ -466,11 +477,66 @@ class Layout {
         for (const c of this.geo(i).cells) cost += hot[((o[0] + c[0]) * Y + o[1] + c[1]) * Z + o[2] + c[2]];
       }
     }
-    // structural: every part must touch the rest (face contact)
-    const comp = this.components();
+    // structural: every part must touch the rest (face contact); on a flat floor the floor holds them
+    const comp = this.flat ? 1 : this.components();
     cost += 40 * (comp - 1);
     if (full) return { cost, direct: Array.from(direct, (d) => d === 1), wire, longest, components: comp, problems };
     return cost;
+  }
+
+  // How many cables (not direct contacts) cannot reach their other end, or their face or goal cell, through free
+  // cells.
+  sealedCables(usedPortCells, direct) {
+    const parts = this.parts, [X, Y, Z] = this.box;
+    const walls = usedPortCells.slice();             // bus end and goal cells belong to their stub: walls too
+    for (const b of this.buses) for (const id of b.tails || []) walls.push(id);
+    const { region, touchIn, touchOut } = this.regions(walls);
+    const exits = (i, name) => {
+      const o = parts[i].o, q = this.geo(i).ports[name], c = [o[0] + q.cell[0], o[1] + q.cell[1], o[2] + q.cell[2]];
+      const out = [];
+      for (let d = 0; d < 6; d++) {
+        if (d === q.inward) continue;
+        const nx = c[0] + DIRS[d][0], ny = c[1] + DIRS[d][1], nz = c[2] + DIRS[d][2];
+        if (nx < 0 || ny < 0 || nz < 0 || nx >= X || ny >= Y || nz >= Z) continue;
+        const rr = region[(nx * Y + ny) * Z + nz];
+        if (rr >= 0) out.push(rr);
+      }
+      return { c, out };
+    };
+    let sealed = 0;
+    for (let ni = 0; ni < this.netEnds.length; ni++) {
+      if (direct[ni]) continue;
+      const [ia, pa, ib, pb] = this.netEnds[ni];
+      const A = exits(ia, pa), B = exits(ib, pb);
+      const dist = Math.abs(A.c[0] - B.c[0]) + Math.abs(A.c[1] - B.c[1]) + Math.abs(A.c[2] - B.c[2]);
+      if (dist <= 1) continue;
+      if (!A.out.some((r) => B.out.includes(r))) sealed++;
+    }
+    for (let si = 0; si < this.stubEnds.length; si++) {
+      const [ia, pa] = this.stubEnds[si];
+      const A = exits(ia, pa);
+      const li = this.stubLabel[si];
+      if (li >= 0 && parts[li].label.bus !== undefined) {
+        // the goal cell is a wall for every other cable; this stub reaches it through any free neighbour
+        const g = this.busGoal(li);
+        if (veq(A.c, g)) continue;
+        let reach = false;
+        for (let d = 0; d < 6 && !reach; d++) {
+          const nx = g[0] + DIRS[d][0], ny = g[1] + DIRS[d][1], nz = g[2] + DIRS[d][2];
+          if (nx === A.c[0] && ny === A.c[1] && nz === A.c[2]) reach = true;
+          else if (nx >= 0 && ny >= 0 && nz >= 0 && nx < X && ny < Y && nz < Z) {
+            const rr = region[(nx * Y + ny) * Z + nz];
+            if (rr >= 0 && A.out.includes(rr)) reach = true;
+          }
+        }
+        if (!reach) sealed++;
+        continue;
+      }
+      const inFace = this.stubs[si].face === '-z';
+      if (A.c[2] === (inFace ? 0 : Z - 1)) continue;
+      if (!A.out.some((r) => (inFace ? touchIn[r] : touchOut[r]))) sealed++;
+    }
+    return sealed;
   }
 
   // Label the connected regions of free cells; returns per-region flags for touching the -z / +z faces.
@@ -504,26 +570,30 @@ class Layout {
     return { region, touchIn, touchOut };
   }
 
-  // Groups of logic parts joined by face contact. Labels do not count: a label hangs on its back face and
-  // holds nothing together.
+  // Groups of logic parts joined by face contact through a joint area; a part none of whose own joint areas touches
+  // another part is not held and counts as a group of its own. Labels do not count: a label hangs on its back face
+  // and holds nothing together.
   components() {
     const n = this.parts.length, parent = this.parent, isLabel = this.isLabel;
     for (let i = 0; i < n; i++) parent[i] = i;
     const find = (x) => { while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; };
     const [X, Y, Z] = this.box, grid = this.grid;
+    let loose = 0;
     for (let i = 0; i < n; i++) {
       if (isLabel[i]) continue;
       const o = this.parts[i].o;
-      for (const c of this.geo(i).shell) {
+      let held = false;
+      for (const c of this.geo(i).jointShell) {
         const x = o[0] + c[0], y = o[1] + c[1], z = o[2] + c[2];
         if (x < 0 || y < 0 || z < 0 || x >= X || y >= Y || z >= Z) continue;
         const occ = grid[(x * Y + y) * Z + z];
-        if (occ >= 0 && occ !== i && !isLabel[occ]) { const a = find(i), b = find(occ); if (a !== b) parent[a] = b; }
+        if (occ >= 0 && occ !== i && !isLabel[occ]) { held = true; const a = find(i), b = find(occ); if (a !== b) parent[a] = b; }
       }
+      if (!held && n > 1) loose++;
     }
     let k = 0;
     for (let i = 0; i < n; i++) if (!isLabel[i] && find(i) === i) k++;
-    return k;
+    return k + loose;
   }
 }
 
@@ -561,10 +631,10 @@ function initialPlacement(L, rng) {
   // buses first, anywhere on their face; the parts then settle around them
   for (const b of L.buses) {
     const lay = L.busLayout(b);
-    if (lay.width > X || 3 * lay.rows - 1 > Y) return false;
+    if (lay.width > X || (!L.flat && 3 * lay.rows - 1 > Y)) return false;
     let ok = false;
     for (let tries = 0; tries < 2000 && !ok; tries++) {
-      b.x0 = Math.floor(rng() * (X - lay.width + 1)); b.y0 = Math.floor(rng() * (Y + 1)) - 1;
+      b.x0 = Math.floor(rng() * (X - lay.width + 1)); b.y0 = L.flat ? 0 : Math.floor(rng() * (Y + 1)) - 1;
       ok = L.busPlace(b);
     }
     if (!ok) return false;
@@ -586,7 +656,7 @@ function initialPlacement(L, rng) {
       const p = L.parts[i], g = L.geo(i), z = p.label.back > 0 ? 0 : Z - 1;
       let ok = false;
       for (let tries = 0; tries < 4000 && !ok; tries++) {
-        const o = [Math.floor(rng() * (X - g.dims[0] + 1)), Math.floor(rng() * (Y - g.dims[1] + 1)), z];
+        const o = [Math.floor(rng() * (X - g.dims[0] + 1)), L.flat ? 0 : Math.floor(rng() * (Y - g.dims[1] + 1)), z];
         if (L.fits(i, o, g)) { p.o = o; L.stamp(i, i); ok = true; }
       }
       if (!ok) return false;
@@ -611,17 +681,19 @@ function initialPlacement(L, rng) {
       const near = L.parts[placedDrivers[0][0]].o;
       p.v = Math.floor(rng() * p.vars.length);
       const g = L.geo(i);
-      const o = [0, 1, 2].map((a) => near[a] + Math.round((rng() * 2 - 1) * 4));
+      const o = [0, 1, 2].map((a) => (a === 1 && L.flat ? 0 : near[a] + Math.round((rng() * 2 - 1) * 4)));
       if (L.fits(i, o, g)) { p.o = o; L.stamp(i, i); placed = true; }
     }
     if (placed) { done.add(i); continue; }
-    for (let tries = 0; tries < 4000 && !placed; tries++) {
+    // near its level's place along z (a flat layout widens this to the whole box once that band is full)
+    for (let tries = 0; tries < (L.flat ? 8000 : 4000) && !placed; tries++) {
       const p = L.parts[i];
       p.v = Math.floor(rng() * p.vars.length);
       const g = L.geo(i);
       const lv = p.level / Math.max(1, L.maxLevel);
-      const z = Math.max(0, Math.min(Z - g.dims[2], Math.round(lv * (Z - g.dims[2]) + (rng() - 0.5) * 4)));
-      const o = [Math.floor(rng() * (X - g.dims[0] + 1)), Math.floor(rng() * (Y - g.dims[1] + 1)), z];
+      const z = tries >= 4000 ? Math.floor(rng() * (Z - g.dims[2] + 1))
+        : Math.max(0, Math.min(Z - g.dims[2], Math.round(lv * (Z - g.dims[2]) + (rng() - 0.5) * 4)));
+      const o = [Math.floor(rng() * (X - g.dims[0] + 1)), L.flat ? 0 : Math.floor(rng() * (Y - g.dims[1] + 1)), z];
       if (L.fits(i, o, g)) { p.o = o; L.stamp(i, i); placed = true; }
     }
     if (!placed) return false;
@@ -642,7 +714,8 @@ function anneal(L, rng, steps, opts = {}) {
   const busStubs = L.stubs.map((_, si) => si).filter((si) => L.stubLabel[si] >= 0 && L.parts[L.stubLabel[si]].label.bus !== undefined);
   for (let s = 0; s < steps; s++) {
     const T = T0 * Math.pow(T1 / T0, s / steps);
-    if (s === Math.floor(steps * 0.6) && !L.regionCheck) { L.regionCheck = true; cur = L.evaluate(); best = Infinity; }
+    // (flat: the cable level over the parts nearly always joins everything, so only the final check looks)
+    if (s === Math.floor(steps * 0.6) && !L.regionCheck && !L.flat) { L.regionCheck = true; cur = L.evaluate(); best = Infinity; }
     const r = rng();
     let i, j = -1, oldJ = null, target = null;
     if (r < 0.25 && nets.length) {
@@ -702,6 +775,7 @@ function anneal(L, rng, steps, opts = {}) {
         o = [old.o[0] + Math.round((rng() * 2 - 1) * span), old.o[1] + Math.round((rng() * 2 - 1) * span), old.o[2] + Math.round((rng() * 2 - 1) * span)];
       }
       if (L.isLabel[i]) o[2] = old.o[2];        // labels only slide over their face
+      if (L.flat) o[1] = 0;
       if (!L.fits(i, o, g)) { p.v = old.v; L.stamp(i, i); continue; }
       p.o = o;
       L.stamp(i, i);
@@ -767,17 +841,17 @@ function route(L, direct, opts = {}) {
   L.nets.forEach((n, ni) => {
     if (direct[ni]) return;
     const a = L.worldPort(L.index.get(n.a.id), n.a.port), b = L.worldPort(L.index.get(n.b.id), n.b.port);
-    jobs.push({ kind: 'net', ref: ni, src: a, dst: b, limit: MAX_NET });
+    jobs.push({ kind: 'net', ref: ni, src: a, dst: b, limit: L.maxNet });
   });
   L.stubs.forEach((s, si) => {
     const a = L.worldPort(L.index.get(s.end.id), s.end.port);
-    const job = { kind: 'stub', ref: si, src: a, io: s.io, limit: MAX_STUB, out: s.face === '-z' ? 5 : 4 };
+    const job = { kind: 'stub', ref: si, src: a, io: s.io, limit: L.maxStub, out: s.face === '-z' ? 5 : 4 };
     const li = L.stubLabel[si];
     if (li >= 0 && L.parts[li].label.bus !== undefined) {
       // bus: route to the goal cell; the straight end cell after it is fixed
       job.targets = [L.busGoal(li)];
       job.tail = [L.busExit(li)];
-      job.limit = MAX_STUB - 1;
+      job.limit = L.maxStub - 1;
     } else if (li >= 0) {
       const lp = L.parts[li], cells = L.geo(li).cells.map((c) => vadd(lp.o, c));
       const own = new Set(cells.map((c) => c.join()));
@@ -799,6 +873,9 @@ function route(L, direct, opts = {}) {
   const occ = new Int32Array(N);
   const paths = new Array(jobs.length).fill(null);
   const free = (c) => L.grid[c] === -1;
+  // flat: a cable cell one up costs a little more, so cables stay on the floor where that costs nothing (there the
+  // deck anchors them)
+  const raised = L.flat ? 2 : 0;
   const unusedPort = new Uint8Array(N);
   L.parts.forEach((p, i) => {
     for (const q of L.geo(i).portList) {
@@ -828,7 +905,7 @@ function route(L, direct, opts = {}) {
         for (let u = v; u !== -1; u = from.get(u)) path.push(u);
         return path.reverse();
       }
-      const gv = g.get(v), lv = len.get(v);
+      const gv = g.get(v), lv = len.get(v), pv = from.get(v);
       const c = decode(v);
       for (let d = 0; d < 6; d++) {
         const n = vadd(c, DIRS[d]);
@@ -836,10 +913,17 @@ function route(L, direct, opts = {}) {
         const u = L.idx(n);
         if (!free(u)) continue;
         if (reserved[u] !== -1 && reserved[u] !== ji) continue;
-        const step = (1 + hist[u] + (unusedPort[u] ? 2 : 0)) * (1 + pf * occ[u]) + (lv + 1 > j.limit ? 40 : 0);
+        // on a floor, reach counts from the last anchored cell: the port's cell, or a cell lying straight on the deck
+        // (v is straight when its predecessor, v and u line up along the floor). Every cable ends on an anchored cell
+        // (a port, or a stub's straight end on the deck), so a run between two anchors may be twice the game's 10.
+        // It is a hard limit: the congestion price would otherwise outbid it.
+        const lu = L.floor && (pv === -1 || (c[1] === 0 && n[1] === 0 && pv - v === v - u)) ? 1 : lv + 1;
+        if (L.floor && lu > 2 * MAX_UNANCHORED) continue;
+        const over = !L.floor && lu > j.limit;
+        const step = (1 + hist[u] + (unusedPort[u] ? 2 : 0) + (n[1] > 0 ? raised : 0)) * (1 + pf * occ[u]) + (over ? 40 : 0);
         const gu = gv + step;
         if (gu < (g.has(u) ? g.get(u) : Infinity)) {
-          g.set(u, gu); from.set(u, v); len.set(u, lv + 1);
+          g.set(u, gu); from.set(u, v); len.set(u, lu);
           heap.push(gu + hfun(u), u);
         }
       }
@@ -917,6 +1001,9 @@ function check(L, cables) {
     if (c.shape === 0) { const f = dirIndex(frontOf(c.k)); return [f, opposite(f)]; }
     return [dirIndex(upOf(c.k)), dirIndex(frontOf(c.k))];
   };
+  // a Wireless Transmitter's tx and rx are one physical port on one cell: compare them under one name
+  const typeOf = new Map(L.parts.map((p) => [p.id, p.type]));
+  const canon = (id, port) => (typeOf.get(id) === 'wireless_transmitter' ? `${id}.trx` : `${id}.${port}`);
   // ports by their outside cell
   const portAt = new Map();
   L.parts.forEach((p, i) => {
@@ -928,10 +1015,11 @@ function check(L, cables) {
   });
   const seen = new Set();
   const found = [];
+  let farthest = 0;
   for (const c of cables) {
     const key0 = c.cell.join();
     if (seen.has(key0)) continue;
-    const comp = [], ends = [], open = [];
+    const comp = [], ends = [], open = [], anchored = [];
     const stack = [c];
     seen.add(key0);
     while (stack.length) {
@@ -939,6 +1027,8 @@ function check(L, cables) {
       comp.push(u);
       const od = openDirs(u);
       if (!(od.includes(u.open[0]) && od.includes(u.open[1]))) errors.push(`cable at ${u.cell} encodes the wrong faces`);
+      // anchored (the game's rule): joined to a port, or (flat, on the floor) a straight cell lying on its welded top
+      if (L.floor && u.shape === 0 && u.cell[1] === 0 && !od.some((d) => DIRS[d][1] !== 0)) anchored.push(u);
       for (const d of od) {
         const n = vadd(u.cell, DIRS[d]), nk = n.join();
         const v = cab.get(nk);
@@ -951,34 +1041,47 @@ function check(L, cables) {
         if (occ === -2) { open.push({ cell: u.cell, d }); continue; }
         if (occ >= 0) {
           const hit = (portAt.get(u.cell.join()) || []).find((pp) => pp.i === occ && veq(pp.face, n));
-          if (hit) ends.push(`${L.parts[occ].id}.${hit.q.name}`);
+          if (hit) { ends.push(canon(L.parts[occ].id, hit.q.name)); anchored.push(u); }
           else errors.push(`cable at ${u.cell} opens onto a plain face of ${L.parts[occ].id}`);
           continue;
         }
         errors.push(`cable at ${u.cell} has a dangling open face toward ${n}`);
       }
     }
+    // every cell within MAX_UNANCHORED steps of an anchored cell along its own cable
+    const dist = new Map(anchored.map((u) => [u.cell.join(), 0])), queue = anchored.slice();
+    while (queue.length) {
+      const u = queue.shift(), du = dist.get(u.cell.join());
+      for (const d of openDirs(u)) {
+        const v = cab.get(vadd(u.cell, DIRS[d]).join());
+        if (v && !dist.has(v.cell.join())) { dist.set(v.cell.join(), du + 1); queue.push(v); }
+      }
+    }
+    const far = comp.filter((u) => !(dist.get(u.cell.join()) <= MAX_UNANCHORED));
+    if (far.length) errors.push(`cable at ${far[0].cell}: ${far.length} cells more than ${MAX_UNANCHORED} from an anchor`);
+    for (const dd of dist.values()) if (dd > farthest) farthest = dd;
     found.push({ ends: ends.sort(), open, cells: comp.length });
   }
   // direct port contacts
-  const contacts = [];
+  const contactSet = new Set();
   L.parts.forEach((p, i) => {
     for (const q of L.geo(i).portList) {
       const cell = vadd(p.o, q.cell), occ = L.at(cell);
       if (occ < 0 || occ <= i) continue;
       const og = L.geo(occ), oo = L.parts[occ].o;
       for (const r of og.portList) {
-        if (veq(vadd(oo, r.face), cell) && veq(vadd(oo, r.cell), vadd(p.o, q.face))) contacts.push([`${p.id}.${q.name}`, `${L.parts[occ].id}.${r.name}`].sort());
+        if (veq(vadd(oo, r.face), cell) && veq(vadd(oo, r.cell), vadd(p.o, q.face))) contactSet.add([canon(p.id, q.name), canon(L.parts[occ].id, r.name)].sort().join(' '));
       }
     }
   });
+  const contacts = [...contactSet].map((k) => k.split(' '));
   // compare with what the circuit asks for
   const want = new Map();
-  L.nets.forEach((n) => want.set([`${n.a.id}.${n.a.port}`, `${n.b.id}.${n.b.port}`].sort().join(' '), 'net'));
+  L.nets.forEach((n) => want.set([canon(n.a.id, n.a.port), canon(n.b.id, n.b.port)].sort().join(' '), 'net'));
   const got = new Map();
   for (const f of found) {
     if (f.open.length) {
-      const st = L.stubs.find((s) => `${s.end.id}.${s.end.port}` === f.ends[0]);
+      const st = L.stubs.find((s) => canon(s.end.id, s.end.port) === f.ends[0]);
       const face = f.open[0].d === 5 && f.open[0].cell[2] === 0 ? '-z' : f.open[0].d === 4 && f.open[0].cell[2] === Z - 1 ? '+z' : '?';
       if (f.ends.length !== 1 || f.open.length !== 1 || !st || st.face !== face) errors.push(`bad stub: ends ${f.ends.join(',')} open ${JSON.stringify(f.open)}`);
       const li = st ? L.stubLabel[L.stubs.indexOf(st)] : -1;
@@ -998,15 +1101,16 @@ function check(L, cables) {
     if (!want.has(k)) errors.push(`unintended connection ${k}`);
     else if (n > 1) errors.push(`connection made ${n} times: ${k}`);
   }
+  // labels lying on a flat floor, and parts standing on it, are held by the floor
   L.parts.forEach((p, i) => {
-    if (!p.label) return;
+    if (!p.label || L.flat) return;
     const back = [0, 0, p.label.back], cells = L.geo(i).cells;
     const loose = cells.filter((c) => { const occ = L.at(vadd(vadd(p.o, c), back)); return occ < 0 || L.isLabel[occ]; }).length;
     if (p.label.bus !== undefined ? 2 * loose > cells.length : loose > 0) errors.push(`label "${p.label.text}" is not backed by a part`);
   });
-  const comps = L.components();
+  const comps = L.flat ? 1 : L.components();
   if (comps > 1) errors.push(`parts form ${comps} separate groups (each must touch the rest)`);
-  return { errors, contacts: contacts.length, networks: found.length };
+  return { errors, contacts: contacts.length, networks: found.length, farthest };
 }
 
 // ---------- labels ----------
@@ -1124,10 +1228,20 @@ function levels(parts, nets) {
   return lv;
 }
 
-function candidateBoxes(volume) {
+// A flat layout's box is two cells high: the parts' layer, and the level above it for cables.
+const FLAT_Y = 2;
+// The floor under a flat layout: Frame Quarters (tools/bp/parts/structure.json: 4x4x4, 11 kg, canonical orientation
+// 16 = identity; face bits 0 Y-, 1 Y+, 2 X+, 3 Z+, 4 X-, 5 Z-; _col 200 = unpainted) with the top face welded. A welded
+// face anchors every straight cable cell lying on it (tools/bp/parts/power.md, Q4), so on the floor a cable's reach
+// is no longer limited to 10 cells from a port.
+const FLOOR_FRAME = { hash: '482074ef572f3723', struct: 'EPC_SCFrame', k: 16, solid: 1 << 1 };
+const FLOOR_REACH = 200;
+const MAX_UNANCHORED = 10;                       // the game's MAX_UNANCHORED_CELLS
+
+function candidateBoxes(volume, heights = [2, 3, 4, 6, 8]) {
   // cube-aligned boxes (multiples of 4 cells), fewest cubes first, then the least volume
   const out = [];
-  for (const Y of [2, 3, 4, 6, 8]) {
+  for (const Y of heights) {
     const cy = Math.ceil(Y / 4);
     for (let cx = 1; cx <= 12; cx++) for (let cz = 1; cz <= 12; cz++) {
       const X = cx * 4, Z = cz * 4;
@@ -1144,7 +1258,8 @@ function candidateBoxes(volume) {
 //   split   inputs in a row on the -z face, outputs in a row on the +z face
 //   free    each stub ends wherever suits it on its face (inputs -z, outputs +z), with its label beside the end
 // Without opts.io each box tries bundle, then split; free is the last resort once no box works.
-function ioPlan(nl, mode, maxLevel, labelsOn) {
+// flat: each label lies face up on the floor beside its end, upright to someone standing at that face.
+function ioPlan(nl, mode, maxLevel, labelsOn, flat = false) {
   const stubs = nl.stubs.map((s) => ({ ...s, face: mode === 'bundle' || s.io === 'in' ? '-z' : '+z' }));
   const buses = [];
   if (mode !== 'free') {
@@ -1155,47 +1270,73 @@ function ioPlan(nl, mode, maxLevel, labelsOn) {
     }
   }
   // a Label (Large Label if the name needs it) for every stub, facing out of its face. Its text reads toward +x on
-  // the -z face and toward -x on the +z face; a bus end sits under the label's first letter.
+  // the -z face and toward -x on the +z face; a bus end sits under the label's first letter (flat: just before it).
   const labels = !labelsOn ? [] : stubs.map((s, si) => {
     const text = labelText(s.label);
     const type = text.length <= D.parts.label_small.max_chars ? 'label_small' : 'label_large';
     const w = D.parts[type].size[0], minus = s.face === '-z';
     return { id: `label#${si}`, type, params: {}, level: maxLevel + 1,
-      label: { stub: si, io: s.io, text, back: minus ? 1 : -1, bus: s.bus, w, exitDx: minus ? 0 : w - 1 },
-      vars: [{ k: UPRIGHT[minus ? 5 : 4], mir: false, upright: true }], v: 0, o: [0, 0, 0] };
+      label: { stub: si, io: s.io, text, back: minus ? 1 : -1, bus: s.bus, w, exitDx: flat ? (minus ? -1 : w) : (minus ? 0 : w - 1) },
+      vars: [{ k: flat ? LYING[minus ? 0 : 1] : UPRIGHT[minus ? 5 : 4], mir: false, upright: true }], v: 0, o: [0, 0, 0] };
   });
   return { mode, stubs, buses, labels };
 }
 
+// The cells a part needs: its volume, or for a flat layout the floor it covers standing upright times the box's
+// height (so flat boxes compare by floor area).
+const partCells = (type, flat) => { const s = D.parts[type].size; return flat ? s[0] * FLAT_Y * s[2] : s[0] * s[1] * s[2]; };
+const labelType = (label) => (labelText(label).length <= D.parts.label_small.max_chars ? 'label_small' : 'label_large');
+
+// Flat boxes: a flat layout's I/O rows (each end beside its lying label) set its least width, and its parts' area plus
+// some floor for each cable its least depth, so per depth only the two narrowest widths that hold both are worth
+// trying.
+function flatBoxes(nl, opts, area) {
+  const slot = (ss) => ss.reduce((w, s) => w + D.parts[labelType(s.label)].size[0] + 1, 0);
+  const ins = nl.stubs.filter((s) => s.io === 'in'), outs = nl.stubs.filter((s) => s.io === 'out');
+  const rows = opts.labels === false ? 1 : opts.io === 'bundle' ? slot(nl.stubs) : Math.max(slot(ins), slot(outs), 1);
+  const need = Math.ceil(area + 4 * (nl.nets.length + nl.stubs.length)), out = [];
+  for (let cz = 1; cz <= 12; cz++) {
+    const cx0 = Math.ceil(Math.max(rows, need / (4 * cz)) / 4);
+    for (let cx = cx0; cx <= Math.min(12, cx0 + 1); cx++) out.push({ box: [4 * cx, FLAT_Y, 4 * cz], cubes: cx * cz, vol: 16 * cx * cz * FLAT_Y });
+  }
+  out.sort((a, b) => a.cubes - b.cubes || a.vol - b.vol);
+  return out;
+}
+
 // The boxes generate() would try for this circuit, smallest first (for a caller that searches them in parallel).
 function searchBoxes(circuit, opts = {}) {
-  const nl = netlist(circuit, opts);
-  const cells = (t) => D.parts[t].size.reduce((a, b) => a * b, 1);
-  let vol = nl.included.reduce((s, i) => s + cells(i.type_id), 0);
-  if (opts.labels !== false) for (const s of nl.stubs) vol += cells(labelText(s.label).length <= D.parts.label_small.max_chars ? 'label_small' : 'label_large');
-  const boxes = candidateBoxes(Math.ceil(vol * (opts.slack || 2.2)));
+  const nl = netlist(circuit, opts), flat = !!opts.flat;
+  let vol = nl.included.reduce((s, i) => s + partCells(i.type_id, flat), 0);
+  if (opts.labels !== false) for (const s of nl.stubs) vol += partCells(labelType(s.label), flat);
+  const boxes = flat ? flatBoxes(nl, opts, vol / FLAT_Y) : candidateBoxes(Math.ceil(vol * (opts.slack || 2.2)));
   boxes.partVolume = vol;
   return boxes;
 }
 
+// opts.flat lays the parts out in one layer (see Layout) on a floor of Frame Quarters: every part upright on the
+// floor, none on another, each label lying beside its end; cables may run one level up. opts.floor = false leaves the
+// floor out, for pasting onto a floor of your own (cable reach is then counted from the ports only, as elsewhere).
 function generate(circuit, opts = {}) {
   const t0 = Date.now();
   const rng = mulberry32(opts.seed ?? 1);
   const nl = netlist(circuit, opts);
   if (!nl.included.length) throw new Error('nothing to place: the circuit has no logic parts');
-  const proto = nl.included.map((i) => ({ id: i.id, type: i.type_id, params: i.parameters || {}, vars: variantsFor(i.type_id, opts.allOrientations !== false), v: 0, o: [0, 0, 0] }));
+  const flat = !!opts.flat, floor = flat && opts.floor !== false;
+  const proto = nl.included.map((i) => ({ id: i.id, type: i.type_id, params: i.parameters || {},
+    vars: variantsFor(i.type_id, !flat && opts.allOrientations !== false), v: 0, o: [0, 0, 0] }));
   const lv = levels(proto, nl.nets);
   const maxLevel = Math.max(...lv);
   proto.forEach((p, i) => { p.level = lv[i]; });
   const labelsOn = opts.labels !== false;
   const modes = opts.io ? [opts.io] : labelsOn ? ['bundle', 'split'] : ['free'];
-  const plans = modes.map((m) => ioPlan(nl, m, maxLevel, labelsOn));
-  const fallback = !opts.io && labelsOn ? ioPlan(nl, 'free', maxLevel, true) : null;
-  const volumeOf = (ps) => ps.reduce((s, p) => s + D.parts[p.type].size.reduce((a, b) => a * b, 1), 0);
+  const plans = modes.map((m) => ioPlan(nl, m, maxLevel, labelsOn, flat));
+  const fallback = !opts.io && labelsOn ? ioPlan(nl, 'free', maxLevel, true, flat) : null;
+  const volumeOf = (ps) => ps.reduce((s, p) => s + partCells(p.type, flat), 0);
   const partVolume = volumeOf(proto) + volumeOf(plans[0].labels);
   const slack = opts.slack || 2.2;
-  const boxes = opts.box ? [{ box: opts.box, cubes: opts.box.reduce((n, d) => n * Math.ceil(d / 4), 1), vol: opts.box[0] * opts.box[1] * opts.box[2] }]
-    : candidateBoxes(Math.ceil(partVolume * slack));
+  const given = opts.box && (flat ? [opts.box[0], FLAT_Y, opts.box[2]] : opts.box);
+  const boxes = given ? [{ box: given, cubes: given.reduce((n, d) => n * Math.ceil(d / 4), 1), vol: given[0] * given[1] * given[2] }]
+    : flat ? flatBoxes(nl, opts, partVolume / FLAT_Y) : candidateBoxes(Math.ceil(partVolume * slack));
   const attempts = [];
   const note = (a) => { attempts.push(a); if (opts.onProgress) opts.onProgress(`${a.box.join('x')} ${a.io}: ${a.why}`); };
   const budget = opts.timeBudgetMs || 60000;
@@ -1203,7 +1344,8 @@ function generate(circuit, opts = {}) {
     for (let tryNo = 0; tryNo < (opts.triesPerBox || 1); tryNo++) {
       const parts = proto.concat(plan.labels).map((p) => ({ ...p, o: p.o.slice() }));
       const buses = plan.buses.map((b) => ({ face: b.face, members: b.members.slice(), x0: 0, y0: 0, down: new Set() }));
-      const L = new Layout(parts, nl.nets, plan.stubs, cand.box, buses);
+      const L = new Layout(parts, nl.nets, plan.stubs, cand.box, buses,
+        { flat, floor, maxNet: floor ? FLOOR_REACH : undefined, maxStub: floor ? FLOOR_REACH : undefined });
       L.maxLevel = maxLevel;
       const why = (w) => note({ box: cand.box, io: plan.mode, why: w });
       if (!initialPlacement(L, rng)) { why(plan.buses.length ? 'parts or I/O row do not fit' : 'parts do not fit'); return null; }
@@ -1211,11 +1353,13 @@ function generate(circuit, opts = {}) {
       anneal(L, rng, steps);
       let ev = L.evaluate(true);
       if (ev.problems.length || ev.components > 1) { why(`placement: ${ev.problems[0] || `${ev.components} groups`}`); continue; }
-      const freeCells = cand.vol - volumeOf(parts);
+      let freeCells = 0;
+      for (let c = 0; c < L.grid.length; c++) if (L.grid[c] === -1) freeCells++;
       if (ev.wire > 0.85 * freeCells) { why(`too dense: ~${ev.wire} cable cells for ${freeCells} free cells`); return null; }
       let routed = route(L, ev.direct, opts);
       // routing repair: push parts off the cells where the cables ran out of room, then route again
-      for (let rep = 0; !routed.ok && routed.hot && rep < (opts.repairs ?? 4); rep++) {
+      // (flat: once; there more rounds hardly ever clear it)
+      for (let rep = 0; !routed.ok && routed.hot && rep < (opts.repairs ?? (flat ? 1 : 4)); rep++) {
         L.markHot(routed.hot, 5);
         anneal(L, rng, Math.round(steps / 4), { T0: 3, T1: 0.1 });
         ev = L.evaluate(true);
@@ -1257,11 +1401,23 @@ function finish(res, nl, circuit, opts, attempts, ms) {
   if (L.stubs.some((s) => s.face === '-z')) lo[2] = 0;
   if (L.stubs.some((s) => s.face === '+z')) hi[2] = L.box[2] - 1;
   const size = [0, 1, 2].map((a) => hi[a] - lo[a] + 1);
-  const cubes = size.reduce((n, d) => n * Math.ceil(d / 4), 1);
-  const base = vsub(opts.base || [240, 250, 240], lo);
+  // flat: the floor is a layer of Frame Quarters under the circuit's footprint, so the circuit's low corner goes on
+  // the game's 4-cell frame grid
+  const floorQ = L.floor ? [Math.ceil(size[0] / 4), Math.ceil(size[2] / 4)] : null;
+  const cubes = size.reduce((n, d) => n * Math.ceil(d / 4), 1);  // the circuit's own; the floor is reported apart
+  const grid4 = (v) => Math.floor(v / 4) * 4;
+  const base = vsub(L.flat ? (opts.base || [240, 252, 240]).map(grid4) : (opts.base || [240, 250, 240]), lo);
   const paint = opts.paint !== false;
   const records = [];
   const guidRng = opts.deterministic ? mulberry32((opts.seed ?? 1) * 7919) : null;
+  if (floorQ) {
+    for (let qx = 0; qx < floorQ[0]; qx++) for (let qz = 0; qz < floorQ[1]; qz++) {
+      const cell = vadd(vadd(base, lo), [4 * qx, -4, 4 * qz]);
+      const values = { _guid: ['guid', randomGuid(guidRng)], _gt: ['u32', packCell(cell, FLOOR_FRAME.k)], _solidFaces: ['u8', FLOOR_FRAME.solid] };
+      for (let f = 0; f < 8; f++) values[`_col${f}`] = ['u8', 200];
+      records.push({ hash: FLOOR_FRAME.hash, struct: FLOOR_FRAME.struct, bytes: structBytes(FLOOR_FRAME.struct, values) });
+    }
+  }
   for (const p of L.parts) {
     const P = D.parts[p.type], v = p.vars[p.v];
     if (p.label) {
@@ -1292,7 +1448,9 @@ function finish(res, nl, circuit, opts, attempts, ms) {
     name, box: size, frameQuarters: cubes, searchBox: res.box, parts: L.parts.filter((p) => !p.label).length,
     labels: L.parts.filter((p) => p.label).length, cableCells: cables.length,
     nets: L.nets.length, directContacts: directs, cabledNets: L.nets.length - directs,
-    io: res.io,
+    io: res.io, flat: L.flat,
+    // flat: the floor's Frame Quarters (x by z) under the circuit, and the cable cells one level up
+    floor: floorQ, raisedCables: L.flat ? cables.filter((c) => c.cell[1] > 0).length : 0,
     buses: L.buses.map((b) => ({ face: b.face, rows: b.rows, ends: b.members.map((si) => L.stubs[si].label) })),
     stubs: L.stubs.map((s, si) => ({ label: s.label, io: s.io, face: s.face, port: `${s.end.id}.${s.end.port}`,
       text: L.stubLabel[si] >= 0 ? L.parts[L.stubLabel[si]].label.text : null })),
@@ -1302,7 +1460,7 @@ function finish(res, nl, circuit, opts, attempts, ms) {
   return { bp, meta, name, guid: guidString(randomGuid(guidRng)), report, layout: { origin: lo, parts: L.parts.map((p) => ({ id: p.id, type: p.type, o: vsub(p.o, lo), k: p.vars[p.v].k, mir: p.vars[p.v].mir })), cables: cables.map((c) => ({ ...c, cell: vsub(c.cell, lo) })) } };
 }
 
-const api = { generate, searchBoxes, netlist, geometry, settingsFor, writeBp, structBytes, PAINT, CABLE_PAINT, UPRIGHT, CORNER, STRAIGHT,
+const api = { generate, searchBoxes, netlist, geometry, settingsFor, writeBp, structBytes, PAINT, CABLE_PAINT, UPRIGHT, LYING, CORNER, STRAIGHT,
   _internal: { Layout, anneal, route, initialPlacement, levels, variantsFor, check, cablesFrom, mulberry32, ioPlan, portOnCell } };
 if (typeof module !== 'undefined') module.exports = api;
 else root.BPGEN = api;

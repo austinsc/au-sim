@@ -3,7 +3,7 @@
 
      node tools/make_blueprint.js <circuit.json> [--name NAME] [--folder FOLDER] [--out DIR] [--install]
                                   [--jobs N] [--seeds N] [--budget-ms N] [--io bundle|split|free] [--box XxYxZ]
-                                  [--seed N] [--steps N] [--no-paint] [--stripes] [--no-sink-stubs]
+                                  [--flat [--no-floor]] [--seed N] [--steps N] [--no-paint] [--stripes] [--no-sink-stubs]
 
    Writes <guid>.bp and <guid>.bpmeta to DIR (default blueprints/generated) and prints the report.
    --install also copies the pair into the game's Blueprints folder. Fresh file names only: it never
@@ -16,6 +16,12 @@
    and a free one 40% more, so the stubs come out as one group of parallel cables (bundle) unless that costs over
    40% more size. --io fixes the mode and --box the box. --jobs 1 runs bpgen's own sequential search
    instead (--seed picks its seed).
+
+   --flat lays the parts out as one layer on a floor of Frame Quarters: every part upright on the floor, none on top
+   of another; cables run on the floor and one level up (over parts, never over a label). Each label lies on the
+   floor beside its cable end. The floor holds the parts and labels and anchors the cables lying on it; --no-floor
+   leaves it out, for pasting the circuit onto a floor of your own. The box is two cells high (--box XxZ, or XxYxZ
+   with Y ignored). Frame quarters count the circuit only; the floor is listed apart.
 
    Paint: logic parts and internal cables black, input cables and labels green, outputs red; --stripes adds
    accent stripes to the internal cables. */
@@ -51,7 +57,10 @@ const opts = {
   name, folder: flag('--folder', 'au-sim'),
   steps: flag('--steps') ? Number(flag('--steps')) : undefined,
   paint: !has('--no-paint'), stripes: has('--stripes'), sinkStubs: !has('--no-sink-stubs'),
+  flat: has('--flat'), floor: !has('--no-floor'),
 };
+// --box XxYxZ (or XxZ for a flat layout, whose height bpgen sets)
+const boxFlag = () => { const d = flag('--box').split('x').map(Number); return d.length === 2 ? [d[0], 2, d[1]] : d; };
 const budget = Number(flag('--budget-ms', 240000));
 const jobs = Number(flag('--jobs', Math.max(1, Math.min(os.cpus().length - 1, 16))));
 const FACTOR = { bundle: 1, split: 1.15, free: 1.4 };
@@ -59,7 +68,7 @@ const FACTOR = { bundle: 1, split: 1.15, free: 1.4 };
 function sequential() {
   try {
     return Promise.resolve(generate(circuit, { ...opts, seed: Number(flag('--seed', 1)), timeBudgetMs: budget, io: flag('--io'),
-      box: flag('--box') ? flag('--box').split('x').map(Number) : undefined }));
+      box: flag('--box') ? boxFlag() : undefined }));
   } catch (e) {
     console.error('FAILED:', e.message);
     if (e.attempts) for (const a of e.attempts.slice(-15)) console.error('  ', a.box.join('x'), a.io, a.why);
@@ -69,7 +78,7 @@ function sequential() {
 
 function parallel() {
   const t0 = Date.now();
-  const boxes = flag('--box') ? [{ box: flag('--box').split('x').map(Number) }] : searchBoxes(circuit, opts);
+  const boxes = flag('--box') ? [{ box: boxFlag() }] : searchBoxes(circuit, opts);
   for (const b of boxes) b.cubes = b.box.reduce((n, d) => n * Math.ceil(d / 4), 1);
   const modes = flag('--io') ? [flag('--io')] : ['bundle', 'split', 'free'];
   const seeds = Number(flag('--seeds', 4));
@@ -155,6 +164,7 @@ function parallel() {
   const r = out.report;
   console.log(`${r.name}: ${r.parts} parts, ${r.cableCells} cable cells, box ${r.box.join('x')} = ${r.frameQuarters} frame quarters, ` +
     `${r.directContacts}/${r.nets} nets by direct contact, ${r.stubs.length} stubs, longest cable ${r.longestCable}, ${r.ms} ms`);
+  if (r.flat) console.log(`flat: one layer of parts${r.floor ? ` on a floor of ${r.floor[0]} x ${r.floor[1]} = ${r.floor[0] * r.floor[1]} frame quarters` : ' (no floor: paste it onto one)'}; ${r.raisedCables} cable cells one level up`);
   // a row reads left to right as you face it from outside (+x is to your right on the -z face, to your left on +z)
   console.log(`I/O: ${r.io}` + r.buses.map((b) => `; ${b.face} face, ${b.rows} row(s) (bottom first), left to right from outside: ` +
     (b.face === '-z' ? b.ends : b.ends.slice().reverse()).join(', ')).join(''));

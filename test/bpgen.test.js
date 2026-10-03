@@ -48,3 +48,31 @@ test('split: inputs leave through -z and outputs through +z, each group in a row
   for (const s of r.stubs) assert.strictEqual(s.face, s.io === 'in' ? '-z' : '+z');
   for (const b of r.buses) for (const label of b.ends) assert.strictEqual(r.stubs.find((s) => s.label === label).face, b.face);
 });
+
+test('flat: one layer of upright parts on a floor of frames, labels lying beside their ends, no cable over a label', () => {
+  const { geometry, UPRIGHT, LYING } = require('../bpgen.js');
+  // a box and seed known to work (every seed did at this size)
+  const out = generate(load('circuits/gen_test_settings.json'), { flat: true, io: 'split', box: [32, 2, 8], seed: 1, deterministic: true, timeBudgetMs: 1e9 });
+  const r = out.report;
+  assert.ok(r.flat);
+  assert.deepStrictEqual(r.floor, [Math.ceil(r.box[0] / 4), Math.ceil(r.box[2] / 4)], 'the floor covers the footprint');
+  const labelTop = new Set();
+  for (const p of out.layout.parts) {
+    assert.strictEqual(p.o[1], 0, `${p.id} stands on the floor`);
+    if (p.type.startsWith('label')) {
+      assert.ok(Object.values(LYING).includes(p.k), `label ${p.id} lies face up`);
+      for (const c of geometry(p.type, p.k, p.mir).cells) labelTop.add(`${p.o[0] + c[0]},${p.o[2] + c[2]}`);
+    } else assert.ok(Object.values(UPRIGHT).includes(p.k), `${p.id} is upright`);
+  }
+  for (const c of out.layout.cables) {
+    assert.ok(c.cell[1] <= 1, 'cables run on the floor or one level up');
+    if (c.cell[1] === 1) assert.ok(!labelTop.has(`${c.cell[0]},${c.cell[2]}`), 'no cable lies over a label');
+  }
+});
+
+test('flat without a floor: no frames, and cable reach counted from the ports', () => {
+  const out = generate(load('circuits/gen_test_basic.json'), { flat: true, floor: false, seed: 1, deterministic: true, timeBudgetMs: 1e9 });
+  assert.strictEqual(out.report.floor, null);
+  assert.ok(out.report.longestCable <= 21);
+  for (const p of out.layout.parts) assert.strictEqual(p.o[1], 0);
+});

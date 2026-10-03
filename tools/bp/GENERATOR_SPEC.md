@@ -125,6 +125,33 @@ Schema entries come from `schemas.json`, so a generated file needs no template b
       can also hold up the label.
     - Rows are placed first, and the stub parts are snapped onto them before the rest.
   - **Search:** without `opts.io`, each box tries bundle, then split; free is the last resort.
+- **Flat** (`opts.flat`, CLI `--flat`, the simulator's Flat box; 2026-10-03). The user asked to "lay out circuits on
+  a flat plane (but still condensed as much as possible, just without stacking)", then: "wires can still go to a
+  second level, just data parts stay flat", and that the first search was "way too slow".
+  - Every logic part stands upright at y = 0, none on another. Cables run at y = 0 and y = 1 (over parts too); the box
+    is 2 cells high.
+  - A floor of Frame Quarters (`482074ef572f3723`, orientation 16, top face welded: `_solidFaces` bit 1) goes under
+    the footprint, on the game's 4-cell grid. It holds every part and label, so the parts need not touch each other
+    and no label needs a part behind it. `opts.floor = false` (`--no-floor`) leaves it out, for pasting onto a floor
+    of your own; the frame quarters reported are the circuit's, and the floor is listed apart.
+  - Each label lies face up on the floor beside its end, upright to someone standing at that face (orientation 9 on
+    -z, reading +x; 8 on +z, reading -x; `LYING` in bpgen). A row slot is the end plus its label (one cell wider than
+    the label), so a row of n small labels needs 3n cells; the rows set the board's least width.
+  - Reach: on the floor, the game's anchoring rule replaces the 21/11-cell limits. The router counts each cell's
+    distance from the last anchored cell (the port's, or a straight cell lying on the deck: its predecessor, itself
+    and its successor in a line along the floor) and never lets it pass 20, because every cable ends on an anchored
+    cell. The check then applies the exact rule: every cell within 10 steps of an anchor along its cable.
+  - No cable runs over a label (its column is closed), so the text stays in view.
+  - Placement keeps parts at y = 0, looks only at the final reachability (the level over the parts nearly always
+    joins everything) and repairs a failed routing once. A port does not count another cable's port or end cell as
+    its way out.
+  - Boxes: per depth, the two narrowest widths that hold the I/O rows and the parts' area plus 4 cells per cable.
+  - Two wire levels route dense circuits more often (raster_sweep_v3: 7 of 8 tries against 3 of 8), but the user
+    allowed one; the search finds a roomier board instead.
+  - **Results** (18 workers): gen_test_basic 1 s (2 frame quarters); gen_test_settings 24 s, 35×8 (18 + a floor of
+    18); raster_sweep_v3 87 s, 32×16 (32 + 32); planet_hop_v2 45 s, 36×24 (54 + 54); flight_computer (75 parts) 117 s,
+    47×20 (60 + 60). The 3D search used its whole 240 s budget on raster_sweep_v3 and planet_hop_v2. `verify_bp.py`
+    passes all five.
 - **Paint** (2026-10-02, at the user's request; the v1 colour-by-function scheme was "too crazy"):
   - Every logic part and internal cable is black.
   - Input cables and their labels are green; output cables and their labels red.
@@ -134,7 +161,16 @@ Schema entries come from `schemas.json`, so a generated file needs no template b
 - **Checks:** two independent checks.
   - The generator re-derives every connection from the cells it emits.
   - `tools/bp/verify_bp.py <bp> <circuit>` re-reads the file with the Python decoder and compares the netlist,
-    overlaps, reach and touching. Like the generator, it accepts a label at least half backed and notes it.
+    overlaps, reach and touching. Like the generator, it accepts a label at least half backed and notes it. It knows
+    a flat layout's floor: frames hold parts and labels, and reach is the anchoring rule. It compares a Wireless
+    Transmitter's tx and rx as its one physical port, as the generator does.
+  - The generator's own check now applies the anchoring rule too (every cable cell within 10 steps of a port-joined
+    cell, or of a straight cell on a welded floor), in every mode.
+- **Joints and ports** (2026-10-03):
+  - A part is held only where it has a joint area, per cell face (`JOINT_AT`): the Wireless Transmitter's cover only
+    its bottom and the lower row of its sides. A part with no joint contact counts as a group of its own.
+  - A part type flagged `upright_only` (an Axis Rotometer that must measure yaw) is only ever placed upright.
+  - The check compares a Wireless Transmitter's tx and rx as its one physical port.
 - **Results** (2026-10-02, parallel search):
   - `gen_test_settings` (29 parts, 9 stubs): bundle in 6 frame quarters (12×8×4), 16 s. v1 needed the same size.
   - `raster_sweep_v3` (38 parts, 10 stubs):

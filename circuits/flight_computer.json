@@ -1,0 +1,1772 @@
+{
+  "instances": [
+    {
+      "id": "rx_fwd",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 30
+      },
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rx_rear",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 38
+      },
+      "position": {
+        "x": 40,
+        "y": 205
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rx_vz",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 23
+      },
+      "position": {
+        "x": 40,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "accel",
+      "type_id": "accelerometer",
+      "parameters": {
+        "acceleration": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "grav",
+      "type_id": "gravitymeter",
+      "parameters": {
+        "gravity": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_rate",
+      "type_id": "slider",
+      "parameters": {
+        "angular_velocity": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_rate",
+      "type_id": "slider",
+      "parameters": {
+        "angular_velocity": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "sw_auto",
+      "type_id": "toggle",
+      "parameters": {
+        "out": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "auto_r",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "lock",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "off",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 760,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "off_r",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 2020
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "committed",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 1000,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "notc",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 20,
+        "in_max": 21,
+        "out_min": 1,
+        "out_max": 0
+      },
+      "position": {
+        "x": 1240,
+        "y": 2020
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "notc_r",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rear_r",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 205
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rear_ok",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 1000000000000000000,
+        "in_max": 10000000000000000000,
+        "out_min": 1,
+        "out_max": 0
+      },
+      "position": {
+        "x": 520,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rear_eff",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 205
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rear_sel",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 1000,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "d_plan",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "d_plan_r",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 40
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "valid",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 1000000000000000000,
+        "in_max": 10000000000000000000,
+        "out_min": 1,
+        "out_max": 0
+      },
+      "position": {
+        "x": 1720,
+        "y": 205
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "vz_r",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "lead",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 0,
+        "in_max": 100000,
+        "out_min": 150,
+        "out_max": 1600150
+      },
+      "position": {
+        "x": 520,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "acc_net",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_held",
+      "type_id": "memory",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 280,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_held_r",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "grav_r",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 280,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "a_net",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "two_a",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 1,
+        "in_max": 1000,
+        "out_min": 1.9,
+        "out_max": 1900
+      },
+      "position": {
+        "x": 1000,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "d_pos",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 0,
+        "in_max": 1000000000000000,
+        "out_min": 0,
+        "out_max": 1000000000000000
+      },
+      "position": {
+        "x": 1720,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "prof2",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 1960,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "v_root",
+      "type_id": "sqrt",
+      "parameters": {},
+      "position": {
+        "x": 2200,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "v_prof",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 120,
+        "in_max": 1000000000,
+        "out_min": 0,
+        "out_max": 999999880
+      },
+      "position": {
+        "x": 2440,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "v_prof_r",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 2440,
+        "y": 535
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "want",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 2680,
+        "y": 370
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "err",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 2680,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "theta",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 280,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "theta_r0",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "abs_theta",
+      "type_id": "abs",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "yh_p",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": -10000000,
+        "in_max": 10000000,
+        "out_min": -333333.3333333333,
+        "out_max": 333333.3333333333
+      },
+      "position": {
+        "x": 760,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "yh_d",
+      "type_id": "differentiator",
+      "parameters": {
+        "interval": 1
+      },
+      "position": {
+        "x": 760,
+        "y": 1855
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "yh",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "u_hold",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": -10,
+        "in_max": 10,
+        "out_min": 1,
+        "out_max": -1
+      },
+      "position": {
+        "x": 1240,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "theta_r",
+      "type_id": "data_router_4",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "progress",
+      "type_id": "differentiator",
+      "parameters": {
+        "interval": 1
+      },
+      "position": {
+        "x": 1000,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "two_a_rem",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 0,
+        "in_max": 10800,
+        "out_min": 1080,
+        "out_max": 0
+      },
+      "position": {
+        "x": 1000,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rate_root",
+      "type_id": "sqrt",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rate_lin",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 0,
+        "in_max": 21600,
+        "out_min": 360,
+        "out_max": -360
+      },
+      "position": {
+        "x": 1000,
+        "y": 1690
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rate_cmd",
+      "type_id": "min",
+      "parameters": {},
+      "position": {
+        "x": 1240,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rate_err",
+      "type_id": "subtractor",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "u",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": -4,
+        "in_max": 4,
+        "out_min": -1,
+        "out_max": 1
+      },
+      "position": {
+        "x": 1480,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "u_gated",
+      "type_id": "condition",
+      "parameters": {
+        "op": 4
+      },
+      "position": {
+        "x": 1720,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1960,
+        "y": 1195
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "yaw_split",
+      "type_id": "sign_splitter",
+      "parameters": {},
+      "position": {
+        "x": 1960,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_yaw_pos",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 12
+      },
+      "position": {
+        "x": 2200,
+        "y": 1360
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_yaw_neg",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 13
+      },
+      "position": {
+        "x": 2200,
+        "y": 1525
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "phi",
+      "type_id": "accumulator",
+      "parameters": {
+        "mode": 0
+      },
+      "position": {
+        "x": 280,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "phi_r",
+      "type_id": "data_router_2",
+      "parameters": {},
+      "position": {
+        "x": 520,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "ph_p",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": -10000000,
+        "in_max": 10000000,
+        "out_min": -333333.3333333333,
+        "out_max": 333333.3333333333
+      },
+      "position": {
+        "x": 760,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "ph_d",
+      "type_id": "differentiator",
+      "parameters": {
+        "interval": 1
+      },
+      "position": {
+        "x": 760,
+        "y": 2680
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "ph",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1000,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "u_pitch",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": -10,
+        "in_max": 10,
+        "out_min": 1,
+        "out_max": -1
+      },
+      "position": {
+        "x": 1240,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 2350
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "pitch_split",
+      "type_id": "sign_splitter",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_pit_pos",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 14
+      },
+      "position": {
+        "x": 1720,
+        "y": 2515
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_pit_neg",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 15
+      },
+      "position": {
+        "x": 1720,
+        "y": 2680
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "roll_split",
+      "type_id": "sign_splitter",
+      "parameters": {},
+      "position": {
+        "x": 1480,
+        "y": 3010
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_roll_pos",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 10
+      },
+      "position": {
+        "x": 1720,
+        "y": 3010
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_roll_neg",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 11
+      },
+      "position": {
+        "x": 1720,
+        "y": 3175
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "aligned",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 10200,
+        "in_max": 10680,
+        "out_min": 0,
+        "out_max": 1
+      },
+      "position": {
+        "x": 1000,
+        "y": 1195
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "fade",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": -120,
+        "in_max": 120,
+        "out_min": 1,
+        "out_max": -1
+      },
+      "position": {
+        "x": 2920,
+        "y": 700
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "g_a",
+      "type_id": "divider",
+      "parameters": {},
+      "position": {
+        "x": 760,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "hold_sum",
+      "type_id": "adder",
+      "parameters": {},
+      "position": {
+        "x": 2920,
+        "y": 865
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "brake_out",
+      "type_id": "multiplier",
+      "parameters": {},
+      "position": {
+        "x": 2920,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "thrust",
+      "type_id": "condition",
+      "parameters": {
+        "op": 3
+      },
+      "position": {
+        "x": 3160,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_thrust",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 1
+      },
+      "position": {
+        "x": 3400,
+        "y": 1030
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "joy_yaw",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 3010
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "joy_pitch",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 3130
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "joy_roll",
+      "type_id": "slider",
+      "parameters": {
+        "value": 0
+      },
+      "position": {
+        "x": 40,
+        "y": 3250
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "rx_ground",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 9
+      },
+      "position": {
+        "x": 40,
+        "y": 2350
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "gear_rem",
+      "type_id": "remapper",
+      "parameters": {
+        "in_min": 100,
+        "in_max": 105,
+        "out_min": 1,
+        "out_max": 0
+      },
+      "position": {
+        "x": 280,
+        "y": 2350
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    },
+    {
+      "id": "tx_gear",
+      "type_id": "wireless_transmitter",
+      "parameters": {
+        "channel": 69
+      },
+      "position": {
+        "x": 520,
+        "y": 2350
+      },
+      "color": "#e9c46a",
+      "mirrored": false
+    }
+  ],
+  "edges": [
+    {
+      "from_instance": "sw_auto",
+      "from_port": "out",
+      "to_instance": "auto_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "auto_r",
+      "from_port": "a",
+      "to_instance": "off",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "auto_r",
+      "from_port": "b",
+      "to_instance": "lock",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "valid",
+      "from_port": "out",
+      "to_instance": "lock",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "lock",
+      "from_port": "out",
+      "to_instance": "thrust",
+      "to_port": "true",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "off",
+      "from_port": "out",
+      "to_instance": "off_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "off_r",
+      "from_port": "a",
+      "to_instance": "committed",
+      "to_port": "reset",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "off_r",
+      "from_port": "b",
+      "to_instance": "theta",
+      "to_port": "reset",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "off_r",
+      "from_port": "c",
+      "to_instance": "phi",
+      "to_port": "reset",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "want",
+      "from_port": "out",
+      "to_instance": "committed",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "committed",
+      "from_port": "out",
+      "to_instance": "notc",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "notc",
+      "from_port": "out",
+      "to_instance": "notc_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "notc_r",
+      "from_port": "a",
+      "to_instance": "rear_sel",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "notc_r",
+      "from_port": "b",
+      "to_instance": "u_gated",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "notc_r",
+      "from_port": "c",
+      "to_instance": "thrust",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "notc_r",
+      "from_port": "d",
+      "to_instance": "a_held",
+      "to_port": "set",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rx_rear",
+      "from_port": "rx",
+      "to_instance": "rear_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rear_r",
+      "from_port": "a",
+      "to_instance": "rear_ok",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rear_r",
+      "from_port": "b",
+      "to_instance": "rear_eff",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rear_ok",
+      "from_port": "out",
+      "to_instance": "rear_eff",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rear_eff",
+      "from_port": "out",
+      "to_instance": "rear_sel",
+      "to_port": "true",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rx_fwd",
+      "from_port": "rx",
+      "to_instance": "rear_sel",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rear_sel",
+      "from_port": "out",
+      "to_instance": "d_plan",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "lead",
+      "from_port": "out",
+      "to_instance": "d_plan",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_plan",
+      "from_port": "out",
+      "to_instance": "d_plan_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_plan_r",
+      "from_port": "a",
+      "to_instance": "d_pos",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_plan_r",
+      "from_port": "b",
+      "to_instance": "valid",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rx_vz",
+      "from_port": "rx",
+      "to_instance": "vz_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vz_r",
+      "from_port": "a",
+      "to_instance": "want",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vz_r",
+      "from_port": "b",
+      "to_instance": "err",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "vz_r",
+      "from_port": "c",
+      "to_instance": "lead",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "accel",
+      "from_port": "acceleration",
+      "to_instance": "acc_net",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "grav_r",
+      "from_port": "c",
+      "to_instance": "acc_net",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "acc_net",
+      "from_port": "out",
+      "to_instance": "a_held",
+      "to_port": "value",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_held",
+      "from_port": "out",
+      "to_instance": "a_held_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_held_r",
+      "from_port": "a",
+      "to_instance": "a_net",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_held_r",
+      "from_port": "b",
+      "to_instance": "g_a",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "grav",
+      "from_port": "gravity",
+      "to_instance": "grav_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "grav_r",
+      "from_port": "a",
+      "to_instance": "a_net",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "grav_r",
+      "from_port": "b",
+      "to_instance": "g_a",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "a_net",
+      "from_port": "out",
+      "to_instance": "two_a",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "two_a",
+      "from_port": "out",
+      "to_instance": "prof2",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "d_pos",
+      "from_port": "out",
+      "to_instance": "prof2",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "prof2",
+      "from_port": "out",
+      "to_instance": "v_root",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_root",
+      "from_port": "out",
+      "to_instance": "v_prof",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_prof",
+      "from_port": "out",
+      "to_instance": "v_prof_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_prof_r",
+      "from_port": "a",
+      "to_instance": "want",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "v_prof_r",
+      "from_port": "b",
+      "to_instance": "err",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yaw_rate",
+      "from_port": "angular_velocity",
+      "to_instance": "theta",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta",
+      "from_port": "out",
+      "to_instance": "theta_r0",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r0",
+      "from_port": "a",
+      "to_instance": "abs_theta",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r0",
+      "from_port": "b",
+      "to_instance": "yh_p",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r0",
+      "from_port": "c",
+      "to_instance": "yh_d",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yh_p",
+      "from_port": "out",
+      "to_instance": "yh",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yh_d",
+      "from_port": "out",
+      "to_instance": "yh",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yh",
+      "from_port": "out",
+      "to_instance": "u_hold",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "u_hold",
+      "from_port": "out",
+      "to_instance": "u_gated",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "abs_theta",
+      "from_port": "out",
+      "to_instance": "theta_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r",
+      "from_port": "a",
+      "to_instance": "progress",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r",
+      "from_port": "b",
+      "to_instance": "two_a_rem",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r",
+      "from_port": "c",
+      "to_instance": "aligned",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "two_a_rem",
+      "from_port": "out",
+      "to_instance": "rate_root",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "theta_r",
+      "from_port": "d",
+      "to_instance": "rate_lin",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rate_root",
+      "from_port": "out",
+      "to_instance": "rate_cmd",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rate_lin",
+      "from_port": "out",
+      "to_instance": "rate_cmd",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rate_cmd",
+      "from_port": "out",
+      "to_instance": "rate_err",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "progress",
+      "from_port": "out",
+      "to_instance": "rate_err",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rate_err",
+      "from_port": "out",
+      "to_instance": "u",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "u",
+      "from_port": "out",
+      "to_instance": "u_gated",
+      "to_port": "true",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "u_gated",
+      "from_port": "out",
+      "to_instance": "yaw_sum",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "joy_yaw",
+      "from_port": "out",
+      "to_instance": "yaw_sum",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yaw_sum",
+      "from_port": "out",
+      "to_instance": "yaw_split",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yaw_split",
+      "from_port": "pos",
+      "to_instance": "tx_yaw_pos",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "yaw_split",
+      "from_port": "neg",
+      "to_instance": "tx_yaw_neg",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "err",
+      "from_port": "out",
+      "to_instance": "fade",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "fade",
+      "from_port": "out",
+      "to_instance": "hold_sum",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "g_a",
+      "from_port": "out",
+      "to_instance": "hold_sum",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "hold_sum",
+      "from_port": "out",
+      "to_instance": "brake_out",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "aligned",
+      "from_port": "out",
+      "to_instance": "brake_out",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "brake_out",
+      "from_port": "out",
+      "to_instance": "thrust",
+      "to_port": "false",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "thrust",
+      "from_port": "out",
+      "to_instance": "tx_thrust",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "pitch_rate",
+      "from_port": "angular_velocity",
+      "to_instance": "phi",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "phi",
+      "from_port": "out",
+      "to_instance": "phi_r",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "phi_r",
+      "from_port": "a",
+      "to_instance": "ph_p",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "phi_r",
+      "from_port": "b",
+      "to_instance": "ph_d",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ph_p",
+      "from_port": "out",
+      "to_instance": "ph",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ph_d",
+      "from_port": "out",
+      "to_instance": "ph",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "ph",
+      "from_port": "out",
+      "to_instance": "u_pitch",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "u_pitch",
+      "from_port": "out",
+      "to_instance": "pitch_sum",
+      "to_port": "a",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "joy_pitch",
+      "from_port": "out",
+      "to_instance": "pitch_sum",
+      "to_port": "b",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "pitch_sum",
+      "from_port": "out",
+      "to_instance": "pitch_split",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "pitch_split",
+      "from_port": "pos",
+      "to_instance": "tx_pit_pos",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "pitch_split",
+      "from_port": "neg",
+      "to_instance": "tx_pit_neg",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "joy_roll",
+      "from_port": "out",
+      "to_instance": "roll_split",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "roll_split",
+      "from_port": "pos",
+      "to_instance": "tx_roll_pos",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "roll_split",
+      "from_port": "neg",
+      "to_instance": "tx_roll_neg",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "rx_ground",
+      "from_port": "rx",
+      "to_instance": "gear_rem",
+      "to_port": "in",
+      "color": "#e9c46a"
+    },
+    {
+      "from_instance": "gear_rem",
+      "from_port": "out",
+      "to_instance": "tx_gear",
+      "to_port": "tx",
+      "color": "#e9c46a"
+    }
+  ],
+  "groups": [],
+  "max_per_column": 4,
+  "max_rows": 4,
+  "max_columns": 8,
+  "tune": {
+    "lead_s": 16,
+    "standoff_m": 150,
+    "alpha_plan": 3,
+    "rate_band": 4,
+    "tail_gain": 2,
+    "hold_kp": 2,
+    "hold_band": 10,
+    "aligned_from": 170,
+    "aligned_to": 178,
+    "fade_w": 120,
+    "commit_ticks": 20,
+    "scan": 0.8
+  }
+}

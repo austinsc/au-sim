@@ -8,6 +8,10 @@ Re-reads the .bp with bpformat (no shared code with bpgen.js), places every part
 the cell in the port's cell opens toward the part, and two ports touching face to face connect.
 Then it compares the result with the circuit's wires and reports anything else wrong:
 overlaps, cables that open onto nothing, cables over the reach limit, parts that touch nothing.
+
+A flat layout (bpgen opts.flat) sits on a floor of Frame Quarters: the floor holds its parts and its labels (which
+lie on it), and a cable's reach is the game's anchoring rule instead of a length: every cell within 10 steps along its
+cable of an anchored cell, i.e. one joined to a port or a straight cell lying on a welded frame face.
 """
 import collections, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -17,6 +21,9 @@ from networks import OPEN
 CABLES = {0xe60658e2e04f33ce: 'data', 0x743531fcd428bc2c: 'power', 0xe8f9b8dac4e23b9c: 'plasma'}
 # Label and Large Label: plates whose text faces local +z and whose back (local -z) must rest on a part
 LABELS = {0x30dd685b29b0b3a1: (2, 1, 1), 0x7cfa59e0d07dcb3e: (4, 1, 1)}
+# Frame Quarter (a flat layout's floor): _solidFaces is byte 20, bit 1 = its Y+ face (tools/bp/parts/structure.json)
+FRAMES = {0x482074ef572f3723: (4, 4, 4)}
+MAX_UNANCHORED = 10
 
 
 def box_footprint(size, origin, k):
@@ -37,8 +44,18 @@ def main(bp_path, circuit_path):
     errors, notes = [], []
     parts, cables, labels = [], {}, []
     occupied = {}
+    frames, frame_list = {}, []                     # cell -> frame index
     for r in recs:
         x, y, z, k = bpformat.unpack_cell(r['cell'])
+        if r['part'] in FRAMES:
+            fp = box_footprint(FRAMES[r['part']], (x, y, z), k)
+            for c in fp:
+                if c in frames:
+                    errors.append(f'two frames in cell {c}')
+                frames[c] = len(frame_list)
+            # welded top face (only the canonical orientation 16 = identity keeps Y+ up; others are not used)
+            frame_list.append({'cells': fp, 'top': k == 16 and bool(r['data'][20] >> 1 & 1)})
+            continue
         if r['part'] in CABLES:
             shape = r['data'][20]
             m = model.ORI[k]['rotation']
@@ -70,10 +87,13 @@ def main(bp_path, circuit_path):
                       'label': r['label'] or ''})
     label_cells = {c: v[1] for c, v in occupied.items() if isinstance(v, tuple)}
     occupied = {c: v for c, v in occupied.items() if not isinstance(v, tuple)}
-    # every label rests on parts: it is one plate held by its back face, so at least half of that face must
-    # touch a part (bpgen's free labels are fully backed; its I/O-row labels at least half)
+    for c in frames:
+        if c in occupied or c in cables or c in label_cells:
+            errors.append(f'overlap with the floor at {c}')
+    # every label rests on parts (or the floor): it is one plate held by its back face, so at least half of that face
+    # must touch a part (bpgen's free labels are fully backed; its I/O-row labels at least half)
     for lb in labels:
-        loose = sum(add(c, lb['back']) not in occupied for c in lb['cells'])
+        loose = sum(add(c, lb['back']) not in occupied and add(c, lb['back']) not in frames for c in lb['cells'])
         if 2 * loose > len(lb['cells']):
             errors.append(f'label "{lb["text"]}" is not backed by a part')
         elif loose:
@@ -153,44 +173,76 @@ def main(bp_path, circuit_path):
                     errors.append(f'stub ending at {end} has no label beside it')
                 else:
                     notes.append(f'stub {parts[g["ports"][0][0]]["type"]}.{g["ports"][0][1]} -> label "{labels[min(near)]["text"]}"')
-                if g['cells'] > 11:
+                if g['cells'] > 11 and not frames:
                     errors.append(f'stub of {g["cells"]} cells is over the 11-cell reach')
             continue
         if len(g['ports']) != 2:
             errors.append(f'cable network joining {len(g["ports"])} ports')
             continue
         links.append((g['ports'][0], g['ports'][1], g['cells']))
-        if g['cells'] > 21:
+        if g['cells'] > 21 and not frames:
             errors.append(f'cable of {g["cells"]} cells is over the 21-cell reach')
+    # on a floor: the anchoring rule. Anchored: a cell joined to a port, or a straight cell (horizontal axis) lying on
+    # a frame whose top face is welded
+    if frames:
+        anchored = set()
+        for c, info in cables.items():
+            for d in info['open']:
+                n = add(c, d)
+                if n in occupied and any(pi == occupied[n] and tuple(inw) == d for pi, name, inw in port_at.get(c, [])):
+                    anchored.add(c)
+            o = sorted(info['open'])
+            below = add(c, (0, -1, 0))
+            if len(o) == 2 and o[0] == neg(o[1]) and o[0][1] == 0 and below in frames and frame_list[frames[below]]['top']:
+                anchored.add(c)
+        dist = {c: 0 for c in anchored}
+        queue = collections.deque(anchored)
+        while queue:
+            q = queue.popleft()
+            for d in cables[q]['open']:
+                n = add(q, d)
+                if n in cables and n not in dist and neg(d) in cables[n]['open']:
+                    dist[n] = dist[q] + 1
+                    queue.append(n)
+        far = [c for c in cables if dist.get(c, 99) > MAX_UNANCHORED]
+        if far:
+            errors.append(f'{len(far)} cable cells are more than {MAX_UNANCHORED} steps from an anchor, e.g. {far[:3]}')
+        notes.append(f'floor of {len(frame_list)} frame quarters; farthest cable cell from an anchor: '
+                     f'{max(dist.values(), default=0)} steps')
     links += [(a, b, 0) for a, b in contacts]
-    # every link must join an output to an input
+    # every link must join an output to an input (a Wireless Transmitter's one port, tx and rx, is either: 'both')
     for a, b, n in links:
         da = parts[a[0]]['ports'][a[1]]['dir']; db = parts[b[0]]['ports'][b[1]]['dir']
-        if {da, db} != {'in', 'out'}:
+        if {da, db} != {'in', 'out'} and not ('both' in (da, db) and {da, db} - {'both'} <= {'in', 'out'}):
             errors.append(f'link joins {parts[a[0]]["type"]}.{a[1]} ({da}) and {parts[b[0]]["type"]}.{b[1]} ({db})')
-    # structure: parts must touch each other
-    parent = list(range(len(parts)))
+    # structure: parts must touch each other (or rest on the floor, whose frames touch each other)
+    holder = dict(occupied)
+    for c, fi in frames.items():
+        holder[c] = len(parts) + fi
+    parent = list(range(len(parts) + len(frame_list)))
     def find(i):
         while parent[i] != i:
             parent[i] = parent[parent[i]]; i = parent[i]
         return i
-    for c, pi in occupied.items():
+    for c, pi in holder.items():
         for d in ((1, 0, 0), (0, 1, 0), (0, 0, 1)):
-            q = occupied.get(add(c, d))
+            q = holder.get(add(c, d))
             if q is not None and q != pi:
                 parent[find(pi)] = find(q)
-    groups_n = len({find(i) for i in range(len(parts))})
+    groups_n = len({find(i) for i in range(len(parts) + len(frame_list))})
     if groups_n > 1:
         errors.append(f'parts form {groups_n} separate groups')
-    # compare the type-level netlist with the circuit (instance identity is not stored in a .bp)
+    # compare the type-level netlist with the circuit (instance identity is not stored in a .bp); a Wireless
+    # Transmitter's tx and rx are one physical port, compared as 'trx'
+    one = lambda t, port: 'trx' if t == 'wireless_transmitter' else port
     by_types = collections.Counter()
     for a, b, n in links:
         pa, pb = parts[a[0]], parts[b[0]]
-        if pa['ports'][a[1]]['dir'] == 'in':
+        if pa['ports'][a[1]]['dir'] == 'in' or pb['ports'][b[1]]['dir'] == 'out':
             a, b, pa, pb = b, a, pb, pa
-        by_types[(pa['type'], a[1], pb['type'], b[1])] += 1
+        by_types[(pa['type'], one(pa['type'], a[1]), pb['type'], one(pb['type'], b[1]))] += 1
     included = {i['id'] for i in circuit['instances'] if i['type_id'] in model.DB}
-    want_types = collections.Counter((ta, fp, tb, tp) for fi, fp, ti, tp, ta, tb in want if fi in included and ti in included)
+    want_types = collections.Counter((ta, one(ta, fp), tb, one(tb, tp)) for fi, fp, ti, tp, ta, tb in want if fi in included and ti in included)
     if by_types != want_types:
         errors.append(f'netlist differs: extra {dict(by_types - want_types)} missing {dict(want_types - by_types)}')
     n_inst = collections.Counter(i['type_id'] for i in circuit['instances'] if i['id'] in included)
@@ -207,7 +259,8 @@ def main(bp_path, circuit_path):
         for e in errors[:30]:
             print('  -', e)
         return 1
-    print('OK: every circuit wire is present exactly once, nothing else connects, all parts touch.')
+    print('OK: every circuit wire is present exactly once, nothing else connects, all parts touch'
+          + (' or rest on the floor, every cable cell is anchored.' if frames else '.'))
     return 0
 
 
