@@ -68,6 +68,12 @@ Source: `C:\Program Files (x86)\Steam\steamapps\common\Approximately Up\Approxim
 - **Thruster response** (game code, `SCTick_ValueAccelerator`): a thruster's output moves toward its input by at most 1 / `acceleration_time` per second (a slew limit, not a lag): Small/Medium Electric 0.25 / 0.7 s, Electric Flat 0.2 s, maneuvering 0.1–0.35 s, RCS Thruster 0.04 s, but **Small Fuel 10 s and Medium Fuel 20 s**. Fuel engines cannot follow an autopilot's throttle; drive only electrics from a fast loop.
 - **Maneuvering Thrusters** ("all the power is used for rotation", `force_type` 1): small 30 kN, medium 100 kN, large 370 kN, bidirectional 80 kN; they turn the ship by position × force about the centre of mass and do not push it. Throttle input 0..1 and power (5 / 17 / 50 / 15 P/s). Each is a rod pushing along its length, mounted by its long side; the exhaust end's heat zone runs 3 / 5 / 7 m.
 - **RCS** (`SC_GimbalController` + `SC_GimbalThruster`): "RCS Controller for 6 RCS Thrusters". The thrusters are wireless 1 × 1 × 0.5-quarter plates (10 kN, also rotation only) with a **single-use 700 P battery** (5 P/s while firing, ~140 s each). Mode k = `_channel` (2k + 1)/12: 0/1 yaw left/right, 2/3 pitch down/up, 4/5 roll left/right (corpus torque analysis, signs tentative).
+- **Small Solid Fuel Thruster ignition** (game code, `SCTick_Thruster_SolidFuel`):
+  - Until it ignites, the thruster requests its ignition power: 200 P/s (`solid_fuel_ignition_power`; the port text reads "Requires {0} P/s to ignite").
+  - Each tick an ignition progress changes by 1/60, clamped to 0..1. It rises unless the part's electric status byte is 2, the value that means not powered.
+  - At 1.0 it ignites, after **60 consecutive powered ticks (1 s)**. Its power demand then drops to 0, and it cannot be stopped.
+  - Every unpowered tick undoes one powered tick, so an interrupted ignition takes longer.
+  - Whether a partly supplied network counts as powered is unconfirmed.
 - **Wireless Transmitter:** one sender per channel ("the red light means multiple transmitters are broadcasting on the same channel, which is not allowed"); range 2,000 m; no power. Its single port has no joint area on top of the part.
 - **Space GPS** outputs distance, longitude (−180..180) and latitude (−90..90), and needs at least 60% clear space around it.
 - **Blueprints** (`.bp`) are binary with hashed type IDs and are not decoded yet. `.bpmeta` files are small JSON (`_name`, `_folder`, `_version`).
