@@ -104,13 +104,16 @@ function geometry(type, k, mir) {
   return g;
 }
 
-function variantsFor(type, all = true) {
+function variantsFor(type, all = true, resting = false) {
   // every orientation the game allows (all 24 occur in saved blueprints), normal or mirrored twin;
   // upright ones (local +y = world +y) are marked so the placer can prefer them
-  // (a part flagged upright_only, e.g. an Axis Rotometer that must measure yaw, only ever stands upright)
+  // (a part flagged upright_only, e.g. an Axis Rotometer that must measure yaw, only ever stands upright;
+  // resting: a flat layout's parts lie top up or stand on a side, at most 2 cells tall and never upside down)
   const out = [];
   const twins = !!D.parts[type].mirrored_hash;
-  const ks = all && !D.parts[type].upright_only ? KS : [4, 5, 0, 1].map((f) => UPRIGHT[f]);
+  const ks = (all || resting) && !D.parts[type].upright_only
+    ? KS.filter((k) => !resting || (upOf(k)[1] !== -1 && geometry(type, k, false).dims[1] <= 2))
+    : [4, 5, 0, 1].map((f) => UPRIGHT[f]);
   for (const k of ks) {
     const upright = veq(upOf(k), [0, 1, 0]);
     out.push({ k, mir: false, upright });
@@ -164,9 +167,9 @@ const MAX_NET = 21, MAX_STUB = 11;
 const NET_OVERHEAD = 2;                          // extra cost per cabled net, so direct contact is preferred
 
 class Layout {
-  // opts.flat: one layer on a floor (see generate). Every part stands upright on the floor (y = 0), none on another;
-  // cables run on the floor and one level up, over the parts too, but never over a label. The floor holds the parts
-  // and the labels, which lie on it, so they need not hold each other. opts.floor: the floor is in the blueprint.
+  // opts.flat: one layer on a floor (see generate). Every part rests on the floor (y = 0), none on another; cables
+  // run on the parts' level and up to three above it, over the parts too, but never over a label. The floor holds the
+  // parts and the labels, which lie on it, so they need not hold each other. opts.floor: the floor is in the blueprint.
   // opts.maxNet / opts.maxStub: cable reach (a floor anchors the straight cells lying on it).
   constructor(parts, nets, stubs, box, buses = [], opts = {}) {
     this.parts = parts;                           // [{id, type, vars, v, o}]
@@ -414,6 +417,8 @@ class Layout {
       wire += len; if (len > longest) longest = len;
       cost += NET_OVERHEAD;
       if (len > this.maxNet - 5) cost += 50 * (len - this.maxNet + 5);
+      // on a floor a longer link has to dip to it to re-anchor: allowed, but short links are better
+      if (this.floor && len > 2 * MAX_UNANCHORED) cost += 4 * (len - 2 * MAX_UNANCHORED);
     }
     for (let si = 0; si < this.stubEnds.length; si++) {
       const [ia, pa] = this.stubEnds[si];
@@ -428,6 +433,7 @@ class Layout {
       } else len = (this.stubs[si].face === '-z' ? pz : Z - 1 - pz) + 1;
       wire += len;
       if (len > this.maxStub - 3) cost += 50 * (len - this.maxStub + 3);
+      if (this.floor && len > 2 * MAX_UNANCHORED) cost += 4 * (len - 2 * MAX_UNANCHORED);
       if (!lab) continue;
       const lpo = parts[li].o;
       let loose = 0, near = Infinity;
@@ -449,7 +455,7 @@ class Layout {
       }
     }
     cost += wire;
-    for (const p of parts) if (!p.vars[p.v].upright) cost += 1;
+    for (const p of parts) if (!p.vars[p.v].upright) cost += this.flat ? 3 : 1;   // flat: top up, unless a side helps
     // compactness: frame quarters spanned by the parts (z always spans the whole box for the stubs; a flat layout
     // counts as one quarter high)
     {
@@ -872,10 +878,16 @@ function route(L, direct, opts = {}) {
   const hist = new Float32Array(N);
   const occ = new Int32Array(N);
   const paths = new Array(jobs.length).fill(null);
-  const free = (c) => L.grid[c] === -1;
-  // flat: a cable cell one up costs a little more, so cables stay on the floor where that costs nothing (there the
-  // deck anchors them)
-  const raised = L.flat ? 2 : 0;
+  // opts.levels: a flat layout's cables stay below that level
+  const top = L.flat && opts.levels ? opts.levels : Infinity;
+  const free = (c) => L.grid[c] === -1 && Math.floor(c / Z) % Y < top;
+  // Flat: like a 4-layer board with every part on its bottom layer. Each level up costs more, so cables use the
+  // fewest levels; a bend costs extra, so they run straight; and a change of level costs extra except over either
+  // end, so a cable climbs at its source, keeps one level and comes down over its destination (a dip to the floor
+  // to re-anchor a long cable is the exception the anchoring limit forces).
+  const LEVEL = [0, 1, 3, 6], BEND = L.flat ? 2 : 0, VIA = 4;
+  const level = (y) => (L.flat ? LEVEL[Math.min(y, LEVEL.length - 1)] : 0);
+  const stepOf = [Y * Z, -Y * Z, Z, -Z, 1, -1];        // index step of each direction in DIRS
   const unusedPort = new Uint8Array(N);
   L.parts.forEach((p, i) => {
     for (const q of L.geo(i).portList) {
@@ -895,6 +907,8 @@ function route(L, direct, opts = {}) {
       : tset ? (v) => { const c = decode(v); let m = Infinity; for (const w of j.targets) { const d = Math.abs(c[0] - w[0]) + Math.abs(c[1] - w[1]) + Math.abs(c[2] - w[2]); if (d < m) m = d; } return m; }
       : (v) => Math.abs(decode(v)[2] - tz);
     const isGoal = j.dst ? (v) => v === goal : tset ? (v) => tset.has(v) : (v) => decode(v)[2] === tz;
+    // flat: the columns over this cable's two ends, where it may change level for free
+    const ends = new Set([j.src.cell, ...(j.dst ? [j.dst.cell] : j.targets || [])].map((w) => w[0] * Z + w[2]));
     const g = new Map([[s, 0]]), from = new Map([[s, -1]]), len = new Map([[s, 1]]);
     const heap = new Heap();
     heap.push(hfun(s), s);
@@ -920,7 +934,15 @@ function route(L, direct, opts = {}) {
         const lu = L.floor && (pv === -1 || (c[1] === 0 && n[1] === 0 && pv - v === v - u)) ? 1 : lv + 1;
         if (L.floor && lu > 2 * MAX_UNANCHORED) continue;
         const over = !L.floor && lu > j.limit;
-        const step = (1 + hist[u] + (unusedPort[u] ? 2 : 0) + (n[1] > 0 ? raised : 0)) * (1 + pf * occ[u]) + (over ? 40 : 0);
+        let shape = 0;
+        if (L.flat) {
+          // the way in: from the previous cell, or (at the source) out of the part's port
+          const din = pv === -1 ? opposite(j.src.inward) : stepOf.indexOf(v - pv);
+          if (d !== din) shape += BEND;
+          if (u === goal && d !== j.dst.inward) shape += BEND;            // and the turn into the destination port
+          if (DIRS[d][1] !== 0 && !ends.has(c[0] * Z + c[2])) shape += VIA;
+        }
+        const step = (1 + hist[u] + (unusedPort[u] ? 2 : 0) + level(n[1]) + shape) * (1 + pf * occ[u]) + (over ? 40 : 0);
         const gu = gv + step;
         if (gu < (g.has(u) ? g.get(u) : Infinity)) {
           g.set(u, gu); from.set(u, v); len.set(u, lu);
@@ -1228,8 +1250,9 @@ function levels(parts, nets) {
   return lv;
 }
 
-// A flat layout's box is two cells high: the parts' layer, and the level above it for cables.
-const FLAT_Y = 2;
+// A flat layout's box is four cells high, one frame quarter: the parts' level (cables run there too, between the
+// parts) and three more for cables. The routing uses the fewest it can.
+const FLAT_Y = 4;
 // The floor under a flat layout: Frame Quarters (tools/bp/parts/structure.json: 4x4x4, 11 kg, canonical orientation
 // 16 = identity; face bits 0 Y-, 1 Y+, 2 X+, 3 Z+, 4 X-, 5 Z-; _col 200 = unpainted) with the top face welded. A welded
 // face anchors every straight cable cell lying on it (tools/bp/parts/power.md, Q4), so on the floor a cable's reach
@@ -1313,17 +1336,25 @@ function searchBoxes(circuit, opts = {}) {
   return boxes;
 }
 
-// opts.flat lays the parts out in one layer (see Layout) on a floor of Frame Quarters: every part upright on the
-// floor, none on another, each label lying beside its end; cables may run one level up. opts.floor = false leaves the
-// floor out, for pasting onto a floor of your own (cable reach is then counted from the ports only, as elsewhere).
+// opts.flat lays the parts out in one layer (see Layout) on a floor of Frame Quarters: every part resting on the
+// floor (top up, or on a side), none on another, each label lying beside its end; cables use the fewest of four
+// levels. opts.floor = false leaves the floor out, for pasting onto a floor of your own (cable reach is then counted
+// from the ports only, as elsewhere).
 function generate(circuit, opts = {}) {
   const t0 = Date.now();
   const rng = mulberry32(opts.seed ?? 1);
   const nl = netlist(circuit, opts);
   if (!nl.included.length) throw new Error('nothing to place: the circuit has no logic parts');
   const flat = !!opts.flat, floor = flat && opts.floor !== false;
+  const used = new Map(nl.included.map((i) => [i.id, new Set()]));
+  for (const n of nl.nets) { used.get(n.a.id).add(n.a.port); used.get(n.b.id).add(n.b.port); }
+  for (const st of nl.stubs) used.get(st.end.id).add(st.end.port);
+  // flat: every connected port faces sideways, like pins on the bottom layer of a board, so the wires reach it from
+  // the lowest levels
+  const sideways = (type, v) => [...used.get(type.id)].every((name) => DIRS[geometry(type.type_id, v.k, v.mir).ports[name].inward][1] === 0);
   const proto = nl.included.map((i) => ({ id: i.id, type: i.type_id, params: i.parameters || {},
-    vars: variantsFor(i.type_id, !flat && opts.allOrientations !== false), v: 0, o: [0, 0, 0] }));
+    vars: variantsFor(i.type_id, !flat && opts.allOrientations !== false, flat).filter((v) => !flat || sideways(i, v)),
+    v: 0, o: [0, 0, 0] }));
   const lv = levels(proto, nl.nets);
   const maxLevel = Math.max(...lv);
   proto.forEach((p, i) => { p.level = lv[i]; });
@@ -1368,7 +1399,15 @@ function generate(circuit, opts = {}) {
       }
       if (ev.problems.length || ev.components > 1) { why(`placement (repair): ${ev.problems[0] || `${ev.components} groups`}`); continue; }
       if (!routed.ok) { why(`routing: ${routed.reason || `${routed.tooLong} cables over the reach limit`}`); continue; }
-      const cables = cablesFrom(L, routed);
+      let cables = cablesFrom(L, routed);
+      // flat: the same placement routed on the fewest levels that still works (routing is cheap next to placement)
+      if (flat) {
+        const used = 1 + Math.max(0, ...cables.map((c) => c.cell[1]));
+        for (let n = 1; n < used; n++) {
+          const fewer = route(L, ev.direct, { ...opts, levels: n });
+          if (fewer.ok) { routed = fewer; cables = cablesFrom(L, fewer); break; }
+        }
+      }
       const chk = check(L, cables);
       if (chk.errors.length) { why(`check: ${chk.errors[0]}`); continue; }
       if (opts.onProgress) opts.onProgress(`${cand.box.join('x')} ${plan.mode}: placed and routed`);
@@ -1449,8 +1488,11 @@ function finish(res, nl, circuit, opts, attempts, ms) {
     labels: L.parts.filter((p) => p.label).length, cableCells: cables.length,
     nets: L.nets.length, directContacts: directs, cabledNets: L.nets.length - directs,
     io: res.io, flat: L.flat,
-    // flat: the floor's Frame Quarters (x by z) under the circuit, and the cable cells one level up
-    floor: floorQ, raisedCables: L.flat ? cables.filter((c) => c.cell[1] > 0).length : 0,
+    // flat: the floor's Frame Quarters (x by z) under the circuit, the levels its cables use (1 = only beside the
+    // parts) and the cable cells above the parts' level
+    floor: floorQ, levels: L.flat ? 1 + Math.max(0, ...cables.map((c) => c.cell[1])) : null,
+    raisedCables: L.flat ? cables.filter((c) => c.cell[1] > 0).length : 0,
+    onSide: L.flat ? L.parts.filter((p) => !p.label && !p.vars[p.v].upright).length : 0,   // parts standing on a side
     buses: L.buses.map((b) => ({ face: b.face, rows: b.rows, ends: b.members.map((si) => L.stubs[si].label) })),
     stubs: L.stubs.map((s, si) => ({ label: s.label, io: s.io, face: s.face, port: `${s.end.id}.${s.end.port}`,
       text: L.stubLabel[si] >= 0 ? L.parts[L.stubLabel[si]].label.text : null })),

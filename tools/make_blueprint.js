@@ -17,11 +17,14 @@
    40% more size. --io fixes the mode and --box the box. --jobs 1 runs bpgen's own sequential search
    instead (--seed picks its seed).
 
-   --flat lays the parts out as one layer on a floor of Frame Quarters: every part upright on the floor, none on top
-   of another; cables run on the floor and one level up (over parts, never over a label). Each label lies on the
-   floor beside its cable end. The floor holds the parts and labels and anchors the cables lying on it; --no-floor
-   leaves it out, for pasting the circuit onto a floor of your own. The box is two cells high (--box XxZ, or XxYxZ
-   with Y ignored). Frame quarters count the circuit only; the floor is listed apart.
+   --flat lays the parts out as one layer on a floor of Frame Quarters: every part rests on the floor, none on top
+   of another (top up, or on a side where that helps). Wires use the fewest levels that route, up to four, like a
+   multi-layer circuit board with the parts on its bottom layer: they run straight where they can and change level
+   over their ends, never over a label. Each label lies on the floor beside its cable end. The floor holds the parts
+   and labels and anchors the cables lying on it; --no-floor leaves it out, for pasting the circuit onto a floor of
+   your own. The box is four cells high (--box XxZ, or XxYxZ with Y ignored). Frame quarters count the circuit only;
+   the floor is listed apart. Among layouts of the same size the search keeps the one with the fewest wiring levels,
+   then the fewest parts on a side.
 
    Paint: logic parts and internal cables black, input cables and labels green, outputs red; --stripes adds
    accent stripes to the internal cables. */
@@ -129,8 +132,10 @@ function parallel() {
         const t = tasks.find((x) => x.id === m.id);
         if (m.ok) {
           wins++;
-          const score = m.out.report.frameQuarters * FACTOR[t.io];
-          if (score < bestScore) { bestScore = score; best = m.out; }
+          const r = m.out.report, score = r.frameQuarters * FACTOR[t.io];
+          // a flat layout of the same size wins with fewer wiring levels, then fewer parts on a side
+          const tie = best && score === bestScore && r.flat && ((r.levels - best.report.levels) || (r.onSide - best.report.onSide)) < 0;
+          if (score < bestScore || tie) { bestScore = score; best = m.out; }
           console.log(`  ${t.box.join('x')} ${t.io} seed ${t.seed}: ${m.out.report.box.join('x')} = ${m.out.report.frameQuarters} frame quarters${best === m.out ? '  (best so far)' : ''}`);
         }
         if (!done) feed(w);
@@ -164,7 +169,8 @@ function parallel() {
   const r = out.report;
   console.log(`${r.name}: ${r.parts} parts, ${r.cableCells} cable cells, box ${r.box.join('x')} = ${r.frameQuarters} frame quarters, ` +
     `${r.directContacts}/${r.nets} nets by direct contact, ${r.stubs.length} stubs, longest cable ${r.longestCable}, ${r.ms} ms`);
-  if (r.flat) console.log(`flat: one layer of parts${r.floor ? ` on a floor of ${r.floor[0]} x ${r.floor[1]} = ${r.floor[0] * r.floor[1]} frame quarters` : ' (no floor: paste it onto one)'}; ${r.raisedCables} cable cells one level up`);
+  if (r.flat) console.log(`flat: one layer of parts${r.floor ? ` on a floor of ${r.floor[0]} x ${r.floor[1]} = ${r.floor[0] * r.floor[1]} frame quarters` : ' (no floor: paste it onto one)'}; ` +
+    `wires on ${r.levels} level${r.levels === 1 ? '' : 's'} (${r.raisedCables} cable cells above the parts' level); ${r.onSide} part${r.onSide === 1 ? '' : 's'} on a side`);
   // a row reads left to right as you face it from outside (+x is to your right on the -z face, to your left on +z)
   console.log(`I/O: ${r.io}` + r.buses.map((b) => `; ${b.face} face, ${b.rows} row(s) (bottom first), left to right from outside: ` +
     (b.face === '-z' ? b.ends : b.ends.slice().reverse()).join(', ')).join(''));

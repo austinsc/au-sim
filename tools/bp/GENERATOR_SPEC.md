@@ -127,9 +127,23 @@ Schema entries come from `schemas.json`, so a generated file needs no template b
   - **Search:** without `opts.io`, each box tries bundle, then split; free is the last resort.
 - **Flat** (`opts.flat`, CLI `--flat`, the simulator's Flat box; 2026-10-03). The user asked to "lay out circuits on
   a flat plane (but still condensed as much as possible, just without stacking)", then: "wires can still go to a
-  second level, just data parts stay flat", and that the first search was "way too slow".
-  - Every logic part stands upright at y = 0, none on another. Cables run at y = 0 and y = 1 (over parts too); the box
-    is 2 cells high.
+  second level, just data parts stay flat", and that the first search was "way too slow". Then (2026-10-03): "use
+  the fewest (up to 4 max) levels for wiring in flat mode, also prefer straight wires over bent and horizontal wires
+  should prefer to stay on the same level until they have reached the xy of their destination", routed "like a 4
+  layer pcb" with the parts on the bottom layer; "every non-wire part is directly in contact with the floor". Asked,
+  the user chose: short wires, dipping to the floor to re-anchor only when needed; the smaller board first, then the
+  fewest levels; parts top up, standing on a side when that helps.
+  - Every logic part rests on the floor at y = 0, none on another: top up, or standing on a side when that helps
+    (3 per part on its side in the placement cost). A flat part is at most 2 cells tall, never upside down, and every
+    connected port faces sideways, so the wires reach it from the two lowest levels (a Remapper on its end, 4 tall,
+    once put a port on the top level and forced a fourth).
+  - The box is 4 cells high (one frame quarter). Wires run between the parts on their level and on the three above.
+    The router charges each cable cell by level (0, 1, 3, 6), 2 per bend and 4 per change of level except over either
+    end of the cable (so it climbs at its source, keeps one level and comes down over its destination). Once a
+    layout routes, the same placement is routed again on 1, 2, ... levels and the first that works is kept.
+  - Search: fewest frame quarters first; among equal sizes, the fewest wiring levels, then the fewest parts on a
+    side.
+  - The placer charges 4 per cell for a link longer than 20 (an upper level holds a cable only from its two ends).
   - A floor of Frame Quarters (`482074ef572f3723`, orientation 16, top face welded: `_solidFaces` bit 1) goes under
     the footprint, on the game's 4-cell grid. It holds every part and label, so the parts need not touch each other
     and no label needs a part behind it. `opts.floor = false` (`--no-floor`) leaves it out, for pasting onto a floor
@@ -146,12 +160,11 @@ Schema entries come from `schemas.json`, so a generated file needs no template b
     joins everything) and repairs a failed routing once. A port does not count another cable's port or end cell as
     its way out.
   - Boxes: per depth, the two narrowest widths that hold the I/O rows and the parts' area plus 4 cells per cable.
-  - Two wire levels route dense circuits more often (raster_sweep_v3: 7 of 8 tries against 3 of 8), but the user
-    allowed one; the search finds a roomier board instead.
-  - **Results** (18 workers): gen_test_basic 1 s (2 frame quarters); gen_test_settings 24 s, 35×8 (18 + a floor of
-    18); raster_sweep_v3 87 s, 32×16 (32 + 32); planet_hop_v2 45 s, 36×24 (54 + 54); flight_computer (75 parts) 117 s,
-    47×20 (60 + 60). The 3D search used its whole 240 s budget on raster_sweep_v3 and planet_hop_v2. `verify_bp.py`
-    passes all five.
+  - **Results** (18 workers, 4 levels): gen_test_settings 19 s, 31×8 (16 frame quarters + a floor of 16), 2 levels;
+    raster_sweep_v3 83 s, 35×12 (27 + 27), 3 levels; planet_hop_v2 51 s, 31×24 (48 + 48), 3 levels; flight_computer
+    (75 parts) 56 s, 24×36 (54 + 54), 3 levels. With one level above the parts the same circuits needed 18, 32, 54 and
+    60 frame quarters, and 24, 87, 45 and 117 s. `verify_bp.py` passes all four; the farthest cable cell is 10 steps
+    from an anchor (the limit) in three of them.
 - **Paint** (2026-10-02, at the user's request; the v1 colour-by-function scheme was "too crazy"):
   - Every logic part and internal cable is black.
   - Input cables and their labels are green; output cables and their labels red.

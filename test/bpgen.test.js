@@ -49,8 +49,9 @@ test('split: inputs leave through -z and outputs through +z, each group in a row
   for (const b of r.buses) for (const label of b.ends) assert.strictEqual(r.stubs.find((s) => s.label === label).face, b.face);
 });
 
-test('flat: one layer of upright parts on a floor of frames, labels lying beside their ends, no cable over a label', () => {
-  const { geometry, UPRIGHT, LYING } = require('../bpgen.js');
+test('flat: every part on a floor of frames, labels lying beside their ends, cables on up to 4 levels, none over a label', () => {
+  const { geometry, LYING } = require('../bpgen.js');
+  const ORI = require('../bpdata.js').orientations;
   // a box and seed known to work (every seed did at this size)
   const out = generate(load('circuits/gen_test_settings.json'), { flat: true, io: 'split', box: [32, 2, 8], seed: 1, deterministic: true, timeBudgetMs: 1e9 });
   const r = out.report;
@@ -62,10 +63,11 @@ test('flat: one layer of upright parts on a floor of frames, labels lying beside
     if (p.type.startsWith('label')) {
       assert.ok(Object.values(LYING).includes(p.k), `label ${p.id} lies face up`);
       for (const c of geometry(p.type, p.k, p.mir).cells) labelTop.add(`${p.o[0] + c[0]},${p.o[2] + c[2]}`);
-    } else assert.ok(Object.values(UPRIGHT).includes(p.k), `${p.id} is upright`);
+    } else assert.notStrictEqual(ORI[p.k][1][1], -1, `${p.id} is not upside down`);   // top up or on a side
   }
+  assert.ok(r.levels >= 1 && r.levels <= 4, 'cables use 1 to 4 levels');
   for (const c of out.layout.cables) {
-    assert.ok(c.cell[1] <= 1, 'cables run on the floor or one level up');
+    assert.ok(c.cell[1] <= 3, 'cables run on up to 4 levels');
     if (c.cell[1] === 1) assert.ok(!labelTop.has(`${c.cell[0]},${c.cell[2]}`), 'no cable lies over a label');
   }
 });

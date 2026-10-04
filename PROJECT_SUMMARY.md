@@ -370,9 +370,10 @@ Confirmed type_ids and ports:
   - Logic parts and internal cables are black; only the I/O is colour-coded (inputs green, outputs red, labels to match).
   - The I/O comes out as a group of parallel cables where possible: one row ("bundle"), else inputs and outputs in a row each ("split").
   - The CLI searches box × I/O mode × seed on all CPUs, because one try at a 40-part circuit rarely succeeds.
-  - **Flat** (2026-10-03, `--flat` / the simulator's Flat box): the logic parts lie side by side in one layer on a
-    floor of Frame Quarters that holds them; cables use the floor and one level up; each label lies beside its end.
-    `--no-floor` leaves the floor out, for pasting onto a floor of your own. Details and timings in GENERATOR_SPEC.md.
+  - **Flat** (2026-10-03, `--flat` / the simulator's Flat box): every logic part rests on a floor of Frame Quarters
+    that holds it (top up, or on a side where that helps); wires use the fewest of up to four levels, routed like a
+    multi-layer circuit board with the parts on its bottom layer; each label lies beside its end. `--no-floor` leaves
+    the floor out, for pasting onto a floor of your own. Details and timings in GENERATOR_SPEC.md.
 
 ## Open gaps
 
