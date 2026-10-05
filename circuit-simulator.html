@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Circuit Simulator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,12 +155,53 @@
   .toggle-btn.on{background:var(--ok); color:#06261a; border-color:var(--ok);}
   hr.sep{border:none; border-top:1px dashed var(--line); margin:6px 0;}
 
-  #inspector{
-    width:260px; flex-shrink:0; border-left:1px solid var(--line); background:var(--panel);
-    padding:14px; overflow-y:auto; font-size:12.5px;
+  /* right panel: the design's notes (saved in the circuit JSON); collapses to a thin strip */
+  #notesPanel{
+    width:300px; flex-shrink:0; border-left:1px solid var(--line); background:var(--panel);
+    padding:12px; display:flex; flex-direction:column; gap:8px; min-height:0;
   }
-  #inspector h3{margin:0 0 8px; font-size:12px; font-family:'JetBrains Mono',monospace; color:var(--amber);}
-  #inspector p{color:var(--text-dim); line-height:1.5; margin:0 0 10px;}
+  .notes-head{display:flex; align-items:center; gap:8px;}
+  .notes-head h3{flex:1; margin:0; font-size:12px; font-family:'JetBrains Mono',monospace; color:var(--amber); white-space:nowrap;}
+  #notesText{
+    flex:1; min-height:0; width:100%; resize:none; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55;
+    background:var(--panel-2); color:var(--text); border:1px solid var(--line); border-radius:7px; padding:9px 10px;
+  }
+  #notesText:focus{outline:2px solid var(--amber); outline-offset:-1px;}
+  #notesText::placeholder{color:var(--text-dim);}
+  .notes-hint{margin:0; font-size:11px; color:var(--text-dim); line-height:1.4;}
+  .notes-hint code, .help-body code{font-family:'JetBrains Mono',monospace; font-size:.92em;}
+  #notesPanel.collapsed{width:36px; padding:8px 4px; cursor:pointer;}
+  #notesPanel.collapsed #notesText, #notesPanel.collapsed .notes-hint{display:none;}
+  #notesPanel.collapsed .notes-head{flex-direction:column; gap:10px;}
+  #notesPanel.collapsed .notes-head h3{flex:none; writing-mode:vertical-rl;}
+  #notesPanel.collapsed.has-notes .notes-head h3::after{content:" ●"; color:var(--amber);}
+  /* minimap: an overview in the canvas corner while the circuit is larger than the view */
+  #minimap{
+    position:absolute; right:14px; bottom:62px; z-index:5; padding:4px; border-radius:9px;
+    background:var(--panel); border:1px solid var(--line); box-shadow:0 2px 10px rgba(0,0,0,.18);
+    cursor:pointer; touch-action:none;
+  }
+  #minimap[hidden]{display:none;}
+  #minimap canvas{display:block; border-radius:6px; background:var(--bg);}
+  /* help: a modal over everything, 95% of the page */
+  #helpPanel{
+    position:fixed; inset:0; z-index:60; display:flex; align-items:center; justify-content:center;
+    background:color-mix(in srgb, var(--bg) 70%, transparent);
+  }
+  #helpPanel[hidden]{display:none;}
+  #helpPanel .box{
+    width:95vw; height:95vh; display:flex; flex-direction:column; overflow:hidden;
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,.3);
+  }
+  .help-head{display:flex; align-items:center; gap:12px; padding:14px 18px; border-bottom:1px solid var(--line);}
+  .help-head h2{flex:1; margin:0; font-size:15px; font-weight:700;}
+  /* the columns sit on an inner block of natural height, so a long help scrolls down instead of overflowing sideways */
+  .help-body{flex:1; min-height:0; overflow-y:auto; padding:18px 22px;}
+  .help-cols{column-width:340px; column-gap:32px;}
+  .help-body section{break-inside:avoid; margin-bottom:18px;}
+  .help-body h3{margin:0 0 8px; font-size:12px; font-family:'JetBrains Mono',monospace; color:var(--amber);}
+  .help-body p{color:var(--text-dim); line-height:1.55; margin:0 0 10px; font-size:13px;}
+  .help-body b{color:var(--text);}
   .legend-row{display:flex; align-items:center; gap:7px; margin:5px 0; font-size:11.5px; color:var(--text-dim);}
   .legend-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
   input[type=file]{display:none;}
@@ -187,7 +229,9 @@
   #bpLog{margin:0; min-height:160px; max-height:50vh; overflow:auto; white-space:pre-wrap; font-family:'JetBrains Mono',monospace; font-size:11px;
     background:var(--panel-2); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:8px;}
   @media (max-width: 760px){
-    #inspector{display:none;}
+    main{position:relative;}
+    #notesPanel{position:absolute; right:0; top:0; bottom:0; z-index:6; width:min(300px, 85vw); box-shadow:-4px 0 18px rgba(0,0,0,.2);}
+    #notesPanel.collapsed{position:static; width:36px; box-shadow:none;}
     #palette{width:124px; padding:8px;}
     .pal-btn{font-size:11px; padding:4px 6px; gap:5px;}
     .pal-icon{width:20px; height:20px;}
@@ -207,9 +251,11 @@
   <button id="layoutBtn" title="Tidy layout: arrange blocks in columns by signal flow, with every wire routed clear of the blocks">Tidy</button>
   <div id="tickLabel" class="status" title="Game time: 60 ticks per second">tick 0 · 0.00 s</div>
   <div id="statusBar" class="status ok">Ready.</div>
+  <button id="clearBtn" title="Clear the canvas (blocks, wires and notes) and reset the zoom">Clear</button>
   <button id="importBtn" title="Import a circuit JSON file">Import</button>
   <button id="exportBtn" title="Export this circuit as JSON">Export</button>
   <button id="bpBtn" title="Generate an in-game blueprint (.bp) of this circuit">Blueprint</button>
+  <button id="helpBtn" class="icon" title="Help: how the simulator works" aria-label="Help" aria-haspopup="dialog">?</button>
   <button id="themeBtn" class="icon" title="Switch light / dark" aria-label="Switch light or dark theme">◐</button>
   <input type="file" id="fileInput" accept="application/json">
 </header>
@@ -232,25 +278,18 @@
       <button id="zoomFit" title="Fit the whole circuit in view">Fit</button>
       <button id="zoomReset" title="Back to 100%">1:1</button>
     </div>
+    <div id="minimap" hidden title="Overview of the whole circuit: click or drag to move the view">
+      <canvas id="minimapCanvas" aria-label="Minimap of the circuit"></canvas>
+    </div>
   </div>
 
-  <aside id="inspector">
-    <h3>How this works</h3>
-    <p>This follows the game's own rule (in-game manual, "Component Delay"): the game runs at <b>60 ticks per second</b> and <b>every component takes one tick</b> to pass a signal on — a lever through 10 Data Routers reaches a Datameter after 11 ticks. Each tick, every block computes from what all blocks output on the previous tick, so any feedback loop is legal, just as in the game.</p>
-    <p>Blocks marked <span class="state-badge" style="position:static;">STATE</span> also remember values across ticks. Use an <b>Initializer</b> on outputs that drive thrusters or decouplers — circuits output junk for a few ticks while their paths fill up.</p>
-    <p>Drag an output dot onto an input dot to wire them. An output already in use will refuse a second wire — clone it with a Data Router first, same as the real part.</p>
-    <p>Click a node or wire to select it, then press Delete/Backspace to remove it. Shift- or Ctrl-click adds blocks to the selection, Shift-drag on empty canvas box-selects, and Ctrl+A selects everything; drag any selected block to move the group.</p>
-    <p>Ctrl+C / Ctrl+X / Ctrl+V copy, cut and paste the selected blocks. Wires between blocks in the group are kept; wires leading out of it are not. Pastes land where you last clicked on the canvas.</p>
-    <h3>Power</h3>
-    <p>Red square ports are power ports; drag between two of them to lay a power cable. Each tick, cables, Power Routers, closed Fuse Boxes and unblocked Power Blockers join ports into one circuit. A circuit is powered while its generators cover demand or its batteries still hold charge; unpowered sensors read 0 and actuators stop. The game files leave every P/s figure and battery capacity out, so set <code>power_ps</code>, <code>gen_ps</code> and <code>capacity</code> from each part's in-game tooltip.</p>
-    <h3>Part list</h3>
-    <p>Every part here exists in the game (checked against its Localization.csv). There is no NOR gate in the game — build it as OR → NOT. Condition: unwired True reads 1, unwired False reads 0. Differentiator: current value minus the value <i>interval</i> ticks earlier. Hover a part or port to read the game's own text for it. Sensors and controls take their reading as a setting. The BPS and ETA indicator formulas are not in the game files and are approximated from stopping distance. Not modelled: fuel, heat, physics, and Frame Quarter With Ports chains (one tick for the whole chain).</p>
-    <h3>Categories</h3>
-    <div class="legend-row"><span class="legend-dot" style="background:var(--sources)"></span>Sources</div>
-    <div class="legend-row"><span class="legend-dot" style="background:var(--routing)"></span>Routing</div>
-    <div class="legend-row"><span class="legend-dot" style="background:var(--signal)"></span>Signal (stateful live here)</div>
-    <div class="legend-row"><span class="legend-dot" style="background:var(--logic)"></span>Logic</div>
-    <div class="legend-row"><span class="legend-dot" style="background:var(--arith)"></span>Arithmetic</div>
+  <aside id="notesPanel" aria-label="Design notes">
+    <div class="notes-head">
+      <h3 id="notesTitle">Design notes</h3>
+      <button id="notesToggle" class="icon" title="Hide the notes panel" aria-expanded="true" aria-controls="notesText">»</button>
+    </div>
+    <textarea id="notesText" aria-labelledby="notesTitle" placeholder="Notes about this design: what it does, how to wire it into a ship, what to tune…"></textarea>
+    <p class="notes-hint">Saved in the circuit JSON as <code>notes</code> when you export, and loaded back on import.</p>
   </aside>
 </main>
 
@@ -284,6 +323,52 @@
       <button id="exportCopy" class="primary">Copy</button>
       <button id="exportClose">Close</button>
     </div>
+  </div>
+</div>
+
+<div id="helpPanel" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <div class="help-head">
+      <h2 id="helpTitle">How the simulator works</h2>
+      <button id="helpClose">Close</button>
+    </div>
+    <div class="help-body"><div class="help-cols">
+      <section>
+        <h3>Ticks</h3>
+        <p>This follows the game's own rule (in-game manual, "Component Delay"): the game runs at <b>60 ticks per second</b> and <b>every component takes one tick</b> to pass a signal on — a lever through 10 Data Routers reaches a Datameter after 11 ticks. Each tick, every block computes from what all blocks output on the previous tick, so any feedback loop is legal, just as in the game.</p>
+        <p>Blocks marked <span class="state-badge">STATE</span> also remember values across ticks. Use an <b>Initializer</b> on outputs that drive thrusters or decouplers — circuits output junk for a few ticks while their paths fill up.</p>
+      </section>
+      <section>
+        <h3>Editing</h3>
+        <p>Drag an output dot onto an input dot to wire them. An output already in use will refuse a second wire — clone it with a Data Router first, same as the real part.</p>
+        <p>Click a node or wire to select it, then press Delete/Backspace to remove it. Shift- or Ctrl-click adds blocks to the selection, Shift-drag on empty canvas box-selects, and Ctrl+A selects everything; drag any selected block to move the group.</p>
+        <p>Ctrl+C / Ctrl+X / Ctrl+V copy, cut and paste the selected blocks. Wires between blocks in the group are kept; wires leading out of it are not. Pastes land where you last clicked on the canvas.</p>
+      </section>
+      <section>
+        <h3>Canvas, notes and files</h3>
+        <p>Drag empty canvas to pan; Ctrl + scroll (or pinch) zooms at the cursor, and the zoom bar has Fit and 1:1. When the circuit is bigger than the view, a <b>minimap</b> appears above the zoom bar: click or drag it to move the view.</p>
+        <p><b>Clear</b> empties the canvas, notes included, and resets the zoom; for a few seconds afterwards the button reads <b>Undo clear</b>.</p>
+        <p>The right-hand panel holds the design's <b>notes</b>. They travel in the circuit JSON as <code>notes</code>: Export writes them and Import reads them back. Collapse the panel with » when you need the room.</p>
+        <p><b>Blueprint</b> turns the circuit into an in-game <code>.bp</code> blueprint.</p>
+      </section>
+      <section>
+        <h3>Power</h3>
+        <p>Red square ports are power ports; drag between two of them to lay a power cable. Each tick, cables, Power Routers, closed Fuse Boxes and unblocked Power Blockers join ports into one circuit. A circuit is powered while its generators cover demand or its batteries still hold charge; unpowered sensors read 0 and actuators stop. The game files leave every P/s figure and battery capacity out, so set <code>power_ps</code>, <code>gen_ps</code> and <code>capacity</code> from each part's in-game tooltip.</p>
+      </section>
+      <section>
+        <h3>Part list</h3>
+        <p>Every part here exists in the game (checked against its Localization.csv). There is no NOR gate in the game — build it as OR → NOT. Condition: unwired True reads 1, unwired False reads 0. Differentiator: current value minus the value <i>interval</i> ticks earlier. Hover a part or port to read the game's own text for it. Sensors and controls take their reading as a setting.</p>
+        <p>The BPS indicator follows the game's own formula: log2(distance ÷ stopping distance) ÷ 6, eased in over a few ticks. The ETA System's is still approximated from stopping distance. Not modelled: fuel, heat, physics, and Frame Quarter With Ports chains (one tick for the whole chain).</p>
+      </section>
+      <section>
+        <h3>Categories</h3>
+        <div class="legend-row"><span class="legend-dot" style="background:var(--sources)"></span>Sources</div>
+        <div class="legend-row"><span class="legend-dot" style="background:var(--routing)"></span>Routing</div>
+        <div class="legend-row"><span class="legend-dot" style="background:var(--signal)"></span>Signal (stateful live here)</div>
+        <div class="legend-row"><span class="legend-dot" style="background:var(--logic)"></span>Logic</div>
+        <div class="legend-row"><span class="legend-dot" style="background:var(--arith)"></span>Arithmetic</div>
+      </section>
+    </div></div>
   </div>
 </div>
 
@@ -324,6 +409,10 @@ const DELAY_ADDS_TO_COMPONENT_TICK = false;
 
 // The game's Differentiator knob has 12 positions with these update intervals (ticks).
 const DIFF_INTERVALS = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60];
+
+// Braking Point System: each tick the indicator moves this fraction of the way to its target (game code:
+// 0.13929 = 1 − e^−0.15, i.e. a 9/s time constant at 60 ticks/s).
+const BPS_EASE = 1 - Math.exp(-0.15);
 
 // inputs: port names; defaults: value an UNWIRED input reads (0 unless the game says otherwise)
 const TYPES = {
@@ -954,14 +1043,29 @@ class CircuitEngine {
       case 'display': say('shows ' + t.inputs.map((i) => fmtNum(v(i))).join(' / ')); out = {}; break;
       case 'threshold_light': say(v('in') >= 0.5 ? 'ON' : 'off'); out = {}; break;
       case 'red_alert': { const x = v('in'); say(x > 0.666 ? 'LIGHT + ALARM' : x > 0.333 ? 'LIGHT' : 'off'); out = {}; break; }
-      case 'bps': case 'eta': {
-        // Indicator formula is not in the game files: an approximation from stopping
-        // distance v²/2a against the distance left (1 = safe, 0 = at the limit).
+      case 'bps': {
+        // Game code (SCTick_BrakingPointSystem), with v = |velocity| and a = |acceleration|:
+        //   target = +1 below 0.0001 m/s; else −1 if a < 0.00001 m/s² or the distance is under 1 mm; else
+        //   log2(distance / stopping distance v²/2a) / 6, clamped to ±1. So 0 means "stops exactly at the
+        //   surface", and ±1 means a 64× margin either way (each 1/6 step is a doubling).
+        // The output does not jump: each tick it moves BPS_EASE (≈ 0.139) of the way from its last value.
+        const d = v('distance'), vel = Math.abs(v('velocity')), a = Math.abs(v('acceleration'));
+        let target;
+        if (vel < 1e-4) target = 1;
+        else if (a < 1e-5 || d < 1e-3) target = -1;
+        else target = Math.max(-1, Math.min(1, Math.log2(d / ((vel * vel) / (2 * a))) / 6));
+        const prev = Math.max(-1, Math.min(1, s.indicator || 0));
+        s.indicator = prev + (target - prev) * BPS_EASE;
+        out = { indicator: s.indicator };
+        break;
+      }
+      case 'eta': {
+        // Still an approximation: the game's SCTick_ETASystem is a larger, stateful job not decoded yet. Here:
+        // stopping distance v²/2a against the distance left (1 = safe, 0 = at the limit).
         const d = v('distance'), vel = Math.abs(v('velocity')), a = Math.abs(v('acceleration'));
         const stop = a > 0 ? (vel * vel) / (2 * a) : (vel > 0 ? Infinity : 0);
         const margin = d > 0 ? 1 - stop / d : (stop > 0 ? -1 : 1);
-        const x = Math.max(t.behavior === 'bps' ? -1 : 0, Math.min(1, margin));
-        out = { indicator: x };
+        out = { indicator: Math.max(0, Math.min(1, margin)) };
         break;
       }
       case 'thruster': {
@@ -1118,8 +1222,12 @@ const OP_LABELS = ['=', '≠', '<', '>', '≤', '≥'];
 const MODE_LABELS = ['continuous', 'pulse'];
 const ROUND_LABELS = ['round', 'floor', 'ceil'];
 
-// ---- app state (mirrors the diagram.json schema directly) ----
-let appState = { instances: [], edges: [] };
+// ---- app state (mirrors the diagram.json schema directly, plus the design's free-text notes) ----
+let appState = { instances: [], edges: [], notes: '' };
+// Set up further down; declared here so code that runs earlier can call them safely.
+let minimapApi = null;
+const scheduleMinimap = () => { if (minimapApi) minimapApi.schedule(); };
+let cancelClearUndo = () => {};
 let engine = null;
 let playing = false;
 let playTimer = null;
@@ -1135,6 +1243,7 @@ function uid(type_id) {
 function defaultParams(type_id) { return { ...TYPES[type_id].params }; }
 
 function addNode(type_id, x, y) {
+  cancelClearUndo();
   const inst = { id: uid(type_id), type_id, parameters: defaultParams(type_id), position: { x, y }, color: '#e9c46a', mirrored: false };
   appState.instances.push(inst);
   clearRoutes();
@@ -1476,6 +1585,7 @@ function redrawWires() {
     path.addEventListener('pointerdown', (ev) => { ev.stopPropagation(); selected.edge = idx; selected.nodes.clear(); redrawWires(); document.querySelectorAll('.node').forEach(n => n.classList.remove('selected')); });
     svg.appendChild(path);
   });
+  scheduleMinimap(); // blocks were drawn, moved or rewired
 }
 
 // ---- box select (Shift + drag on empty canvas; add Ctrl/⌘ to extend the selection) ----
@@ -1538,6 +1648,7 @@ function copySelection(cut) {
 }
 function pasteGroup(payload) {
   if (!payload || !payload.instances || !payload.instances.length) return;
+  cancelClearUndo();
   const unknown = payload.instances.find(n => !TYPES[n.type_id]);
   if (unknown) { setStatus(`Paste failed: unknown block type "${unknown.type_id}".`, true); return; }
   pasteCount++;
@@ -1601,6 +1712,7 @@ function applyZoom() {
   sizer.style.width = canvas.offsetWidth * zoom + 'px';
   sizer.style.height = canvas.offsetHeight * zoom + 'px';
   document.getElementById('zoomLabel').textContent = Math.round(zoom * 100) + '%';
+  scheduleMinimap();
 }
 // Zoom so the canvas point under (clientX, clientY) stays put; defaults to the view centre.
 function setZoom(z, clientX, clientY) {
@@ -1922,8 +2034,10 @@ document.getElementById('stepBtn').onclick = () => { if (engine) { engine.step()
 document.getElementById('resetBtn').onclick = () => { stopPlaying(); rebuildEngine(); updateLiveValues(); };
 document.getElementById('layoutBtn').onclick = () => { tidyLayout(); updateLiveValues(); };
 
+// True while a dialog covers the canvas: its keys must not edit the circuit behind it.
+const dialogOpen = () => ['exportPanel', 'bpPanel', 'helpPanel'].some((id) => !document.getElementById(id).hidden);
 document.addEventListener('keydown', (e) => {
-  if (typingInField() || !document.getElementById('exportPanel').hidden) return;
+  if (typingInField() || dialogOpen()) return;
   const mod = e.ctrlKey || e.metaKey, key = e.key.toLowerCase();
   if (mod && key === 'a') { e.preventDefault(); setSelection(appState.instances.map(n => n.id)); return; }
   if (mod && key === 'c') { copySelection(false); return; } // the copy event then fills the system clipboard
@@ -1977,9 +2091,12 @@ function buildPalette() {
 // Anywhere else (a local file, GitHub Pages, any web server) the page downloads files directly.
 const DIRECT_DOWNLOADS = location.protocol === 'file:' || !window.claude;
 // Export opens a panel with the JSON and a Copy button, plus a Download button where downloads work.
+// The circuit as JSON: the aupbuilder schema plus `notes`, the design's free-text notes (a string, written first).
+function circuitData() {
+  return { notes: appState.notes || '', instances: appState.instances, edges: appState.edges, groups: [], max_per_column: 4, max_rows: 4, max_columns: 8 };
+}
 document.getElementById('exportBtn').onclick = () => {
-  const data = { instances: appState.instances, edges: appState.edges, groups: [], max_per_column: 4, max_rows: 4, max_columns: 8 };
-  const text = JSON.stringify(data, null, 2);
+  const text = JSON.stringify(circuitData(), null, 2);
   const panel = document.getElementById('exportPanel');
   const area = document.getElementById('exportText');
   area.value = text;
@@ -2196,7 +2313,9 @@ document.getElementById('fileInput').onchange = (e) => {
   const reader = new FileReader();
   reader.onload = () => {
     try {
-      loadDiagram(JSON.parse(reader.result));
+      const data = JSON.parse(reader.result);
+      cancelClearUndo();
+      loadDiagram(data);
     } catch (err) {
       setStatus('Import failed: ' + err.message, true);
     }
@@ -2208,6 +2327,9 @@ document.getElementById('fileInput').onchange = (e) => {
 function loadDiagram(data) {
   appState.instances = data.instances.map(n => ({ ...n, parameters: { ...(n.parameters || {}) }, position: { ...(n.position || { x: 60, y: 60 }) } }));
   appState.edges = data.edges.map(e => ({ ...e }));
+  // notes: a string; an array of lines is accepted too
+  appState.notes = typeof data.notes === 'string' ? data.notes : Array.isArray(data.notes) ? data.notes.join('\n') : '';
+  refreshNotes();
   selected = { nodes: new Set(), edge: null };
   clearRoutes();
   stopPlaying();
@@ -2215,6 +2337,180 @@ function loadDiagram(data) {
   rebuildEngine();
   updateLiveValues();
 }
+
+// ---- design notes: the right panel edits appState.notes, which Export saves as `notes` ----
+function refreshNotes() { // after a load: show the design's notes, and flag a collapsed panel that holds some
+  const text = document.getElementById('notesText');
+  if (text.value !== appState.notes) text.value = appState.notes;
+  document.getElementById('notesPanel').classList.toggle('has-notes', appState.notes.trim() !== '');
+}
+(function () {
+  const panel = document.getElementById('notesPanel');
+  const text = document.getElementById('notesText');
+  const toggle = document.getElementById('notesToggle');
+  const KEY = 'sim-notes-collapsed';
+  function setCollapsed(collapsed, save) {
+    panel.classList.toggle('collapsed', collapsed);
+    toggle.textContent = collapsed ? '«' : '»';
+    toggle.title = collapsed ? 'Show the notes panel' : 'Hide the notes panel';
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    if (save) try { localStorage.setItem(KEY, collapsed ? '1' : '0'); } catch (e) {}
+  }
+  let saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  // remembered per viewer; with nothing remembered, narrow screens start collapsed
+  setCollapsed(saved === null ? window.matchMedia('(max-width: 760px)').matches : saved === '1', false);
+  toggle.onclick = (e) => {
+    e.stopPropagation();
+    const collapse = !panel.classList.contains('collapsed');
+    setCollapsed(collapse, true);
+    if (!collapse) text.focus();
+  };
+  panel.addEventListener('click', () => { // the whole collapsed strip opens the panel
+    if (panel.classList.contains('collapsed')) { setCollapsed(false, true); text.focus(); }
+  });
+  text.addEventListener('input', () => { appState.notes = text.value; refreshNotes(); cancelClearUndo(); });
+})();
+
+// ---- minimap: an overview in the canvas corner while the circuit is larger than the view ----
+minimapApi = (function () {
+  const box = document.getElementById('minimap');
+  const cv = document.getElementById('minimapCanvas');
+  const wrap = document.getElementById('canvasWrap');
+  const MAX_W = 200, MAX_H = 140, PAD = 40;           // map size (px) and the margin kept round the circuit
+  let frame = 0, world = null, dragging = false;
+  const cssVar = (v) => {                             // 'var(--x)' → its current value, for the canvas
+    const m = /var\((--[\w-]+)\)/.exec(v || '');
+    return m ? getComputedStyle(document.documentElement).getPropertyValue(m[1]).trim() : v;
+  };
+  function blocks() {
+    const rects = new Map();
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const n of document.querySelectorAll('#canvas .node')) {
+      const r = { x: n.offsetLeft, y: n.offsetTop, w: n.offsetWidth, h: n.offsetHeight };
+      rects.set(n.dataset.id, r);
+      x0 = Math.min(x0, r.x); y0 = Math.min(y0, r.y); x1 = Math.max(x1, r.x + r.w); y1 = Math.max(y1, r.y + r.h);
+    }
+    return rects.size ? { rects, x0, y0, x1, y1 } : null;
+  }
+  function draw() {
+    frame = 0;
+    const b = blocks();
+    // shown only while the circuit (with a margin) is larger than the view at this zoom
+    const overflow = !!b && ((b.x1 - b.x0 + 2 * PAD) * zoom > wrap.clientWidth || (b.y1 - b.y0 + 2 * PAD) * zoom > wrap.clientHeight);
+    box.hidden = !overflow;
+    if (!overflow) { world = null; return; }
+    const view = { x: wrap.scrollLeft / zoom, y: wrap.scrollTop / zoom, w: wrap.clientWidth / zoom, h: wrap.clientHeight / zoom };
+    if (!dragging || !world) {
+      // the map covers the circuit and the view, so the view box never falls off it (kept still while dragging)
+      const x0 = Math.min(b.x0 - PAD, view.x), y0 = Math.min(b.y0 - PAD, view.y);
+      const x1 = Math.max(b.x1 + PAD, view.x + view.w), y1 = Math.max(b.y1 + PAD, view.y + view.h);
+      const s = Math.min(MAX_W / (x1 - x0), MAX_H / (y1 - y0));
+      world = { x0, y0, s, w: Math.max(40, Math.round((x1 - x0) * s)), h: Math.max(30, Math.round((y1 - y0) * s)) };
+    }
+    const { s, w, h } = world, dpr = window.devicePixelRatio || 1;
+    if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) {
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      cv.style.width = w + 'px'; cv.style.height = h + 'px';
+    }
+    const g = cv.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    const X = (x) => (x - world.x0) * s, Y = (y) => (y - world.y0) * s;
+    // wires, as straight lines between the blocks they join
+    g.globalAlpha = 0.35; g.strokeStyle = cssVar('var(--text-dim)'); g.lineWidth = 1;
+    g.beginPath();
+    for (const e of appState.edges) {
+      const a = b.rects.get(e.from_instance), c = b.rects.get(e.to_instance);
+      if (!a || !c) continue;
+      g.moveTo(X(a.x + a.w), Y(a.y + a.h / 2)); g.lineTo(X(c.x), Y(c.y + c.h / 2));
+    }
+    g.stroke();
+    // blocks, in their category colours
+    g.globalAlpha = 0.9;
+    for (const inst of appState.instances) {
+      const r = b.rects.get(inst.id);
+      if (!r) continue;
+      g.fillStyle = cssVar(CAT_COLOR[CATEGORY_OF[inst.type_id] || 'logic']);
+      g.fillRect(X(r.x), Y(r.y), Math.max(2, r.w * s), Math.max(2, r.h * s));
+    }
+    // what is on screen now
+    const accent = cssVar('var(--amber)');
+    g.globalAlpha = 0.14; g.fillStyle = accent;
+    g.fillRect(X(view.x), Y(view.y), view.w * s, view.h * s);
+    g.globalAlpha = 1; g.strokeStyle = accent; g.lineWidth = 1.5;
+    g.strokeRect(X(view.x) + 0.75, Y(view.y) + 0.75, Math.max(1, view.w * s - 1.5), Math.max(1, view.h * s - 1.5));
+  }
+  const schedule = () => { if (!frame) frame = requestAnimationFrame(draw); };
+  function centreOn(e) { // put the view's centre on the map point under the pointer
+    if (!world) return;
+    const r = cv.getBoundingClientRect();
+    const x = world.x0 + (e.clientX - r.left) / world.s, y = world.y0 + (e.clientY - r.top) / world.s;
+    wrap.scrollLeft = x * zoom - wrap.clientWidth / 2;
+    wrap.scrollTop = y * zoom - wrap.clientHeight / 2;
+  }
+  box.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    dragging = true; box.setPointerCapture(e.pointerId); centreOn(e);
+  });
+  box.addEventListener('pointermove', (e) => { if (dragging) centreOn(e); });
+  const end = () => { dragging = false; schedule(); };
+  box.addEventListener('pointerup', end);
+  box.addEventListener('pointercancel', end);
+  wrap.addEventListener('scroll', schedule, { passive: true });
+  new ResizeObserver(schedule).observe(wrap);           // window resizes and the notes panel opening or closing
+  // its colours follow the theme: the page's toggle and the system setting
+  new MutationObserver(schedule).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', schedule);
+  return { schedule, drawNow: draw };                 // drawNow: a synchronous redraw (hidden pages get no frames)
+})();
+
+// ---- clear: an empty canvas at 100%; the button offers Undo for a few seconds ----
+(function () {
+  const btn = document.getElementById('clearBtn');
+  const wrap = document.getElementById('canvasWrap');
+  const UNDO_MS = 8000;
+  let undo = null, timer = null;
+  const resetView = () => { zoom = 1; applyZoom(); wrap.scrollLeft = 0; wrap.scrollTop = 0; };
+  cancelClearUndo = () => {   // any new work on the cleared canvas ends the undo offer
+    if (!undo) return;
+    undo = null; clearTimeout(timer);
+    btn.textContent = 'Clear';
+    btn.title = 'Clear the canvas (blocks, wires and notes) and reset the zoom';
+  };
+  btn.onclick = () => {
+    if (undo) {
+      const u = undo;
+      cancelClearUndo();
+      loadDiagram(u.data);
+      zoom = u.zoom; applyZoom(); wrap.scrollLeft = u.left; wrap.scrollTop = u.top;
+      setStatus('Restored the cleared circuit.', false);
+      return;
+    }
+    if (!appState.instances.length && !appState.notes.trim()) { resetView(); setStatus('Empty canvas.', false); return; }
+    const saved = JSON.parse(JSON.stringify(circuitData()));
+    const view = { zoom, left: wrap.scrollLeft, top: wrap.scrollTop };
+    loadDiagram({ instances: [], edges: [], notes: '' });
+    resetView();
+    undo = { data: saved, ...view };
+    btn.textContent = 'Undo clear';
+    btn.title = 'Bring back the circuit that was just cleared';
+    setStatus('Canvas cleared. Click Undo clear within a few seconds to bring it back.', false);
+    timer = setTimeout(cancelClearUndo, UNDO_MS);
+  };
+})();
+
+// ---- help: a modal over the whole page ----
+(function () {
+  const panel = document.getElementById('helpPanel');
+  const open = () => { panel.hidden = false; document.getElementById('helpClose').focus(); };
+  const close = () => { panel.hidden = true; document.getElementById('helpBtn').focus(); };
+  document.getElementById('helpBtn').onclick = open;
+  document.getElementById('helpClose').onclick = close;
+  panel.addEventListener('pointerdown', (e) => { if (e.target === panel) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
+})();
 
 // ---- theme ----
 (function () {

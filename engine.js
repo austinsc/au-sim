@@ -34,6 +34,10 @@ const DELAY_ADDS_TO_COMPONENT_TICK = false;
 // The game's Differentiator knob has 12 positions with these update intervals (ticks).
 const DIFF_INTERVALS = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60];
 
+// Braking Point System: each tick the indicator moves this fraction of the way to its target (game code:
+// 0.13929 = 1 − e^−0.15, i.e. a 9/s time constant at 60 ticks/s).
+const BPS_EASE = 1 - Math.exp(-0.15);
+
 // inputs: port names; defaults: value an UNWIRED input reads (0 unless the game says otherwise)
 const TYPES = {
   // ---- sources ----
@@ -663,14 +667,29 @@ class CircuitEngine {
       case 'display': say('shows ' + t.inputs.map((i) => fmtNum(v(i))).join(' / ')); out = {}; break;
       case 'threshold_light': say(v('in') >= 0.5 ? 'ON' : 'off'); out = {}; break;
       case 'red_alert': { const x = v('in'); say(x > 0.666 ? 'LIGHT + ALARM' : x > 0.333 ? 'LIGHT' : 'off'); out = {}; break; }
-      case 'bps': case 'eta': {
-        // Indicator formula is not in the game files: an approximation from stopping
-        // distance v²/2a against the distance left (1 = safe, 0 = at the limit).
+      case 'bps': {
+        // Game code (SCTick_BrakingPointSystem), with v = |velocity| and a = |acceleration|:
+        //   target = +1 below 0.0001 m/s; else −1 if a < 0.00001 m/s² or the distance is under 1 mm; else
+        //   log2(distance / stopping distance v²/2a) / 6, clamped to ±1. So 0 means "stops exactly at the
+        //   surface", and ±1 means a 64× margin either way (each 1/6 step is a doubling).
+        // The output does not jump: each tick it moves BPS_EASE (≈ 0.139) of the way from its last value.
+        const d = v('distance'), vel = Math.abs(v('velocity')), a = Math.abs(v('acceleration'));
+        let target;
+        if (vel < 1e-4) target = 1;
+        else if (a < 1e-5 || d < 1e-3) target = -1;
+        else target = Math.max(-1, Math.min(1, Math.log2(d / ((vel * vel) / (2 * a))) / 6));
+        const prev = Math.max(-1, Math.min(1, s.indicator || 0));
+        s.indicator = prev + (target - prev) * BPS_EASE;
+        out = { indicator: s.indicator };
+        break;
+      }
+      case 'eta': {
+        // Still an approximation: the game's SCTick_ETASystem is a larger, stateful job not decoded yet. Here:
+        // stopping distance v²/2a against the distance left (1 = safe, 0 = at the limit).
         const d = v('distance'), vel = Math.abs(v('velocity')), a = Math.abs(v('acceleration'));
         const stop = a > 0 ? (vel * vel) / (2 * a) : (vel > 0 ? Infinity : 0);
         const margin = d > 0 ? 1 - stop / d : (stop > 0 ? -1 : 1);
-        const x = Math.max(t.behavior === 'bps' ? -1 : 0, Math.min(1, margin));
-        out = { indicator: x };
+        out = { indicator: Math.max(0, Math.min(1, margin)) };
         break;
       }
       case 'thruster': {

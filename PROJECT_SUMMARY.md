@@ -64,6 +64,16 @@ Source: `C:\Program Files (x86)\Steam\steamapps\common\Approximately Up\Approxim
   - **Gravitymeter:** outputs gravity in m/s². This provides planet_hop's gravity input directly.
   - **Other useful sensors:** Inclinometer (degrees between the part's down direction and gravity), Axis Rotometer (deg/s about its mounted axis) and Massmeter.
 - **Accelerometer** outputs acceleration in m/s². Game code (`SCTick_Accelerometer`): it is the magnitude of the ship's change of velocity, |Δv| × 60, smoothed by `out += (new − out) × 0.08` a tick, so gravity is included (free fall reads g, resting on the ground reads 0) and the mounting direction does not matter. The BPS manual pairs an Accelerometer, a Velocity Meter and a Long Range Distance Meter.
+- **Braking Point System (BPS)** (game code, `SCTick_BrakingPointSystem`; the simulator matches it since 2026-10-04):
+  - Ports: 0 distance, 1 velocity, 2 acceleration, 3 indicator. It uses v = |velocity| and a = |acceleration|; any input above 1e20 reads as 0.
+  - Target:
+    - +1 if v < 0.0001 m/s.
+    - Otherwise −1 if a < 0.00001 m/s² or the distance is under 0.001 m.
+    - Otherwise clamp(log2(distance ÷ (v²/2a)) ÷ 6, −1, 1).
+  - So 0 means the stopping distance equals the distance left. Each 1/6 is a factor of 2, reaching ±1 at a 64× margin either way.
+  - The output eases toward the target by 1 − e^−0.15 ≈ 0.139 of the gap per tick, so it settles in about a third of a second.
+  - It ignores signs. It treats the current |acceleration| as the braking it can count on, and cannot tell approaching from receding.
+  - The needle is drawn at indicator × 0.19.
 - **Velocity Meter** (game code, `SCTick_VelocityMeter`): `_modeButton` 0 (Overall) outputs |v|, 1 (Directional) outputs v · (the part's +z), signed; both smoothed by `out += (new − out) × 0.1535` a tick. It needs a clear view ahead.
 - **Thruster response** (game code, `SCTick_ValueAccelerator`): a thruster's output moves toward its input by at most 1 / `acceleration_time` per second (a slew limit, not a lag): Small/Medium Electric 0.25 / 0.7 s, Electric Flat 0.2 s, maneuvering 0.1–0.35 s, RCS Thruster 0.04 s, but **Small Fuel 10 s and Medium Fuel 20 s**. Fuel engines cannot follow an autopilot's throttle; drive only electrics from a fast loop.
 - **Maneuvering Thrusters** ("all the power is used for rotation", `force_type` 1): small 30 kN, medium 100 kN, large 370 kN, bidirectional 80 kN; they turn the ship by position × force about the centre of mass and do not push it. Throttle input 0..1 and power (5 / 17 / 50 / 15 P/s). Each is a rod pushing along its length, mounted by its long side; the exhaust end's heat zone runs 3 / 5 / 7 m.
@@ -114,7 +124,17 @@ Confirmed type_ids and ports:
 
 ## Custom simulator (engine.js)
 
-- **Schema:** it uses the same JSON schema as aupbuilder.
+- **Schema:** it uses the same JSON schema as aupbuilder, plus an optional top-level `notes`: the design's free-text notes as one
+  string, with newlines allowed.
+  - Export writes `notes` as the first key. Import reads it, and also accepts an array of lines.
+  - The engine, the harnesses and bpgen ignore it.
+  - aupbuilder presumably ignores the unknown key, but that is untested.
+- **Page UI (2026-10-04):**
+  - **Notes panel:** a collapsible right-hand panel edits `notes`. Its open or closed state is remembered per browser, and it starts collapsed on narrow screens.
+  - **Help:** the help text moved into a "?" modal covering 95% of the page. Escape closes it, and canvas shortcuts are off while any dialog is open.
+  - **Clear:** empties the canvas, notes included, and resets the zoom. For 8 s afterwards the button reads "Undo clear", because the claude.ai viewer cannot show confirm() dialogs.
+  - **Minimap:** appears above the zoom bar while the circuit at the current zoom is larger than the view. Click or drag it to move the view.
+  - **Phones:** a viewport meta tag makes the narrow-screen layout apply on phones.
 - **Type ids:**
   - Type ids for parts aupbuilder lacks (`exp`, `log`, `asin`, `acos`, `atan`, `atan2`, `sinh`, `cosh`, `tanh`, `logic_value`, `fader`, `initializer` and `datameter`) were chosen by me and are unverified against aupbuilder.
   - `nor` was removed because the game has no NOR part.
@@ -387,7 +407,8 @@ Confirmed type_ids and ports:
 - **planet_hop is only tested in a 1-D model.** It assumes thrust acts along the line to the target, the accelerometer reads thrust only, and the ship doesn't need to rotate to brake (a reverse thruster or Sign Splitter). A ship that has to turn around should use planet_hop_flip, which plans the turn in.
 - **planet_hop_flip is tested in a 1-D model with yaw** (`tools/flip_harness.js`): straight-line approach to the target's centre, no lateral drift, the target fixed in space. Orbiting targets, off-axis aim beyond the scanner cone and the real RCS/rotometer signs are untested in the game.
 - **Approximated behaviours:**
-  - The BPS and ETA indicator formulas, which are built from stopping distance v²/2a against distance left
+  - The ETA System indicator formula, which is built from stopping distance v²/2a against distance left. The game's
+    `SCTick_ETASystem` is a larger job that keeps state, and it hasn't been decoded. The BPS is now exact; see above.
   - The demand modes above
   - What happens on a circuit that is short of power. The model blacks out the whole circuit; the game may brown out partially.
   - Plasma and video, which carry only a level or a live/dead flag

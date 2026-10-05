@@ -721,13 +721,25 @@ test('video and plasma: a powered camera feeds a monitor; plasma feeds a shield'
   assert.equal(e.snapshot().sh.max_wind, 80);
 });
 
-test('BPS indicator: 1 with no stopping distance, 0 at the limit, -1 at twice the distance', () => {
+test('BPS (game code): indicator = clamp(log2(distance / stopping distance) / 6, ±1), eased in by 1 − e^−0.15 a tick', () => {
+  const near = (x, y) => Math.abs(x - y) < 1e-6;
   const at = (d, v, a) => {
     const e = build({ d: ['constant', { value: d }], v: ['constant', { value: v }], a: ['constant', { value: a }], b: ['braking_point_system'] },
       ['d.out b.distance', 'v.out b.velocity', 'a.out b.acceleration']);
-    e.step(2); return e.snapshot().b.indicator;
+    e.step(200); return e.snapshot().b.indicator;          // long enough for the easing to settle
   };
-  assert.deepEqual([at(100, 0, 10), at(500, 100, 10), at(250, 100, 10)], [1, 0, -1]);
+  // At 100 m/s and 10 m/s² the stopping distance v²/2a is 500 m.
+  for (const [d, v, a, want] of [
+    [500, 100, 10, 0], [250, 100, 10, -1 / 6], [1000, 100, 10, 1 / 6],   // each doubling is 1/6
+    [32000, 100, 10, 1], [1e6, 100, 10, 1], [500 / 64, 100, 10, -1],     // ±1 at a 64× margin, clamped beyond
+    [500, -100, 10, 0], [500, 100, -10, 0],                              // signs are ignored
+    [100, 0, 10, 1],                                                     // not moving: safe
+    [500, 100, 0, -1], [0, 100, 10, -1],                                 // moving with no braking, or no distance left
+  ]) assert.ok(near(at(d, v, a), want), `d ${d}, v ${v}, a ${a}: ${at(d, v, a)}, want ${want}`);
+  // Easing: from 0 toward a steady target of 1, n ticks give 1 − e^(−0.15 n).
+  const e = build({ d: ['constant', { value: 100 }], b: ['braking_point_system'] }, ['d.out b.distance']);
+  e.step(1); assert.ok(near(e.snapshot().b.indicator, 1 - Math.exp(-0.15)));
+  e.step(9); assert.ok(near(e.snapshot().b.indicator, 1 - Math.exp(-1.5)));
 });
 
 // ---- raster_sweep_v2: closed-loop target lock by cone probing, flown against tools/attitude_harness.js ----
