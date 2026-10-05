@@ -75,6 +75,17 @@ Source: `C:\Program Files (x86)\Steam\steamapps\common\Approximately Up\Approxim
   - The output eases toward the target by 1 − e^−0.15 ≈ 0.139 of the gap per tick, so it settles in about a third of a second.
   - It ignores signs. It treats the current |acceleration| as the braking it can count on, and cannot tell approaching from receding.
   - The needle is drawn at indicator × 0.19.
+- **ETA System** (game code, `SCTick_ETASystem`; the simulator matches it since 2026-10-05):
+  - **Not in the shipped game.** No `SC_ETASystem` prefab exists, so it cannot be placed; the code, its text and its blueprint struct (`_knobValue`) do exist. The simulator labels it "(not in game)".
+  - It outputs **seconds**, not the "0 (red) to 1 (green)" its port text says. A knob picks the mode: clamp(floor(steps × value), 0, steps − 1). The step count is unknown, but the code tells apart only 0, 1 and 2+.
+  - Inputs: d = distance, v = velocity (signed, unlike the BPS) and A = |acceleration|. Any input above 1e20 reads as 0. The stopping distance is S = v²/2A.
+  - **S < d:** it plans the fastest stop on the target: accelerate at A for t, then brake at A, where A·t² + 2v·t + (S − d) = 0 (the larger root).
+    - Mode 0: t, the time left before braking must start.
+    - Mode 1: t + v/A, the braking itself.
+    - Mode 2: 2t + v/A, the whole trip.
+  - **S ≥ d (a collision course):** modes 1 and 2 give the time to impact, the first positive root of d = v·t + ½a·t². The acceleration counts as braking (negative) when the speed fell since the last tick: the part keeps the last velocity as state. Mode 0 gives 0.
+  - Quirks: moving with no acceleration finds no root, so every mode gives 0. Stopped with no acceleration gives NaN, which the output clamp turns into 1e20.
+  - The readout shows H:MM:SS, capped at 100 h: red on a collision course, green otherwise. The output port is clamped to ±1e20.
 - **Velocity Meter** (game code, `SCTick_VelocityMeter`): `_modeButton` 0 (Overall) outputs |v|, 1 (Directional) outputs v · (the part's +z), signed; both smoothed by `out += (new − out) × 0.1535` a tick. It needs a clear view ahead.
 - **Thruster response** (game code, `SCTick_ValueAccelerator`): a thruster's output moves toward its input by at most 1 / `acceleration_time` per second (a slew limit, not a lag): Small/Medium Electric 0.25 / 0.7 s, Electric Flat 0.2 s, maneuvering 0.1–0.35 s, RCS Thruster 0.04 s, but **Small Fuel 10 s and Medium Fuel 20 s**. Fuel engines cannot follow an autopilot's throttle; drive only electrics from a fast loop.
 - **Maneuvering Thrusters** (`force_type` 1, "Maneuvering"): small 30 kN, medium 100 kN, large 370 kN, bidirectional 80 kN. Throttle input 0..1 and power (5 / 17 / 50 / 15 P/s). Each is a rod pushing along its length, mounted by its long side; the exhaust end's heat zone runs 3 / 5 / 7 m.
@@ -466,8 +477,6 @@ Confirmed type_ids and ports:
 - **planet_hop is only tested in a 1-D model.** It assumes thrust acts along the line to the target, the accelerometer reads thrust only, and the ship doesn't need to rotate to brake (a reverse thruster or Sign Splitter). A ship that has to turn around should use planet_hop_flip, which plans the turn in.
 - **planet_hop_flip is tested in a 1-D model with yaw** (`tools/flip_harness.js`): straight-line approach to the target's centre, no lateral drift, the target fixed in space. Orbiting targets, off-axis aim beyond the scanner cone and the real RCS/rotometer signs are untested in the game.
 - **Approximated behaviours:**
-  - The ETA System indicator formula, which is built from stopping distance v²/2a against distance left. The game's
-    `SCTick_ETASystem` is a larger job that keeps state, and it hasn't been decoded. The BPS is now exact; see above.
   - The demand modes above
   - What happens on a circuit that is short of power. The model blacks out the whole circuit; the game may brown out partially.
   - Plasma and video, which carry only a level or a live/dead flag

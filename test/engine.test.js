@@ -742,6 +742,35 @@ test('BPS (game code): indicator = clamp(log2(distance / stopping distance) / 6,
   e.step(9); assert.ok(near(e.snapshot().b.indicator, 1 - Math.exp(-1.5)));
 });
 
+test('ETA System (game code): seconds for the fastest stop on the target, or to impact; the knob picks which', () => {
+  const near = (x, y) => Math.abs(x - y) < 1e-4;
+  const eta = (d, v, a, mode, velocities = null) => {
+    const e = build({ d: ['constant', { value: d }], v: ['constant', { value: v }], a: ['constant', { value: a }], x: ['eta_system', { mode }] },
+      ['d.out x.distance', 'v.out x.velocity', 'a.out x.acceleration']);
+    if (velocities) for (const vv of velocities) { e.instances.get('v').params.value = vv; e.step(1); } else e.step(3);
+    return { t: e.snapshot().x.indicator, status: e.status.get('x') };
+  };
+  // Can stop (stopping distance v²/2a < d): accelerate at a for t, then brake, where a·t² + 2v·t + (v²/2a − d) = 0.
+  // From rest, 100 m at 2 m/s²: t = √(d/a) = √50; mode 1 adds v/a (0); mode 2 is the whole trip, 2t.
+  assert.ok(near(eta(100, 0, 2, 0).t, Math.sqrt(50)) && near(eta(100, 0, 2, 1).t, Math.sqrt(50)) && near(eta(100, 0, 2, 2).t, 2 * Math.sqrt(50)));
+  // At 10 m/s: t = (−20 + √1000) / 4. Check it is a real plan: 37.5 m accelerating plus 62.5 m braking is 100 m.
+  const t = (-20 + Math.sqrt(1000)) / 4;
+  assert.ok(near(10 * t + t * t, 37.5) && near((10 + 2 * t) ** 2 / 4, 62.5));
+  for (const [mode, want] of [[0, t], [1, t + 5], [2, 2 * t + 5]]) assert.ok(near(eta(100, 10, 2, mode).t, want), `mode ${mode}`);
+  assert.equal(eta(100, 10, 2, 2).status, '0:00:10');                       // the readout: H:MM:SS, truncated
+  // Can't stop (20 m left needs 25 m): time to impact from d = v·t + ½a·t²; mode 0 reads 0 ("brake now").
+  const hit = (-10 + Math.sqrt(180)) / 2;                                   // speeding up: t² + 10t − 20 = 0
+  assert.ok(near(eta(20, 10, 2, 1).t, hit) && near(eta(20, 10, 2, 2).t, hit) && eta(20, 10, 2, 0).t === 0);
+  assert.match(eta(20, 10, 2, 2).status, /COLLISION/);
+  // With the speed falling since the last tick, the acceleration counts as braking: t² − 10.1t + 20 = 0
+  // (the block reads 10.1 here: every block works from the previous tick's outputs).
+  assert.ok(near(eta(20, 10, 2, 2, [10.2, 10.1, 10.0]).t, (10.1 - Math.sqrt(10.1 ** 2 - 80)) / 2));
+  // Game quirks kept: moving with no acceleration finds no root (0); stopped with no acceleration gives 1e20.
+  assert.equal(eta(100, 10, 0, 2).t, 0);
+  assert.equal(eta(100, 0, 0, 2).t, 1e20);
+  assert.equal(eta(100, 0, 0, 2).status, '100:00:00');                      // the readout caps at 100 h
+});
+
 // ---- raster_sweep_v2: closed-loop target lock by cone probing, flown against tools/attitude_harness.js ----
 const { lock } = require('../tools/attitude_harness.js');
 const LOCK = loadCircuit('raster_sweep_v2.json');
