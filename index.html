@@ -358,7 +358,7 @@
       <section>
         <h3>Part list</h3>
         <p>Every part here exists in the game (checked against its Localization.csv). There is no NOR gate in the game — build it as OR → NOT. Condition: unwired True reads 1, unwired False reads 0. Differentiator: current value minus the value <i>interval</i> ticks earlier. Hover a part or port to read the game's own text for it. Sensors and controls take their reading as a setting.</p>
-        <p>The BPS indicator follows the game's own formula: log2(distance ÷ stopping distance) ÷ 6, eased in over a few ticks. The ETA System's is still approximated from stopping distance. Not modelled: fuel, heat, physics, and Frame Quarter With Ports chains (one tick for the whole chain).</p>
+        <p>The BPS indicator follows the game's own formula: log2(distance ÷ stopping distance) ÷ 6, eased in over a few ticks. The ETA System also follows the game's code, which the shipped game doesn't use: there is no ETA System part to place. It outputs <b>seconds</b>, not the 0..1 its port text claims, and its <code>mode</code> knob picks which. Mode 0 is the time left before you must brake if you accelerate at full until then, 1 is the braking itself, and 2 is the whole trip. On a collision course (it cannot stop in time) modes 1 and 2 give the time to impact and its readout turns red. Not modelled: fuel, heat, physics, and Frame Quarter With Ports chains (one tick for the whole chain).</p>
       </section>
       <section>
         <h3>Categories</h3>
@@ -413,6 +413,7 @@ const DIFF_INTERVALS = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60];
 // Braking Point System: each tick the indicator moves this fraction of the way to its target (game code:
 // 0.13929 = 1 − e^−0.15, i.e. a 9/s time constant at 60 ticks/s).
 const BPS_EASE = 1 - Math.exp(-0.15);
+const FLT_MAX = 3.4028234663852886e38;   // float.MaxValue: the ETA System's "no root found" marker
 
 // inputs: port names; defaults: value an UNWIRED input reads (0 unless the game says otherwise)
 const TYPES = {
@@ -680,6 +681,7 @@ for (const [type_id, [game, behavior, portSpecs, opts = {}]] of Object.entries(G
   }
   if (behavior === 'fuse') Object.assign(def.params, { on: 1, limit_ps: 150 });
   if (behavior === 'battery') Object.assign(def.params, { capacity: DEFAULT_CAPACITY, charge: DEFAULT_CAPACITY });
+  if (behavior === 'eta') def.params.mode = 2;   // knob: 0 time to the braking point, 1 braking time, 2 whole trip
   if (behavior === 'generator') def.params.gen_ps = DEFAULT_GEN_PS;
   if (behavior === 'wireless') def.params.channel = 1;
   if (def.demand) def.params.power_ps = DEFAULT_POWER_PS;
@@ -1060,12 +1062,49 @@ class CircuitEngine {
         break;
       }
       case 'eta': {
-        // Still an approximation: the game's SCTick_ETASystem is a larger, stateful job not decoded yet. Here:
-        // stopping distance v²/2a against the distance left (1 = safe, 0 = at the limit).
-        const d = v('distance'), vel = Math.abs(v('velocity')), a = Math.abs(v('acceleration'));
-        const stop = a > 0 ? (vel * vel) / (2 * a) : (vel > 0 ? Infinity : 0);
-        const margin = d > 0 ? 1 - stop / d : (stop > 0 ? -1 : 1);
-        out = { indicator: Math.max(0, Math.min(1, margin)) };
+        // Game code (SCTick_ETASystem). The part is not in the shipped game: no SC_ETASystem prefab exists.
+        // Despite its port text ("indicator 0..1"), it outputs a time in seconds, picked by its knob (`mode`).
+        // With d = distance, v = velocity (signed) and A = |acceleration|, the stopping distance is S = v²/2A.
+        //   S < d: it plans the fastest stop on the target, accelerating at A for t and then braking at A, where
+        //          A·t² + 2v·t + (S − d) = 0 (the larger root). Mode 0 gives t (time left before braking must
+        //          start), 1 gives t + v/A (the braking), and 2 or more gives 2t + v/A (the whole trip).
+        //   S ≥ d: it cannot stop in time. Modes 1 and 2 give the time to impact, the first positive root of
+        //          d = v·t + ½a·t², where a counts as braking (negative) when the speed fell since the last tick;
+        //          mode 0 gives 0. With no acceleration at all this finds no root, and every mode gives 0.
+        // The in-game readout shows the time as H:MM:SS (capped at 100 h): red on a collision course, else green.
+        const san = (x) => (x > 1e20 || Number.isNaN(x) ? 0 : x);      // inputs above 1e20, or NaN, read as 0
+        const minss = (a, b) => (a < b ? a : b), maxss = (a, b) => (a > b ? a : b);   // x86 rules: NaN → b
+        const d = san(v('distance')), vel = san(v('velocity')), aIn = san(v('acceleration'));
+        const A = Math.abs(aIn);
+        const mode = Math.max(0, Math.round(p.mode || 0));
+        const prevV = s.prevV || 0;
+        s.prevV = vel;
+        let first = 0, second = 0, collision = false;   // the job's two results; mode 2 adds them
+        const S = (vel * vel) / (2 * A);
+        if (S >= d) {
+          const a = prevV > vel ? -aIn : aIn;
+          const D = vel * vel + 2 * a * d;
+          if (!(0 > D)) {
+            const sq = Math.sqrt(D), r0 = (-vel - sq) / a, r1 = (sq - vel) / a;
+            let hit = FLT_MAX;
+            if (0 < r1) hit = minss(r1, hit);
+            if (0 < r0) hit = minss(r0, hit);
+            if (hit !== FLT_MAX) { second = hit; collision = true; }
+          }
+        } else {
+          const b = 2 * vel, D = b * b - 4 * A * (S - d);
+          if (!(0 > D)) {
+            const sq = Math.sqrt(D), r1 = (sq - b) / (2 * A), r2 = (-b - sq) / (2 * A);
+            const hi = Number.isNaN(r2) ? r1 : maxss(r1, r2), lo = Number.isNaN(r2) ? r1 : minss(r1, r2);
+            const t = !(hi < 0) ? hi : lo;
+            if (!(0 > t)) { first = t; second = (t * A + vel) / A; }
+          }
+        }
+        const time = mode === 0 ? first : mode === 1 ? second : first + second;
+        out = { indicator: maxss(minss(time, 1e20), -1e20) };
+        const secs = Math.trunc(maxss(minss(time, 360000), 0));
+        const pad = (n) => String(n).padStart(2, '0');
+        say(`${Math.floor(secs / 3600)}:${pad(Math.floor(secs / 60) % 60)}:${pad(secs % 60)}${collision ? ' · COLLISION' : ''}`);
         break;
       }
       case 'thruster': {
@@ -1196,8 +1235,11 @@ const PART_GROUPS = [
   ['video', 'Video & plasma', ['camera', 'monitor', 'plasma_gen', 'shield']],
   ['routing', 'Wireless', ['wireless']],
 ];
+// In the game's code and text but not shipped: no prefab exists, so it cannot be placed in a ship.
+const NOT_IN_GAME = new Set(['eta_system']);
 for (const [cat, label, behaviours] of PART_GROUPS) {
-  const items = Object.keys(TYPES).filter((t) => behaviours.includes(TYPES[t].behavior)).map((t) => [t, partName(t)]);
+  const items = Object.keys(TYPES).filter((t) => behaviours.includes(TYPES[t].behavior))
+    .map((t) => [t, partName(t) + (NOT_IN_GAME.has(t) ? ' (not in game)' : '')]);
   items.sort((a, b) => a[1].localeCompare(b[1]));
   PALETTE.push([cat, label, items]);
 }
@@ -1993,7 +2035,7 @@ function updateLiveValues() {
     if (type.behavior) {
       const st = document.querySelector(`.node-status[data-status="${inst.id}"]`);
       const text = engine.tick ? (engine.status.get(inst.id) || '') : '';
-      if (st) { st.textContent = text; st.classList.toggle('bad', /no power|NOT|TRIPPED|CONFLICT|no signal|no plasma|DETONATED|DECOUPLED/.test(text)); }
+      if (st) { st.textContent = text; st.classList.toggle('bad', /no power|NOT|TRIPPED|CONFLICT|no signal|no plasma|DETONATED|DECOUPLED|COLLISION/.test(text)); }
     }
     for (const p of type.power || []) {
       const dot = document.querySelector(`.dot.pw[data-node="${inst.id}"][data-port="${p}"]`);
