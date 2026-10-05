@@ -189,7 +189,12 @@ Power use, in P/s (the simulator's `params.power_ps` placeholders are 10):
 decoded:
 - efficiencies (space, atmosphere, water)
 - acceleration time
-- `force_type`, which is 1 for the maneuvering and RCS thrusters (rotation-only, per their descriptions)
+- `force_type`, which is 1 ("Maneuvering", else 0 "Main") for the maneuvering and RCS thrusters. It is not
+  rotation-only: `SpaceshipPartsApplyForces` pushes the ship with every thruster's force and adds its torque. Type 1
+  forces set the target of the gimbals' angular stabilization (PROJECT_SUMMARY, Thruster gimbals).
+- `_gimbalLinear`, `_gimbalAngular` (degrees; × π/180 at load): two floats 60 and 64 bytes after `ds`, past
+  acceleration_time and two PPtrs. Maneuvering and RCS thrusters have 0 / 0; electric 0.3 / 1.54, 1.26, 0.98; lift
+  0.23 / 1.47; fuel 0.45 / 1.26, 1.05, 0.84; atmospheric 0.35 / 1.4; solid fuel 0.3 / 1.12.
 - shield radius range, 1–50
 
 These are the raw serialized numbers. Check one tooltip in-game before relying on the units.

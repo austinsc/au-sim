@@ -1,0 +1,3727 @@
+{
+ "report": {
+  "name": "quick turn v2 (180 yaw)",
+  "box": [
+   8,
+   8,
+   8
+  ],
+  "frameQuarters": 8,
+  "searchBox": [
+   8,
+   8,
+   8
+  ],
+  "parts": 30,
+  "labels": 4,
+  "cableCells": 204,
+  "nets": 39,
+  "directContacts": 20,
+  "cabledNets": 19,
+  "io": "bundle",
+  "flat": false,
+  "floor": null,
+  "levels": null,
+  "raisedCables": 0,
+  "onSide": 0,
+  "buses": [
+   {
+    "face": "-z",
+    "rows": 1,
+    "ends": [
+     "turn_button",
+     "yaw_rate",
+     "thrust_enable",
+     "yaw"
+    ]
+   }
+  ],
+  "stubs": [
+   {
+    "label": "turn_button",
+    "io": "in",
+    "face": "-z",
+    "port": "active.in",
+    "text": "TURN BUTTON"
+   },
+   {
+    "label": "yaw_rate",
+    "io": "in",
+    "face": "-z",
+    "port": "turned.in",
+    "text": "YAW RATE"
+   },
+   {
+    "label": "thrust_enable",
+    "io": "out",
+    "face": "-z",
+    "port": "thrust_enable.out",
+    "text": "THRUST ENABLE"
+   },
+   {
+    "label": "yaw",
+    "io": "out",
+    "face": "-z",
+    "port": "yaw.out",
+    "text": "YAW"
+   }
+  ],
+  "substituted": [
+   "turn_button (button)",
+   "yaw_rate (axis_rotometer)"
+  ],
+  "longestCable": 20,
+  "routingIterations": 8,
+  "attempts": [],
+  "ms": 7102
+ },
+ "layout": {
+  "origin": [
+   0,
+   0,
+   0
+  ],
+  "parts": [
+   {
+    "id": "active",
+    "type": "accumulator",
+    "o": [
+     0,
+     1,
+     1
+    ],
+    "k": 9,
+    "mir": true
+   },
+   {
+    "id": "active_split",
+    "type": "data_router_4",
+    "o": [
+     0,
+     3,
+     1
+    ],
+    "k": 10,
+    "mir": false
+   },
+   {
+    "id": "thrust_enable",
+    "type": "not",
+    "o": [
+     4,
+     1,
+     1
+    ],
+    "k": 13,
+    "mir": true
+   },
+   {
+    "id": "turned",
+    "type": "accumulator",
+    "o": [
+     2,
+     1,
+     1
+    ],
+    "k": 11,
+    "mir": true
+   },
+   {
+    "id": "turned_abs",
+    "type": "abs",
+    "o": [
+     2,
+     3,
+     0
+    ],
+    "k": 10,
+    "mir": true
+   },
+   {
+    "id": "angle_split",
+    "type": "data_router_4",
+    "o": [
+     1,
+     5,
+     4
+    ],
+    "k": 13,
+    "mir": false
+   },
+   {
+    "id": "progress_rate",
+    "type": "differentiator",
+    "o": [
+     4,
+     3,
+     4
+    ],
+    "k": 15,
+    "mir": true
+   },
+   {
+    "id": "rate_split",
+    "type": "data_router_4",
+    "o": [
+     2,
+     4,
+     2
+    ],
+    "k": 13,
+    "mir": true
+   },
+   {
+    "id": "measuring",
+    "type": "delay",
+    "o": [
+     0,
+     5,
+     4
+    ],
+    "k": 11,
+    "mir": true
+   },
+   {
+    "id": "measuring_split",
+    "type": "data_router_4",
+    "o": [
+     4,
+     5,
+     3
+    ],
+    "k": 13,
+    "mir": true
+   },
+   {
+    "id": "measured",
+    "type": "memory",
+    "o": [
+     4,
+     2,
+     2
+    ],
+    "k": 15,
+    "mir": true
+   },
+   {
+    "id": "ship_accel",
+    "type": "remapper",
+    "o": [
+     4,
+     0,
+     2
+    ],
+    "k": 10,
+    "mir": false
+   },
+   {
+    "id": "accel_split",
+    "type": "data_router_2",
+    "o": [
+     4,
+     3,
+     6
+    ],
+    "k": 11,
+    "mir": false
+   },
+   {
+    "id": "braking_room",
+    "type": "remapper",
+    "o": [
+     3,
+     3,
+     4
+    ],
+    "k": 10,
+    "mir": false
+   },
+   {
+    "id": "braking_scaled",
+    "type": "multiplier",
+    "o": [
+     3,
+     5,
+     7
+    ],
+    "k": 8,
+    "mir": false
+   },
+   {
+    "id": "rate_sqrt",
+    "type": "sqrt",
+    "o": [
+     0,
+     3,
+     7
+    ],
+    "k": 9,
+    "mir": false
+   },
+   {
+    "id": "rate_lin",
+    "type": "remapper",
+    "o": [
+     2,
+     3,
+     4
+    ],
+    "k": 10,
+    "mir": false
+   },
+   {
+    "id": "rate_cmd",
+    "type": "min",
+    "o": [
+     1,
+     5,
+     7
+    ],
+    "k": 8,
+    "mir": false
+   },
+   {
+    "id": "cmd_split",
+    "type": "data_router_2",
+    "o": [
+     5,
+     1,
+     6
+    ],
+    "k": 8,
+    "mir": false
+   },
+   {
+    "id": "rate_err",
+    "type": "subtractor",
+    "o": [
+     5,
+     3,
+     5
+    ],
+    "k": 11,
+    "mir": false
+   },
+   {
+    "id": "rate_norm",
+    "type": "divider",
+    "o": [
+     4,
+     5,
+     6
+    ],
+    "k": 8,
+    "mir": true
+   },
+   {
+    "id": "steer",
+    "type": "condition",
+    "o": [
+     3,
+     5,
+     1
+    ],
+    "k": 9,
+    "mir": false
+   },
+   {
+    "id": "yaw",
+    "type": "remapper",
+    "o": [
+     6,
+     0,
+     2
+    ],
+    "k": 22,
+    "mir": true
+   },
+   {
+    "id": "cmd_abs",
+    "type": "abs",
+    "o": [
+     7,
+     2,
+     6
+    ],
+    "k": 10,
+    "mir": true
+   },
+   {
+    "id": "near",
+    "type": "remapper",
+    "o": [
+     7,
+     4,
+     4
+    ],
+    "k": 14,
+    "mir": true
+   },
+   {
+    "id": "rate_abs",
+    "type": "abs",
+    "o": [
+     3,
+     2,
+     2
+    ],
+    "k": 15,
+    "mir": true
+   },
+   {
+    "id": "still",
+    "type": "remapper",
+    "o": [
+     3,
+     0,
+     2
+    ],
+    "k": 10,
+    "mir": false
+   },
+   {
+    "id": "done",
+    "type": "min",
+    "o": [
+     6,
+     2,
+     4
+    ],
+    "k": 12,
+    "mir": true
+   },
+   {
+    "id": "done_turning",
+    "type": "min",
+    "o": [
+     7,
+     3,
+     1
+    ],
+    "k": 14,
+    "mir": false
+   },
+   {
+    "id": "settled",
+    "type": "delay",
+    "o": [
+     6,
+     1,
+     1
+    ],
+    "k": 13,
+    "mir": false
+   },
+   {
+    "id": "label#0",
+    "type": "label_small",
+    "o": [
+     0,
+     1,
+     0
+    ],
+    "k": 21,
+    "mir": false
+   },
+   {
+    "id": "label#1",
+    "type": "label_small",
+    "o": [
+     2,
+     1,
+     0
+    ],
+    "k": 21,
+    "mir": false
+   },
+   {
+    "id": "label#2",
+    "type": "label_small",
+    "o": [
+     4,
+     1,
+     0
+    ],
+    "k": 21,
+    "mir": false
+   },
+   {
+    "id": "label#3",
+    "type": "label_small",
+    "o": [
+     6,
+     1,
+     0
+    ],
+    "k": 21,
+    "mir": false
+   }
+  ],
+  "cables": [
+   {
+    "cell": [
+     7,
+     0,
+     1
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 0
+   },
+   {
+    "cell": [
+     7,
+     0,
+     2
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 1
+   },
+   {
+    "cell": [
+     7,
+     0,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 2
+   },
+   {
+    "cell": [
+     7,
+     0,
+     4
+    ],
+    "shape": 1,
+    "k": 4,
+    "open": [
+     5,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 3
+   },
+   {
+    "cell": [
+     6,
+     0,
+     4
+    ],
+    "shape": 1,
+    "k": 19,
+    "open": [
+     0,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 4
+   },
+   {
+    "cell": [
+     6,
+     0,
+     5
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 5
+   },
+   {
+    "cell": [
+     6,
+     0,
+     6
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 6
+   },
+   {
+    "cell": [
+     6,
+     0,
+     7
+    ],
+    "shape": 1,
+    "k": 4,
+    "open": [
+     5,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 7
+   },
+   {
+    "cell": [
+     5,
+     0,
+     7
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     0,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 8
+   },
+   {
+    "cell": [
+     4,
+     0,
+     7
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     0,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 9
+   },
+   {
+    "cell": [
+     3,
+     0,
+     7
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     0,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 10
+   },
+   {
+    "cell": [
+     2,
+     0,
+     7
+    ],
+    "shape": 1,
+    "k": 22,
+    "open": [
+     0,
+     5
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 11
+   },
+   {
+    "cell": [
+     2,
+     0,
+     6
+    ],
+    "shape": 1,
+    "k": 5,
+    "open": [
+     4,
+     1
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 12
+   },
+   {
+    "cell": [
+     1,
+     0,
+     6
+    ],
+    "shape": 1,
+    "k": 22,
+    "open": [
+     0,
+     5
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 13
+   },
+   {
+    "cell": [
+     1,
+     0,
+     5
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 14
+   },
+   {
+    "cell": [
+     1,
+     0,
+     4
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 15
+   },
+   {
+    "cell": [
+     1,
+     0,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 16
+   },
+   {
+    "cell": [
+     1,
+     0,
+     2
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 17
+   },
+   {
+    "cell": [
+     1,
+     0,
+     1
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 0,
+    "step": 18
+   },
+   {
+    "cell": [
+     0,
+     5,
+     1
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 0
+   },
+   {
+    "cell": [
+     0,
+     5,
+     0
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 1
+   },
+   {
+    "cell": [
+     0,
+     4,
+     0
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 2
+   },
+   {
+    "cell": [
+     1,
+     4,
+     0
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 3
+   },
+   {
+    "cell": [
+     1,
+     3,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 4
+   },
+   {
+    "cell": [
+     1,
+     2,
+     0
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 5
+   },
+   {
+    "cell": [
+     2,
+     2,
+     0
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 6
+   },
+   {
+    "cell": [
+     3,
+     2,
+     0
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 7
+   },
+   {
+    "cell": [
+     4,
+     2,
+     0
+    ],
+    "shape": 1,
+    "k": 11,
+    "open": [
+     1,
+     2
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 8
+   },
+   {
+    "cell": [
+     4,
+     3,
+     0
+    ],
+    "shape": 1,
+    "k": 17,
+    "open": [
+     3,
+     4
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 9
+   },
+   {
+    "cell": [
+     4,
+     3,
+     1
+    ],
+    "shape": 1,
+    "k": 13,
+    "open": [
+     5,
+     3
+    ],
+    "role": "net",
+    "job": 1,
+    "step": 10
+   },
+   {
+    "cell": [
+     0,
+     5,
+     2
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 0
+   },
+   {
+    "cell": [
+     0,
+     6,
+     2
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 1
+   },
+   {
+    "cell": [
+     1,
+     6,
+     2
+    ],
+    "shape": 1,
+    "k": 23,
+    "open": [
+     1,
+     5
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 2
+   },
+   {
+    "cell": [
+     1,
+     6,
+     1
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 3
+   },
+   {
+    "cell": [
+     1,
+     6,
+     0
+    ],
+    "shape": 1,
+    "k": 0,
+    "open": [
+     4,
+     0
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 4
+   },
+   {
+    "cell": [
+     2,
+     6,
+     0
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 5
+   },
+   {
+    "cell": [
+     3,
+     6,
+     0
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 6
+   },
+   {
+    "cell": [
+     3,
+     5,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 7
+   },
+   {
+    "cell": [
+     3,
+     4,
+     0
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 8
+   },
+   {
+    "cell": [
+     3,
+     4,
+     1
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 2,
+    "step": 9
+   },
+   {
+    "cell": [
+     0,
+     5,
+     3
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 0
+   },
+   {
+    "cell": [
+     1,
+     5,
+     3
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 1
+   },
+   {
+    "cell": [
+     1,
+     4,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 2
+   },
+   {
+    "cell": [
+     1,
+     3,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 3
+   },
+   {
+    "cell": [
+     1,
+     2,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 4
+   },
+   {
+    "cell": [
+     1,
+     1,
+     3
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 5
+   },
+   {
+    "cell": [
+     2,
+     1,
+     3
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 6
+   },
+   {
+    "cell": [
+     2,
+     0,
+     3
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 7
+   },
+   {
+    "cell": [
+     2,
+     0,
+     2
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 3,
+    "step": 8
+   },
+   {
+    "cell": [
+     2,
+     5,
+     1
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 0
+   },
+   {
+    "cell": [
+     2,
+     6,
+     1
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 1
+   },
+   {
+    "cell": [
+     2,
+     7,
+     1
+    ],
+    "shape": 1,
+    "k": 17,
+    "open": [
+     3,
+     4
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 2
+   },
+   {
+    "cell": [
+     2,
+     7,
+     2
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 3
+   },
+   {
+    "cell": [
+     2,
+     7,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 4
+   },
+   {
+    "cell": [
+     2,
+     7,
+     4
+    ],
+    "shape": 1,
+    "k": 1,
+    "open": [
+     5,
+     0
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 5
+   },
+   {
+    "cell": [
+     3,
+     7,
+     4
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 6
+   },
+   {
+    "cell": [
+     4,
+     7,
+     4
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 4,
+    "step": 7
+   },
+   {
+    "cell": [
+     0,
+     7,
+     4
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 0
+   },
+   {
+    "cell": [
+     0,
+     7,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 1
+   },
+   {
+    "cell": [
+     0,
+     7,
+     2
+    ],
+    "shape": 1,
+    "k": 0,
+    "open": [
+     4,
+     0
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 2
+   },
+   {
+    "cell": [
+     1,
+     7,
+     2
+    ],
+    "shape": 1,
+    "k": 23,
+    "open": [
+     1,
+     5
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 3
+   },
+   {
+    "cell": [
+     1,
+     7,
+     1
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 4
+   },
+   {
+    "cell": [
+     1,
+     7,
+     0
+    ],
+    "shape": 1,
+    "k": 0,
+    "open": [
+     4,
+     0
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 5
+   },
+   {
+    "cell": [
+     2,
+     7,
+     0
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 6
+   },
+   {
+    "cell": [
+     3,
+     7,
+     0
+    ],
+    "shape": 1,
+    "k": 18,
+    "open": [
+     1,
+     4
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 7
+   },
+   {
+    "cell": [
+     3,
+     7,
+     1
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 8
+   },
+   {
+    "cell": [
+     3,
+     7,
+     2
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 9
+   },
+   {
+    "cell": [
+     3,
+     7,
+     3
+    ],
+    "shape": 1,
+    "k": 1,
+    "open": [
+     5,
+     0
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 10
+   },
+   {
+    "cell": [
+     4,
+     7,
+     3
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 5,
+    "step": 11
+   },
+   {
+    "cell": [
+     4,
+     4,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 6,
+    "step": 0
+   },
+   {
+    "cell": [
+     5,
+     4,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 7,
+    "step": 0
+   },
+   {
+    "cell": [
+     5,
+     3,
+     3
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "net",
+    "job": 7,
+    "step": 1
+   },
+   {
+    "cell": [
+     5,
+     3,
+     2
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 7,
+    "step": 2
+   },
+   {
+    "cell": [
+     5,
+     3,
+     1
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 7,
+    "step": 3
+   },
+   {
+    "cell": [
+     5,
+     4,
+     1
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 7,
+    "step": 4
+   },
+   {
+    "cell": [
+     6,
+     4,
+     1
+    ],
+    "shape": 1,
+    "k": 11,
+    "open": [
+     1,
+     2
+    ],
+    "role": "net",
+    "job": 7,
+    "step": 5
+   },
+   {
+    "cell": [
+     6,
+     4,
+     3
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "net",
+    "job": 8,
+    "step": 0
+   },
+   {
+    "cell": [
+     6,
+     4,
+     2
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 8,
+    "step": 1
+   },
+   {
+    "cell": [
+     6,
+     5,
+     2
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 8,
+    "step": 2
+   },
+   {
+    "cell": [
+     7,
+     5,
+     2
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 8,
+    "step": 3
+   },
+   {
+    "cell": [
+     4,
+     2,
+     5
+    ],
+    "shape": 1,
+    "k": 17,
+    "open": [
+     3,
+     4
+    ],
+    "role": "net",
+    "job": 9,
+    "step": 0
+   },
+   {
+    "cell": [
+     4,
+     2,
+     6
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 9,
+    "step": 1
+   },
+   {
+    "cell": [
+     4,
+     2,
+     7
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 9,
+    "step": 2
+   },
+   {
+    "cell": [
+     3,
+     7,
+     7
+    ],
+    "shape": 1,
+    "k": 7,
+    "open": [
+     3,
+     1
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 0
+   },
+   {
+    "cell": [
+     2,
+     7,
+     7
+    ],
+    "shape": 1,
+    "k": 22,
+    "open": [
+     0,
+     5
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 1
+   },
+   {
+    "cell": [
+     2,
+     7,
+     6
+    ],
+    "shape": 1,
+    "k": 5,
+    "open": [
+     4,
+     1
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 2
+   },
+   {
+    "cell": [
+     1,
+     7,
+     6
+    ],
+    "shape": 1,
+    "k": 15,
+    "open": [
+     0,
+     3
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 3
+   },
+   {
+    "cell": [
+     1,
+     6,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 4
+   },
+   {
+    "cell": [
+     1,
+     5,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 5
+   },
+   {
+    "cell": [
+     1,
+     4,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 6
+   },
+   {
+    "cell": [
+     1,
+     3,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 7
+   },
+   {
+    "cell": [
+     1,
+     2,
+     6
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 8
+   },
+   {
+    "cell": [
+     1,
+     2,
+     7
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 10,
+    "step": 9
+   },
+   {
+    "cell": [
+     1,
+     7,
+     7
+    ],
+    "shape": 1,
+    "k": 7,
+    "open": [
+     3,
+     1
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 0
+   },
+   {
+    "cell": [
+     0,
+     7,
+     7
+    ],
+    "shape": 1,
+    "k": 15,
+    "open": [
+     0,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 1
+   },
+   {
+    "cell": [
+     0,
+     6,
+     7
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 2
+   },
+   {
+    "cell": [
+     0,
+     6,
+     6
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 3
+   },
+   {
+    "cell": [
+     0,
+     5,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 4
+   },
+   {
+    "cell": [
+     0,
+     4,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 5
+   },
+   {
+    "cell": [
+     0,
+     3,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 6
+   },
+   {
+    "cell": [
+     0,
+     2,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 7
+   },
+   {
+    "cell": [
+     0,
+     1,
+     6
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 8
+   },
+   {
+    "cell": [
+     1,
+     1,
+     6
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 9
+   },
+   {
+    "cell": [
+     2,
+     1,
+     6
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 10
+   },
+   {
+    "cell": [
+     3,
+     1,
+     6
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 11
+   },
+   {
+    "cell": [
+     4,
+     1,
+     6
+    ],
+    "shape": 1,
+    "k": 14,
+    "open": [
+     1,
+     3
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 12
+   },
+   {
+    "cell": [
+     4,
+     0,
+     6
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 13
+   },
+   {
+    "cell": [
+     5,
+     0,
+     6
+    ],
+    "shape": 1,
+    "k": 11,
+    "open": [
+     1,
+     2
+    ],
+    "role": "net",
+    "job": 11,
+    "step": 14
+   },
+   {
+    "cell": [
+     6,
+     3,
+     6
+    ],
+    "shape": 1,
+    "k": 17,
+    "open": [
+     3,
+     4
+    ],
+    "role": "net",
+    "job": 12,
+    "step": 0
+   },
+   {
+    "cell": [
+     6,
+     3,
+     7
+    ],
+    "shape": 1,
+    "k": 13,
+    "open": [
+     5,
+     3
+    ],
+    "role": "net",
+    "job": 12,
+    "step": 1
+   },
+   {
+    "cell": [
+     6,
+     2,
+     7
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 12,
+    "step": 2
+   },
+   {
+    "cell": [
+     6,
+     1,
+     7
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 12,
+    "step": 3
+   },
+   {
+    "cell": [
+     7,
+     1,
+     7
+    ],
+    "shape": 1,
+    "k": 11,
+    "open": [
+     1,
+     2
+    ],
+    "role": "net",
+    "job": 12,
+    "step": 4
+   },
+   {
+    "cell": [
+     4,
+     2,
+     4
+    ],
+    "shape": 1,
+    "k": 6,
+    "open": [
+     2,
+     1
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 0
+   },
+   {
+    "cell": [
+     3,
+     2,
+     4
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     0,
+     1
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 1
+   },
+   {
+    "cell": [
+     2,
+     2,
+     4
+    ],
+    "shape": 1,
+    "k": 22,
+    "open": [
+     0,
+     5
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 2
+   },
+   {
+    "cell": [
+     2,
+     2,
+     3
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 3
+   },
+   {
+    "cell": [
+     2,
+     3,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 4
+   },
+   {
+    "cell": [
+     2,
+     4,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 5
+   },
+   {
+    "cell": [
+     2,
+     5,
+     3
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 6
+   },
+   {
+    "cell": [
+     2,
+     6,
+     3
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 7
+   },
+   {
+    "cell": [
+     2,
+     6,
+     2
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 13,
+    "step": 8
+   },
+   {
+    "cell": [
+     2,
+     3,
+     2
+    ],
+    "shape": 1,
+    "k": 6,
+    "open": [
+     2,
+     1
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 0
+   },
+   {
+    "cell": [
+     1,
+     3,
+     2
+    ],
+    "shape": 1,
+    "k": 15,
+    "open": [
+     0,
+     3
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 1
+   },
+   {
+    "cell": [
+     1,
+     2,
+     2
+    ],
+    "shape": 1,
+    "k": 6,
+    "open": [
+     2,
+     1
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 2
+   },
+   {
+    "cell": [
+     0,
+     2,
+     2
+    ],
+    "shape": 1,
+    "k": 19,
+    "open": [
+     0,
+     4
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 3
+   },
+   {
+    "cell": [
+     0,
+     2,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 4
+   },
+   {
+    "cell": [
+     0,
+     2,
+     4
+    ],
+    "shape": 1,
+    "k": 1,
+    "open": [
+     5,
+     0
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 5
+   },
+   {
+    "cell": [
+     1,
+     2,
+     4
+    ],
+    "shape": 1,
+    "k": 18,
+    "open": [
+     1,
+     4
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 6
+   },
+   {
+    "cell": [
+     1,
+     2,
+     5
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 7
+   },
+   {
+    "cell": [
+     1,
+     3,
+     5
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 8
+   },
+   {
+    "cell": [
+     1,
+     4,
+     5
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 9
+   },
+   {
+    "cell": [
+     1,
+     5,
+     5
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 10
+   },
+   {
+    "cell": [
+     2,
+     5,
+     5
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 11
+   },
+   {
+    "cell": [
+     3,
+     5,
+     5
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 12
+   },
+   {
+    "cell": [
+     4,
+     5,
+     5
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 13
+   },
+   {
+    "cell": [
+     5,
+     5,
+     5
+    ],
+    "shape": 1,
+    "k": 23,
+    "open": [
+     1,
+     5
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 14
+   },
+   {
+    "cell": [
+     5,
+     5,
+     4
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 15
+   },
+   {
+    "cell": [
+     5,
+     4,
+     4
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 16
+   },
+   {
+    "cell": [
+     5,
+     3,
+     4
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 17
+   },
+   {
+    "cell": [
+     5,
+     2,
+     4
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 18
+   },
+   {
+    "cell": [
+     5,
+     2,
+     5
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 14,
+    "step": 19
+   },
+   {
+    "cell": [
+     5,
+     7,
+     6
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 0
+   },
+   {
+    "cell": [
+     5,
+     7,
+     5
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 1
+   },
+   {
+    "cell": [
+     5,
+     7,
+     4
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 2
+   },
+   {
+    "cell": [
+     5,
+     7,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 3
+   },
+   {
+    "cell": [
+     5,
+     7,
+     2
+    ],
+    "shape": 1,
+    "k": 5,
+    "open": [
+     4,
+     1
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 4
+   },
+   {
+    "cell": [
+     4,
+     7,
+     2
+    ],
+    "shape": 1,
+    "k": 22,
+    "open": [
+     0,
+     5
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 5
+   },
+   {
+    "cell": [
+     4,
+     7,
+     1
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 6
+   },
+   {
+    "cell": [
+     4,
+     7,
+     0
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 7
+   },
+   {
+    "cell": [
+     4,
+     6,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 8
+   },
+   {
+    "cell": [
+     4,
+     5,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 9
+   },
+   {
+    "cell": [
+     4,
+     4,
+     0
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 10
+   },
+   {
+    "cell": [
+     4,
+     4,
+     1
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 15,
+    "step": 11
+   },
+   {
+    "cell": [
+     6,
+     7,
+     1
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 0
+   },
+   {
+    "cell": [
+     6,
+     7,
+     0
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 1
+   },
+   {
+    "cell": [
+     6,
+     6,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 2
+   },
+   {
+    "cell": [
+     6,
+     5,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 3
+   },
+   {
+    "cell": [
+     6,
+     4,
+     0
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 4
+   },
+   {
+    "cell": [
+     6,
+     3,
+     0
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 5
+   },
+   {
+    "cell": [
+     6,
+     3,
+     1
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 16,
+    "step": 6
+   },
+   {
+    "cell": [
+     3,
+     2,
+     5
+    ],
+    "shape": 1,
+    "k": 17,
+    "open": [
+     3,
+     4
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 0
+   },
+   {
+    "cell": [
+     3,
+     2,
+     6
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     5,
+     4
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 1
+   },
+   {
+    "cell": [
+     3,
+     2,
+     7
+    ],
+    "shape": 1,
+    "k": 13,
+    "open": [
+     5,
+     3
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 2
+   },
+   {
+    "cell": [
+     3,
+     1,
+     7
+    ],
+    "shape": 1,
+    "k": 3,
+    "open": [
+     2,
+     0
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 3
+   },
+   {
+    "cell": [
+     4,
+     1,
+     7
+    ],
+    "shape": 0,
+    "k": 0,
+    "open": [
+     1,
+     0
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 4
+   },
+   {
+    "cell": [
+     5,
+     1,
+     7
+    ],
+    "shape": 1,
+    "k": 11,
+    "open": [
+     1,
+     2
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 5
+   },
+   {
+    "cell": [
+     5,
+     2,
+     7
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 6
+   },
+   {
+    "cell": [
+     5,
+     3,
+     7
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 7
+   },
+   {
+    "cell": [
+     5,
+     4,
+     7
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 8
+   },
+   {
+    "cell": [
+     6,
+     4,
+     7
+    ],
+    "shape": 1,
+    "k": 23,
+    "open": [
+     1,
+     5
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 9
+   },
+   {
+    "cell": [
+     6,
+     4,
+     6
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 10
+   },
+   {
+    "cell": [
+     6,
+     5,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 11
+   },
+   {
+    "cell": [
+     6,
+     6,
+     6
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 12
+   },
+   {
+    "cell": [
+     6,
+     7,
+     6
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 13
+   },
+   {
+    "cell": [
+     6,
+     7,
+     5
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 14
+   },
+   {
+    "cell": [
+     6,
+     7,
+     4
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 15
+   },
+   {
+    "cell": [
+     6,
+     6,
+     4
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 16
+   },
+   {
+    "cell": [
+     6,
+     5,
+     4
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 17
+   },
+   {
+    "cell": [
+     6,
+     4,
+     4
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 17,
+    "step": 18
+   },
+   {
+    "cell": [
+     7,
+     1,
+     4
+    ],
+    "shape": 1,
+    "k": 16,
+    "open": [
+     2,
+     4
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 0
+   },
+   {
+    "cell": [
+     7,
+     1,
+     5
+    ],
+    "shape": 1,
+    "k": 8,
+    "open": [
+     5,
+     2
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 1
+   },
+   {
+    "cell": [
+     7,
+     2,
+     5
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 2
+   },
+   {
+    "cell": [
+     7,
+     3,
+     5
+    ],
+    "shape": 1,
+    "k": 7,
+    "open": [
+     3,
+     1
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 3
+   },
+   {
+    "cell": [
+     6,
+     3,
+     5
+    ],
+    "shape": 1,
+    "k": 10,
+    "open": [
+     0,
+     2
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 4
+   },
+   {
+    "cell": [
+     6,
+     4,
+     5
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 5
+   },
+   {
+    "cell": [
+     6,
+     5,
+     5
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     3,
+     2
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 6
+   },
+   {
+    "cell": [
+     6,
+     6,
+     5
+    ],
+    "shape": 1,
+    "k": 2,
+    "open": [
+     3,
+     0
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 7
+   },
+   {
+    "cell": [
+     7,
+     6,
+     5
+    ],
+    "shape": 1,
+    "k": 23,
+    "open": [
+     1,
+     5
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 8
+   },
+   {
+    "cell": [
+     7,
+     6,
+     4
+    ],
+    "shape": 1,
+    "k": 9,
+    "open": [
+     4,
+     2
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 9
+   },
+   {
+    "cell": [
+     7,
+     7,
+     4
+    ],
+    "shape": 1,
+    "k": 20,
+    "open": [
+     3,
+     5
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 10
+   },
+   {
+    "cell": [
+     7,
+     7,
+     3
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 11
+   },
+   {
+    "cell": [
+     7,
+     7,
+     2
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 12
+   },
+   {
+    "cell": [
+     7,
+     6,
+     2
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 13
+   },
+   {
+    "cell": [
+     7,
+     6,
+     1
+    ],
+    "shape": 1,
+    "k": 12,
+    "open": [
+     4,
+     3
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 14
+   },
+   {
+    "cell": [
+     7,
+     5,
+     1
+    ],
+    "shape": 0,
+    "k": 9,
+    "open": [
+     2,
+     3
+    ],
+    "role": "net",
+    "job": 18,
+    "step": 15
+   },
+   {
+    "cell": [
+     0,
+     0,
+     1
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "in",
+    "job": 19,
+    "step": 0
+   },
+   {
+    "cell": [
+     0,
+     0,
+     0
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "in",
+    "job": 19,
+    "step": 1
+   },
+   {
+    "cell": [
+     2,
+     0,
+     1
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "in",
+    "job": 20,
+    "step": 0
+   },
+   {
+    "cell": [
+     2,
+     0,
+     0
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "in",
+    "job": 20,
+    "step": 1
+   },
+   {
+    "cell": [
+     4,
+     0,
+     1
+    ],
+    "shape": 1,
+    "k": 21,
+    "open": [
+     2,
+     5
+    ],
+    "role": "out",
+    "job": 21,
+    "step": 0
+   },
+   {
+    "cell": [
+     4,
+     0,
+     0
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "out",
+    "job": 21,
+    "step": 1
+   },
+   {
+    "cell": [
+     6,
+     0,
+     1
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "out",
+    "job": 22,
+    "step": 0
+   },
+   {
+    "cell": [
+     6,
+     0,
+     0
+    ],
+    "shape": 0,
+    "k": 16,
+    "open": [
+     4,
+     5
+    ],
+    "role": "out",
+    "job": 22,
+    "step": 1
+   }
+  ]
+ }
+}

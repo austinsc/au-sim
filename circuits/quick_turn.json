@@ -1,0 +1,591 @@
+{
+ "notes": "Quick turn: press the button and the ship yaws round 180° as fast as it can still stop. THRUST ENABLE is 1, and 0 while the turn runs.\n\nInputs\n- turn_button: a Button. Press and release. Holding it past the end of a turn starts another at once, from wherever the ship is.\n- yaw_rate: an Axis Rotometer measuring yaw (deg/s). Either sign works, and so does either thruster direction: the ship turns whichever way positive yaw pushes it.\n\nOutputs\n- yaw: -1..1, + turns, - brakes. Feed a two-way thruster, or a Sign Splitter into YAW+ / YAW- (channels 12 / 13).\n- thrust_enable: multiply your throttle by it, or feed both into a Minimum.\n\nHow it fits any ship\n- Each turn starts with half a second of full yaw; the yaw rate it reaches (measured) sets how hard the turn plans to brake and how gently it steers. No tuning.\n- Hovering, the lift thrusters' angular stabilization caps the yaw rate at the yaw acceleration's number (10 deg/s² turns at most 10 deg/s), so a hovering turn is slower than one in space.\n- Start a turn with the ship still: a ship already turning measures wrong. Wait about a second between turns.\n\nThrusters\n- Maneuvering thrusters push as well as turn (the game applies their full force to the ship). Mount each direction as a couple, one at the bow pushing one way and one at the stern pushing the other, and the pushes cancel; far from the centre of mass gives the most turn.\n\nBuilt and checked against a yaw model by tools/build_quick_turn.js (--check).",
+ "name": "quick turn",
+ "instances": [
+  {
+   "id": "turn_button",
+   "type_id": "button",
+   "parameters": {
+    "out": 0
+   },
+   "position": {
+    "x": 60,
+    "y": 506
+   }
+  },
+  {
+   "id": "yaw_rate",
+   "type_id": "axis_rotometer",
+   "parameters": {
+    "angular_velocity": 0
+   },
+   "position": {
+    "x": 740,
+    "y": 332
+   }
+  },
+  {
+   "id": "active",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 400,
+    "y": 489
+   }
+  },
+  {
+   "id": "active_split",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 740,
+    "y": 497
+   }
+  },
+  {
+   "id": "thrust_enable",
+   "type_id": "not",
+   "parameters": {},
+   "position": {
+    "x": 1080,
+    "y": 519
+   }
+  },
+  {
+   "id": "turned",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 1080,
+    "y": 317
+   }
+  },
+  {
+   "id": "turned_abs",
+   "type_id": "abs",
+   "parameters": {},
+   "position": {
+    "x": 1420,
+    "y": 343
+   }
+  },
+  {
+   "id": "angle_split",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 1760,
+    "y": 316
+   }
+  },
+  {
+   "id": "progress_rate",
+   "type_id": "differentiator",
+   "parameters": {
+    "interval": 1,
+    "simulate": 0
+   },
+   "position": {
+    "x": 2100,
+    "y": 566
+   }
+  },
+  {
+   "id": "rate_split",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 2440,
+    "y": 525
+   }
+  },
+  {
+   "id": "measuring",
+   "type_id": "delay",
+   "parameters": {
+    "ticks": 30
+   },
+   "position": {
+    "x": 1080,
+    "y": 800
+   }
+  },
+  {
+   "id": "measuring_split",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 1420,
+    "y": 800
+   }
+  },
+  {
+   "id": "measured",
+   "type_id": "memory",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 2780,
+    "y": 800
+   }
+  },
+  {
+   "id": "ship_accel",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1000,
+    "out_min": 0.8,
+    "out_max": 1600.8000000000002
+   },
+   "position": {
+    "x": 3120,
+    "y": 800
+   }
+  },
+  {
+   "id": "accel_split",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 3460,
+    "y": 800
+   }
+  },
+  {
+   "id": "braking_room",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10800,
+    "out_min": 225,
+    "out_max": 0
+   },
+   "position": {
+    "x": 2100,
+    "y": 50
+   }
+  },
+  {
+   "id": "braking_scaled",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 3800,
+    "y": 50
+   }
+  },
+  {
+   "id": "rate_sqrt",
+   "type_id": "sqrt",
+   "parameters": {},
+   "position": {
+    "x": 4140,
+    "y": 50
+   }
+  },
+  {
+   "id": "rate_lin",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 21600,
+    "out_min": 360,
+    "out_max": -360
+   },
+   "position": {
+    "x": 2100,
+    "y": 308
+   }
+  },
+  {
+   "id": "rate_cmd",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 4480,
+    "y": 241
+   }
+  },
+  {
+   "id": "cmd_split",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 4820,
+    "y": 278
+   }
+  },
+  {
+   "id": "rate_err",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 5160,
+    "y": 265
+   }
+  },
+  {
+   "id": "rate_norm",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 5500,
+    "y": 265
+   }
+  },
+  {
+   "id": "steer",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 5840,
+    "y": 403
+   }
+  },
+  {
+   "id": "yaw",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -1,
+    "in_max": 1,
+    "out_min": -1,
+    "out_max": 1
+   },
+   "position": {
+    "x": 6180,
+    "y": 216
+   }
+  },
+  {
+   "id": "cmd_abs",
+   "type_id": "abs",
+   "parameters": {},
+   "position": {
+    "x": 5160,
+    "y": 439
+   }
+  },
+  {
+   "id": "near",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0.3,
+    "in_max": 0.6,
+    "out_min": 1,
+    "out_max": 0
+   },
+   "position": {
+    "x": 5500,
+    "y": 474
+   }
+  },
+  {
+   "id": "rate_abs",
+   "type_id": "abs",
+   "parameters": {},
+   "position": {
+    "x": 2780,
+    "y": 559
+   }
+  },
+  {
+   "id": "still",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0.25,
+    "in_max": 0.5,
+    "out_min": 1,
+    "out_max": 0
+   },
+   "position": {
+    "x": 3120,
+    "y": 536
+   }
+  },
+  {
+   "id": "done",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 5840,
+    "y": 649
+   }
+  },
+  {
+   "id": "done_turning",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 6180,
+    "y": 695
+   }
+  },
+  {
+   "id": "settled",
+   "type_id": "delay",
+   "parameters": {
+    "ticks": 30
+   },
+   "position": {
+    "x": 6520,
+    "y": 684
+   }
+  }
+ ],
+ "edges": [
+  {
+   "from_instance": "turn_button",
+   "from_port": "out",
+   "to_instance": "active",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "settled",
+   "from_port": "out",
+   "to_instance": "active",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "active",
+   "from_port": "out",
+   "to_instance": "active_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "active_split",
+   "from_port": "a",
+   "to_instance": "thrust_enable",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "active_split",
+   "from_port": "b",
+   "to_instance": "steer",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "active_split",
+   "from_port": "c",
+   "to_instance": "turned",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "yaw_rate",
+   "from_port": "angular_velocity",
+   "to_instance": "turned",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "turned",
+   "from_port": "out",
+   "to_instance": "turned_abs",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "turned_abs",
+   "from_port": "out",
+   "to_instance": "angle_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "angle_split",
+   "from_port": "a",
+   "to_instance": "progress_rate",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "angle_split",
+   "from_port": "b",
+   "to_instance": "braking_room",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "angle_split",
+   "from_port": "c",
+   "to_instance": "rate_lin",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "active_split",
+   "from_port": "d",
+   "to_instance": "measuring",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "measuring",
+   "from_port": "out",
+   "to_instance": "measuring_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "measuring_split",
+   "from_port": "a",
+   "to_instance": "measured",
+   "to_port": "set"
+  },
+  {
+   "from_instance": "measuring_split",
+   "from_port": "b",
+   "to_instance": "steer",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "measuring_split",
+   "from_port": "c",
+   "to_instance": "done_turning",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "rate_split",
+   "from_port": "c",
+   "to_instance": "measured",
+   "to_port": "value"
+  },
+  {
+   "from_instance": "measured",
+   "from_port": "out",
+   "to_instance": "ship_accel",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ship_accel",
+   "from_port": "out",
+   "to_instance": "accel_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "accel_split",
+   "from_port": "a",
+   "to_instance": "braking_scaled",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "accel_split",
+   "from_port": "b",
+   "to_instance": "rate_norm",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "braking_room",
+   "from_port": "out",
+   "to_instance": "braking_scaled",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "braking_scaled",
+   "from_port": "out",
+   "to_instance": "rate_sqrt",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "rate_sqrt",
+   "from_port": "out",
+   "to_instance": "rate_cmd",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "rate_lin",
+   "from_port": "out",
+   "to_instance": "rate_cmd",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "rate_cmd",
+   "from_port": "out",
+   "to_instance": "cmd_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "cmd_split",
+   "from_port": "a",
+   "to_instance": "rate_err",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "cmd_split",
+   "from_port": "b",
+   "to_instance": "cmd_abs",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "progress_rate",
+   "from_port": "out",
+   "to_instance": "rate_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "rate_split",
+   "from_port": "a",
+   "to_instance": "rate_err",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "rate_split",
+   "from_port": "b",
+   "to_instance": "rate_abs",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "rate_err",
+   "from_port": "out",
+   "to_instance": "rate_norm",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "rate_norm",
+   "from_port": "out",
+   "to_instance": "steer",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "steer",
+   "from_port": "out",
+   "to_instance": "yaw",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "cmd_abs",
+   "from_port": "out",
+   "to_instance": "near",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "rate_abs",
+   "from_port": "out",
+   "to_instance": "still",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "near",
+   "from_port": "out",
+   "to_instance": "done",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "still",
+   "from_port": "out",
+   "to_instance": "done",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "done",
+   "from_port": "out",
+   "to_instance": "done_turning",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "done_turning",
+   "from_port": "out",
+   "to_instance": "settled",
+   "to_port": "in"
+  }
+ ]
+}
