@@ -1,0 +1,1725 @@
+{
+ "notes": "Travel computer: flies to the target the Space Scanner sees ahead and stops a set distance short of it, on trips of 250,000 km or more, keeping the acceleration under MAX ACCEL so the ship holds together. Small Solid Fuel Thrusters (SRBs) can boost the first stage, reverse thrust may be weaker than forward, and the target's gravity is allowed for.\n\nUse\n- Engage it in space or hovering (not landed): point the nose at the target (by hand or with the target lock), set the STANDOFF lever, then switch Autopilot on.\n- STANDOFF: log scale, 10 m (down) to 10,000 km (up); 0.5 is about 10 km. The STANDOFF M Datameter shows it in metres.\n- MAX ACCEL (a Constant): the acceleration it keeps to, m/s^2, gravity included. 8 peaks at about 10, just under where the game starts straining joints (10.4); peaks run about 25% over the setting. Raise it if the ship holds together at more.\n- THRUST RATIO (a Constant): forward / reverse thrust of the main engines, SRBs left out: 1.893 = 8,279,000 / 4,374,000. Too high is safe (it brakes early and arrives later); too low can crash.\n- Both Constants sit on top of the circuit, showing their values (8 and 1.8928); click one to change it.\n- The first 6 s measure the ship at 7.5% thrust, then coasting. Then it flies: it lights the SRBs only if mains and SRBs at full fit under MAX ACCEL, ejects them when it must start braking (or at burnout), brakes, and holds station at the standoff.\n- Autopilot off cuts thrust, and ejects the SRBs if they are lit (their thrust cannot be stopped otherwise).\n- The reverse thrusters must be able to hold the ship against the target's gravity at the standoff.\n\nWiring (SHIP RADIOS)\n- In: FWD DIST (30) from a Space Scanner on the nose; Z SPEED (23) from a Velocity Meter, Directional, facing forward. Local: Gravitymeter, the Autopilot switch, the STANDOFF lever.\n- Out: THRUST CTL (1), -1..1: forward thrusters read it as it is, reverse thrusters with Reversed Input on. SOLID IGNITE (35): 1 lights the SRBs (switch their ignition power with it). SOLID EJECT (36): 1 ejects them (Decouplers).\n- A Large Fuel Thruster (30 s to respond) needs a longer measurement: raise the coast, burn_level, meas_done and fly_on Remappers' thresholds.\n\nBuilt and checked against a 1-D flight model by tools/build_travel_computer.js and tools/travel_harness.js.",
+ "name": "travel computer",
+ "instances": [
+  {
+   "id": "autopilot",
+   "type_id": "switch",
+   "parameters": {
+    "out": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 40
+   }
+  },
+  {
+   "id": "standoff",
+   "type_id": "slider",
+   "parameters": {
+    "value": 0.3
+   },
+   "position": {
+    "x": 40,
+    "y": 700
+   }
+  },
+  {
+   "id": "gravitymeter",
+   "type_id": "gravitymeter",
+   "parameters": {
+    "gravity": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 370
+   }
+  },
+  {
+   "id": "rx_dist",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 30,
+    "label": "FWD DIST"
+   },
+   "position": {
+    "x": 40,
+    "y": 865
+   }
+  },
+  {
+   "id": "rx_vz",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 23,
+    "label": "Z SPEED"
+   },
+   "position": {
+    "x": 40,
+    "y": 1195
+   }
+  },
+  {
+   "id": "auto_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 40
+   }
+  },
+  {
+   "id": "off",
+   "type_id": "condition",
+   "parameters": {
+    "op": 4
+   },
+   "position": {
+    "x": 520,
+    "y": 40
+   }
+  },
+  {
+   "id": "off_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 40
+   }
+  },
+  {
+   "id": "timer",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 520,
+    "y": 205
+   }
+  },
+  {
+   "id": "timer_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 205
+   }
+  },
+  {
+   "id": "meas_done",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 341,
+    "in_max": 342,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 1000,
+    "y": 205
+   }
+  },
+  {
+   "id": "fly_on",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 355,
+    "in_max": 356,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 1000,
+    "y": 535
+   }
+  },
+  {
+   "id": "fly_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 1240,
+    "y": 205
+   }
+  },
+  {
+   "id": "coast",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 179,
+    "in_max": 180,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 1000,
+    "y": 370
+   }
+  },
+  {
+   "id": "burn_level",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 179,
+    "in_max": 180,
+    "out_min": 0.075,
+    "out_max": 0
+   },
+   "position": {
+    "x": 1000,
+    "y": 40
+   }
+  },
+  {
+   "id": "phase",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 5080,
+    "y": 205
+   }
+  },
+  {
+   "id": "thrust",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 5320,
+    "y": 205
+   }
+  },
+  {
+   "id": "tx_thrust",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 1,
+    "label": "THRUST CTL"
+   },
+   "position": {
+    "x": 5560,
+    "y": 205
+   }
+  },
+  {
+   "id": "vz_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 1195
+   }
+  },
+  {
+   "id": "dvz",
+   "type_id": "differentiator",
+   "parameters": {
+    "interval": 20,
+    "simulate": 0
+   },
+   "position": {
+    "x": 520,
+    "y": 1360
+   }
+  },
+  {
+   "id": "dvz_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 1360
+   }
+  },
+  {
+   "id": "m_full",
+   "type_id": "memory",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 1240,
+    "y": 370
+   }
+  },
+  {
+   "id": "m_sub",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 370
+   }
+  },
+  {
+   "id": "m_diff",
+   "type_id": "memory",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 1720,
+    "y": 370
+   }
+  },
+  {
+   "id": "a_meas",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0.013888888888888886,
+    "in_max": 10000,
+    "out_min": 0.5,
+    "out_max": 360000.00000000006
+   },
+   "position": {
+    "x": 1960,
+    "y": 205
+   }
+  },
+  {
+   "id": "am_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 2200,
+    "y": 205
+   }
+  },
+  {
+   "id": "srb_k",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10000,
+    "out_min": 0,
+    "out_max": 18760.988310450808
+   },
+   "position": {
+    "x": 2440,
+    "y": 205
+   }
+  },
+  {
+   "id": "thrust_ratio",
+   "type_id": "constant",
+   "parameters": {
+    "value": 1.8928,
+    "visible": true
+   },
+   "position": {
+    "x": 1720,
+    "y": 40
+   }
+  },
+  {
+   "id": "a_brk",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 1960,
+    "y": 370
+   }
+  },
+  {
+   "id": "a_brk_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 2200,
+    "y": 370
+   }
+  },
+  {
+   "id": "max_accel",
+   "type_id": "constant",
+   "parameters": {
+    "value": 8,
+    "visible": true
+   },
+   "position": {
+    "x": 3160,
+    "y": 40
+   }
+  },
+  {
+   "id": "max_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 3400,
+    "y": 40
+   }
+  },
+  {
+   "id": "neg_max",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 3640,
+    "y": 40
+   }
+  },
+  {
+   "id": "plan_cap",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10000,
+    "out_min": 0,
+    "out_max": 8000
+   },
+   "position": {
+    "x": 3640,
+    "y": 205
+   }
+  },
+  {
+   "id": "grav_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 535
+   }
+  },
+  {
+   "id": "gv",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 1000,
+    "y": 535
+   }
+  },
+  {
+   "id": "dg",
+   "type_id": "differentiator",
+   "parameters": {
+    "interval": 30,
+    "simulate": 0
+   },
+   "position": {
+    "x": 520,
+    "y": 535
+   }
+  },
+  {
+   "id": "r_est",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 1240,
+    "y": 535
+   }
+  },
+  {
+   "id": "r_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 535
+   }
+  },
+  {
+   "id": "vz_r2",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 1525
+   }
+  },
+  {
+   "id": "fast",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 19,
+    "in_max": 20,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 760,
+    "y": 1525
+   }
+  },
+  {
+   "id": "ahead",
+   "type_id": "condition",
+   "parameters": {
+    "op": 3
+   },
+   "position": {
+    "x": 1720,
+    "y": 370
+   }
+  },
+  {
+   "id": "ahead_n",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 1960,
+    "y": 370
+   }
+  },
+  {
+   "id": "g_r2",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 370
+   }
+  },
+  {
+   "id": "neg_g",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10000,
+    "out_min": 0,
+    "out_max": -10000
+   },
+   "position": {
+    "x": 760,
+    "y": 370
+   }
+  },
+  {
+   "id": "g_ff",
+   "type_id": "condition",
+   "parameters": {
+    "op": 0
+   },
+   "position": {
+    "x": 4120,
+    "y": 535
+   }
+  },
+  {
+   "id": "r_s",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 1720,
+    "y": 535
+   }
+  },
+  {
+   "id": "x",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 1960,
+    "y": 535
+   }
+  },
+  {
+   "id": "x_c",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 1,
+    "in_max": 1000,
+    "out_min": 1,
+    "out_max": 1000
+   },
+   "position": {
+    "x": 2200,
+    "y": 535
+   }
+  },
+  {
+   "id": "g_avg",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 2440,
+    "y": 535
+   }
+  },
+  {
+   "id": "so_ln",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1,
+    "out_min": 2.302585092994046,
+    "out_max": 16.11809565095832
+   },
+   "position": {
+    "x": 280,
+    "y": 700
+   }
+  },
+  {
+   "id": "so",
+   "type_id": "exp",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 700
+   }
+  },
+  {
+   "id": "standoff_m",
+   "type_id": "datameter",
+   "parameters": {
+    "label": "STANDOFF M",
+    "visible": true
+   },
+   "position": {
+    "x": 760,
+    "y": 700
+   }
+  },
+  {
+   "id": "dist_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 865
+   }
+  },
+  {
+   "id": "valid",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 1000000000000000000,
+    "in_max": 10000000000000000000,
+    "out_min": 1,
+    "out_max": 0
+   },
+   "position": {
+    "x": 520,
+    "y": 865
+   }
+  },
+  {
+   "id": "valid_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 1030
+   }
+  },
+  {
+   "id": "d1",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 865
+   }
+  },
+  {
+   "id": "d_sel",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 1000,
+    "y": 865
+   }
+  },
+  {
+   "id": "lead",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -100000,
+    "in_max": 100000,
+    "out_min": -100000,
+    "out_max": 100000
+   },
+   "position": {
+    "x": 760,
+    "y": 1195
+   }
+  },
+  {
+   "id": "d_plan",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 1240,
+    "y": 865
+   }
+  },
+  {
+   "id": "dplan_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 865
+   }
+  },
+  {
+   "id": "a_net_raw",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 2680,
+    "y": 535
+   }
+  },
+  {
+   "id": "a_net",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0.5,
+    "in_max": 10000,
+    "out_min": 0.5,
+    "out_max": 10000
+   },
+   "position": {
+    "x": 2920,
+    "y": 535
+   }
+  },
+  {
+   "id": "a_net_c",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 3160,
+    "y": 535
+   }
+  },
+  {
+   "id": "d_pos",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1000000000000,
+    "out_min": 0,
+    "out_max": 2000000000000
+   },
+   "position": {
+    "x": 1720,
+    "y": 700
+   }
+  },
+  {
+   "id": "prof2",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 3160,
+    "y": 700
+   }
+  },
+  {
+   "id": "v_root",
+   "type_id": "sqrt",
+   "parameters": {},
+   "position": {
+    "x": 3400,
+    "y": 700
+   }
+  },
+  {
+   "id": "v_lin",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -1000000000,
+    "in_max": 1000000000,
+    "out_min": -500000000,
+    "out_max": 500000000
+   },
+   "position": {
+    "x": 1720,
+    "y": 1030
+   }
+  },
+  {
+   "id": "v_prof",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 3640,
+    "y": 865
+   }
+  },
+  {
+   "id": "err",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 3880,
+    "y": 865
+   }
+  },
+  {
+   "id": "a_des",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -10000,
+    "in_max": 10000,
+    "out_min": -15000,
+    "out_max": 15000
+   },
+   "position": {
+    "x": 4120,
+    "y": 865
+   }
+  },
+  {
+   "id": "a_hi",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 4120,
+    "y": 700
+   }
+  },
+  {
+   "id": "a_lim",
+   "type_id": "max",
+   "parameters": {},
+   "position": {
+    "x": 4120,
+    "y": 1030
+   }
+  },
+  {
+   "id": "t_in",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 4360,
+    "y": 865
+   }
+  },
+  {
+   "id": "t_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 4600,
+    "y": 865
+   }
+  },
+  {
+   "id": "divisor",
+   "type_id": "condition",
+   "parameters": {
+    "op": 5
+   },
+   "position": {
+    "x": 4600,
+    "y": 700
+   }
+  },
+  {
+   "id": "thr",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 4840,
+    "y": 865
+   }
+  },
+  {
+   "id": "thr_c",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -1,
+    "in_max": 1,
+    "out_min": -1,
+    "out_max": 1
+   },
+   "position": {
+    "x": 5080,
+    "y": 865
+   }
+  },
+  {
+   "id": "ign_gate",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 4360,
+    "y": 1195
+   }
+  },
+  {
+   "id": "ign_ok",
+   "type_id": "condition",
+   "parameters": {
+    "op": 3
+   },
+   "position": {
+    "x": 4600,
+    "y": 1195
+   }
+  },
+  {
+   "id": "ignited",
+   "type_id": "max",
+   "parameters": {},
+   "position": {
+    "x": 4840,
+    "y": 1195
+   }
+  },
+  {
+   "id": "ign_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 5080,
+    "y": 1195
+   }
+  },
+  {
+   "id": "tx_ignite",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 35,
+    "label": "SOLID IGNITE"
+   },
+   "position": {
+    "x": 5320,
+    "y": 1195
+   }
+  },
+  {
+   "id": "burn_t",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 5320,
+    "y": 1360
+   }
+  },
+  {
+   "id": "burnout",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 60479,
+    "in_max": 60480,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 5560,
+    "y": 1360
+   }
+  },
+  {
+   "id": "brake_now",
+   "type_id": "condition",
+   "parameters": {
+    "op": 2
+   },
+   "position": {
+    "x": 4840,
+    "y": 1525
+   }
+  },
+  {
+   "id": "ej_any",
+   "type_id": "sum",
+   "parameters": {},
+   "position": {
+    "x": 5800,
+    "y": 1360
+   }
+  },
+  {
+   "id": "ej_cond",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 6040,
+    "y": 1360
+   }
+  },
+  {
+   "id": "ejected",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 6280,
+    "y": 1360
+   }
+  },
+  {
+   "id": "ej_flag",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 6520,
+    "y": 1360
+   }
+  },
+  {
+   "id": "tx_eject",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 36,
+    "label": "SOLID EJECT"
+   },
+   "position": {
+    "x": 6760,
+    "y": 1360
+   }
+  }
+ ],
+ "edges": [
+  {
+   "from_instance": "autopilot",
+   "from_port": "out",
+   "to_instance": "auto_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "auto_r",
+   "from_port": "a",
+   "to_instance": "off",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "auto_r",
+   "from_port": "b",
+   "to_instance": "timer",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "auto_r",
+   "from_port": "c",
+   "to_instance": "thrust",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "off",
+   "from_port": "out",
+   "to_instance": "off_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "a",
+   "to_instance": "timer",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "b",
+   "to_instance": "ej_any",
+   "to_port": "c"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "c",
+   "to_instance": "ahead_n",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "timer",
+   "from_port": "out",
+   "to_instance": "timer_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "timer_r",
+   "from_port": "a",
+   "to_instance": "meas_done",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "timer_r",
+   "from_port": "b",
+   "to_instance": "coast",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "timer_r",
+   "from_port": "c",
+   "to_instance": "burn_level",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "timer_r",
+   "from_port": "d",
+   "to_instance": "fly_on",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "coast",
+   "from_port": "out",
+   "to_instance": "m_full",
+   "to_port": "set"
+  },
+  {
+   "from_instance": "burn_level",
+   "from_port": "out",
+   "to_instance": "phase",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "meas_done",
+   "from_port": "out",
+   "to_instance": "m_diff",
+   "to_port": "set"
+  },
+  {
+   "from_instance": "fly_on",
+   "from_port": "out",
+   "to_instance": "fly_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "fly_r",
+   "from_port": "a",
+   "to_instance": "phase",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "fly_r",
+   "from_port": "b",
+   "to_instance": "ign_gate",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "phase",
+   "from_port": "out",
+   "to_instance": "thrust",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "thrust",
+   "from_port": "out",
+   "to_instance": "tx_thrust",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "rx_vz",
+   "from_port": "rx",
+   "to_instance": "vz_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "vz_r",
+   "from_port": "a",
+   "to_instance": "lead",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "vz_r",
+   "from_port": "b",
+   "to_instance": "err",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "vz_r",
+   "from_port": "c",
+   "to_instance": "gv",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "vz_r",
+   "from_port": "d",
+   "to_instance": "vz_r2",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "vz_r2",
+   "from_port": "a",
+   "to_instance": "dvz",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "vz_r2",
+   "from_port": "b",
+   "to_instance": "fast",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "fast",
+   "from_port": "out",
+   "to_instance": "ahead",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "dvz",
+   "from_port": "out",
+   "to_instance": "dvz_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "dvz_r",
+   "from_port": "a",
+   "to_instance": "m_full",
+   "to_port": "value"
+  },
+  {
+   "from_instance": "dvz_r",
+   "from_port": "b",
+   "to_instance": "m_sub",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "m_full",
+   "from_port": "out",
+   "to_instance": "m_sub",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "m_sub",
+   "from_port": "out",
+   "to_instance": "m_diff",
+   "to_port": "value"
+  },
+  {
+   "from_instance": "m_diff",
+   "from_port": "out",
+   "to_instance": "a_meas",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_meas",
+   "from_port": "out",
+   "to_instance": "am_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "am_r",
+   "from_port": "a",
+   "to_instance": "a_brk",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "am_r",
+   "from_port": "b",
+   "to_instance": "divisor",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "am_r",
+   "from_port": "c",
+   "to_instance": "srb_k",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "srb_k",
+   "from_port": "out",
+   "to_instance": "ign_ok",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "thrust_ratio",
+   "from_port": "out",
+   "to_instance": "a_brk",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "a_brk",
+   "from_port": "out",
+   "to_instance": "a_brk_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_brk_r",
+   "from_port": "a",
+   "to_instance": "a_net_raw",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "a_brk_r",
+   "from_port": "b",
+   "to_instance": "divisor",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "divisor",
+   "from_port": "out",
+   "to_instance": "thr",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "max_accel",
+   "from_port": "out",
+   "to_instance": "max_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "max_r",
+   "from_port": "a",
+   "to_instance": "a_hi",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "max_r",
+   "from_port": "b",
+   "to_instance": "neg_max",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "max_r",
+   "from_port": "c",
+   "to_instance": "plan_cap",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "neg_max",
+   "from_port": "out",
+   "to_instance": "a_lim",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "plan_cap",
+   "from_port": "out",
+   "to_instance": "a_net_c",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "gravitymeter",
+   "from_port": "gravity",
+   "to_instance": "grav_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "a",
+   "to_instance": "gv",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "b",
+   "to_instance": "g_r2",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "g_r2",
+   "from_port": "a",
+   "to_instance": "neg_g",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "g_r2",
+   "from_port": "b",
+   "to_instance": "g_ff",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "neg_g",
+   "from_port": "out",
+   "to_instance": "g_ff",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "ahead_n",
+   "from_port": "out",
+   "to_instance": "g_ff",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "g_ff",
+   "from_port": "out",
+   "to_instance": "t_in",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "c",
+   "to_instance": "dg",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "d",
+   "to_instance": "g_avg",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "gv",
+   "from_port": "out",
+   "to_instance": "r_est",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "dg",
+   "from_port": "out",
+   "to_instance": "r_est",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "r_est",
+   "from_port": "out",
+   "to_instance": "r_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "r_r",
+   "from_port": "a",
+   "to_instance": "r_s",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "r_r",
+   "from_port": "b",
+   "to_instance": "x",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "r_r",
+   "from_port": "c",
+   "to_instance": "ahead",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "ahead",
+   "from_port": "out",
+   "to_instance": "ahead_n",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "dplan_r",
+   "from_port": "c",
+   "to_instance": "r_s",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "r_s",
+   "from_port": "out",
+   "to_instance": "x",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "x",
+   "from_port": "out",
+   "to_instance": "x_c",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "x_c",
+   "from_port": "out",
+   "to_instance": "g_avg",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "g_avg",
+   "from_port": "out",
+   "to_instance": "a_net_raw",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "a_net_raw",
+   "from_port": "out",
+   "to_instance": "a_net",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_net",
+   "from_port": "out",
+   "to_instance": "a_net_c",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "a_net_c",
+   "from_port": "out",
+   "to_instance": "prof2",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "standoff",
+   "from_port": "out",
+   "to_instance": "so_ln",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "so_ln",
+   "from_port": "out",
+   "to_instance": "so",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "rx_dist",
+   "from_port": "rx",
+   "to_instance": "dist_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "dist_r",
+   "from_port": "a",
+   "to_instance": "valid",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "dist_r",
+   "from_port": "b",
+   "to_instance": "d1",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "so",
+   "from_port": "out",
+   "to_instance": "standoff_m",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "standoff_m",
+   "from_port": "out",
+   "to_instance": "d1",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "valid",
+   "from_port": "out",
+   "to_instance": "valid_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "valid_r",
+   "from_port": "a",
+   "to_instance": "d_sel",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "valid_r",
+   "from_port": "b",
+   "to_instance": "ign_gate",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "d1",
+   "from_port": "out",
+   "to_instance": "d_sel",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "d_sel",
+   "from_port": "out",
+   "to_instance": "d_plan",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "lead",
+   "from_port": "out",
+   "to_instance": "d_plan",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "d_plan",
+   "from_port": "out",
+   "to_instance": "dplan_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "dplan_r",
+   "from_port": "a",
+   "to_instance": "d_pos",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "dplan_r",
+   "from_port": "b",
+   "to_instance": "v_lin",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "d_pos",
+   "from_port": "out",
+   "to_instance": "prof2",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "prof2",
+   "from_port": "out",
+   "to_instance": "v_root",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "v_root",
+   "from_port": "out",
+   "to_instance": "v_prof",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "v_lin",
+   "from_port": "out",
+   "to_instance": "v_prof",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "v_prof",
+   "from_port": "out",
+   "to_instance": "err",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "err",
+   "from_port": "out",
+   "to_instance": "a_des",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_des",
+   "from_port": "out",
+   "to_instance": "a_hi",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "a_hi",
+   "from_port": "out",
+   "to_instance": "a_lim",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "a_lim",
+   "from_port": "out",
+   "to_instance": "t_in",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "t_in",
+   "from_port": "out",
+   "to_instance": "t_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "t_r",
+   "from_port": "a",
+   "to_instance": "thr",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "t_r",
+   "from_port": "b",
+   "to_instance": "ign_ok",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "t_r",
+   "from_port": "c",
+   "to_instance": "brake_now",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "t_r",
+   "from_port": "d",
+   "to_instance": "divisor",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "thr",
+   "from_port": "out",
+   "to_instance": "thr_c",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "thr_c",
+   "from_port": "out",
+   "to_instance": "phase",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "ign_gate",
+   "from_port": "out",
+   "to_instance": "ign_ok",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "ign_ok",
+   "from_port": "out",
+   "to_instance": "ignited",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "ignited",
+   "from_port": "out",
+   "to_instance": "ign_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ign_r",
+   "from_port": "a",
+   "to_instance": "tx_ignite",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "ign_r",
+   "from_port": "b",
+   "to_instance": "burn_t",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ign_r",
+   "from_port": "c",
+   "to_instance": "ej_cond",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "ign_r",
+   "from_port": "d",
+   "to_instance": "ignited",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "burn_t",
+   "from_port": "out",
+   "to_instance": "burnout",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "brake_now",
+   "from_port": "out",
+   "to_instance": "ej_any",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "burnout",
+   "from_port": "out",
+   "to_instance": "ej_any",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "ej_any",
+   "from_port": "out",
+   "to_instance": "ej_cond",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "ej_cond",
+   "from_port": "out",
+   "to_instance": "ejected",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ejected",
+   "from_port": "out",
+   "to_instance": "ej_flag",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ej_flag",
+   "from_port": "out",
+   "to_instance": "tx_eject",
+   "to_port": "tx"
+  }
+ ]
+}

@@ -1,0 +1,1756 @@
+{
+ "notes": "Wormhole navigation: takes a ship with forward thrusters only down the black hole's tunnel, turn and burn, keeping its joints out of the game's strain rule as long as its thrust can.\n\nUse\n- Line the ship up by eye on the tunnel's axis, nose at the black hole, nearly still, then switch Autopilot on. Start well away from any planet: the Gravitymeter is its range finder.\n- It burns in, turns round, brakes and holds where gravity is about half its thrust (at most 5.4 m/s²), with braking to spare.\n- Switch Descend on to go on in (before the hold too: it then goes straight in). Off again, it brakes and holds wherever it still can.\n- Press R when the game offers to travel through the black hole. Autopilot off cuts thrust: never do that deep in.\n\nStrain (game code)\n- A part whose velocity changes by more than 0.173 m/s in a tick (a net 10.4 m/s², gravity in free fall included) takes 0.22 x mass x dv² of strain; a joint breaks at Iron 1600, Nano 5000.\n- The circuit holds the net acceleration at 9 m/s² or under while its engines can. Deeper, gravity outgrows thrust and it burns full tail-first, the least strain there is: at the funnel mouth (2,400 km, 62 m/s²) Iron-jointed parts over about 8 t can break, at the tunnel's strongest pull (about 240 m/s², 900 km out) over about half a tonne. Speed itself costs nothing.\n\nWiring (SHIP RADIOS)\n- In: Z SPEED (23) from a Velocity Meter, Directional, facing forward. Local: Accelerometer, Gravitymeter, yaw and pitch Axis Rotometers (+ for nose right, nose up), Joystick 3D, Autopilot and Descend switches.\n- Out: THRUST CTL (1), ROLL+/- (10/11), YAW+/- (12/13), PIT+/- (14/15). The stick adds into yaw and pitch and drives roll.\n- Electric main engines (fuel engines take 10-20 s to respond). The first 3 s after Autopilot on are a full-thrust measurement.\n\nBuilt and checked against a black hole model by tools/build_wormhole_nav.js and tools/wormhole_harness.js.",
+ "name": "wormhole nav",
+ "instances": [
+  {
+   "id": "rx_vz",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 23
+   },
+   "position": {
+    "x": 40,
+    "y": 700
+   }
+  },
+  {
+   "id": "accelerometer",
+   "type_id": "accelerometer",
+   "parameters": {
+    "acceleration": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 370
+   }
+  },
+  {
+   "id": "gravitymeter",
+   "type_id": "gravitymeter",
+   "parameters": {
+    "gravity": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 535
+   }
+  },
+  {
+   "id": "yaw_rate",
+   "type_id": "axis_rotometer",
+   "parameters": {
+    "angular_velocity": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 1525
+   }
+  },
+  {
+   "id": "pitch_rate",
+   "type_id": "axis_rotometer",
+   "parameters": {
+    "angular_velocity": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 2515
+   }
+  },
+  {
+   "id": "joystick",
+   "type_id": "joystick_3d",
+   "parameters": {
+    "yaw": 0,
+    "pitch": 0,
+    "roll": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 2845
+   }
+  },
+  {
+   "id": "autopilot",
+   "type_id": "switch",
+   "parameters": {
+    "out": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 40
+   }
+  },
+  {
+   "id": "descend",
+   "type_id": "switch",
+   "parameters": {
+    "out": 0
+   },
+   "position": {
+    "x": 40,
+    "y": 1030
+   }
+  },
+  {
+   "id": "auto_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 40
+   }
+  },
+  {
+   "id": "off",
+   "type_id": "condition",
+   "parameters": {
+    "op": 4
+   },
+   "position": {
+    "x": 520,
+    "y": 40
+   }
+  },
+  {
+   "id": "off_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 40
+   }
+  },
+  {
+   "id": "timer",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 520,
+    "y": 205
+   }
+  },
+  {
+   "id": "meas_done",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 179,
+    "in_max": 180,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 760,
+    "y": 205
+   }
+  },
+  {
+   "id": "meas_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 1000,
+    "y": 205
+   }
+  },
+  {
+   "id": "grav_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 535
+   }
+  },
+  {
+   "id": "acc_net",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 370
+   }
+  },
+  {
+   "id": "a_held",
+   "type_id": "memory",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 760,
+    "y": 370
+   }
+  },
+  {
+   "id": "a_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 1000,
+    "y": 370
+   }
+  },
+  {
+   "id": "a_plan",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 11.25,
+    "out_min": 0,
+    "out_max": 9
+   },
+   "position": {
+    "x": 1240,
+    "y": 370
+   }
+  },
+  {
+   "id": "ap_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 370
+   }
+  },
+  {
+   "id": "sap",
+   "type_id": "sqrt",
+   "parameters": {},
+   "position": {
+    "x": 1720,
+    "y": 370
+   }
+  },
+  {
+   "id": "khs",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 100,
+    "out_min": 0,
+    "out_max": 206.55911179772892
+   },
+   "position": {
+    "x": 1960,
+    "y": 370
+   }
+  },
+  {
+   "id": "sg",
+   "type_id": "sqrt",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 535
+   }
+  },
+  {
+   "id": "sg_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 535
+   }
+  },
+  {
+   "id": "apg",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 1720,
+    "y": 535
+   }
+  },
+  {
+   "id": "sum1",
+   "type_id": "adder",
+   "parameters": {},
+   "position": {
+    "x": 1960,
+    "y": 535
+   }
+  },
+  {
+   "id": "e1",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 2200,
+    "y": 535
+   }
+  },
+  {
+   "id": "e2",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10000,
+    "out_min": 0,
+    "out_max": 379473319220.20557
+   },
+   "position": {
+    "x": 2440,
+    "y": 535
+   }
+  },
+  {
+   "id": "uraw",
+   "type_id": "sqrt",
+   "parameters": {},
+   "position": {
+    "x": 2680,
+    "y": 535
+   }
+  },
+  {
+   "id": "u_prof",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 22.22222222222222,
+    "in_max": 1000000,
+    "out_min": 0,
+    "out_max": 899980
+   },
+   "position": {
+    "x": 2920,
+    "y": 535
+   }
+  },
+  {
+   "id": "up_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 2440,
+    "y": 535
+   }
+  },
+  {
+   "id": "flip_at",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10000000,
+    "out_min": 0,
+    "out_max": 7000000
+   },
+   "position": {
+    "x": 2680,
+    "y": 700
+   }
+  },
+  {
+   "id": "vz_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 280,
+    "y": 700
+   }
+  },
+  {
+   "id": "want",
+   "type_id": "condition",
+   "parameters": {
+    "op": 3
+   },
+   "position": {
+    "x": 2920,
+    "y": 700
+   }
+  },
+  {
+   "id": "committed",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 3160,
+    "y": 700
+   }
+  },
+  {
+   "id": "flipped",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 20,
+    "in_max": 21,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 3400,
+    "y": 700
+   }
+  },
+  {
+   "id": "fl_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 3640,
+    "y": 700
+   }
+  },
+  {
+   "id": "sigma",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1,
+    "out_min": 1,
+    "out_max": -1
+   },
+   "position": {
+    "x": 3880,
+    "y": 865
+   }
+  },
+  {
+   "id": "sigma_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 4120,
+    "y": 865
+   }
+  },
+  {
+   "id": "u",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 865
+   }
+  },
+  {
+   "id": "err",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 2680,
+    "y": 865
+   }
+  },
+  {
+   "id": "a_norm",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -30,
+    "in_max": 30,
+    "out_min": -1,
+    "out_max": 1
+   },
+   "position": {
+    "x": 2920,
+    "y": 865
+   }
+  },
+  {
+   "id": "a_sel",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 3160,
+    "y": 1030
+   }
+  },
+  {
+   "id": "a_des",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -1,
+    "in_max": 1,
+    "out_min": -9,
+    "out_max": 9
+   },
+   "position": {
+    "x": 3400,
+    "y": 1030
+   }
+  },
+  {
+   "id": "t_in",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 3640,
+    "y": 1030
+   }
+  },
+  {
+   "id": "t_sig",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 3880,
+    "y": 1030
+   }
+  },
+  {
+   "id": "thr",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 4120,
+    "y": 1030
+   }
+  },
+  {
+   "id": "thr_c",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 4360,
+    "y": 1030
+   }
+  },
+  {
+   "id": "gate",
+   "type_id": "max",
+   "parameters": {},
+   "position": {
+    "x": 4360,
+    "y": 865
+   }
+  },
+  {
+   "id": "thr_g",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 4600,
+    "y": 1030
+   }
+  },
+  {
+   "id": "thrust_out",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 4840,
+    "y": 1030
+   }
+  },
+  {
+   "id": "tx_thrust",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 1
+   },
+   "position": {
+    "x": 5080,
+    "y": 1030
+   }
+  },
+  {
+   "id": "theta",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 280,
+    "y": 1525
+   }
+  },
+  {
+   "id": "theta_r0",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 1525
+   }
+  },
+  {
+   "id": "abs_theta",
+   "type_id": "abs",
+   "parameters": {},
+   "position": {
+    "x": 760,
+    "y": 1525
+   }
+  },
+  {
+   "id": "theta_r",
+   "type_id": "data_router_4",
+   "parameters": {},
+   "position": {
+    "x": 1000,
+    "y": 1525
+   }
+  },
+  {
+   "id": "progress",
+   "type_id": "differentiator",
+   "parameters": {
+    "interval": 1,
+    "simulate": 0
+   },
+   "position": {
+    "x": 1240,
+    "y": 1690
+   }
+  },
+  {
+   "id": "prog_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 1690
+   }
+  },
+  {
+   "id": "turn_meas",
+   "type_id": "delay",
+   "parameters": {
+    "ticks": 30
+   },
+   "position": {
+    "x": 1240,
+    "y": 2020
+   }
+  },
+  {
+   "id": "tm_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 2020
+   }
+  },
+  {
+   "id": "measured",
+   "type_id": "memory",
+   "parameters": {
+    "mode": 1
+   },
+   "position": {
+    "x": 1720,
+    "y": 2020
+   }
+  },
+  {
+   "id": "ship_alpha",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1000,
+    "out_min": 0.8,
+    "out_max": 1600.8000000000002
+   },
+   "position": {
+    "x": 1960,
+    "y": 2020
+   }
+  },
+  {
+   "id": "alpha_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 2200,
+    "y": 2020
+   }
+  },
+  {
+   "id": "braking_room",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 10800,
+    "out_min": 225,
+    "out_max": 0
+   },
+   "position": {
+    "x": 1240,
+    "y": 1525
+   }
+  },
+  {
+   "id": "braking_scaled",
+   "type_id": "multiplier",
+   "parameters": {},
+   "position": {
+    "x": 2440,
+    "y": 1525
+   }
+  },
+  {
+   "id": "rate_sqrt",
+   "type_id": "sqrt",
+   "parameters": {},
+   "position": {
+    "x": 2680,
+    "y": 1525
+   }
+  },
+  {
+   "id": "rate_lin",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 21600,
+    "out_min": 360,
+    "out_max": -360
+   },
+   "position": {
+    "x": 1240,
+    "y": 1855
+   }
+  },
+  {
+   "id": "rate_cmd",
+   "type_id": "min",
+   "parameters": {},
+   "position": {
+    "x": 2920,
+    "y": 1690
+   }
+  },
+  {
+   "id": "rate_err",
+   "type_id": "subtractor",
+   "parameters": {},
+   "position": {
+    "x": 3160,
+    "y": 1690
+   }
+  },
+  {
+   "id": "rate_norm",
+   "type_id": "divider",
+   "parameters": {},
+   "position": {
+    "x": 3400,
+    "y": 1690
+   }
+  },
+  {
+   "id": "steer",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 3640,
+    "y": 1690
+   }
+  },
+  {
+   "id": "u_turn",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -1,
+    "in_max": 1,
+    "out_min": -1,
+    "out_max": 1
+   },
+   "position": {
+    "x": 3880,
+    "y": 1690
+   }
+  },
+  {
+   "id": "aligned",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 10200,
+    "in_max": 10680,
+    "out_min": 0,
+    "out_max": 1
+   },
+   "position": {
+    "x": 4120,
+    "y": 1360
+   }
+  },
+  {
+   "id": "yh_p",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -10000000,
+    "in_max": 10000000,
+    "out_min": -333333.3333333333,
+    "out_max": 333333.3333333333
+   },
+   "position": {
+    "x": 760,
+    "y": 1360
+   }
+  },
+  {
+   "id": "yh_d",
+   "type_id": "differentiator",
+   "parameters": {
+    "interval": 1,
+    "simulate": 0
+   },
+   "position": {
+    "x": 760,
+    "y": 1195
+   }
+  },
+  {
+   "id": "yh",
+   "type_id": "adder",
+   "parameters": {},
+   "position": {
+    "x": 1000,
+    "y": 1195
+   }
+  },
+  {
+   "id": "u_hold",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -10,
+    "in_max": 10,
+    "out_min": 1,
+    "out_max": -1
+   },
+   "position": {
+    "x": 1240,
+    "y": 1195
+   }
+  },
+  {
+   "id": "u_gated",
+   "type_id": "condition",
+   "parameters": {
+    "op": 1
+   },
+   "position": {
+    "x": 4120,
+    "y": 1690
+   }
+  },
+  {
+   "id": "yaw_sum",
+   "type_id": "adder",
+   "parameters": {},
+   "position": {
+    "x": 4360,
+    "y": 1690
+   }
+  },
+  {
+   "id": "yaw_split",
+   "type_id": "sign_splitter",
+   "parameters": {},
+   "position": {
+    "x": 4600,
+    "y": 1690
+   }
+  },
+  {
+   "id": "tx_yaw_pos",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 12
+   },
+   "position": {
+    "x": 4840,
+    "y": 1690
+   }
+  },
+  {
+   "id": "tx_yaw_neg",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 13
+   },
+   "position": {
+    "x": 4840,
+    "y": 1855
+   }
+  },
+  {
+   "id": "phi",
+   "type_id": "accumulator",
+   "parameters": {
+    "mode": 0
+   },
+   "position": {
+    "x": 280,
+    "y": 2515
+   }
+  },
+  {
+   "id": "phi_r",
+   "type_id": "data_router_2",
+   "parameters": {},
+   "position": {
+    "x": 520,
+    "y": 2515
+   }
+  },
+  {
+   "id": "ph_p",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -10000000,
+    "in_max": 10000000,
+    "out_min": -333333.3333333333,
+    "out_max": 333333.3333333333
+   },
+   "position": {
+    "x": 760,
+    "y": 2515
+   }
+  },
+  {
+   "id": "ph_d",
+   "type_id": "differentiator",
+   "parameters": {
+    "interval": 1,
+    "simulate": 0
+   },
+   "position": {
+    "x": 760,
+    "y": 2680
+   }
+  },
+  {
+   "id": "ph",
+   "type_id": "adder",
+   "parameters": {},
+   "position": {
+    "x": 1000,
+    "y": 2515
+   }
+  },
+  {
+   "id": "u_pitch",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": -10,
+    "in_max": 10,
+    "out_min": 1,
+    "out_max": -1
+   },
+   "position": {
+    "x": 1240,
+    "y": 2515
+   }
+  },
+  {
+   "id": "pitch_sum",
+   "type_id": "adder",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 2515
+   }
+  },
+  {
+   "id": "pitch_split",
+   "type_id": "sign_splitter",
+   "parameters": {},
+   "position": {
+    "x": 1720,
+    "y": 2515
+   }
+  },
+  {
+   "id": "tx_pit_pos",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 14
+   },
+   "position": {
+    "x": 1960,
+    "y": 2515
+   }
+  },
+  {
+   "id": "tx_pit_neg",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 15
+   },
+   "position": {
+    "x": 1960,
+    "y": 2680
+   }
+  },
+  {
+   "id": "roll_split",
+   "type_id": "sign_splitter",
+   "parameters": {},
+   "position": {
+    "x": 1480,
+    "y": 2845
+   }
+  },
+  {
+   "id": "tx_roll_pos",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 10
+   },
+   "position": {
+    "x": 1720,
+    "y": 2845
+   }
+  },
+  {
+   "id": "tx_roll_neg",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 11
+   },
+   "position": {
+    "x": 1720,
+    "y": 3010
+   }
+  }
+ ],
+ "edges": [
+  {
+   "from_instance": "autopilot",
+   "from_port": "out",
+   "to_instance": "auto_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "auto_r",
+   "from_port": "a",
+   "to_instance": "off",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "auto_r",
+   "from_port": "b",
+   "to_instance": "timer",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "auto_r",
+   "from_port": "c",
+   "to_instance": "thrust_out",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "off",
+   "from_port": "out",
+   "to_instance": "off_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "a",
+   "to_instance": "timer",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "b",
+   "to_instance": "committed",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "c",
+   "to_instance": "theta",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "off_r",
+   "from_port": "d",
+   "to_instance": "phi",
+   "to_port": "reset"
+  },
+  {
+   "from_instance": "timer",
+   "from_port": "out",
+   "to_instance": "meas_done",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "meas_done",
+   "from_port": "out",
+   "to_instance": "meas_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "meas_r",
+   "from_port": "a",
+   "to_instance": "a_held",
+   "to_port": "set"
+  },
+  {
+   "from_instance": "meas_r",
+   "from_port": "b",
+   "to_instance": "want",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "meas_r",
+   "from_port": "c",
+   "to_instance": "thrust_out",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "gravitymeter",
+   "from_port": "gravity",
+   "to_instance": "grav_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "accelerometer",
+   "from_port": "acceleration",
+   "to_instance": "acc_net",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "a",
+   "to_instance": "acc_net",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "acc_net",
+   "from_port": "out",
+   "to_instance": "a_held",
+   "to_port": "value"
+  },
+  {
+   "from_instance": "a_held",
+   "from_port": "out",
+   "to_instance": "a_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_r",
+   "from_port": "a",
+   "to_instance": "a_plan",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_r",
+   "from_port": "b",
+   "to_instance": "thr",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "a_plan",
+   "from_port": "out",
+   "to_instance": "ap_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ap_r",
+   "from_port": "a",
+   "to_instance": "sap",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ap_r",
+   "from_port": "b",
+   "to_instance": "apg",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "sap",
+   "from_port": "out",
+   "to_instance": "khs",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "b",
+   "to_instance": "sg",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "sg",
+   "from_port": "out",
+   "to_instance": "sg_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "sg_r",
+   "from_port": "a",
+   "to_instance": "apg",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "sg_r",
+   "from_port": "b",
+   "to_instance": "sum1",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "apg",
+   "from_port": "out",
+   "to_instance": "sum1",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "sum1",
+   "from_port": "out",
+   "to_instance": "e1",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "khs",
+   "from_port": "out",
+   "to_instance": "e1",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "e1",
+   "from_port": "out",
+   "to_instance": "e2",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "e2",
+   "from_port": "out",
+   "to_instance": "uraw",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "uraw",
+   "from_port": "out",
+   "to_instance": "u_prof",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "u_prof",
+   "from_port": "out",
+   "to_instance": "up_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "up_r",
+   "from_port": "a",
+   "to_instance": "flip_at",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "up_r",
+   "from_port": "b",
+   "to_instance": "err",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "rx_vz",
+   "from_port": "rx",
+   "to_instance": "vz_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "vz_r",
+   "from_port": "a",
+   "to_instance": "want",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "flip_at",
+   "from_port": "out",
+   "to_instance": "want",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "want",
+   "from_port": "out",
+   "to_instance": "committed",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "committed",
+   "from_port": "out",
+   "to_instance": "flipped",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "flipped",
+   "from_port": "out",
+   "to_instance": "fl_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "fl_r",
+   "from_port": "a",
+   "to_instance": "sigma",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "sigma",
+   "from_port": "out",
+   "to_instance": "sigma_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "vz_r",
+   "from_port": "b",
+   "to_instance": "u",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "sigma_r",
+   "from_port": "a",
+   "to_instance": "u",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "u",
+   "from_port": "out",
+   "to_instance": "err",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "err",
+   "from_port": "out",
+   "to_instance": "a_norm",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "descend",
+   "from_port": "out",
+   "to_instance": "a_sel",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "a_norm",
+   "from_port": "out",
+   "to_instance": "a_sel",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "a_sel",
+   "from_port": "out",
+   "to_instance": "a_des",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "a_des",
+   "from_port": "out",
+   "to_instance": "t_in",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "grav_r",
+   "from_port": "c",
+   "to_instance": "t_in",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "t_in",
+   "from_port": "out",
+   "to_instance": "t_sig",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "sigma_r",
+   "from_port": "b",
+   "to_instance": "t_sig",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "t_sig",
+   "from_port": "out",
+   "to_instance": "thr",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "thr",
+   "from_port": "out",
+   "to_instance": "thr_c",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "sigma_r",
+   "from_port": "c",
+   "to_instance": "gate",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "aligned",
+   "from_port": "out",
+   "to_instance": "gate",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "thr_c",
+   "from_port": "out",
+   "to_instance": "thr_g",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "gate",
+   "from_port": "out",
+   "to_instance": "thr_g",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "thr_g",
+   "from_port": "out",
+   "to_instance": "thrust_out",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "thrust_out",
+   "from_port": "out",
+   "to_instance": "tx_thrust",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "yaw_rate",
+   "from_port": "angular_velocity",
+   "to_instance": "theta",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta",
+   "from_port": "out",
+   "to_instance": "theta_r0",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r0",
+   "from_port": "a",
+   "to_instance": "abs_theta",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r0",
+   "from_port": "b",
+   "to_instance": "yh_p",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r0",
+   "from_port": "c",
+   "to_instance": "yh_d",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "abs_theta",
+   "from_port": "out",
+   "to_instance": "theta_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r",
+   "from_port": "a",
+   "to_instance": "progress",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r",
+   "from_port": "b",
+   "to_instance": "braking_room",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r",
+   "from_port": "c",
+   "to_instance": "rate_lin",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "theta_r",
+   "from_port": "d",
+   "to_instance": "aligned",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "progress",
+   "from_port": "out",
+   "to_instance": "prog_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "prog_r",
+   "from_port": "a",
+   "to_instance": "rate_err",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "prog_r",
+   "from_port": "b",
+   "to_instance": "measured",
+   "to_port": "value"
+  },
+  {
+   "from_instance": "fl_r",
+   "from_port": "b",
+   "to_instance": "turn_meas",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "turn_meas",
+   "from_port": "out",
+   "to_instance": "tm_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "tm_r",
+   "from_port": "a",
+   "to_instance": "measured",
+   "to_port": "set"
+  },
+  {
+   "from_instance": "tm_r",
+   "from_port": "b",
+   "to_instance": "steer",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "measured",
+   "from_port": "out",
+   "to_instance": "ship_alpha",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ship_alpha",
+   "from_port": "out",
+   "to_instance": "alpha_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "alpha_r",
+   "from_port": "a",
+   "to_instance": "braking_scaled",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "alpha_r",
+   "from_port": "b",
+   "to_instance": "rate_norm",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "braking_room",
+   "from_port": "out",
+   "to_instance": "braking_scaled",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "braking_scaled",
+   "from_port": "out",
+   "to_instance": "rate_sqrt",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "rate_sqrt",
+   "from_port": "out",
+   "to_instance": "rate_cmd",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "rate_lin",
+   "from_port": "out",
+   "to_instance": "rate_cmd",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "rate_cmd",
+   "from_port": "out",
+   "to_instance": "rate_err",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "rate_err",
+   "from_port": "out",
+   "to_instance": "rate_norm",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "rate_norm",
+   "from_port": "out",
+   "to_instance": "steer",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "fl_r",
+   "from_port": "d",
+   "to_instance": "steer",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "steer",
+   "from_port": "out",
+   "to_instance": "u_turn",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "u_turn",
+   "from_port": "out",
+   "to_instance": "u_gated",
+   "to_port": "true"
+  },
+  {
+   "from_instance": "yh_p",
+   "from_port": "out",
+   "to_instance": "yh",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "yh_d",
+   "from_port": "out",
+   "to_instance": "yh",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "yh",
+   "from_port": "out",
+   "to_instance": "u_hold",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "u_hold",
+   "from_port": "out",
+   "to_instance": "u_gated",
+   "to_port": "false"
+  },
+  {
+   "from_instance": "fl_r",
+   "from_port": "c",
+   "to_instance": "u_gated",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "u_gated",
+   "from_port": "out",
+   "to_instance": "yaw_sum",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "joystick",
+   "from_port": "yaw",
+   "to_instance": "yaw_sum",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "yaw_sum",
+   "from_port": "out",
+   "to_instance": "yaw_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "yaw_split",
+   "from_port": "pos",
+   "to_instance": "tx_yaw_pos",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "yaw_split",
+   "from_port": "neg",
+   "to_instance": "tx_yaw_neg",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "pitch_rate",
+   "from_port": "angular_velocity",
+   "to_instance": "phi",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "phi",
+   "from_port": "out",
+   "to_instance": "phi_r",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "phi_r",
+   "from_port": "a",
+   "to_instance": "ph_p",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "phi_r",
+   "from_port": "b",
+   "to_instance": "ph_d",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "ph_p",
+   "from_port": "out",
+   "to_instance": "ph",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "ph_d",
+   "from_port": "out",
+   "to_instance": "ph",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "ph",
+   "from_port": "out",
+   "to_instance": "u_pitch",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "u_pitch",
+   "from_port": "out",
+   "to_instance": "pitch_sum",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "joystick",
+   "from_port": "pitch",
+   "to_instance": "pitch_sum",
+   "to_port": "b"
+  },
+  {
+   "from_instance": "pitch_sum",
+   "from_port": "out",
+   "to_instance": "pitch_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "pitch_split",
+   "from_port": "pos",
+   "to_instance": "tx_pit_pos",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "pitch_split",
+   "from_port": "neg",
+   "to_instance": "tx_pit_neg",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "joystick",
+   "from_port": "roll",
+   "to_instance": "roll_split",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "roll_split",
+   "from_port": "pos",
+   "to_instance": "tx_roll_pos",
+   "to_port": "tx"
+  },
+  {
+   "from_instance": "roll_split",
+   "from_port": "neg",
+   "to_instance": "tx_roll_neg",
+   "to_port": "tx"
+  }
+ ]
+}

@@ -1,0 +1,123 @@
+{
+ "instances": [
+  {
+   "id": "lever",
+   "type_id": "slider",
+   "parameters": {
+    "value": 0.5
+   },
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": "scale",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 1,
+    "out_min": 0,
+    "out_max": 100
+   },
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": "shown",
+   "type_id": "datameter",
+   "parameters": {
+    "label": "Shown value",
+    "visible": true
+   },
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": "hidden",
+   "type_id": "datameter",
+   "parameters": {},
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": "add",
+   "type_id": "adder",
+   "parameters": {},
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": "half",
+   "type_id": "remapper",
+   "parameters": {
+    "in_min": 0,
+    "in_max": 100,
+    "out_min": 0,
+    "out_max": 50
+   },
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": "radio",
+   "type_id": "wireless_transmitter",
+   "parameters": {
+    "channel": 9,
+    "label": "ground dist"
+   },
+   "position": {
+    "x": 0,
+    "y": 0
+   }
+  }
+ ],
+ "edges": [
+  {
+   "from_instance": "lever",
+   "from_port": "out",
+   "to_instance": "scale",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "scale",
+   "from_port": "out",
+   "to_instance": "shown",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "shown",
+   "from_port": "out",
+   "to_instance": "add",
+   "to_port": "a"
+  },
+  {
+   "from_instance": "add",
+   "from_port": "out",
+   "to_instance": "hidden",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "hidden",
+   "from_port": "out",
+   "to_instance": "half",
+   "to_port": "in"
+  },
+  {
+   "from_instance": "half",
+   "from_port": "out",
+   "to_instance": "radio",
+   "to_port": "tx"
+  }
+ ]
+}

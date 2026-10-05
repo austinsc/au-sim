@@ -72,6 +72,25 @@ test('flat: every part on a floor of frames, labels lying beside their ends, cab
   }
 });
 
+test('a part marked visible stands upright in the top layer with nothing above it; name plates come from labels', () => {
+  const { geometry, settingsFor } = require('../bpgen.js');
+  const ORI = require('../bpdata.js').orientations;
+  const out = generate(load('circuits/gen_test_visible.json'), { seed: 1, deterministic: true, timeBudgetMs: 1e9 });
+  const shown = out.layout.parts.find((p) => p.id === 'shown');
+  const g = geometry(shown.type, shown.k, shown.mir);
+  assert.deepStrictEqual(ORI[shown.k][1], [0, 1, 0], 'upright');
+  const y = shown.o[1] + g.dims[1];
+  const above = new Set(g.cells.map((c) => `${shown.o[0] + c[0]},${shown.o[2] + c[2]}`));
+  const covers = (x, cy, z) => cy >= y && above.has(`${x},${z}`);
+  for (const p of out.layout.parts) {
+    if (p === shown) continue;
+    for (const c of geometry(p.type, p.k, p.mir).cells) assert.ok(!covers(p.o[0] + c[0], p.o[1] + c[1], p.o[2] + c[2]), `${p.id} covers it`);
+  }
+  for (const c of out.layout.cables) assert.ok(!covers(...c.cell), `a cable at ${c.cell} covers it`);
+  assert.strictEqual(settingsFor('datameter', { label: 'Shown value' }, 'shown')._actionableLabel[1], 'SHOWN VALUE');
+  assert.strictEqual(settingsFor('wireless_transmitter', { channel: 9 }, 'tx_ground')._actionableLabel[1], 'TX GROUND');
+});
+
 test('flat without a floor: no frames, and cable reach counted from the ports', () => {
   const out = generate(load('circuits/gen_test_basic.json'), { flat: true, floor: false, seed: 1, deterministic: true, timeBudgetMs: 1e9 });
   assert.strictEqual(out.report.floor, null);

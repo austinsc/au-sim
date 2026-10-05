@@ -13,7 +13,7 @@ A flat layout (bpgen opts.flat) sits on a floor of Frame Quarters: the floor hol
 lie on it), and a cable's reach is the game's anchoring rule instead of a length: every cell within 10 steps along its
 cable of an anchored cell, i.e. one joined to a port or a straight cell lying on a welded frame face.
 """
-import collections, json, os, sys
+import collections, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpformat, model
 from networks import OPEN
@@ -245,6 +245,43 @@ def main(bp_path, circuit_path):
     want_types = collections.Counter((ta, one(ta, fp), tb, one(tb, tp)) for fi, fp, ti, tp, ta, tb in want if fi in included and ti in included)
     if by_types != want_types:
         errors.append(f'netlist differs: extra {dict(by_types - want_types)} missing {dict(want_types - by_types)}')
+    # name plates (a Wireless Transmitter's or a Datameter's own text): the circuit's `label` parameter, else its id, in
+    # the game's label characters, at most 15
+    def plate(i):
+        t = re.sub(r'[^A-Z0-9%+,\-./: ]+', ' ', str((i.get('parameters') or {}).get('label', i['id'])).upper())
+        return re.sub(r'\s+', ' ', t).strip()[:15]
+    plated = ('wireless_transmitter', 'datameter')
+    want_plates = collections.Counter((i['type_id'], plate(i)) for i in circuit['instances']
+                                      if i['type_id'] in plated and i['id'] in included)
+    got_plates = collections.Counter((p['type'], p['label']) for p in parts if p['type'] in plated)
+    if want_plates != got_plates:
+        errors.append(f'name plates differ: extra {dict(got_plates - want_plates)} missing {dict(want_plates - got_plates)}')
+    elif want_plates:
+        notes.append('name plates: ' + ', '.join(f'{t} "{s}"' for (t, s) in sorted(want_plates)))
+    # a part the circuit marks visible stands upright with nothing (part, cable or label) above its cells; a plated part
+    # is found by its name plate, any other (a Constant) by counting: as many of its type in view as are marked
+    above_all = set(occupied) | set(cables) | set(label_cells)
+    def in_view(p):
+        up = tuple(model.rot(model.ORI[p['k']]['rotation'], (0, 1, 0)))
+        columns = {(c[0], c[2]): max(q[1] for q in p['cells'] if (q[0], q[2]) == (c[0], c[2])) for c in p['cells']}
+        return up == (0, 1, 0) and not any((c[0], c[2]) in columns and c[1] > columns[(c[0], c[2])] for c in above_all)
+    unplated = collections.Counter()
+    for i in circuit['instances']:
+        if not (i.get('parameters') or {}).get('visible') or i['id'] not in included:
+            continue
+        if i['type_id'] not in plated:
+            unplated[i['type_id']] += 1
+            continue
+        if any(in_view(p) for p in parts if p['type'] == i['type_id'] and p['label'] == plate(i)):
+            notes.append(f'visible {i["type_id"]} "{plate(i)}" stands upright with nothing above it')
+        else:
+            errors.append(f'visible {i["type_id"]} "{plate(i)}" is not in view (or not found)')
+    for t, n in sorted(unplated.items()):
+        shown = sum(in_view(p) for p in parts if p['type'] == t)
+        if shown < n:
+            errors.append(f'{n} visible {t} parts wanted, {shown} in view')
+        else:
+            notes.append(f'{n} visible {t} parts wanted, {shown} in view')
     n_inst = collections.Counter(i['type_id'] for i in circuit['instances'] if i['id'] in included)
     n_bp = collections.Counter(p['type'] for p in parts)
     if n_inst != n_bp:
